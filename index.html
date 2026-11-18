@@ -26,7 +26,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,800;1,800&family=Space+Grotesk:wght@600;700&family=Fraunces:ital,opsz,wght@1,9..144,500..800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,800;1,800&family=Space+Grotesk:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,500..800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
 
 <style>
 @font-face{
@@ -951,6 +951,33 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   .final-cta{padding-block:56px}
   .final-cta .lead{margin-bottom:26px}
 }
+
+/* ============================ ALÉM DO ÓBVIO (estilo editorial) ============================ */
+#alem{--cream:#f6f1e7;--ink:#14122b;--ink-soft:#4a4760;--accent:#8a3fd1;background:var(--cream);color:var(--ink);
+  min-height:calc(100svh - 92px);display:flex;flex-direction:column;padding-block:clamp(14px,3svh,40px)}
+#alem .alem-strip{display:flex;justify-content:space-between;gap:16px;padding-bottom:clamp(10px,1.8svh,18px);border-bottom:1px solid rgba(20,18,43,.22);
+  font:600 clamp(.62rem,1.4vw,.78rem)/1.2 "DM Sans",system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
+#alem .alem-strip span:last-child{color:var(--ink-soft)}
+#alem .alem-body{flex:1;display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);align-items:end;align-content:center;gap:clamp(20px,5vw,80px);padding-top:clamp(18px,4svh,48px)}
+#alem .alem-title{margin:0;font-family:"Fraunces","Playfair Display",Georgia,serif;font-weight:500;letter-spacing:-.035em;line-height:1.02;
+  font-size:clamp(2rem,min(4.5vw,10svh),5.6rem);color:var(--ink)}
+#alem .alem-title span{display:block;white-space:nowrap}
+#alem .alem-title em{font-style:italic;font-weight:500;color:var(--accent);letter-spacing:-.025em}
+#alem .alem-side{padding-bottom:clamp(4px,1.2svh,14px)}
+#alem .alem-side p{margin:0 0 clamp(14px,3svh,28px);max-width:34ch;font:400 clamp(.92rem,min(1.35vw,2.3svh),1.12rem)/1.55 "DM Sans",system-ui,sans-serif;color:var(--ink-soft)}
+#alem .alem-actions{display:flex;flex-wrap:wrap;gap:12px}
+#alem .alem-btn{display:inline-flex;align-items:center;min-height:50px;padding:0 26px;border-radius:999px;border:1.5px solid var(--ink);
+  font:700 .88rem/1 "DM Sans",system-ui,sans-serif;text-decoration:none;transition:transform .25s,background .25s,color .25s}
+#alem .alem-btn--solid{background:var(--ink);color:#fff}
+#alem .alem-btn--line{background:transparent;color:var(--ink)}
+#alem .alem-btn:hover{transform:translateY(-2px)}
+#alem .alem-btn--line:hover{background:var(--ink);color:#fff}
+@media (max-width:900px){
+  #alem .alem-body{grid-template-columns:1fr;align-items:center;align-content:center;gap:clamp(16px,3.5svh,32px)}
+  #alem .alem-title{font-size:clamp(1.7rem,min(7.4vw,8svh),3.4rem)}
+  #alem .alem-side p{max-width:none}
+  #alem .alem-btn{flex:1 1 auto;justify-content:center}
+}
 </style>
 </head>
 <body>
@@ -1034,6 +1061,27 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
         <img src="img/logo-doggie-dogg-gourmet.webp" alt="" width="74" height="74" loading="lazy" />
         <img src="img/logo-restaurante-vivendo.webp" alt="" width="74" height="74" loading="lazy" />
         <img src="img/logo-tomo-xapo.webp" alt="" width="74" height="74" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ MUITO ALÉM DO ÓBVIO ============================ -->
+  <section class="theme-light" id="alem" aria-labelledby="alem-titulo">
+    <div class="wrap" style="flex:1;display:flex;flex-direction:column">
+      <div class="alem-strip"><span>Humanize</span><span>Muito além do óbvio</span></div>
+      <div class="alem-body">
+        <h2 class="alem-title" id="alem-titulo">
+          <span>Mais do que posts.</span>
+          <span>Mais do que likes.</span>
+          <span>Mais do que <em>marketing.</em></span>
+        </h2>
+        <div class="alem-side">
+          <p>Não estamos aqui para alimentar algoritmos sem propósito. Criamos estratégias que aproximam marcas de pessoas, fortalecem posicionamentos e transformam atenção em resultados.</p>
+          <div class="alem-actions">
+            <a class="alem-btn alem-btn--solid" href="https://wa.me/5511914894352?text=Olá!%20Quero%20falar%20com%20a%20Humanize." target="_blank" rel="noopener">Falar no WhatsApp</a>
+            <a class="alem-btn alem-btn--line" href="#cases">Ver cases</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
