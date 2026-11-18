@@ -26,7 +26,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,800;1,800&family=Space+Grotesk:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,500..800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,800;1,800&family=Space+Grotesk:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,500..800&family=Playfair+Display:ital,wght@0,700;1,500;1,600&display=swap" rel="stylesheet" />
 
 <style>
 @font-face{
@@ -953,7 +953,7 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 }
 
 /* ============================ ALÉM DO ÓBVIO (estilo editorial) ============================ */
-#alem{--cream:#f6f1e7;--ink:#14122b;--ink-soft:#4a4760;--accent:#8a3fd1;background:var(--cream);color:var(--ink);
+#alem{--cream:#f6f1e7;--ink:#14122b;--ink-soft:#4a4760;--accent:#005dfc;background:var(--cream);color:var(--ink);
   min-height:calc(100svh - 92px);display:flex;flex-direction:column;padding-block:clamp(14px,3svh,40px)}
 #alem .alem-strip{display:flex;justify-content:space-between;gap:16px;padding-bottom:clamp(10px,1.8svh,18px);border-bottom:1px solid rgba(20,18,43,.22);
   font:600 clamp(.62rem,1.4vw,.78rem)/1.2 "DM Sans",system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
@@ -962,16 +962,16 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 #alem .alem-title{margin:0;font-family:"Fraunces","Playfair Display",Georgia,serif;font-weight:500;letter-spacing:-.035em;line-height:1.02;
   font-size:clamp(2rem,min(5.4vw,11.5svh),7rem);color:var(--ink)}
 #alem .alem-title span{display:block;white-space:nowrap}
-#alem .alem-title em{font-style:italic;font-weight:500;color:var(--accent);letter-spacing:-.025em}
+#alem .alem-title em{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:500;color:var(--accent);letter-spacing:-.02em}
 #alem .alem-side{padding-bottom:clamp(4px,1.2svh,14px);justify-self:end;width:min(100%,clamp(270px,26vw,370px))}
 #alem .alem-side p{margin:0 0 clamp(14px,3svh,28px);max-width:34ch;font:400 clamp(.92rem,min(1.35vw,2.3svh),1.12rem)/1.55 "DM Sans",system-ui,sans-serif;color:var(--ink-soft)}
 #alem .alem-actions{display:flex;flex-wrap:wrap;gap:12px}
-#alem .alem-btn{display:inline-flex;align-items:center;min-height:50px;padding:0 26px;border-radius:999px;border:1.5px solid var(--ink);
+#alem .alem-btn{display:inline-flex;align-items:center;min-height:50px;padding:0 26px;border-radius:999px;border:1.5px solid var(--accent);
   font:700 .88rem/1 "DM Sans",system-ui,sans-serif;text-decoration:none;transition:transform .25s,background .25s,color .25s}
-#alem .alem-btn--solid{background:var(--ink);color:#fff}
-#alem .alem-btn--line{background:transparent;color:var(--ink)}
+#alem .alem-btn--solid{background:var(--accent);color:#fff;box-shadow:0 12px 30px rgba(0,93,252,.28)}
+#alem .alem-btn--line{background:transparent;color:var(--accent)}
 #alem .alem-btn:hover{transform:translateY(-2px)}
-#alem .alem-btn--line:hover{background:var(--ink);color:#fff}
+#alem .alem-btn--line:hover{background:var(--accent);color:#fff}
 @media (max-width:900px){
   #alem .alem-body{grid-template-columns:1fr;align-items:center;align-content:center;gap:clamp(16px,3.5svh,32px)}
   #alem .alem-title{font-size:clamp(1.7rem,min(7.4vw,8svh),3.4rem)}
@@ -979,6 +979,14 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   #alem .alem-side{justify-self:stretch;width:100%}
   #alem .alem-btn{flex:1 1 auto;justify-content:center}
 }
+
+/* ============================ FAIXA DE SERVIÇOS ============================ */
+#servicos{padding-block:clamp(28px,4.5vw,52px);border-block:1px solid var(--line);background:#fff}
+#servicos .srv-label{margin:0 0 clamp(14px,2vw,22px);text-align:center;font:700 clamp(.68rem,1.5vw,.8rem)/1.2 "DM Sans",system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+#servicos .srv-list{list-style:none;margin:0 auto;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(8px,1.2vw,14px);max-width:1100px}
+#servicos .srv-btn{display:inline-flex;align-items:center;min-height:46px;padding:0 clamp(16px,2vw,24px);border-radius:999px;border:1.5px solid rgba(0,93,252,.35);background:#f4f8ff;color:#0040b5;
+  font:600 clamp(.82rem,1.25vw,.95rem)/1.2 "DM Sans",system-ui,sans-serif;text-decoration:none;transition:background .25s,color .25s,border-color .25s,transform .25s}
+#servicos .srv-btn:hover,#servicos .srv-btn:focus-visible{background:#005dfc;border-color:#005dfc;color:#fff;transform:translateY(-2px)}
 </style>
 </head>
 <body>
@@ -1080,10 +1088,29 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
           <p>Não estamos aqui para alimentar algoritmos sem propósito. Criamos estratégias que aproximam marcas de pessoas, fortalecem posicionamentos e transformam atenção em resultados.</p>
           <div class="alem-actions">
             <a class="alem-btn alem-btn--solid" href="https://wa.me/5511914894352?text=Olá!%20Quero%20falar%20com%20a%20Humanize." target="_blank" rel="noopener">Falar no WhatsApp</a>
-            <a class="alem-btn alem-btn--line" href="#cases">Ver cases</a>
+            <a class="alem-btn alem-btn--line" href="#servicos">O que fazemos</a>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ============================ O QUE FAZEMOS (FAIXA DE SERVIÇOS) ============================ -->
+  <section class="theme-light" id="servicos" aria-label="O que a Humanize faz">
+    <div class="wrap">
+      <p class="srv-label">O que fazemos</p>
+      <ul class="srv-list">
+        <li><a class="srv-btn" href="servico-trafego-pago.html">Tráfego pago</a></li>
+        <li><a class="srv-btn" href="servico-criacao-de-conteudo.html">Criação de conteúdo</a></li>
+        <li><a class="srv-btn" href="servico-redes-sociais.html">Gerenciamento de redes sociais</a></li>
+        <li><a class="srv-btn" href="servico-seo-google.html">SEO Google</a></li>
+        <li><a class="srv-btn" href="servico-google-ads.html">Google Ads</a></li>
+        <li><a class="srv-btn" href="servico-sites-e-landing-pages.html">Criação de sites e landing pages</a></li>
+        <li><a class="srv-btn" href="servico-campanhas.html">Campanhas</a></li>
+        <li><a class="srv-btn" href="servico-delivery.html">Cadastro e gerenciamento de delivery</a></li>
+        <li><a class="srv-btn" href="servico-cardapio-digital.html">Cardápio digital</a></li>
+        <li><a class="srv-btn" href="servico-sessao-de-fotos.html">Sessão de fotos</a></li>
+      </ul>
     </div>
   </section>
 
