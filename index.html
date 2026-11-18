@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Humanize Marketing Digital | Estratégia digital para sua empresa vender mais</title>
+  <meta name="description" content="Agência de marketing digital em São Paulo. Estruturamos a presença digital da sua empresa — conteúdo, tráfego pago, site, Google e delivery — para atrair clientes, vender mais e aumentar o faturamento." />
+  <meta name="theme-color" content="#030914" />
+  <link rel="canonical" href="https://humanize-marketing-digital-agencia.vercel.app/" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="img/favicon-512.png" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Humanize Marketing Digital" />
+  <meta property="og:title" content="Humanize Marketing Digital | Estratégia digital para sua empresa vender mais" />
+  <meta property="og:description" content="Humanizamos sua marca e cuidamos de toda a sua presença digital para atrair mais clientes, vender mais e aumentar o faturamento." />
+  <meta property="og:url" content="https://humanize-marketing-digital-agencia.vercel.app/" />
+  <meta property="og:image" content="https://humanize-marketing-digital-agencia.vercel.app/img/og-humanize.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,800;1,800&family=Space+Grotesk:wght@600;700&family=Fraunces:ital,opsz,wght@1,9..144,500..800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+
+<style>
+@font-face{
+  font-family:"Scholar";
+  src:url(fonts/scholar.woff2) format("woff2");
+  font-weight:400;font-style:normal;font-display:swap;
+}
+/* ============================================================
+   HUMANIZE — SISTEMA DE DESIGN
+   Paleta extraída do logotipo oficial (azul #005DFC).
+   Todas as seções usam estas variáveis — não use valores soltos.
+   ============================================================ */
+:root{
+  /* Cores da marca */
+  --blue:#005dfc;            /* azul oficial do logotipo */
+  --blue-bright:#3d86ff;
+  --blue-deep:#0040b5;
+  --cyan:#20d8f5;            /* acento secundário já usado pela marca */
+  --green:#25d366;           /* WhatsApp */
+
+  /* Acento do elemento 3D do hero — troque aqui para mudar a cor do cubo.
+     Opções testadas: lilás #A855F7 (168,85,247) ou verde-limão #B8FF01 (138,0,196).
+     Atualize as duas linhas juntas. */
+  --accent-3d:#3d86ff;
+  --accent-3d-rgb:61,134,255;
+
+  /* REGRA 60 / 30 / 10
+     60% azul escuro (fundos) · 30% azul, ciano e branco (apoio)
+     10% VERDE-LIMÃO — só no destaque do título, no CTA da hero,
+     nas métricas dos cases e na bolinha ativa dos carrosséis. */
+  --lime:#8a00c4;
+  --lilac:#cf7cff;           /* lilás claro: texto e botão da hero (boa leitura no fundo escuro) */
+  --lime-glow:rgba(138,0,196,.35);
+  --lime-ink:#0a2000;
+
+  /* Superfícies (tema escuro corporativo) */
+  --bg:#030914;
+  --bg-raised:#071225;
+  --bg-panel:#0b1a33;
+  --bg-panel-2:#0e2242;
+  --navy:#071b3a;
+
+  /* Texto */
+  --text:#eef3fb;
+  --text-soft:#c3d0e4;
+  --muted:#8c9dba;
+  --on-blue:#ffffff;
+  --strong:#ffffff;            /* texto de maior destaque (títulos de cartão etc.) */
+  --tint:rgba(255,255,255,.03);/* véu sutil sobre a superfície */
+  --tint-hover:rgba(255,255,255,.022);
+
+  /* Traços e sombras */
+  --line:rgba(255,255,255,.10);
+  --line-strong:rgba(255,255,255,.18);
+  --shadow-sm:0 10px 30px rgba(0,0,0,.35);
+  --shadow-md:0 28px 70px rgba(0,0,0,.45);
+  --shadow-blue:0 18px 50px rgba(0,93,252,.32);
+
+  /* Raios */
+  --r-xs:8px;
+  --r-sm:12px;
+  --r-md:18px;
+  --r-lg:28px;
+  --r-pill:999px;
+
+  /* Métrica */
+  --wrap:1200px;
+  --gutter:clamp(20px,5vw,40px);
+  --section-y:clamp(78px,9vw,136px);
+  --measure:64ch;
+
+  /* Movimento */
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --t-fast:.18s var(--ease);
+  --t:.32s var(--ease);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+html{scroll-behavior:smooth;scroll-padding-top:92px;-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;
+  font-family:'DM Sans',system-ui,Arial,sans-serif;
+  font-size:1.02rem;
+  line-height:1.7;
+  color:var(--text-soft);
+  background:var(--bg);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+body.is-locked{overflow:hidden}
+
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+ul{margin:0;padding:0;list-style:none}
+
+h1,h2,h3,h4,p{margin:0}
+h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);line-height:1.1;letter-spacing:-.02em}
+
+::selection{background:var(--blue);color:#fff}
+
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:4px}
+
+.skip-link{
+  position:absolute;left:-9999px;top:0;z-index:999;
+  background:var(--blue);color:#fff;padding:14px 22px;border-radius:0 0 var(--r-sm) 0;font-weight:700;
+}
+.skip-link:focus{left:0}
+
+/* ---------- Layout ---------- */
+.wrap{width:min(var(--wrap),calc(100% - var(--gutter)*2));margin-inline:auto}
+.section{padding-block:var(--section-y);position:relative}
+.section--raised{background:var(--bg-raised)}
+.section--hair{border-top:1px solid var(--line)}
+
+/* ---------- Tipografia de apoio ---------- */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:.74rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--cyan);margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--cyan);opacity:.7}
+.eyebrow--blue{color:var(--blue-bright)}
+.eyebrow--blue::before{background:var(--blue-bright)}
+
+.h-display{font-size:clamp(2.45rem,5.6vw,4.4rem);line-height:1.04;letter-spacing:-.035em}
+.h-section{font-size:clamp(1.95rem,3.9vw,3.1rem);line-height:1.08;letter-spacing:-.03em}
+.h-sub{font-size:clamp(1.1rem,1.6vw,1.3rem);line-height:1.3}
+
+.lead{font-size:clamp(1.02rem,1.35vw,1.14rem);line-height:1.75;color:var(--text-soft);max-width:var(--measure)}
+.muted{color:var(--muted)}
+
+.accent{color:var(--blue-bright)}
+.script{font-family:Caveat,cursive;font-weight:700;color:var(--cyan);font-size:1.45em;line-height:1}
+
+.section-head{max-width:760px;margin-bottom:clamp(44px,5vw,66px)}
+.section-head .lead{margin-top:20px}
+
+/* ---------- Botões ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:54px;padding:0 28px;border:1px solid transparent;border-radius:var(--r-pill);
+  font-family:Manrope,sans-serif;font-weight:800;font-size:.9rem;letter-spacing:.01em;
+  transition:transform var(--t),box-shadow var(--t),background var(--t),border-color var(--t),color var(--t);
+  text-align:center;
+}
+.btn .arrow{transition:transform var(--t)}
+.btn:hover .arrow{transform:translateX(4px)}
+
+.btn--primary{background:var(--blue);color:var(--on-blue);box-shadow:var(--shadow-blue)}
+.btn--primary:hover{background:var(--blue-bright);transform:translateY(-2px);box-shadow:0 22px 60px rgba(0,93,252,.45)}
+.btn--primary:active{transform:translateY(0)}
+
+.btn--ghost{border-color:var(--line-strong);color:var(--text);background:rgba(255,255,255,.03)}
+.btn--ghost:hover{border-color:var(--blue-bright);color:#fff;background:rgba(0,93,252,.12);transform:translateY(-2px)}
+
+.btn--light{background:#fff;color:var(--navy)}
+.btn--light:hover{transform:translateY(-2px);box-shadow:0 20px 50px rgba(0,0,0,.3)}
+
+.btn--sm{min-height:46px;padding:0 22px;font-size:.84rem}
+
+.link-more{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:Manrope,sans-serif;font-weight:800;font-size:.88rem;color:var(--blue-bright);
+  min-height:44px;transition:color var(--t);
+}
+.link-more span.label{border-bottom:1px solid transparent;padding-bottom:3px;transition:border-color var(--t)}
+.link-more:hover{color:var(--cyan)}
+.link-more:hover span.label{border-color:var(--cyan)}
+.link-more .arrow{transition:transform var(--t)}
+.link-more:hover .arrow{transform:translateX(4px)}
+
+/* ============================================================
+   CABEÇALHO
+   ============================================================ */
+.site-header{
+  position:fixed;inset:0 0 auto;z-index:100;
+  background:rgba(3,9,20,0);
+  border-bottom:1px solid transparent;
+  transition:background var(--t),border-color var(--t),backdrop-filter var(--t);
+}
+.site-header.is-stuck{
+  background:rgba(3,9,20,.88);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom-color:var(--line);
+}
+.nav-bar{display:flex;align-items:center;justify-content:space-between;gap:24px;height:84px;transition:height var(--t)}
+.site-header.is-stuck .nav-bar{height:72px}
+
+.brand{display:flex;align-items:center;flex-shrink:0}
+/* Computador: menu centralizado; a logo fica encostada à esquerda dele */
+@media (min-width:901px){
+  .nav-bar{display:grid;grid-template-columns:1fr auto 1fr}
+  .brand{justify-self:end;margin-right:clamp(24px,3vw,48px)}
+  .nav-cta{justify-self:end}
+  /* só os links vão um pouco para a esquerda (a logo não mexe), para o 'Contato' sair de cima do anel iluminado */
+  .nav-links{transform:translateX(calc(-1 * clamp(28px,3vw,52px)))}
+}
+.brand img{height:52px;width:auto;transition:height var(--t)}
+.site-header.is-stuck .brand img{height:42px}
+@media (max-width:768px){.brand img{height:46px}.site-header.is-stuck .brand img{height:38px}}
+
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{
+  font-size:.92rem;font-weight:600;color:var(--text-soft);
+  position:relative;padding-block:6px;transition:color var(--t);
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;width:100%;height:1.5px;
+  background:var(--cyan);transform:scaleX(0);transform-origin:left;transition:transform var(--t);
+}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-links .nav-menu-cta{display:none}
+
+.nav-cta{display:flex;align-items:center;gap:12px}
+
+.menu-toggle{
+  display:none;width:46px;height:46px;border:1px solid var(--line-strong);border-radius:var(--r-sm);
+  background:rgba(255,255,255,.04);color:#fff;align-items:center;justify-content:center;flex-direction:column;gap:5px;
+  transition:border-color var(--t),background var(--t);
+}
+.menu-toggle:hover{border-color:var(--blue-bright)}
+.menu-toggle span{display:block;width:18px;height:2px;background:currentColor;border-radius:2px;transition:transform var(--t),opacity var(--t)}
+.menu-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ============================================================
+   HERO — arte "Conexão Humana" (mãos de Michelangelo + anel verde-limão)
+   Arte estática em img/hero-arte.webp (desktop) e img/hero-arte-m.webp
+   (celular: close nas mãos, título embaixo). Título em Plus Jakarta Sans
+   ExtraBold; a 2ª linha em itálico verde-limão.
+   ============================================================ */
+.hero{
+  position:relative;overflow:hidden;isolation:isolate;
+  min-height:100vh;min-height:100svh;
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+  padding:120px 0 clamp(120px,16svh,170px);text-align:center;
+  background:#030914;
+}
+.hero-art,.hero-art img{position:absolute;inset:0;width:100%;height:100%;z-index:-2;display:block}
+.hero-art img{object-fit:cover;object-position:50% 30%}
+
+/* Cérebro 3D girando entre as mãos (canvas em js/cerebro-3d.js) + logo no centro */
+.cerebro{position:absolute;left:50%;top:37.2%;width:clamp(290px,29vw,540px);aspect-ratio:1/.95;transform:translate(-50%,-50%);z-index:0;pointer-events:none}
+.cerebro canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.cerebro::before{content:"";position:absolute;inset:-18%;border-radius:50%;background:radial-gradient(closest-side,rgba(150,40,230,.34),rgba(110,10,200,.12) 60%,transparent);filter:blur(6px)}
+@media (max-width:767px){.cerebro{top:20.5%;width:min(74vw,340px)}}
+/* escurece o rodapé da arte para o título ler bem */
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(3,9,20,.35) 0%,rgba(3,9,20,0) 22%,rgba(3,9,20,0) 44%,rgba(3,9,20,.55) 72%,rgba(3,9,20,.9) 100%);
+}
+.hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;width:100%;max-width:none}
+.h-hero{
+  margin:0;color:#fff;
+  font-family:"Playfair Display",Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:-.035em;line-height:1.08;
+  text-shadow:0 4px 40px rgba(3,9,20,.6);
+}
+.h-hero span{display:block;white-space:nowrap;font-size:clamp(1.9rem,4.7vw,5.4rem);opacity:0;animation:fadeUp .9s .15s var(--ease) forwards}
+.h-hero .t2{padding-right:.08em;animation-delay:.35s}
+/* Tipografia expressiva: palavras de destaque em Fraunces itálico, maiores e em lilás */
+.h-hero em{font-family:"Fraunces",Georgia,"Times New Roman",serif;font-style:italic;font-weight:600;letter-spacing:-.02em;font-size:1.12em;line-height:.85;color:var(--lilac);text-shadow:0 10px 60px rgba(207,124,255,.28);padding:0 .04em}
+
+.btn--lime{
+  position:relative;overflow:hidden;isolation:isolate;
+  min-height:60px;padding:0 34px;font-size:1rem;
+  background:var(--lilac);color:#030914;box-shadow:0 16px 46px rgba(207,124,255,.30);
+  opacity:0;animation:fadeUp .8s .6s var(--ease) forwards;
+}
+.btn--lime::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s var(--ease)}
+.btn--lime:hover{transform:translateY(-2px);box-shadow:0 22px 56px rgba(207,124,255,.45)}
+.btn--lime:hover::after{transform:translateX(120%)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* "Role pra baixo" */
+.scroll-cue{
+  position:absolute;left:50%;bottom:22px;z-index:2;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  font-size:.78rem;font-weight:600;color:#fff;line-height:1.2;text-align:center;
+  opacity:0;animation:fadeUp .8s .9s var(--ease) forwards;
+}
+.scroll-cue svg{display:block}
+.scroll-cue .arr{animation:nudge 1.8s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateY(-2px)}50%{transform:translateY(3px)}}
+
+/* ============================================================
+   INTRO (o que saiu da hero): subtítulo, 3 bullets e 3 pilares
+   ============================================================ */
+.intro{padding-block:clamp(48px,6vw,84px);text-align:center;background:var(--bg)}
+.intro .lead{margin:0 auto 26px;max-width:40em;text-align:center;color:var(--text)}
+.hero-proof{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;margin-bottom:clamp(30px,4vw,44px)}
+.hero-proof li{display:flex;align-items:center;gap:9px;font-size:.9rem;color:var(--muted)}
+.hero-proof svg{flex-shrink:0;color:var(--cyan)}
+/* Palco dos cards: manchas de cor que se movem devagar atrás do vidro
+   (sem algo colorido atrás, o efeito de vidro não aparece) */
+.pillars-stage{position:relative;max-width:900px;margin-inline:auto;isolation:isolate}
+.pillars-stage::before,.pillars-stage::after{
+  content:"";position:absolute;z-index:-1;pointer-events:none;border-radius:50%;filter:blur(36px);
+}
+.pillars-stage::before{
+  left:6%;top:-10%;width:42%;height:120%;
+  background:radial-gradient(closest-side,rgba(0,93,252,.75),transparent);
+  animation:blobA 12s ease-in-out infinite;
+}
+.pillars-stage::after{
+  right:4%;top:-20%;width:40%;height:130%;
+  background:radial-gradient(closest-side at 40% 50%,rgba(32,216,245,.55),transparent),radial-gradient(closest-side at 70% 60%,rgba(138,0,196,.22),transparent);
+  animation:blobB 14s ease-in-out infinite;
+}
+@keyframes blobA{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(18%,8%,0)}}
+@keyframes blobB{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(-20%,-6%,0)}}
+
+.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+
+/* GLASSMORPHISM — vidro fosco clássico: fundo branco translúcido,
+   desfoque do que está atrás, borda fina clara e sombra suave */
+.pillar{
+  position:relative;
+  padding:18px 20px 14px;border-radius:20px;text-align:left;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  box-shadow:0 8px 32px rgba(0,0,0,.30);
+  transition:transform var(--t),border-color var(--t),background var(--t);
+}
+@media (hover:hover){
+  .pillar:hover{transform:translateY(-4px);background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3)}
+}
+.gc-top{display:flex;align-items:center;gap:10px}
+.gc-ico{width:30px;height:30px;border-radius:9px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(0,93,252,.16);border:1px solid rgba(61,134,255,.35);color:var(--cyan)}
+.gc-ico svg{width:15px;height:15px}
+.pillar b{display:block;font-family:Manrope,sans-serif;font-weight:800;font-size:.95rem;color:#fff;line-height:1.2}
+.pillar svg.gc-line{display:block;width:100%;height:34px;margin-top:10px;overflow:visible}
+
+/* ============================================================
+   FAIXA DE MARCAS (prova social)
+   ============================================================ */
+.brandbar{padding-block:clamp(40px,5vw,60px);border-block:1px solid var(--line);background:var(--bg-raised);overflow:hidden}
+.brandbar-label{
+  text-align:center;font-size:.76rem;font-weight:700;letter-spacing:.17em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:34px;
+}
+.marquee{display:flex;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.marquee-track{display:flex;align-items:center;gap:clamp(34px,5vw,64px);padding-right:clamp(34px,5vw,64px);animation:slide 44s linear infinite;flex-shrink:0}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-100%)}}
+.marquee img{
+  height:clamp(58px,7vw,74px);width:auto;border-radius:50%;flex-shrink:0;
+  transition:transform var(--t);
+}
+.marquee img:hover{transform:scale(1.07)}
+
+/* ============================================================
+   A VIRADA DE CHAVE — comparativo (sem estratégia × com a Humanize)
+   ============================================================ */
+.vk-tabs{display:none}
+.vk-grid{
+  display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+  gap:clamp(16px,2.2vw,28px);align-items:stretch;margin-bottom:clamp(28px,3.4vw,40px);
+}
+.vk-col{
+  position:relative;padding:clamp(26px,3vw,40px);border-radius:var(--r-lg);
+  border:1px solid var(--line);
+  transition:transform var(--t),border-color var(--t),box-shadow var(--t);
+}
+.vk-col:hover{transform:translateY(-4px)}
+.vk-col--sem{background:var(--tint);border-color:var(--line-strong)}
+.vk-col--sem:hover{border-color:var(--blue-bright);box-shadow:var(--shadow-sm)}
+.vk-col--com{
+  color:#dbe7ff;border-color:rgba(255,255,255,.12);
+  background:
+    radial-gradient(120% 90% at 100% 0%,rgba(32,216,245,.28),transparent 55%),
+    linear-gradient(150deg,#005dfc,#0040b5 70%,#06307f);
+  box-shadow:var(--shadow-blue);
+}
+.vk-col--com:hover{border-color:#20d8f5;box-shadow:0 26px 64px rgba(0,93,252,.45)}
+.vk-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.72rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:14px;
+}
+.vk-col--com .vk-tag{color:#9eeeff}
+.vk-col h3{font-size:clamp(1.18rem,1.9vw,1.42rem);margin-bottom:20px;line-height:1.25}
+.vk-col--com h3{color:#fff}
+.vk-list li{
+  display:flex;align-items:flex-start;gap:13px;
+  padding:14px 0;border-top:1px solid var(--line);font-size:.98rem;line-height:1.55;
+}
+.vk-col--com .vk-list li{border-top-color:rgba(255,255,255,.14);color:#fff}
+.vk-list svg{flex-shrink:0;margin-top:3px}
+.vk-col--sem .vk-list svg{color:var(--muted)}
+.vk-col--com .vk-list svg{color:#20d8f5}
+.vk-arrow{
+  align-self:center;width:54px;height:54px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg-panel);border:1px solid var(--line-strong);color:var(--blue-bright);
+  box-shadow:var(--shadow-sm);
+}
+
+.pullquote{
+  position:relative;padding:30px 32px;border-radius:var(--r-md);
+  background:linear-gradient(135deg,rgba(0,93,252,.14),rgba(32,216,245,.06));
+  border:1px solid rgba(61,134,255,.3);
+  font-size:1.06rem;line-height:1.7;color:var(--text);
+}
+.pullquote strong{color:var(--strong);font-weight:700}
+
+/* ============================================================
+   SERVIÇOS — matriz editorial (sem cartões genéricos)
+   ============================================================ */
+.services{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;
+  background:var(--line);
+}
+.service{
+  position:relative;padding:clamp(28px,3vw,40px);
+  background:var(--bg-panel);
+  transition:background var(--t);
+}
+.service::after{
+  content:"";position:absolute;left:0;top:0;width:100%;height:2px;
+  background:linear-gradient(90deg,var(--blue),var(--cyan));
+  transform:scaleX(0);transform-origin:left;transition:transform var(--t);
+}
+.service:hover{background:var(--bg-panel-2)}
+.service:hover::after{transform:scaleX(1)}
+
+.service-num{
+  display:block;font-family:Manrope,sans-serif;font-weight:800;font-size:.82rem;
+  color:var(--blue-bright);letter-spacing:.1em;margin-bottom:18px;
+}
+.service h3{font-size:1.16rem;margin-bottom:12px;line-height:1.25}
+.service p{font-size:.95rem;line-height:1.68;color:var(--muted)}
+
+/* O primeiro e o último serviço ocupam duas colunas: quebra o ritmo de
+   "10 caixas iguais" e fecha a grade sem deixar célula vazia (2+8+2 = 12). */
+.service--wide{grid-column:span 2;background:linear-gradient(120deg,rgba(0,93,252,.14),transparent 62%),var(--bg-panel)}
+.service--wide h3{font-size:clamp(1.3rem,2vw,1.6rem)}
+.service--wide p{font-size:1.01rem;color:var(--text-soft);max-width:46ch}
+
+/* ============================================================
+   MÉTODO — linha do tempo
+   ============================================================ */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,2.4vw,32px);position:relative}
+.steps::before{
+  content:"";position:absolute;left:0;right:0;top:19px;height:1px;
+  background:linear-gradient(90deg,var(--blue),var(--cyan));opacity:.35;
+}
+.step{position:relative;padding-top:58px}
+.step::before{
+  content:"";position:absolute;left:0;top:12px;width:15px;height:15px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--blue-bright);
+  box-shadow:0 0 0 5px var(--bg),0 0 22px rgba(0,93,252,.6);
+  transition:background var(--t),transform var(--t);
+}
+.step:hover::before{background:var(--cyan);border-color:var(--cyan);transform:scale(1.18)}
+.step b{
+  display:block;font-family:Manrope,sans-serif;font-weight:800;font-size:.82rem;
+  color:var(--blue-bright);letter-spacing:.1em;margin-bottom:12px;
+}
+.step h3{font-size:1.14rem;margin-bottom:12px}
+.step p{font-size:.94rem;line-height:1.68;color:var(--muted)}
+
+.method-quote{
+  margin-top:clamp(50px,6vw,76px);padding-top:clamp(36px,4vw,48px);border-top:1px solid var(--line);
+  text-align:center;max-width:760px;margin-inline:auto;
+  font-size:clamp(1.12rem,2.1vw,1.46rem);line-height:1.52;color:var(--text);
+  font-family:Manrope,sans-serif;font-weight:600;letter-spacing:-.015em;
+}
+
+/* ============================================================
+   CASES
+   ============================================================ */
+.cases{display:grid;gap:clamp(20px,2.4vw,28px)}
+.case{
+  display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);
+  gap:clamp(28px,4vw,56px);align-items:center;
+  padding:clamp(28px,3.4vw,46px);
+  border:1px solid var(--line);border-radius:var(--r-lg);
+  background:var(--bg-panel);
+  position:relative;overflow:hidden;
+  transition:border-color var(--t),transform var(--t),box-shadow var(--t);
+}
+.case::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(to bottom,var(--case-accent,var(--blue)),transparent);
+}
+.case:hover{border-color:rgba(61,134,255,.4);transform:translateY(-3px);box-shadow:var(--shadow-md)}
+
+.case-head{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.case-logo{
+  width:56px;height:56px;border-radius:50%;flex-shrink:0;
+  border:1px solid var(--line-strong);background:var(--bg-raised);
+}
+.case-client{font-family:Manrope,sans-serif;font-weight:800;font-size:1.2rem;color:var(--strong);letter-spacing:-.01em;line-height:1.2}
+.case-services{display:block;font-size:.78rem;color:var(--case-ink,var(--case-accent,var(--blue-bright)));letter-spacing:.04em;margin-top:5px;font-weight:600}
+
+.case h3{font-size:clamp(1.22rem,2.1vw,1.62rem);margin-bottom:14px;line-height:1.24}
+.case p{font-size:.98rem;line-height:1.72;color:var(--muted);max-width:52ch;margin-bottom:24px}
+
+.case-figures{display:grid;gap:18px;padding:26px;border-radius:var(--r-md);background:var(--tint);border:1px solid var(--line)}
+/* Etiqueta em laranja ("Resultado", "Estrutura"…) */
+.figure small{
+  display:inline-flex;align-items:center;gap:6px;font-size:.64rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:7px;
+}
+.figure small::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--blue-bright)}
+.figure b{
+  display:block;font-family:Manrope,sans-serif;font-weight:800;
+  font-size:clamp(1.3rem,2.3vw,1.75rem);line-height:1.12;letter-spacing:-.025em;
+  color:var(--strong);
+}
+/* número com marca-texto verde-limão (o limão puro não tem leitura sobre branco) */
+.figure .num{
+  padding:0 .16em;margin-left:-.16em;border-radius:.1em;
+  background:linear-gradient(transparent 48%,var(--lime) 48%,var(--lime) 92%,transparent 92%);
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+}
+.figure b .unit{font-size:.62em;color:var(--text-soft);font-weight:700;display:block;margin-top:5px;letter-spacing:0}
+/* Resultados qualitativos: mesma estrutura, peso tipográfico menor */
+.figure--text b{font-size:clamp(1rem,1.5vw,1.14rem);color:var(--text);line-height:1.38}
+
+/* ============================================================
+   QUEM SOMOS
+   ============================================================ */
+.about-grid{position:relative;display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(40px,5vw,78px);align-items:center}
+.about-grid > *{position:relative;z-index:1}
+/* Aurora: luz laranja + azul, bem desfocada, atrás da foto das fundadoras */
+.about-grid::before{
+  content:"";position:absolute;z-index:0;pointer-events:none;
+  left:-8%;top:4%;width:52%;height:92%;
+  background:
+    radial-gradient(circle at 34% 34%,rgba(32,216,245,.9),transparent 58%),
+    radial-gradient(circle at 70% 72%,rgba(0,93,252,.95),transparent 60%);
+  filter:blur(90px);opacity:.2;
+}
+
+/* Composição provisória — troque .about-visual pelo <img> oficial da Ray e da Jaque
+   mantendo a mesma proporção (4/5). Nada mais precisa mudar. */
+.about-visual{
+  position:relative;aspect-ratio:4/5;border-radius:var(--r-lg);overflow:hidden;
+  border:1px solid var(--line);
+  background:
+    radial-gradient(110% 80% at 22% 10%,rgba(0,93,252,.34),transparent 62%),
+    radial-gradient(90% 80% at 88% 94%,rgba(32,216,245,.14),transparent 64%),
+    #05101f;
+  display:flex;align-items:center;justify-content:center;
+}
+.about-visual::before{
+  content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:42px 42px;
+}
+/* O monograma é azul; aqui ele é convertido em branco para contrastar com o painel. */
+.about-visual img{
+  position:relative;width:58%;height:auto;opacity:.92;
+  filter:brightness(0) invert(1) drop-shadow(0 18px 44px rgba(0,0,0,.55));
+}
+/* Versão com a foto real: a imagem preenche o quadro, sem o filtro branco do monograma. */
+.about-photo{margin:0;display:block}
+.about-photo::before{display:none}
+.about-photo img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;
+  opacity:1;filter:none;
+}
+.about-initials{
+  position:absolute;left:0;right:0;bottom:0;padding:26px 28px;
+  background:linear-gradient(to top,rgba(3,9,20,.94),transparent);
+}
+.about-initials b{display:block;font-family:Caveat,cursive;font-size:2.1rem;color:#20d8f5;line-height:1}
+.about-initials small{display:block;font-size:.8rem;color:#c3d0e4;margin-top:4px}
+
+.people{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+.person{padding:26px;border-radius:var(--r-md);background:var(--bg-panel);border:1px solid var(--line);transition:border-color var(--t),transform var(--t)}
+.person:hover{border-color:rgba(61,134,255,.4);transform:translateY(-3px)}
+.person b{display:block;font-family:Manrope,sans-serif;font-weight:800;font-size:1.16rem;color:var(--strong);letter-spacing:.04em}
+.person small{display:block;font-size:.78rem;color:var(--blue-bright);margin:8px 0 12px;line-height:1.5;font-weight:600}
+.person p{font-size:.93rem;line-height:1.65;color:var(--muted)}
+
+.about-signature{
+  position:relative;margin-top:36px;padding-left:46px;
+  font-size:1.05rem;line-height:1.6;color:var(--text);
+}
+/* aspas manuscritas em laranja */
+.about-signature::before{
+  content:"\201C";position:absolute;left:0;top:-.42em;
+  font-family:Caveat,cursive;font-weight:700;font-size:4.2rem;line-height:1;color:var(--cyan);
+  transform:rotate(-8deg);
+}
+
+/* ============================================================
+   CITAÇÃO DE MARCAS
+   ============================================================ */
+.quote-band{padding-block:clamp(66px,8vw,104px);text-align:center;background:var(--bg-raised);border-block:1px solid var(--line)}
+.quote-band blockquote{
+  margin:0 auto;max-width:900px;
+  font-family:Manrope,sans-serif;font-weight:700;letter-spacing:-.025em;
+  font-size:clamp(1.3rem,3vw,2.2rem);line-height:1.32;color:var(--text);
+}
+.quote-band blockquote em{font-style:normal;color:var(--cyan)}
+
+/* ============================================================
+   CTA FINAL
+   ============================================================ */
+.final-cta{
+  position:relative;overflow:hidden;text-align:center;
+  padding-block:clamp(80px,10vw,140px);
+  background:
+    radial-gradient(90% 100% at 50% 0%,rgba(0,93,252,.45),transparent 62%),
+    linear-gradient(160deg,#041533,#030914 72%);
+}
+.final-cta::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:68px 68px;
+  mask-image:radial-gradient(70% 70% at 50% 40%,#000,transparent);
+  -webkit-mask-image:radial-gradient(70% 70% at 50% 40%,#000,transparent);
+}
+.final-cta .wrap{position:relative;z-index:2}
+/* Aurora sutil no banner final */
+.final-cta::after{
+  content:"";position:absolute;z-index:1;pointer-events:none;
+  left:50%;bottom:-30%;width:min(900px,110%);height:80%;transform:translateX(-50%);
+  background:
+    radial-gradient(circle at 30% 50%,rgba(32,216,245,.9),transparent 58%),
+    radial-gradient(circle at 70% 50%,rgba(0,93,252,.95),transparent 60%);
+  filter:blur(90px);opacity:.16;
+}
+.final-cta h2{margin-bottom:26px}
+.final-cta .lead{margin:0 auto 40px;text-align:center}
+.final-cta .fine{margin-top:22px;font-size:.86rem;color:var(--muted)}
+
+/* ============================================================
+   RODAPÉ
+   ============================================================ */
+.site-footer{background:var(--bg);border-top:1px solid var(--line);padding-block:clamp(54px,6vw,76px) 34px}
+.footer-grid{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(2,minmax(0,1fr));gap:clamp(32px,4vw,56px);margin-bottom:46px}
+.footer-brand img{height:44px;width:auto;margin-bottom:20px}
+.footer-brand p{font-size:.94rem;color:var(--muted);max-width:32ch}
+.footer-col h3{font-size:.76rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
+.footer-col li+li{margin-top:12px}
+.footer-col a,.footer-col span{font-size:.94rem;color:var(--text-soft);transition:color var(--t)}
+.footer-col a:hover{color:var(--cyan)}
+.footer-bottom{
+  display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center;
+  padding-top:28px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted);
+}
+
+/* ============================================================
+   WHATSAPP FLUTUANTE
+   ============================================================ */
+.wa-float{
+  position:fixed;right:clamp(16px,3vw,26px);bottom:clamp(16px,3vw,26px);z-index:90;
+  width:62px;height:62px;border-radius:50%;overflow:hidden;
+  box-shadow:0 14px 36px rgba(37,211,102,.4);
+  transition:transform var(--t),box-shadow var(--t);
+}
+.wa-float:hover{transform:scale(1.07) translateY(-2px);box-shadow:0 20px 48px rgba(37,211,102,.55)}
+.wa-float img{width:100%;height:100%}
+
+/* ============================================================
+   ANIMAÇÃO DE ENTRADA
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .66s var(--ease),transform .66s var(--ease)}
+.reveal.is-visible{opacity:1;transform:none}
+.reveal-d1{transition-delay:.08s}
+.reveal-d2{transition-delay:.16s}
+.reveal-d3{transition-delay:.24s}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+  .marquee-track{animation:none}
+}
+
+/* ============================================================
+   RITMO DE CORES — escuro · branco · azul claro · branco · escuro …
+   Cada seção recebe um tema; os temas só redefinem as variáveis,
+   então todo o conteúdo se adapta sem regras soltas.
+   ============================================================ */
+.theme-dark{background:var(--bg)}
+
+.theme-light,
+.theme-sky{
+  --text:#0b1640;
+  --text-soft:#34466b;
+  --muted:#586a8c;
+  --strong:#03106a;
+  --blue-bright:#0a58d6;
+  --cyan:#08839f;
+  --line:rgba(3,16,106,.11);
+  --line-strong:rgba(3,16,106,.2);
+  --shadow-sm:0 10px 30px rgba(3,16,106,.10);
+  --shadow-md:0 24px 60px rgba(3,16,106,.16);
+  color:var(--text-soft);
+}
+.theme-light{
+  --bg:#ffffff;
+  --bg-raised:#f4f8fd;
+  --bg-panel:#f1f6fd;
+  --bg-panel-2:#e6effb;
+  --tint:rgba(0,64,181,.045);
+  --tint-hover:rgba(0,64,181,.04);
+  background:var(--bg);
+}
+.theme-sky{
+  --bg:#d9e8ff;
+  --bg-raised:#cfe1fb;
+  --bg-panel:#ffffff;
+  --bg-panel-2:#f4f8ff;
+  --tint:rgba(255,255,255,.6);
+  --tint-hover:rgba(255,255,255,.5);
+  background:var(--bg);
+}
+
+/* Faixa de marcas: logos mais presentes sobre fundo claro */
+.brandbar.theme-light{border-block:1px solid var(--line)}
+
+/* Linha do tempo do método */
+.theme-light .step::before{box-shadow:0 0 0 5px var(--bg),0 0 16px rgba(0,93,252,.35)}
+
+
+/* CTA final em azul claro */
+.final-cta.theme-sky{
+  background:
+    radial-gradient(90% 100% at 50% 0%,rgba(255,255,255,.75),transparent 62%),
+    linear-gradient(160deg,#e4efff,#d3e4fd 72%);
+}
+.final-cta.theme-sky::before{
+  background-image:linear-gradient(rgba(0,64,181,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(0,64,181,.06) 1px,transparent 1px);
+}
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+@media (max-width:1040px){
+  .services{grid-template-columns:1fr 1fr}
+  .service:nth-child(3n){border-right:1px solid var(--line)}
+  .service:nth-child(2n){border-right:0}
+  .service--wide{grid-column:span 2}
+  .steps{grid-template-columns:1fr 1fr;gap:38px 28px}
+  .steps::before{display:none}
+  .step{padding-top:50px}
+  .case{grid-template-columns:1fr;gap:30px}
+  .about-grid{grid-template-columns:1fr;gap:44px}
+  .about-grid::before{left:10%;top:0;width:80%;height:50%}
+  .about-visual{max-width:380px;margin-inline:auto;width:100%}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-brand{grid-column:1 / -1}
+}
+
+@media (max-width:900px){
+  .split{grid-template-columns:1fr;gap:38px}
+  .split-sticky{position:static}
+  .nav-links{
+    position:fixed;inset:0 0 auto;top:0;z-index:-1;
+    flex-direction:column;align-items:stretch;gap:0;
+    padding:104px var(--gutter) 34px;
+    background:rgba(3,9,20,.98);
+    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--line);
+    transform:translateY(-102%);transition:transform .36s var(--ease);
+    max-height:100dvh;overflow-y:auto;
+  }
+  .nav-links.is-open{transform:translateY(0)}
+  .nav-links a{padding:18px 2px;border-bottom:1px solid var(--line);font-size:1.06rem;font-weight:700;color:var(--text)}
+  .nav-links a::after{display:none}
+  .nav-links .nav-menu-cta{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    margin-top:26px;border:0;
+    min-height:54px;border-radius:var(--r-pill);background:var(--blue);color:#fff;
+    font-family:Manrope,sans-serif;font-weight:800;font-size:.95rem;
+  }
+  .menu-toggle{display:flex}
+  .nav-cta .btn{display:none}
+  .people{grid-template-columns:1fr}
+}
+
+@media (max-width:620px){
+  :root{--section-y:clamp(62px,13vw,84px)}
+  .services{grid-template-columns:1fr;border-radius:var(--r-md)}
+  .service{border-right:0!important}
+  .service--wide{grid-column:span 1}
+  .steps{grid-template-columns:1fr;gap:30px}
+  .case{padding:24px 20px;border-radius:var(--r-md)}
+  .case-figures{padding:20px}
+  .footer-grid{grid-template-columns:1fr;gap:34px}
+  .footer-bottom{justify-content:flex-start}
+  .wa-float{width:56px;height:56px}
+}
+
+/* ============================================================
+   POLIMENTO — micro-interações nos cartões
+   (só em dispositivos com mouse, para não "grudar" o hover no toque)
+   ============================================================ */
+.carousel-dots{display:none}
+@media (hover:hover){
+  .case:hover{transform:translateY(-4px);border-color:var(--blue-bright);box-shadow:var(--shadow-md),0 0 0 1px rgba(32,216,245,.22)}
+  .person:hover{transform:translateY(-4px);border-color:var(--cyan);box-shadow:var(--shadow-sm)}
+  .service:hover{box-shadow:inset 0 0 0 1px var(--blue-bright)}
+}
+
+@media (max-width:900px){
+  .vk-grid{grid-template-columns:1fr}
+  .vk-arrow{justify-self:center;transform:rotate(90deg);width:44px;height:44px}
+}
+
+/* ============================================================
+   MOBILE COMPACTO — seções curtas, carrosséis horizontais
+   ============================================================ */
+@media (max-width:768px){
+  :root{--section-y:clamp(44px,7vw,60px)}
+
+  .section-head{margin-bottom:24px}
+  .section-head .lead{margin-top:12px;font-size:.98rem;line-height:1.65}
+  .h-section{font-size:clamp(1.62rem,6.8vw,2.05rem)}
+  .eyebrow{margin-bottom:12px}
+
+  /* Hero */
+
+  /* Hero no celular: mãos em close no topo, título embaixo */
+  .hero{padding:0 0 clamp(190px,27svh,250px);justify-content:flex-end}
+  .hero-art{bottom:auto;height:56svh}
+  .hero-art img{object-position:50% 40%}
+  .hero-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,9,20,.5) 0%,rgba(3,9,20,0) 20%,rgba(3,9,20,0) 55%,#030914 100%)}
+  .hero::after{display:none}
+  .h-hero span{white-space:normal;font-size:clamp(1.7rem,7.6vw,2.6rem)}
+  .hero-art{height:52svh}
+  .btn--lime{width:100%;max-width:360px}
+  .scroll-cue{bottom:20px}
+  .intro .lead{font-size:1rem;margin-bottom:18px}
+  .hero-proof{gap:6px 16px;margin-bottom:24px}
+  .hero-proof li{font-size:.82rem}
+  .pillars[data-carousel] > *{flex-basis:64%}
+
+  /* Faixa de marcas */
+  .brandbar{padding-block:26px}
+  .brandbar-label{margin-bottom:18px}
+
+  /* Virada de chave: abas no lugar das duas colunas */
+  .vk-tabs{
+    display:flex;padding:5px;margin-bottom:14px;
+    border-radius:var(--r-pill);background:var(--bg-panel);border:1px solid var(--line);
+  }
+  .vk-tabs button{
+    flex:1;min-height:44px;border:0;border-radius:var(--r-pill);background:none;
+    font-family:Manrope,sans-serif;font-weight:800;font-size:.86rem;color:var(--muted);
+    transition:background var(--t),color var(--t);
+  }
+  .vk-tabs button[aria-selected="true"]{background:var(--blue);color:#fff;box-shadow:var(--shadow-blue)}
+  .vk-grid{margin-bottom:16px}
+  .vk-arrow{display:none}
+  .vk[data-active="sem"] .vk-col--com,
+  .vk[data-active="com"] .vk-col--sem{display:none}
+  .vk-col{padding:22px 20px;border-radius:var(--r-md)}
+  .vk-col h3{margin-bottom:12px}
+  .vk-list li{padding:11px 0;font-size:.95rem}
+  .pullquote{padding:20px;font-size:.97rem}
+
+  /* Carrosséis: 1 cartão por vez + prévia do próximo */
+  [data-carousel]{
+    display:flex!important;gap:12px;
+    overflow-x:auto;overflow-y:hidden;
+    scroll-snap-type:x mandatory;scroll-padding-inline:var(--gutter);
+    -webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scrollbar-width:none;
+    margin-inline:calc(var(--gutter) * -1);padding:4px var(--gutter) 6px;
+  }
+  [data-carousel]::-webkit-scrollbar{display:none}
+  [data-carousel] > *{flex:0 0 84%;scroll-snap-align:start;min-width:0}
+
+  .carousel-dots{display:flex;justify-content:center;gap:2px;margin-top:12px}
+  .carousel-dots button{width:26px;height:26px;padding:0;border:0;background:none;display:flex;align-items:center;justify-content:center}
+  .carousel-dots button::before{
+    content:"";width:8px;height:8px;border-radius:var(--r-pill);background:var(--line-strong);
+    transition:width var(--t),background var(--t);
+  }
+  .carousel-dots button.is-active::before{width:22px;background:var(--lime);box-shadow:0 0 0 1px rgba(3,9,20,.25)}
+
+  /* Soluções em cartões */
+  .services{border:0;border-radius:0;background:none}
+  .service,.service--wide{
+    grid-column:auto;border:1px solid var(--line)!important;border-radius:var(--r-md);
+    padding:24px 22px;overflow:hidden;
+  }
+  .service--wide h3{font-size:1.16rem}
+  .service--wide p{font-size:.95rem}
+  .service-num{margin-bottom:12px}
+
+  /* Método em cartões */
+  .step{padding:54px 22px 22px;border:1px solid var(--line);border-radius:var(--r-md);background:var(--bg-panel)}
+  .step::before{left:22px;top:24px}
+  .method-quote{margin-top:26px;padding-top:22px;font-size:1.05rem}
+
+  /* Cases */
+  .case{padding:22px 20px;gap:18px;border-radius:var(--r-md)}
+  .case:hover{transform:none}
+  .case-head{margin-bottom:14px;gap:12px}
+  .case-logo{width:46px;height:46px}
+  .case-client{font-size:1.05rem}
+  .case h3{font-size:1.14rem;margin-bottom:10px}
+  .case p{font-size:.93rem;margin-bottom:10px}
+  .case-figures{padding:16px;gap:12px}
+
+  /* Quem somos */
+  .about-grid{gap:26px}
+  .about-visual{aspect-ratio:1/1;max-width:340px}
+  .people{grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+  .person{padding:16px 14px}
+  .person small{font-size:.7rem;margin:6px 0 8px}
+  .person p{font-size:.85rem;line-height:1.55}
+  .about-signature{margin-top:22px}
+
+  .quote-band{padding-block:44px}
+  .final-cta{padding-block:56px}
+  .final-cta .lead{margin-bottom:26px}
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ============================ CABEÇALHO ============================ -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap nav-bar">
+    <a class="brand" href="#inicio" aria-label="Humanize Marketing Digital — início">
+      <img src="img/logo.webp" alt="Humanize Marketing Digital" width="105" height="40" />
+    </a>
+
+    <nav class="nav-links" id="mainMenu" aria-label="Navegação principal">
+      <a href="#solucoes">Soluções</a>
+      <a href="#metodo">Como trabalhamos</a>
+      <a href="#cases">Cases</a>
+      <a href="#sobre">Quem somos</a>
+      <a href="#contato">Contato</a>
+      <a class="nav-menu-cta" href="#contato">Falar com a gente</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a class="btn btn--primary btn--sm" href="#contato">Falar com a gente</a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainMenu" aria-label="Abrir menu de navegação">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero" id="inicio">
+    <!-- Arte de fundo (decorativa) -->
+    <picture class="hero-art" aria-hidden="true">
+      <source media="(max-width:767px)" srcset="img/hero-arte-m.webp" />
+      <img src="img/hero-arte.webp" alt="" width="1672" height="941" fetchpriority="high" />
+    </picture>
+
+    <!-- Cérebro 3D girando (canvas) com a logo da Humanize no centro -->
+    <div class="cerebro" aria-hidden="true">
+      <canvas id="cerebro-canvas"></canvas>
+    </div>
+
+    <div class="wrap hero-inner">
+      <h1 class="h-hero">
+        <span class="t1">O digital <em>conecta</em>.</span>
+        <span class="t2">A <em>Humanização</em> transforma.</span>
+      </h1>
+    </div>
+
+    <a class="scroll-cue" href="#marcas" aria-label="Rolar para baixo">
+      <svg width="22" height="34" viewBox="0 0 22 34" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="1.5" y="1.5" width="19" height="31" rx="9.5"/><line x1="11" y1="8" x2="11" y2="14" stroke-linecap="round"/></svg>
+      Role pra baixo
+      <svg class="arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+    </a>
+  </section>
+
+  <!-- ============================ MARCAS ATENDIDAS ============================ -->
+  <section class="brandbar theme-light" id="marcas" aria-label="Marcas atendidas pela Humanize">
+    <p class="brandbar-label">Marcas que já confiam na Humanize</p>
+
+    <div class="marquee">
+      <div class="marquee-track">
+        <img src="img/logo-gota-de-ouro.webp" alt="Gota de Ouro Modas" width="74" height="74" loading="lazy" />
+        <img src="img/logo-adega-do-bruninho.webp" alt="Adega do Bruninho" width="74" height="74" loading="lazy" />
+        <img src="img/logo-boteco-do-maskara.webp" alt="Boteco do Máskara" width="74" height="74" loading="lazy" />
+        <img src="img/logo-casa-de-embalagens-cangaiba.webp" alt="Casa de Embalagens Cangaíba" width="74" height="74" loading="lazy" />
+        <img src="img/logo-doggie-dogg-gourmet.webp" alt="Doggie Dogg Gourmet" width="74" height="74" loading="lazy" />
+        <img src="img/logo-restaurante-vivendo.webp" alt="Restaurante Vivendo" width="74" height="74" loading="lazy" />
+        <img src="img/logo-tomo-xapo.webp" alt="Tomo Xapo" width="74" height="74" loading="lazy" />
+      </div>
+      <!-- Cópia apenas para o laço contínuo da animação -->
+      <div class="marquee-track" aria-hidden="true">
+        <img src="img/logo-gota-de-ouro.webp" alt="" width="74" height="74" loading="lazy" />
+        <img src="img/logo-adega-do-bruninho.webp" alt="" width="74" height="74" loading="lazy" />
+        <img src="img/logo-boteco-do-maskara.webp" alt="" width="74" height="74" loading="lazy" />
+        <img src="img/logo-casa-de-embalagens-cangaiba.webp" alt="" width="74" height="74" loading="lazy" />
+        <img src="img/logo-doggie-dogg-gourmet.webp" alt="" width="74" height="74" loading="lazy" />
+        <img src="img/logo-restaurante-vivendo.webp" alt="" width="74" height="74" loading="lazy" />
+        <img src="img/logo-tomo-xapo.webp" alt="" width="74" height="74" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ A VIRADA DE CHAVE ============================ -->
+  <section class="section theme-sky" id="virada">
+    <div class="wrap">
+
+      <div class="section-head reveal">
+        <span class="eyebrow eyebrow--blue">A virada de chave</span>
+        <h2 class="h-section">Estar no digital é obrigação. Vender pelo digital é estratégia.</h2>
+        <p class="lead">
+          Se a sua empresa se reconhece em alguma dessas situações,
+          o problema não é falta de esforço. É falta de estratégia.
+        </p>
+      </div>
+
+      <div class="vk reveal reveal-d1" data-active="sem">
+        <div class="vk-tabs" role="tablist" aria-label="Comparativo">
+          <button type="button" role="tab" id="vkTabSem" aria-controls="vkSem" aria-selected="true" data-vk="sem">Sem estratégia</button>
+          <button type="button" role="tab" id="vkTabCom" aria-controls="vkCom" aria-selected="false" data-vk="com">Com a Humanize</button>
+        </div>
+
+        <div class="vk-grid">
+          <article class="vk-col vk-col--sem" id="vkSem" role="tabpanel" aria-labelledby="vkTabSem">
+            <span class="vk-tag">Sem estratégia</span>
+            <h3>Presença que não vira venda.</h3>
+            <ul class="vk-list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>Você posta nas redes, mas o faturamento não muda.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>Novos clientes não encontram sua empresa com facilidade.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>O negócio depende de indicação, sem demanda constante pelo digital.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>Falta tempo, equipe e estratégia para cuidar de tudo.</span></li>
+            </ul>
+          </article>
+
+          <div class="vk-arrow" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+          </div>
+
+          <article class="vk-col vk-col--com" id="vkCom" role="tabpanel" aria-labelledby="vkTabCom">
+            <span class="vk-tag">Com a Humanize</span>
+            <h3>O digital trabalhando a favor da sua empresa.</h3>
+            <ul class="vk-list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Conteúdo humanizado que aproxima e vira venda.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Sua empresa encontrada no Instagram, no Google, no site e no delivery.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Novos clientes chegando pelo digital, todos os meses.</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Uma equipe cuidando da estratégia, do conteúdo ao anúncio.</span></li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="pullquote">
+          É isso que a Humanize faz: <strong>humanizamos sua marca e estruturamos
+          o seu digital</strong> para transformar presença em clientes, vendas e faturamento.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================ SERVIÇOS ============================ -->
+  <section class="section theme-dark" id="solucoes">
+    <div class="wrap">
+
+      <div class="section-head reveal">
+        <span class="eyebrow eyebrow--blue">Nossas soluções</span>
+        <h2 class="h-section">Tudo o que sua empresa precisa para crescer no digital.</h2>
+        <p class="lead">
+          Estratégia, conteúdo, presença e estrutura reunidos para o seu negócio
+          se comunicar melhor, ser encontrado e vender mais.
+        </p>
+      </div>
+
+      <div class="services reveal reveal-d1" data-carousel role="region" aria-label="Nossas soluções">
+
+        <article class="service service--wide">
+          <span class="service-num">01</span>
+          <h3>Gestão de Redes Sociais</h3>
+          <p>Estratégia, planejamento e gestão para manter sua marca ativa, profissional e próxima do público.</p>
+        </article>
+
+        <article class="service">
+          <span class="service-num">02</span>
+          <h3>Criação de Conteúdo Humanizado</h3>
+          <p>Roteiros, captação, vídeos, fotos e conteúdos que mostram quem está por trás da sua empresa e criam conexão.</p>
+        </article>
+
+        <article class="service">
+          <span class="service-num">03</span>
+          <h3>Tráfego Pago</h3>
+          <p>Campanhas estratégicas para alcançar as pessoas certas, gerar oportunidades e aumentar as vendas.</p>
+        </article>
+
+        <article class="service">
+          <span class="service-num">04</span>
+          <h3>Sites e Landing Pages</h3>
+          <p>Criamos e gerenciamos páginas profissionais para apresentar sua empresa e transformar acessos em clientes.</p>
+        </article>
+
+        <article class="service">
+          <span class="service-num">05</span>
+          <h3>Presença no Google</h3>
+          <p>Estruturamos e otimizamos sua empresa no Google para que novos clientes encontrem você com facilidade.</p>
+        </article>
+
+        <article class="service">
+          <span class="service-num">06</span>
+          <h3>Estruturação Digital</h3>
+          <p>Organizamos os canais e ferramentas digitais que sua empresa precisa para funcionar e vender melhor.</p>
+        </article>
+
+        <article class="service">
+          <span class="service-num">07</span>
+          <h3>Delivery e Catálogo Digital</h3>
+          <p>Implantação, organização e gestão de cardápios, catálogos e plataformas de delivery.</p>
+        </article>
+
+        <article class="service">
+          <span class="service-num">08</span>
+          <h3>Branding e Posicionamento</h3>
+          <p>Construímos uma comunicação mais forte e coerente para sua empresa ser reconhecida e lembrada.</p>
+        </article>
+
+        <article class="service">
+          <span class="service-num">09</span>
+          <h3>Campanhas e Lançamentos</h3>
+          <p>Planejamento de campanhas promocionais, divulgações, eventos e lançamentos para movimentar o seu negócio.</p>
+        </article>
+
+        <article class="service service--wide">
+          <span class="service-num">10</span>
+          <h3>Análise e Estratégia</h3>
+          <p>Acompanhamos os resultados e ajustamos as estratégias para buscar mais alcance, clientes e faturamento.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ MÉTODO ============================ -->
+  <section class="section theme-light" id="metodo">
+    <div class="wrap">
+
+      <div class="section-head reveal">
+        <span class="eyebrow eyebrow--blue">Nosso jeito de trabalhar</span>
+        <h2 class="h-section">Estratégia com proximidade, do começo ao resultado.</h2>
+        <p class="lead">
+          Cada empresa tem uma realidade, um público e um objetivo.
+          Por isso, antes de fazer qualquer coisa, a gente entende o seu negócio
+          para construir uma estratégia que realmente faça sentido.
+        </p>
+      </div>
+
+      <div class="steps reveal reveal-d1" data-carousel role="region" aria-label="Etapas do nosso método">
+
+        <article class="step">
+          <b>01 &#8212;</b>
+          <h3>Entendemos seu negócio</h3>
+          <p>Conhecemos sua empresa, seu público, seus objetivos e entendemos onde você quer chegar.</p>
+        </article>
+
+        <article class="step">
+          <b>02 &#8212;</b>
+          <h3>Criamos a estratégia</h3>
+          <p>Identificamos o que precisa ser feito e definimos os melhores caminhos para sua empresa crescer no digital.</p>
+        </article>
+
+        <article class="step">
+          <b>03 &#8212;</b>
+          <h3>Colocamos em prática</h3>
+          <p>Transformamos estratégia em ação: criamos, publicamos, anunciamos, estruturamos e cuidamos do seu digital.</p>
+        </article>
+
+        <article class="step">
+          <b>04 &#8212;</b>
+          <h3>Analisamos e evoluímos</h3>
+          <p>Acompanhamos os resultados, identificamos oportunidades e ajustamos a estratégia para buscar cada vez mais vendas e faturamento.</p>
+        </article>
+
+      </div>
+
+      <p class="method-quote reveal">
+        &#8220;Aqui, sua empresa não é só mais um perfil.
+        A gente entende o seu negócio para fazer o digital trabalhar por ele.&#8221;
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ============================ CASES ============================ -->
+  <section class="section theme-sky" id="cases">
+    <div class="wrap">
+
+      <div class="section-head reveal">
+        <span class="eyebrow">Cases</span>
+        <h2 class="h-section">Resultados na prática.</h2>
+        <p class="lead">
+          Estratégias diferentes. Um objetivo em comum: fazer empresas crescerem.
+        </p>
+        <p class="lead" style="margin-top:14px">
+          Cada negócio chega até a Humanize com um desafio diferente.
+          Conheça algumas das estratégias que já colocamos em prática e os resultados
+          que construímos junto aos nossos clientes.
+        </p>
+      </div>
+
+      <div class="cases reveal" data-carousel role="region" aria-label="Cases da Humanize">
+
+        <article class="case" style="--case-accent:#3d86ff;--case-ink:#1a5fd1">
+          <div>
+            <div class="case-head">
+              <img class="case-logo" src="img/logo-adega-do-bruninho.webp" alt="Logotipo da Adega do Bruninho" width="56" height="56" loading="lazy" />
+              <div>
+                <span class="case-client">Adega do Bruninho</span>
+                <span class="case-services">Conteúdo &#8226; Tráfego Pago &#8226; Delivery &#8226; Estrutura Digital</span>
+              </div>
+            </div>
+
+            <h3>Do conteúdo à venda: uma estratégia construída em vários canais.</h3>
+
+            <p>
+              Humanizamos a comunicação, fortalecemos a presença da marca,
+              estruturamos canais digitais e transformamos o conteúdo
+              em uma ferramenta constante de alcance e venda.
+            </p>
+
+            <a class="link-more" href="case-adega-do-bruninho.html" aria-label="Ver case completo da Adega do Bruninho">
+              <span class="label">Ver case completo</span> <span class="arrow" aria-hidden="true">&#8594;</span>
+            </a>
+          </div>
+
+          <div class="case-figures">
+            <div class="figure">
+              <small>Resultado</small>
+              <b><span class="num">+150,7%</span><span class="unit">de faturamento no site</span></b>
+            </div>
+            <div class="figure">
+              <small>Resultado</small>
+              <b><span class="num">+75,3%</span><span class="unit">no número de pedidos</span></b>
+            </div>
+          </div>
+        </article>
+
+        <article class="case" style="--case-accent:#20d8f5;--case-ink:#08839f">
+          <div>
+            <div class="case-head">
+              <img class="case-logo" src="img/logo-casa-de-embalagens-cangaiba.webp" alt="Logotipo da Casa de Embalagens Cangaíba" width="56" height="56" loading="lazy" />
+              <div>
+                <span class="case-client">Casa de Embalagens Cangaíba</span>
+                <span class="case-services">Conteúdo &#8226; Branding &#8226; Site &#8226; Delivery &#8226; Tráfego Pago</span>
+              </div>
+            </div>
+
+            <h3>Da loja física para uma presença digital completa.</h3>
+
+            <p>
+              Criamos novos canais de venda, estruturamos a comunicação da marca
+              e desenvolvemos um site com mais de 1.800 produtos organizados.
+            </p>
+
+            <a class="link-more" href="case-casa-de-embalagens.html" aria-label="Ver case completo da Casa de Embalagens Cangaíba">
+              <span class="label">Ver case completo</span> <span class="arrow" aria-hidden="true">&#8594;</span>
+            </a>
+          </div>
+
+          <div class="case-figures">
+            <div class="figure">
+              <small>Estrutura</small>
+              <b><span class="num">+1.800</span><span class="unit">produtos no site</span></b>
+            </div>
+            <div class="figure">
+              <small>Experiência</small>
+              <b><span class="num">45 min</span><span class="unit">prazo de entrega</span></b>
+            </div>
+          </div>
+        </article>
+
+        <article class="case" style="--case-accent:#8b7cff;--case-ink:#6450e0">
+          <div>
+            <div class="case-head">
+              <img class="case-logo" src="img/logo-tomo-xapo.webp" alt="Logotipo da Tomo Xapo" width="56" height="56" loading="lazy" />
+              <div>
+                <span class="case-client">Tomo Xapo</span>
+                <span class="case-services">Conteúdo &#8226; Posicionamento &#8226; Comunicação Digital</span>
+              </div>
+            </div>
+
+            <h3>Uma comunicação criada para fortalecer a marca e aproximar o público.</h3>
+
+            <p>
+              Organizamos a presença digital da empresa com uma comunicação mais
+              consistente, conteúdos estratégicos e uma identidade reconhecível.
+            </p>
+
+            <a class="link-more" href="case-tomo-xapo.html" aria-label="Ver case completo da Tomo Xapo">
+              <span class="label">Ver case completo</span> <span class="arrow" aria-hidden="true">&#8594;</span>
+            </a>
+          </div>
+
+          <div class="case-figures">
+            <div class="figure figure--text">
+              <small>Estratégia</small>
+              <b>Marca mais presente no digital</b>
+            </div>
+            <div class="figure figure--text">
+              <small>Comunicação</small>
+              <b>Conteúdo mais próximo do público</b>
+            </div>
+          </div>
+        </article>
+
+        <article class="case" style="--case-accent:#f0b429;--case-ink:#a46a00">
+          <div>
+            <div class="case-head">
+              <img class="case-logo" src="img/logo-gota-de-ouro.webp" alt="Logotipo da Gota de Ouro Modas" width="56" height="56" loading="lazy" />
+              <div>
+                <span class="case-client">Gota de Ouro Modas</span>
+                <span class="case-services">Humanização &#8226; Conteúdo &#8226; Tráfego Pago</span>
+              </div>
+            </div>
+
+            <h3>De 35 mil seguidores a uma comunidade que compra.</h3>
+
+            <p>
+              Estruturamos a comunicação da marca para gerar confiança,
+              aproximar o público e transformar o digital em um verdadeiro canal de vendas.
+            </p>
+
+            <a class="link-more" href="case-gota-de-ouro-modas.html" aria-label="Ver case completo da Gota de Ouro Modas">
+              <span class="label">Ver case completo</span> <span class="arrow" aria-hidden="true">&#8594;</span>
+            </a>
+          </div>
+
+          <div class="case-figures">
+            <div class="figure">
+              <small>Resultado</small>
+              <b><span class="num">3x</span><span class="unit">mais faturamento no site</span></b>
+            </div>
+            <div class="figure">
+              <small>Resultado</small>
+              <b><span class="num">2x</span><span class="unit">mais vendas na loja física</span></b>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ QUEM SOMOS ============================ -->
+  <section class="section theme-light" id="sobre">
+    <div class="wrap about-grid">
+
+      <!-- Foto oficial da Ray e da Jaque (proporção 4/5). Para trocar, substitua img/ray-e-jaque.webp. -->
+      <figure class="about-visual about-photo reveal">
+        <img src="img/ray-e-jaque.webp" alt="Ray e Jaque, fundadoras da Humanize, sorrindo lado a lado" width="900" height="1125" loading="lazy" />
+        <figcaption class="about-initials">
+          <b>Ray &amp; Jaque</b>
+          <small>Fundadoras da Humanize</small>
+        </figcaption>
+      </figure>
+
+      <div class="reveal reveal-d1">
+        <span class="eyebrow eyebrow--blue">Por trás da Humanize</span>
+
+        <h2 class="h-section">Nós somos Ray e Jaque.</h2>
+
+        <p class="lead" style="margin-top:22px">
+          A Humanize nasceu da ideia de que empresas não precisam apenas aparecer no digital &#8212;
+          precisam criar conexão, ser lembradas e transformar essa presença em vendas.
+        </p>
+
+        <p class="lead" style="margin-top:16px">
+          Unimos estratégia, criatividade e humanização para cuidar do digital de cada negócio
+          de forma próxima e personalizada. Aqui, não trabalhamos com fórmulas prontas:
+          entendemos a realidade de cada empresa para construir estratégias que façam sentido
+          para o seu público e para os seus objetivos.
+        </p>
+
+        <div class="people">
+          <article class="person">
+            <b>RAY</b>
+            <small>Estratégia &#8226; Marketing &#8226; Tráfego &#8226; Estrutura Digital</small>
+            <p>Estratégia e visão de crescimento para transformar o digital em resultado.</p>
+          </article>
+
+          <article class="person">
+            <b>JAQUE</b>
+            <small>Conteúdo &#8226; Criação &#8226; Atendimento &#8226; Comunicação</small>
+            <p>Criatividade e proximidade para aproximar empresas e pessoas.</p>
+          </article>
+        </div>
+
+        <p class="about-signature">
+          Por trás de cada <span class="brush brush--sm">estratégia</span> existem pessoas.
+          E é justamente por isso que escolhemos <span class="script">Humanize</span>.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================ CITAÇÃO ============================ -->
+  <section class="quote-band theme-dark">
+    <div class="wrap">
+      <blockquote class="reveal">
+        &#8220;Cada marca tem uma história, nosso trabalho é encontrar
+        a melhor <em class="brush brush--sm">estratégia</em> para fazê-la crescer!&#8221;
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ============================ CTA FINAL ============================ -->
+  <section class="final-cta theme-sky" id="contato">
+    <div class="wrap">
+      <span class="eyebrow" style="justify-content:center">Prontos para crescer?</span>
+
+      <h2 class="h-section reveal">
+        Sua empresa pode vender mais.<br />
+        E o digital pode ajudar você a chegar lá.
+      </h2>
+
+      <p class="lead reveal reveal-d1">
+        Vamos entender o momento do seu negócio e construir uma estratégia
+        para atrair mais clientes, aumentar suas vendas e o seu faturamento.
+        Vamos humanizar e fazer sua empresa crescer?
+      </p>
+
+      <div class="reveal reveal-d2">
+        <a class="btn btn--primary" href="https://wa.me/5511914894352?text=Olá!%20Quero%20falar%20com%20a%20Humanize." target="_blank" rel="noopener">
+          Quero falar com a Humanize <span class="arrow" aria-hidden="true">&#8594;</span>
+        </a>
+        <p class="fine">Fale diretamente com a nossa equipe pelo WhatsApp.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================ RODAPÉ ============================ -->
+<footer class="site-footer">
+  <div class="wrap">
+
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="img/logo.webp" alt="Humanize Marketing Digital" width="116" height="44" loading="lazy" />
+        <p>Estratégia, conteúdo e estrutura digital para empresas que querem ser lembradas e vender mais.</p>
+      </div>
+
+      <nav class="footer-col" aria-label="Navegação do rodapé">
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="#solucoes">Soluções</a></li>
+          <li><a href="#metodo">Como trabalhamos</a></li>
+          <li><a href="#cases">Cases</a></li>
+          <li><a href="#sobre">Quem somos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col">
+        <h3>Contato</h3>
+        <ul>
+          <li><span>São Paulo, Brasil</span></li>
+          <li><a href="tel:+5511914894352">(11) 91489-4352</a></li>
+          <li><a href="mailto:humanizemktdigital@gmail.com">humanizemktdigital@gmail.com</a></li>
+          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&#169; 2026 Humanize Marketing Digital. Todos os direitos reservados.</span>
+      <span>São Paulo &#8226; Brasil</span>
+    </div>
+
+  </div>
+</footer>
+
+<a class="wa-float"
+   href="https://wa.me/5511914894352?text=Olá!%20Quero%20falar%20com%20a%20Humanize."
+   target="_blank" rel="noopener"
+   aria-label="Falar com a Humanize no WhatsApp">
+  <img src="img/whatsapp.webp" alt="" aria-hidden="true" width="62" height="62" />
+</a>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"Humanize Marketing Digital",
+  "url":"https://humanize-marketing-digital-agencia.vercel.app/",
+  "logo":"https://humanize-marketing-digital-agencia.vercel.app/img/logo.webp",
+  "email":"humanizemktdigital@gmail.com",
+  "telephone":"+55-11-91489-4352",
+  "address":{"@type":"PostalAddress","addressLocality":"São Paulo","addressCountry":"BR"}
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- Cabeçalho fixo ---------- */
+  var header = document.getElementById('siteHeader');
+  var onScroll = function () {
+    header.classList.toggle('is-stuck', window.scrollY > 24);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- Menu mobile ---------- */
+  var toggle = document.getElementById('menuToggle');
+  var menu = document.getElementById('mainMenu');
+
+  function closeMenu() {
+    menu.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Abrir menu de navegação');
+    document.body.classList.remove('is-locked');
+  }
+
+  toggle.addEventListener('click', function () {
+    var willOpen = !menu.classList.contains('is-open');
+    menu.classList.toggle('is-open', willOpen);
+    toggle.setAttribute('aria-expanded', String(willOpen));
+    toggle.setAttribute('aria-label', willOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação');
+    document.body.classList.toggle('is-locked', willOpen);
+  });
+
+  menu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 900) closeMenu();
+  });
+
+  /* ---------- Entrada suave ao rolar ---------- */
+  var items = document.querySelectorAll('.reveal');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduced || !('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('is-visible'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+    items.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---------- Pausa o 3D do hero quando ele sai da tela ---------- */
+  var hero = document.querySelector('.hero');
+  if (hero && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      hero.classList.toggle('is-offscreen', !entries[0].isIntersecting);
+    }).observe(hero);
+  }
+
+  /* ---------- Virada de chave: abas no celular ---------- */
+  var vk = document.querySelector('.vk');
+  if (vk) {
+    var tabs = vk.querySelectorAll('[data-vk]');
+    var setTab = function (name) {
+      vk.setAttribute('data-active', name);
+      tabs.forEach(function (t) { t.setAttribute('aria-selected', String(t.getAttribute('data-vk') === name)); });
+    };
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () { setTab(t.getAttribute('data-vk')); });
+    });
+  }
+
+
+  /* ---------- Carrosséis do celular: indicadores ---------- */
+  document.querySelectorAll('[data-carousel]').forEach(function (track) {
+    var slides = Array.prototype.slice.call(track.children);
+    if (slides.length < 2) return;
+    var dots = document.createElement('div');
+    dots.className = 'carousel-dots';
+    slides.forEach(function (slide, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Ir para o item ' + (i + 1) + ' de ' + slides.length);
+      b.addEventListener('click', function () {
+        track.scrollTo({ left: slide.offsetLeft - track.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft), behavior: reduced ? 'auto' : 'smooth' });
+      });
+      dots.appendChild(b);
+    });
+    track.parentNode.insertBefore(dots, track.nextSibling);
+    var buttons = dots.children;
+    var ticking = false;
+    var update = function () {
+      ticking = false;
+      var step = slides[1].offsetLeft - slides[0].offsetLeft || 1;
+      var idx = Math.round(track.scrollLeft / step);
+      if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 4) idx = slides.length - 1;
+      for (var i = 0; i < buttons.length; i++) buttons[i].classList.toggle('is-active', i === idx);
+    };
+    track.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    update();
+  });
+})();
+</script>
+
+<script src="js/cerebro-gl.js" defer></script>
+<script src="js/cerebro-3d.js" defer></script>
+</body>
+</html>
