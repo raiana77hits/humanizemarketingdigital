@@ -955,6 +955,10 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   #alem .alem-btn{flex:1 1 auto;justify-content:center}
 }
 
+/* Linha de transição: grossa à esquerda, afina e clareia até sumir um pouco depois da metade */
+#servicos::before{content:"";position:absolute;top:0;left:max(20px,calc((100% - 1180px)/2));width:min(720px,64%);height:4px;pointer-events:none;
+  background:linear-gradient(90deg,#00228a 0%,#005dfc 38%,#8fbaff 72%,rgba(190,214,255,0) 100%);
+  clip-path:polygon(0 0,100% 50%,100% 50%,0 100%)}
 /* ============================ O QUE FAZEMOS (SOLUÇÕES) ============================ */
 #servicos{position:relative;overflow:hidden;color:#14122b;scroll-margin-top:-19px;
   min-height:calc(100svh - 73px);display:flex;flex-direction:column;justify-content:center;
