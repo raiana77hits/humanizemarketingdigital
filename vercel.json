@@ -1,5 +1,12 @@
 {
   "rewrites": [
-    { "source": "/seo-google", "destination": "/servico-seo-google.html" }
+    {
+      "source": "/seo-google",
+      "destination": "/servico-seo-google.html"
+    },
+    {
+      "source": "/google-ads",
+      "destination": "/servico-google-ads.html"
+    }
   ]
 }
