@@ -29,6 +29,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,800;1,800&family=Space+Grotesk:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,500..800&family=Playfair+Display:ital,wght@0,700;1,500;1,600&display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="css/tres-celulares.css" />
+<link rel="stylesheet" href="css/como-trabalhamos.css" />
 <style>
 @font-face{
   font-family:"Scholar";
@@ -1145,6 +1146,128 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
     </div>
   </section>
 
+  <!-- ============================ COMO TRABALHAMOS ============================
+       Componente independente: css/como-trabalhamos.css + js/como-trabalhamos.js.
+       Para mover a seção, recorte do marcador INÍCIO ao FIM e cole em outro ponto do <main>. -->
+  <!-- INÍCIO como-trabalhamos -->
+  <section class="ct-sec" id="como-trabalhamos" data-state="1" aria-labelledby="ct-titulo">
+    <div class="ct-wrap">
+
+      <div class="ct-left">
+        <p class="ct-eyebrow reveal">Nosso processo / Humanize</p>
+        <h2 class="ct-title reveal reveal-d1" id="ct-titulo">Não começamos pela postagem. Começamos pelo <em>seu negócio.</em></h2>
+
+        <div class="ct-intro reveal reveal-d2">
+          <p>Cada empresa tem sua própria história, seus desafios e suas oportunidades.</p>
+          <p>Por isso, antes de criar qualquer campanha ou conteúdo, buscamos entender o que realmente faz sentido para o seu negócio.</p>
+          <p>A partir daí, transformamos conhecimento em planejamento, criatividade em ação e dados em decisões.</p>
+        </div>
+
+        <p class="ct-pull reveal reveal-d2">Estratégia não é uma etapa. É o que <em>conecta</em> todas elas.</p>
+
+        <div class="ct-tabs reveal reveal-d3" role="tablist" aria-label="Etapas do processo">
+          <button class="ct-tab" type="button" role="tab" id="ct-tab-1" data-s="1" aria-selected="true" aria-controls="ct-cap-1"><span class="ct-tab-n">01</span><span class="ct-tab-l">Entender</span></button>
+          <button class="ct-tab" type="button" role="tab" id="ct-tab-2" data-s="2" aria-selected="false" tabindex="-1" aria-controls="ct-cap-2"><span class="ct-tab-n">02</span><span class="ct-tab-l">Planejar</span></button>
+          <button class="ct-tab" type="button" role="tab" id="ct-tab-3" data-s="3" aria-selected="false" tabindex="-1" aria-controls="ct-cap-3"><span class="ct-tab-n">03</span><span class="ct-tab-l">Executar e evoluir</span></button>
+        </div>
+      </div>
+
+      <div class="ct-right reveal reveal-d1">
+
+        <div class="ct-caps" aria-live="polite">
+          <div class="ct-cap" role="tabpanel" id="ct-cap-1" data-s="1" aria-labelledby="ct-tab-1">
+            <div class="ct-cap-top"><span class="ct-cap-n" aria-hidden="true">01</span><span class="ct-cap-k"><span class="ct-sr">01 </span>/ Diagnóstico</span></div>
+            <h3 class="ct-cap-t">Primeiro, conhecemos sua empresa.</h3>
+            <p class="ct-cap-p">Entendemos seu mercado, seus objetivos, seu público e os desafios que precisam ser resolvidos.</p>
+          </div>
+          <div class="ct-cap" role="tabpanel" id="ct-cap-2" data-s="2" aria-labelledby="ct-tab-2">
+            <div class="ct-cap-top"><span class="ct-cap-n" aria-hidden="true">02</span><span class="ct-cap-k"><span class="ct-sr">02 </span>/ Estratégia</span></div>
+            <h3 class="ct-cap-t">Depois, definimos o caminho.</h3>
+            <p class="ct-cap-p">Selecionamos canais, linguagem e ações alinhados às prioridades e à realidade da empresa.</p>
+          </div>
+          <div class="ct-cap" role="tabpanel" id="ct-cap-3" data-s="3" aria-labelledby="ct-tab-3">
+            <div class="ct-cap-top"><span class="ct-cap-n" aria-hidden="true">03</span><span class="ct-cap-k"><span class="ct-sr">03 </span>/ Execução e evolução</span></div>
+            <h3 class="ct-cap-t">Colocamos a estratégia em movimento.</h3>
+            <p class="ct-cap-p">Executamos as ações planejadas, acompanhamos os indicadores disponíveis e ajustamos o trabalho conforme os aprendizados.</p>
+          </div>
+        </div>
+
+        <div class="ct-stage" role="group" aria-label="Painel de estratégia: exemplo ilustrativo de uma cafeteria artesanal">
+          <div class="ct-surface" aria-hidden="true"></div>
+          <div class="ct-top"><span>Cafeteria artesanal</span><span>Exemplo ilustrativo</span></div>
+
+          <div class="ct-layers">
+
+            <!-- ESTADO 1 · BRIEFING -->
+            <div class="ct-l ct-l1" data-s="1">
+              <div class="ct-docwrap">
+                <div class="ct-sheet" aria-hidden="true"></div>
+                <article class="ct-doc">
+                  <header class="ct-doc-h"><span class="ct-doc-k">Briefing estratégico</span><span class="ct-doc-ref">Ref. 01</span></header>
+                  <dl class="ct-rows">
+                    <div class="ct-row ct-it" style="--i:0"><dt>Negócio</dt><dd>Cafeteria <mark>artesanal</mark></dd></div>
+                    <div class="ct-row ct-it" style="--i:1"><dt>Objetivo</dt><dd>Ampliar a <mark>presença digital</mark></dd></div>
+                    <div class="ct-row ct-it" style="--i:2"><dt>Público</dt><dd>Consumidores da <mark>região</mark></dd></div>
+                    <div class="ct-row ct-it" style="--i:3"><dt>Oportunidade</dt><dd>Fortalecer <mark>descoberta</mark> e <mark>relacionamento</mark></dd></div>
+                  </dl>
+                </article>
+              </div>
+              <span class="ct-note ct-note--a ct-it" style="--i:4">ouvir o dono primeiro</span>
+              <span class="ct-note ct-note--b ct-it" style="--i:5">quem já passa na porta?</span>
+            </div>
+
+            <!-- ESTADO 2 · MAPA ESTRATÉGICO -->
+            <div class="ct-l ct-l2" data-s="2">
+              <div class="ct-chip ct-it" style="--i:0"><i aria-hidden="true"></i>Briefing estratégico</div>
+              <div class="ct-core ct-it" style="--i:1"><span>Objetivo central</span><strong>Fortalecer a presença digital</strong></div>
+              <div class="ct-tree" aria-hidden="true">
+                <span class="ct-trunk"></span>
+                <span class="ct-bus"></span>
+                <div class="ct-drops"><i></i><i></i><i></i></div>
+              </div>
+              <div class="ct-fronts">
+                <div class="ct-front ct-it" style="--i:5"><span>Google</span><b>Ser encontrado</b></div>
+                <div class="ct-front ct-it" style="--i:6"><span>Conteúdo</span><b>Criar conexão</b></div>
+                <div class="ct-front ct-it" style="--i:7"><span>Delivery</span><b>Facilitar pedidos</b></div>
+              </div>
+            </div>
+
+            <!-- ESTADO 3 · EXECUÇÃO E EVOLUÇÃO -->
+            <div class="ct-l ct-l3" data-s="3">
+              <div class="ct-goal ct-it" style="--i:0"><span>Objetivo central</span>Fortalecer a presença digital</div>
+              <ul class="ct-acts">
+                <li class="ct-act ct-it" style="--i:1">
+                  <div><span class="ct-act-k">Conteúdo</span><b class="ct-act-t">Produção e publicação</b></div>
+                  <span class="ct-status">Em andamento</span>
+                  <div class="ct-seg" aria-hidden="true"><i class="on" style="--j:0"></i><i class="on" style="--j:1"></i><i class="on" style="--j:2"></i><i class="on" style="--j:3"></i><i class="on" style="--j:4"></i><i></i><i></i><i></i></div>
+                </li>
+                <li class="ct-act ct-it" style="--i:2">
+                  <div><span class="ct-act-k">Presença digital</span><b class="ct-act-t">Atualização e otimização</b></div>
+                  <span class="ct-status">Em ajuste</span>
+                  <div class="ct-seg" aria-hidden="true"><i class="on" style="--j:0"></i><i class="on" style="--j:1"></i><i class="on" style="--j:2"></i><i class="on" style="--j:3"></i><i></i><i></i><i></i><i></i></div>
+                </li>
+                <li class="ct-act ct-it" style="--i:3">
+                  <div><span class="ct-act-k">Acompanhamento</span><b class="ct-act-t">Análise e ajustes</b></div>
+                  <span class="ct-status">Contínuo</span>
+                  <div class="ct-seg" aria-hidden="true"><i class="on" style="--j:0"></i><i class="on" style="--j:1"></i><i class="on" style="--j:2"></i><i class="on" style="--j:3"></i><i class="on" style="--j:4"></i><i class="on" style="--j:5"></i><i></i><i></i></div>
+                </li>
+              </ul>
+              <div class="ct-flow ct-it" style="--i:4" aria-hidden="true">
+                <span class="ct-flow-line"></span>
+                <span class="ct-flow-n">Entender</span>
+                <span class="ct-flow-n">Planejar</span>
+                <span class="ct-flow-n ct-flow-n--now">Executar e evoluir<em>segue em ciclo</em></span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- FIM como-trabalhamos -->
+
   <!-- ============================ SERVIÇOS ============================ -->
   <section class="section theme-dark" id="solucoes">
     <div class="wrap">
@@ -1839,6 +1962,7 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 </script>
 
 <script src="js/tres-celulares.js" defer></script>
+<script src="js/como-trabalhamos.js" defer></script>
 <script src="js/cerebro-gl.js" defer></script>
 <script src="js/cerebro-3d.js" defer></script>
 </body>
