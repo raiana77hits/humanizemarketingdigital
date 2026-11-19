@@ -388,18 +388,20 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 /* ============================================================
    ESTRATÉGIA — texto "Estar no digital é obrigação…"
    ============================================================ */
-.tw-rest{color:transparent}
-.tw-cursor{display:inline-block;width:2px;height:1.05em;margin-left:2px;vertical-align:-.15em;background:#22c5ff;box-shadow:0 0 8px #22c5ff;animation:twBlink .8s steps(1) infinite}
-@keyframes twBlink{50%{opacity:0}}
 
-/* ---- Seção Estratégia — arte neon de fundo (retrato com halo), título serifado e texto à direita ---- */
+/* ---- Seção Estratégia — arte neon de fundo, título serifado e texto à direita ----
+   O véu escuro (::before) é mais forte sob os textos e quase transparente sobre a escultura. */
 #estrategia{
   position:relative;overflow:hidden;display:flex;align-items:center;
-  min-height:clamp(540px,50vw,880px);padding-block:clamp(56px,6vw,96px);
-  background:#020a2e url(img/estrategia-arte.webp) center/cover no-repeat;color:#eaf0ff;
+  min-height:clamp(560px,50vw,880px);padding-block:clamp(56px,6vw,96px);
+  background:#02071e url(img/estrategia-arte.webp) center 28%/cover no-repeat;color:#fff;
 }
-#estrategia::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:linear-gradient(90deg,rgba(2,8,36,.9) 0%,rgba(2,8,36,.72) 32%,rgba(2,8,36,.28) 52%,rgba(2,8,36,0) 66%)}
+#estrategia::before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(2,7,30,.94) 0%,rgba(2,7,30,.8) 28%,rgba(2,7,30,.2) 46%,rgba(2,7,30,.18) 54%,rgba(2,7,30,.8) 64%,rgba(2,7,30,.92) 100%),
+    linear-gradient(180deg,rgba(2,7,30,.4) 0%,rgba(2,7,30,0) 28%,rgba(2,7,30,0) 62%,rgba(2,7,30,.55) 100%);
+}
 .est-wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.8fr);column-gap:clamp(28px,5vw,84px);align-items:center;max-width:1240px;margin-inline:auto;width:min(1240px,calc(100% - var(--gutter)*2))}
 .est-label{display:flex;align-items:center;gap:16px;margin:0 0 clamp(18px,2.4vw,34px);
   font-family:Manrope,sans-serif;font-weight:700;font-size:clamp(.74rem,1vw,.92rem);letter-spacing:.14em;text-transform:uppercase;color:#fff}
@@ -407,21 +409,22 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 .est-title{
   margin:0;font-family:"Playfair Display",Georgia,"Times New Roman",serif;font-weight:700;
   font-size:clamp(2rem,3.7vw,3.9rem);line-height:1.06;letter-spacing:-.015em;color:#fff;
-  text-shadow:0 2px 20px rgba(2,8,36,.95),0 0 2px rgba(2,8,36,.6);
+  text-shadow:0 2px 20px rgba(2,7,30,.95),0 0 2px rgba(2,7,30,.6);
 }
-.est-title em{font-style:italic;font-weight:600;color:#7fe3ff;text-shadow:0 2px 18px rgba(2,8,36,.9),0 0 24px rgba(34,197,255,.4)}
-.estrategia-texto{position:relative;padding-left:clamp(22px,2.6vw,36px)}
+.est-title em{font-style:italic;font-weight:600;color:#7fe3ff;text-shadow:0 2px 18px rgba(2,7,30,.9),0 0 24px rgba(34,197,255,.4)}
+.estrategia-texto{position:relative;padding-left:clamp(22px,2.6vw,36px);max-width:34em}
 .estrategia-texto::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;border-radius:2px;
   background:linear-gradient(180deg,rgba(34,197,255,.1),#22c5ff 35%,#7b5cff 80%,rgba(177,61,255,.1));box-shadow:0 0 10px rgba(34,197,255,.55)}
 .estrategia-texto::after{content:"";position:absolute;left:-3px;top:46%;width:8px;height:8px;border-radius:50%;background:#e6c6ff;box-shadow:0 0 14px 4px rgba(190,110,255,.9)}
-.estrategia-texto p{font-size:clamp(1rem,1.35vw,1.3rem);line-height:1.5;letter-spacing:0;color:#eaf0ff;margin:0 0 1.1em}
+.estrategia-texto p{font-size:1.125rem;line-height:1.65;letter-spacing:0;color:#fff;margin:0 0 1.3em}
 .estrategia-texto p:last-child{margin-bottom:0}
 .estrategia-texto strong{color:#fff;font-weight:700}
 @media (max-width:860px){
-  #estrategia{min-height:0;align-items:flex-start;
-    background:linear-gradient(rgba(2,10,46,.66),rgba(2,10,46,.78)),#020a2e url(img/estrategia-arte.webp) 30% center/cover no-repeat}
+  #estrategia{min-height:0;align-items:flex-start;padding-top:clamp(150px,44vw,200px);background-size:220% auto;background-position:43% 0}
+  #estrategia::before{background:linear-gradient(180deg,rgba(2,7,30,.1) 0%,rgba(2,7,30,.3) 22%,rgba(2,7,30,.82) 36%,rgba(2,7,30,.93) 55%,rgba(2,7,30,.97) 100%)}
   .est-wrap{grid-template-columns:1fr;row-gap:30px}
   .est-title{font-size:clamp(2.1rem,9vw,3rem)}
+  .estrategia-texto p{font-size:1rem}
 }
 
 .pullquote{
@@ -864,7 +867,6 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   .brandbar{padding-block:26px}
   .brandbar-label{margin-bottom:18px}
 
-  .estrategia-texto p{font-size:1.02rem;line-height:1.45}
   .pullquote{padding:20px;font-size:.97rem}
 
   /* Carrosséis: 1 cartão por vez + prévia do próximo */
@@ -1648,39 +1650,6 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
       hero.classList.toggle('is-offscreen', !entries[0].isIntersecting);
     }).observe(hero);
   }
-
-  /* ---------- Estratégia: texto digitado ao entrar na tela ---------- */
-  (function () {
-    var box = document.querySelector('.estrategia-texto');
-    if (!box || reduced || !('IntersectionObserver' in window)) return;
-    var ps = Array.prototype.slice.call(box.querySelectorAll('p'));
-    var data = ps.map(function (p) {
-      var full = p.textContent.trim();
-      var orig = p.innerHTML;
-      p.setAttribute('aria-label', full);
-      p.innerHTML = '<span aria-hidden="true"><span class="tw-done"></span><span class="tw-rest">' + full.replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</span></span>';
-      return { p: p, orig: orig, done: p.querySelector('.tw-done'), rest: p.querySelector('.tw-rest'), full: full };
-    });
-    var cursor = document.createElement('span');
-    cursor.className = 'tw-cursor'; cursor.setAttribute('aria-hidden', 'true');
-    var started = false;
-    function type(i) {
-      if (i >= data.length) { cursor.remove(); return; }
-      var d = data[i], n = 0;
-      d.done.appendChild(cursor);
-      var tick = function () {
-        n += 1;
-        d.done.textContent = d.full.slice(0, n);
-        d.rest.textContent = d.full.slice(n);
-        d.done.appendChild(cursor);
-        if (n < d.full.length) { setTimeout(tick, 22); } else { setTimeout(function () { d.p.innerHTML = d.orig; d.p.removeAttribute('aria-label'); type(i + 1); }, 380); }
-      };
-      tick();
-    }
-    new IntersectionObserver(function (entries, obs) {
-      if (entries[0].isIntersecting && !started) { started = true; obs.disconnect(); type(0); }
-    }, { threshold: 0.35 }).observe(box);
-  })();
 
   /* ---------- Carrosséis do celular: indicadores ---------- */
   document.querySelectorAll('[data-carousel]').forEach(function (track) {
