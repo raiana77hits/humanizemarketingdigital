@@ -790,6 +790,10 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   .menu-toggle{display:flex}
   .nav-cta .btn{display:none}
 }
+.tp-cta .tp-cta-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.tp-cta .btn--back{background:transparent;color:var(--tp-navy);border:1.5px solid rgba(8,15,45,.28);box-shadow:none;font-size:.9rem;letter-spacing:.06em;font-weight:600}
+.tp-cta .btn--back:hover{background:var(--tp-navy);color:#fff;border-color:var(--tp-navy);transform:translateY(-2px)}
+@media (max-width:560px){.tp-cta .tp-cta-btns{flex-direction:column;align-items:stretch}.tp-cta .tp-cta-btns .btn{justify-content:center;text-align:center}}
 </style>
 </head>
 <body>
@@ -888,7 +892,10 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
     <div class="tp-wrap reveal">
       <h2 id="tp-cta-t">Seu próximo cliente pode estar procurando por você agora.</h2>
       <p>Vamos criar uma estratégia para colocar sua empresa no caminho das oportunidades certas?</p>
-      <a class="btn btn--primary" href="https://wa.me/5511914894352?text=Ol%C3%A1!%20Quero%20atrair%20mais%20clientes%20com%20tr%C3%A1fego%20pago." target="_blank" rel="noopener">QUERO ATRAIR MAIS CLIENTES</a>
+      <div class="tp-cta-btns">
+        <a class="btn btn--primary" href="https://wa.me/5511914894352?text=Ol%C3%A1!%20Quero%20atrair%20mais%20clientes%20com%20tr%C3%A1fego%20pago." target="_blank" rel="noopener">QUERO ATRAIR MAIS CLIENTES</a>
+        <a class="btn btn--back" href="index.html#servicos">Outros serviços</a>
+      </div>
     </div>
   </section>
 

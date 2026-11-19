@@ -853,6 +853,10 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   .seo-caret,.sg-parts circle{animation:none}
   .seo-results li{opacity:1;transform:none;transition:none}
 }
+.tp-cta .tp-cta-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.tp-cta .btn--back{background:transparent;color:var(--tp-navy);border:1.5px solid rgba(8,15,45,.28);box-shadow:none;font-size:.9rem;letter-spacing:.06em;font-weight:600}
+.tp-cta .btn--back:hover{background:var(--tp-navy);color:#fff;border-color:var(--tp-navy);transform:translateY(-2px)}
+@media (max-width:560px){.tp-cta .tp-cta-btns{flex-direction:column;align-items:stretch}.tp-cta .tp-cta-btns .btn{justify-content:center;text-align:center}}
 </style>
 </head>
 <body>
@@ -1048,7 +1052,10 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
     <div class="tp-wrap reveal">
       <h2 id="seo-cta-t">Se seus clientes estão procurando, sua empresa precisa estar preparada para <em>ser encontrada.</em></h2>
       <p>Vamos desenvolver uma <span class="seo-hl">estratégia</span> de SEO para ampliar a presença digital do seu negócio e criar novas oportunidades?</p>
-      <a class="btn btn--primary" href="https://wa.me/5511914894352?text=Ol%C3%A1!%20Conheci%20a%20Humanize%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20servi%C3%A7o%20de%20SEO%20Google." target="_blank" rel="noopener">QUERO SER ENCONTRADO NO GOOGLE</a>
+      <div class="tp-cta-btns">
+        <a class="btn btn--primary" href="https://wa.me/5511914894352?text=Ol%C3%A1!%20Conheci%20a%20Humanize%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20servi%C3%A7o%20de%20SEO%20Google." target="_blank" rel="noopener">QUERO SER ENCONTRADO NO GOOGLE</a>
+        <a class="btn btn--back" href="index.html#servicos">Outros serviços</a>
+      </div>
     </div>
   </section>
 

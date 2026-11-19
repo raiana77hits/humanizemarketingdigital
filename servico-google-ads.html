@@ -841,6 +841,10 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 .seo-cta{padding-block:clamp(72px,9vw,128px)}
 .seo-cta h2{font-size:clamp(1.9rem,3.8vw,3.2rem);max-width:24ch}
 @media (max-width:900px){.seo-cta h2{font-size:clamp(1.8rem,7.4vw,2.2rem)}}
+.tp-cta .tp-cta-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.tp-cta .btn--back{background:transparent;color:var(--tp-navy);border:1.5px solid rgba(8,15,45,.28);box-shadow:none;font-size:.9rem;letter-spacing:.06em;font-weight:600}
+.tp-cta .btn--back:hover{background:var(--tp-navy);color:#fff;border-color:var(--tp-navy);transform:translateY(-2px)}
+@media (max-width:560px){.tp-cta .tp-cta-btns{flex-direction:column;align-items:stretch}.tp-cta .tp-cta-btns .btn{justify-content:center;text-align:center}}
 </style>
 </head>
 <body>
@@ -973,7 +977,10 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
     <div class="tp-wrap reveal">
       <h2 id="ga-cta-t">Se alguém está procurando o que você oferece, por que não <em>apresentar sua empresa?</em></h2>
       <p>Vamos desenvolver uma <span class="seo-hl">estratégia</span> de Google Ads para conectar seu negócio a novas oportunidades.</p>
-      <a class="btn btn--primary" href="https://wa.me/5511914894352?text=Ol%C3%A1!%20Conheci%20a%20Humanize%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20servi%C3%A7o%20de%20Google%20Ads." target="_blank" rel="noopener">QUERO ANUNCIAR NO GOOGLE</a>
+      <div class="tp-cta-btns">
+        <a class="btn btn--primary" href="https://wa.me/5511914894352?text=Ol%C3%A1!%20Conheci%20a%20Humanize%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20servi%C3%A7o%20de%20Google%20Ads." target="_blank" rel="noopener">QUERO ANUNCIAR NO GOOGLE</a>
+        <a class="btn btn--back" href="index.html#servicos">Outros serviços</a>
+      </div>
     </div>
   </section>
 
