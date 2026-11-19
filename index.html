@@ -391,10 +391,13 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 .section-head--center{margin-inline:auto;text-align:center;max-width:900px}
 .destaque-serif{text-transform:uppercase;font-family:"Fraunces",Georgia,"Times New Roman",serif;font-style:italic;font-weight:600;letter-spacing:-.02em;color:#3d86ff;font-size:1.08em;padding:0;margin-right:-.06em}
 .estrategia-texto{max-width:760px;margin-inline:auto}
-.estrategia-texto p{font-size:clamp(1.02rem,1.35vw,1.14rem);line-height:1.55;letter-spacing:-.012em;color:var(--text-soft);margin-bottom:1em}
+.estrategia-texto p{font-size:clamp(1.2rem,1.85vw,1.55rem);line-height:1.8;letter-spacing:0;word-spacing:.04em;color:var(--text-soft);margin-bottom:1.1em}
+.tw-rest{color:transparent}
+.tw-cursor{display:inline-block;width:2px;height:1.05em;margin-left:2px;vertical-align:-.15em;background:#3d86ff;animation:twBlink .8s steps(1) infinite}
+@keyframes twBlink{50%{opacity:0}}
 
 /* ---- Cubo 3D lilás neon (seção Estratégia) — CSS puro, só transform/opacity animam ---- */
-.estrategia-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:center;max-width:1100px;margin-inline:auto}
+.estrategia-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,4vw,64px);align-items:center;max-width:1240px;margin-inline:auto}
 .estrategia-grid .estrategia-texto{max-width:none;margin:0}
 .estrategia-cubo{
   --cube:210px;--ln:192,107,255;
@@ -906,7 +909,7 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   .brandbar{padding-block:26px}
   .brandbar-label{margin-bottom:18px}
 
-  .estrategia-texto p{font-size:.98rem;line-height:1.5}
+  .estrategia-texto p{font-size:1.1rem;line-height:1.7}
   .pullquote{padding:20px;font-size:.97rem}
 
   /* Carrosséis: 1 cartão por vez + prévia do próximo */
@@ -1706,6 +1709,38 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
       hero.classList.toggle('is-offscreen', !entries[0].isIntersecting);
     }).observe(hero);
   }
+
+  /* ---------- Estratégia: texto digitado ao entrar na tela ---------- */
+  (function () {
+    var box = document.querySelector('.estrategia-texto');
+    if (!box || reduced || !('IntersectionObserver' in window)) return;
+    var ps = Array.prototype.slice.call(box.querySelectorAll('p'));
+    var data = ps.map(function (p) {
+      var full = p.textContent.trim();
+      p.setAttribute('aria-label', full);
+      p.innerHTML = '<span aria-hidden="true"><span class="tw-done"></span><span class="tw-rest">' + full.replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</span></span>';
+      return { done: p.querySelector('.tw-done'), rest: p.querySelector('.tw-rest'), full: full };
+    });
+    var cursor = document.createElement('span');
+    cursor.className = 'tw-cursor'; cursor.setAttribute('aria-hidden', 'true');
+    var started = false;
+    function type(i) {
+      if (i >= data.length) { cursor.remove(); return; }
+      var d = data[i], n = 0;
+      d.done.appendChild(cursor);
+      var tick = function () {
+        n += 1;
+        d.done.textContent = d.full.slice(0, n);
+        d.rest.textContent = d.full.slice(n);
+        d.done.appendChild(cursor);
+        if (n < d.full.length) { setTimeout(tick, 22); } else { setTimeout(function () { type(i + 1); }, 380); }
+      };
+      tick();
+    }
+    new IntersectionObserver(function (entries, obs) {
+      if (entries[0].isIntersecting && !started) { started = true; obs.disconnect(); type(0); }
+    }, { threshold: 0.35 }).observe(box);
+  })();
 
   /* ---------- Carrosséis do celular: indicadores ---------- */
   document.querySelectorAll('[data-carousel]').forEach(function (track) {
