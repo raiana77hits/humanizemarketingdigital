@@ -22,7 +22,7 @@
     '<div class="cs-btns">'+
     '<button type="button" class="cs-btn cs-prev" aria-label="Case anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>'+
     '<button type="button" class="cs-btn cs-next" aria-label="Próximo case"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>';
-  book.parentNode.insertBefore(nav,book.nextSibling);
+  book.appendChild(nav); /* a navegação fica dentro do case, no espaço livre ao lado do botão */
   var shade=document.createElement('div'); shade.className='cs-shade'; shade.setAttribute('aria-hidden','true'); book.appendChild(shade);
   var count=nav.querySelector('b'),prev=nav.querySelector('.cs-prev'),next=nav.querySelector('.cs-next');
 
