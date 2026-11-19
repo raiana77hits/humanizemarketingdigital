@@ -1,0 +1,128 @@
+/* ==========================================================================
+   SEÇÃO CASES — portfólio editorial, um case por vez com virada de página
+   O conteúdo (textos, resultados, logotipos, links) continua no HTML original de index.html;
+   este arquivo só muda a apresentação. Comportamento: js/cases-editorial.js
+   Cores: azul #075FFF · marinho #080F2D · bege #F7F3EB · texto #47516A · linhas #DDE1E8 (sem roxo).
+   ========================================================================== */
+#cases.cs-sec{
+  --cs-blue:#075fff;--cs-navy:#080f2d;--cs-bg:#f7f3eb;--cs-soft:#47516a;--cs-line:#dde1e8;--cs-ease:cubic-bezier(.22,.7,.2,1);
+  background:var(--cs-bg);color:var(--cs-soft);overflow-x:clip;
+  min-height:100svh;display:flex;align-items:center;
+  padding-top:clamp(66px,10svh,100px);padding-bottom:clamp(8px,2svh,40px);
+}
+#cases.cs-sec *,#cases.cs-sec *::before,#cases.cs-sec *::after{box-sizing:border-box}
+#cases .wrap{width:min(1240px,calc(100% - clamp(32px,6vw,80px)))}
+
+/* ---------- abertura ---------- */
+#cases .section-head{max-width:none;margin:0 0 clamp(10px,2.2svh,30px);padding-bottom:clamp(8px,2svh,24px);border-bottom:1px solid var(--cs-line);
+  display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);column-gap:clamp(32px,6vw,84px);align-items:end}
+#cases .section-head .eyebrow{grid-column:1;grid-row:1;margin:0 0 clamp(8px,1.6svh,16px);color:var(--cs-blue);font:700 .72rem/1 "DM Sans",sans-serif;letter-spacing:.2em}
+#cases .section-head .eyebrow::before{background:var(--cs-blue);opacity:1;width:28px}
+#cases .section-head .h-section{grid-column:1;grid-row:2/4;align-self:end;margin:0;font-family:"Fraunces","Playfair Display",Georgia,serif;font-weight:500;letter-spacing:-.03em;line-height:1.05;
+  font-size:clamp(1.8rem,min(4vw,6.6svh),3.6rem);color:var(--cs-navy)}
+#cases .section-head .lead{grid-column:2;margin:0;max-width:46em;font-family:"DM Sans",system-ui,sans-serif;font-size:clamp(.82rem,min(1.1vw,2.1svh),1rem);line-height:1.5;color:var(--cs-soft)}
+#cases .section-head .lead:nth-of-type(1){grid-row:2;align-self:end}
+#cases .section-head .lead:nth-of-type(2){grid-row:3;align-self:start;margin-top:clamp(6px,1.4svh,12px) !important}
+
+/* ---------- livro ---------- */
+#cases .cases{position:relative;display:grid;gap:0;perspective:2000px;isolation:isolate}
+#cases .case{
+  grid-area:1/1;position:relative;overflow:hidden;gap:0;
+  display:grid;grid-template-columns:45% minmax(0,1fr);grid-template-rows:auto auto auto auto auto;align-content:center;align-items:start;
+  padding:clamp(10px,2.2svh,40px) clamp(22px,3.4vw,52px) clamp(10px,2.2svh,40px) 0;
+  min-height:clamp(280px,calc(100svh - 325px),600px);
+  background:#fff;border:1px solid var(--cs-line);border-radius:18px;
+  box-shadow:0 36px 60px -44px rgba(8,15,45,.35),0 2px 6px rgba(8,15,45,.05);
+  transform-origin:0 50%;backface-visibility:hidden;will-change:auto;
+  visibility:hidden;pointer-events:none;
+}
+#cases .case.is-current{visibility:visible;pointer-events:auto}
+#cases .case.is-turning{visibility:visible;will-change:transform,opacity}
+#cases .case:hover{transform:none;border-color:var(--cs-line);box-shadow:0 36px 60px -44px rgba(8,15,45,.35),0 2px 6px rgba(8,15,45,.05)}
+
+/* painel visual (lado esquerdo) */
+#cases .case::before{content:"";position:absolute;inset:0 auto 0 0;width:45%;height:auto;background:var(--cs-navy);border-radius:0}
+#cases .case::after{content:"";position:absolute;left:22.5%;top:50%;width:min(78%,calc(45% * 1.5));aspect-ratio:1;max-width:420px;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,transparent 57%,rgba(255,255,255,.09) 57.4%,transparent 58.2%,transparent 74%,rgba(255,255,255,.06) 74.4%,transparent 75.2%)}
+#cases .case > div:first-child,#cases .case-head{display:contents}
+#cases .case-logo{grid-column:1;grid-row:1/6;align-self:center;justify-self:center;position:relative;z-index:1;
+  width:clamp(110px,min(14vw,31svh),230px);height:auto;aspect-ratio:1;border-radius:50%;background:#fff;border:0;
+  box-shadow:0 0 0 clamp(5px,.7vw,9px) rgba(255,255,255,.1),0 26px 40px -22px rgba(0,0,0,.6)}
+/* coluna de informações */
+#cases .case-head > div{grid-column:2;grid-row:1;padding-left:clamp(26px,4vw,60px)}
+#cases .case h3,#cases .case p,#cases .case-figures,#cases .link-more{grid-column:2;margin-left:clamp(26px,4vw,60px)}
+#cases .case-client{display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 10px;border:1px solid var(--cs-line);border-radius:999px;
+  font:700 .7rem/1 "DM Sans",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--cs-navy)}
+#cases .case-client::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--cs-blue)}
+#cases .case-services{display:block;margin-top:clamp(7px,1.3svh,12px);font:500 clamp(.76rem,1.5svh,.86rem)/1.4 "DM Sans",sans-serif;letter-spacing:.02em;color:var(--cs-soft)}
+#cases .case h3{grid-row:2;margin-top:clamp(8px,1.8svh,24px);margin-bottom:0;font-family:"Fraunces","Playfair Display",Georgia,serif;font-weight:500;letter-spacing:-.022em;
+  font-size:clamp(1.2rem,min(2.6vw,4svh),2.3rem);line-height:1.12;color:var(--cs-navy);text-wrap:balance}
+#cases .case p{grid-row:3;margin-top:clamp(8px,1.8svh,18px);margin-bottom:0;max-width:34em;font:400 clamp(.86rem,min(1.15vw,2.3svh),1.04rem)/1.55 "DM Sans",sans-serif;color:var(--cs-soft)}
+
+/* resultados */
+#cases .case-figures{grid-row:4;display:flex;flex-wrap:wrap;gap:clamp(10px,1.6svh,16px) clamp(24px,3.6vw,52px);margin-top:clamp(8px,2svh,28px);margin-bottom:0;padding:clamp(8px,1.6svh,20px) 0 0;
+  background:none;border:0;border-top:1px solid var(--cs-line);border-radius:0}
+#cases .figure{min-width:0}
+#cases .figure small{display:flex;align-items:center;gap:7px;margin:0 0 clamp(3px,.8svh,8px);font:700 .66rem/1 "DM Sans",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--cs-soft)}
+#cases .figure small::before{background:var(--cs-blue)}
+#cases .figure b{font-family:"Fraunces","Playfair Display",Georgia,serif;font-weight:500;letter-spacing:-.03em;color:var(--cs-navy);font-size:clamp(1.4rem,min(3.4vw,5.4svh),3.2rem);line-height:1}
+#cases .figure .num{background:none;padding:0;margin:0;color:var(--cs-blue)}
+#cases .figure b .unit{display:block;margin-top:clamp(4px,.9svh,8px);max-width:15em;font:500 clamp(.78rem,1.6svh,.9rem)/1.3 "DM Sans",sans-serif;letter-spacing:0;color:var(--cs-soft)}
+#cases .figure--text{max-width:15em}
+#cases .figure--text b{font-size:clamp(1rem,min(1.6vw,3.2svh),1.35rem);line-height:1.25;color:var(--cs-navy);letter-spacing:-.015em}
+
+/* botão */
+#cases .link-more{grid-row:5;justify-self:start;margin-top:clamp(8px,2svh,26px);margin-bottom:0;display:inline-flex;align-items:center;gap:12px;padding:clamp(8px,1.3svh,13px) 20px;border-radius:999px;
+  background:var(--cs-navy);color:#fff;font:700 .86rem/1 "DM Sans",sans-serif;letter-spacing:.02em;text-decoration:none;
+  transition:background .3s ease,transform .3s var(--cs-ease)}
+#cases .link-more span.label{border:0;padding:0}
+#cases .link-more:hover{background:var(--cs-blue);color:#fff;transform:translateY(-1px)}
+#cases .link-more:hover .arrow{transform:translateX(5px)}
+#cases .link-more:focus-visible,#cases .cs-btn:focus-visible{outline:2px solid var(--cs-blue);outline-offset:3px}
+
+/* sombra da dobra durante a virada */
+#cases .cs-shade{position:absolute;inset:0;z-index:5;pointer-events:none;border-radius:18px;opacity:0;background:linear-gradient(90deg,rgba(8,15,45,.34),rgba(8,15,45,.08) 38%,transparent 70%)}
+
+/* navegação: número da página + setas */
+#cases .cs-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:clamp(8px,1.6svh,20px);padding-top:clamp(6px,1.2svh,14px);border-top:1px solid var(--cs-line)}
+#cases .cs-count{font:600 .92rem/1 "DM Sans",sans-serif;letter-spacing:.14em;color:var(--cs-soft)}
+#cases .cs-count b{font:500 clamp(1.3rem,3svh,1.7rem)/1 "Fraunces","Playfair Display",Georgia,serif;letter-spacing:0;color:var(--cs-blue)}
+#cases .cs-btns{display:flex;gap:10px}
+#cases .cs-btn{appearance:none;display:grid;place-items:center;width:clamp(42px,6svh,48px);height:clamp(42px,6svh,48px);padding:0;border:1px solid var(--cs-line);border-radius:50%;background:#fff;color:var(--cs-navy);cursor:pointer;transition:background .3s,color .3s,border-color .3s,opacity .3s}
+#cases .cs-btn svg{width:20px;height:20px}
+#cases .cs-btn:hover:not(:disabled){background:var(--cs-navy);border-color:var(--cs-navy);color:#fff}
+#cases .cs-btn:disabled{opacity:.35;cursor:default}
+
+/* ---------- tablet ---------- */
+@media (max-width:960px){
+  #cases.cs-sec{min-height:0;display:block;padding-top:clamp(56px,9vw,84px);padding-bottom:clamp(48px,8vw,72px)}
+  #cases .section-head{grid-template-columns:minmax(0,1fr);row-gap:14px}
+  #cases .section-head .lead,#cases .section-head .h-section,#cases .section-head .eyebrow{grid-column:1;grid-row:auto !important;margin-top:0}
+  #cases .section-head .lead:nth-of-type(2){margin-top:4px !important}
+  #cases .section-head .h-section{font-size:clamp(2rem,6vw,2.8rem)}
+  #cases .case{min-height:0;grid-template-columns:40% minmax(0,1fr)}
+  #cases .case::before{width:40%}
+  #cases .case::after{left:20%}
+  #cases .case h3{font-size:clamp(1.3rem,3.4vw,1.8rem)}
+  #cases .case p{font-size:.95rem}
+}
+/* ---------- mobile: um case por vez, imagem em cima ---------- */
+@media (max-width:700px){
+  #cases .cases{perspective:none}
+  #cases .case{grid-template-columns:minmax(0,1fr);grid-template-rows:clamp(120px,34vw,170px) auto auto auto auto auto;align-content:start;padding:0 0 22px;border-radius:16px}
+  #cases .case::before{inset:0 0 auto 0;width:auto;height:clamp(120px,34vw,170px)}
+  #cases .case::after{left:50%;top:calc(clamp(120px,34vw,170px)/2);width:clamp(180px,52vw,260px)}
+  #cases .case-logo{grid-column:1;grid-row:1;width:clamp(84px,24vw,112px)}
+  #cases .case-head > div{grid-column:1;grid-row:2;padding:20px 20px 0}
+  #cases .case h3,#cases .case p,#cases .case-figures,#cases .link-more{grid-column:1;margin-left:20px;margin-right:20px}
+  #cases .case h3{grid-row:3;margin-top:14px;font-size:clamp(1.4rem,6vw,1.75rem)}
+  #cases .case p{grid-row:4;margin-top:10px;font-size:.96rem}
+  #cases .case-figures{grid-row:5;margin-top:18px}
+  #cases .link-more{grid-row:6;margin-top:20px}
+  #cases .figure b{font-size:clamp(1.8rem,9vw,2.4rem)}
+  #cases .figure--text b{font-size:1.1rem}
+  #cases .cs-shade{border-radius:16px}
+}
+@media (prefers-reduced-motion:reduce){
+  #cases .link-more,#cases .cs-btn{transition:none}
+}
