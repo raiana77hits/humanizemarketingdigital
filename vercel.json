@@ -1,11 +1,34 @@
 {
   "redirects": [
-    { "source": "/seo-google", "destination": "/google", "permanent": true },
-    { "source": "/google-ads", "destination": "/google", "permanent": true },
-    { "source": "/servico-seo-google.html", "destination": "/google", "permanent": true },
-    { "source": "/servico-google-ads.html", "destination": "/google", "permanent": true }
+    {
+      "source": "/seo-google",
+      "destination": "/google",
+      "permanent": true
+    },
+    {
+      "source": "/google-ads",
+      "destination": "/google",
+      "permanent": true
+    },
+    {
+      "source": "/servico-seo-google.html",
+      "destination": "/google",
+      "permanent": true
+    },
+    {
+      "source": "/servico-google-ads.html",
+      "destination": "/google",
+      "permanent": true
+    }
   ],
   "rewrites": [
-    { "source": "/google", "destination": "/servico-google.html" }
+    {
+      "source": "/google",
+      "destination": "/servico-google.html"
+    },
+    {
+      "source": "/criacao-de-sites-e-landing-pages",
+      "destination": "/servico-sites-e-landing-pages.html"
+    }
   ]
 }
