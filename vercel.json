@@ -29,6 +29,10 @@
     {
       "source": "/criacao-de-sites-e-landing-pages",
       "destination": "/servico-sites-e-landing-pages.html"
+    },
+    {
+      "source": "/cardapio-digital",
+      "destination": "/servico-cardapio-digital.html"
     }
   ]
 }
