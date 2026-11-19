@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SEO Google | Estratégias de Otimização — Humanize Marketing Digital</title>
-  <meta name="description" content="Amplie a presença digital da sua empresa com estratégias de SEO. Conheça o trabalho da Humanize para melhorar sua visibilidade nas buscas do Google." />
+  <title>Google para Empresas | Estratégias Digitais — Humanize Marketing Digital</title>
+  <meta name="description" content="Conheça as estratégias e ferramentas do Google para empresas. SEO, Google Ads, Perfil da Empresa, Analytics e outras soluções com a Humanize." />
   <meta name="theme-color" content="#030914" />
-  <link rel="canonical" href="https://humanizemarketingdigital-indol.vercel.app/servico-seo-google.html" />
+  <link rel="canonical" href="https://humanizemarketingdigital-indol.vercel.app/google" />
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png" />
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="SEO Google | Estratégias de Otimização — Humanize Marketing Digital" />
-  <meta property="og:description" content="Amplie a presença digital da sua empresa com estratégias de SEO. Conheça o trabalho da Humanize para melhorar sua visibilidade nas buscas do Google." />
+  <meta property="og:title" content="Google para Empresas | Estratégias Digitais — Humanize Marketing Digital" />
+  <meta property="og:description" content="Conheça as estratégias e ferramentas do Google para empresas. SEO, Google Ads, Perfil da Empresa, Analytics e outras soluções com a Humanize." />
   <meta property="og:image" content="https://humanize-marketing-digital-agencia.vercel.app/img/og-humanize.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -759,104 +759,182 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   .menu-toggle{display:flex}
   .nav-cta .btn{display:none}
 }
-/* ===== SEO Google ===== */
-.seo-hl{font-size:1.07em;font-family:"Playfair Display",Georgia,serif;font-style:italic;color:var(--tp-blue);font-weight:500}
-.tp-dark .seo-hl{color:#7fb0ff}
-.seo-s1{padding-top:clamp(100px,8.6vw,120px);padding-bottom:clamp(40px,4.6vw,76px)}
-.seo-grid1{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(32px,5.5vw,88px);align-items:center}
-.seo-s1 h1{font-size:clamp(2.3rem,4.1vw,4.4rem);line-height:1.06}
-.seo-s1 .tp-eyebrow{margin-bottom:clamp(16px,2vw,26px)}
-.seo-right .tp-copy p{font-size:clamp(1rem,1.25vw,1.1875rem);line-height:1.6;margin-bottom:.95em}
-.seo-phrase{margin:clamp(20px,2.4vw,32px) 0 0;padding-top:clamp(18px,2vw,26px);border-top:1px solid var(--tp-line);font:500 clamp(1.3rem,2.1vw,1.85rem)/1.25 "Fraunces","Playfair Display",Georgia,serif!important;letter-spacing:-.02em;color:var(--tp-navy)}
-.seo-phrase em{font-family:"Playfair Display",Georgia,serif;font-style:italic;color:var(--tp-blue)}
+/* ===== Google Ads ===== */
+.ga-s1{padding-top:clamp(100px,8.6vw,120px);padding-bottom:clamp(40px,4.6vw,76px)}
+.ga-grid1{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5.5vw,88px);align-items:center}
+.ga-s1 h1{font-size:clamp(2.3rem,4.4vw,4.5rem);line-height:1.05}
+.ga-s1 .tp-eyebrow{margin-bottom:clamp(16px,2vw,26px)}
+.ga-phrase{margin:clamp(24px,3vw,40px) 0 0;padding-left:20px;border-left:2px solid var(--tp-purple);font:500 clamp(1.25rem,2vw,1.75rem)/1.28 "Fraunces","Playfair Display",Georgia,serif!important;letter-spacing:-.02em;color:var(--tp-navy);max-width:24em}
+.ga-phrase em{font-family:"Playfair Display",Georgia,serif;font-style:italic;color:var(--tp-blue)}
+.ga-right .tp-copy p{font-size:clamp(1rem,1.2vw,1.125rem);line-height:1.58;margin-bottom:.8em}
+.ga-search{margin-bottom:clamp(18px,2vw,26px)}
+.ga-bar{display:flex;align-items:center;gap:12px;height:52px;padding:0 20px;border-radius:999px;background:#fff;color:var(--tp-blue);border:1.5px solid rgba(7,95,255,.3);box-shadow:0 12px 34px -14px rgba(7,95,255,.4);font:500 .98rem/1 "DM Sans",sans-serif;color:var(--tp-navy)}
+.ga-bar svg{color:var(--tp-blue);flex:0 0 auto}
+.ga-bar span{white-space:nowrap;overflow:hidden;min-width:0}
+.ga-caret{width:2px;height:20px;margin-left:-6px;background:var(--tp-blue);animation:seoCaret 1.05s steps(1) infinite}
+.ga-ad{position:relative;margin-top:10px;padding:14px 18px 15px;border-radius:16px;background:#fff;border:1px solid var(--tp-line);opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s,box-shadow .6s,border-color .6s}
+.ga-ad.on{opacity:1;transform:none;border-color:rgba(7,95,255,.5);box-shadow:0 0 0 4px rgba(7,95,255,.08),0 18px 40px -20px rgba(7,95,255,.5)}
+.ga-adtop{display:flex;align-items:center;gap:10px}
+.ga-tag{font:700 .66rem/1 "DM Sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:5px;background:var(--tp-navy);color:#fff}
+.ga-adtop small{font:400 .76rem/1 "DM Sans",sans-serif;color:var(--tp-soft)}
+.ga-ad b{display:block;margin-top:8px;font:600 1rem/1.3 "DM Sans",sans-serif;color:var(--tp-blue)}
+.ga-ad p{margin:3px 0 0!important;font-size:.88rem!important;line-height:1.4!important;color:var(--tp-soft)}
+.ga-note{margin:8px 4px 0;font:500 .68rem/1.2 "DM Sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#8a93a8}
 
-/* barra de pesquisa ilustrativa */
-.seo-search{margin-top:clamp(22px,2.4vw,32px);max-width:600px}
-.seo-bar{display:flex;align-items:center;gap:12px;height:56px;padding:0 22px;border-radius:999px;background:#fff;color:var(--tp-blue);border:1.5px solid rgba(7,95,255,.35);box-shadow:0 14px 40px -14px rgba(7,95,255,.45),0 0 0 6px rgba(7,95,255,.06);font:500 1rem/1 "DM Sans",sans-serif}
-.seo-bar svg{flex:0 0 auto}
-.seo-typed{color:var(--tp-navy);white-space:nowrap;overflow:hidden;text-overflow:clip;min-width:0}
-.seo-typed b{font-weight:500;color:var(--tp-blue)}
-.seo-caret{flex:0 0 auto;width:2px;height:22px;margin-left:-8px;background:var(--tp-blue);animation:seoCaret 1.05s steps(1) infinite}
-@keyframes seoCaret{50%{opacity:0}}
-.seo-results{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
-.seo-results li{display:flex;gap:12px;align-items:flex-start;padding:9px 16px;border-radius:14px;background:rgba(255,255,255,.7);border:1px solid var(--tp-line);opacity:0;transform:translateY(8px);transition:opacity .45s,transform .45s}
-.seo-results li.on{opacity:1;transform:none}
-.seo-results li:first-child{border-left:3px solid var(--tp-blue)}
-.seo-fav{flex:0 0 auto;width:22px;height:22px;margin-top:2px;border-radius:50%;background:linear-gradient(135deg,var(--tp-blue),#7b5cff)}
-.seo-results small{display:block;font:400 .72rem/1.3 "DM Sans",sans-serif;color:var(--tp-soft)}
-.seo-results b{display:block;margin-top:1px;font:600 .94rem/1.3 "DM Sans",sans-serif;color:var(--tp-blue)}
-.seo-results i{display:block;height:6px;width:72%;margin-top:7px;border-radius:3px;background:var(--tp-line)}
-.seo-note{margin:10px 4px 0;font:500 .7rem/1.2 "DM Sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#8a93a8}
+.ga-s2{padding-block:clamp(48px,5.5vw,88px)}
+.ga-grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.92fr);gap:clamp(32px,5.5vw,88px);align-items:center}
+.ga-s2 h2{font-size:clamp(1.95rem,3.5vw,3.3rem);line-height:1.1}
+.ga-s2 .tp-eyebrow{margin-bottom:clamp(16px,2vw,24px)}
+.ga-s2 .tp-copy{margin-top:clamp(18px,2.2vw,28px)}
+.ga-s2 .tp-copy p{font-size:clamp(.98rem,1.15vw,1.0625rem);line-height:1.58;margin-bottom:.7em}
+.ga-support{margin:clamp(16px,2vw,24px) 0 0;font:500 clamp(1.15rem,1.7vw,1.5rem)/1.3 "Fraunces","Playfair Display",Georgia,serif!important;letter-spacing:-.02em;color:var(--tp-navy)}
+.ga-support em{font-family:"Playfair Display",Georgia,serif;font-style:italic;color:var(--tp-blue)}
+.ga-steps{list-style:none;margin:0;padding:0 0 0 clamp(24px,2.6vw,36px);position:relative;display:flex;flex-direction:column}
+.ga-rail{position:absolute;left:0;top:12px;bottom:12px;width:2px;background:var(--tp-line)}
+.ga-rail i{position:absolute;inset:0;background:linear-gradient(180deg,var(--tp-blue),#7b5cff);transform-origin:top;transform:scaleY(0);box-shadow:0 0 10px rgba(7,95,255,.4)}
+.ga-step{position:relative;display:grid;grid-template-columns:clamp(70px,8vw,104px) 1fr;align-items:center;padding-block:clamp(16px,2vw,24px);border-bottom:1px solid var(--tp-line)}
+.ga-step:last-child{border-bottom:0}
+.ga-step::before{content:"";position:absolute;left:calc(-1*clamp(24px,2.6vw,36px) - 4px);top:50%;margin-top:-5px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--tp-line);transition:.4s}
+.ga-step.on::before{background:var(--tp-blue);border-color:var(--tp-blue);box-shadow:0 0 12px rgba(7,95,255,.6)}
+.ga-n{font-family:"Fraunces","Playfair Display",Georgia,serif;font-size:clamp(2.8rem,4.2vw,3.6rem);line-height:1;letter-spacing:-.04em;color:var(--tp-blue)}
+.ga-step h3{margin:0 0 5px;font:600 clamp(1.08rem,1.45vw,1.22rem)/1.3 "DM Sans",sans-serif;color:var(--tp-navy)}
+.ga-step p{margin:0;font-size:clamp(.94rem,1.15vw,1rem);line-height:1.55;color:var(--tp-soft)}
 
-/* seção 2 */
-.seo-s2{padding-block:clamp(48px,5.5vw,88px)}
-.seo-grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(32px,5.5vw,88px);align-items:stretch}
-.seo-s2 h2{font-size:clamp(1.95rem,3.5vw,3.3rem);line-height:1.1}
-.seo-s2 .tp-eyebrow{margin-bottom:clamp(16px,2vw,24px)}
-.seo-s2 .tp-copy{margin-top:clamp(20px,2.4vw,30px)}
-.seo-s2 .tp-copy p{font-size:clamp(.98rem,1.2vw,1.125rem);line-height:1.6;margin-bottom:.8em}
-.seo-steps{list-style:none;margin:0;padding:0;border-top:1px solid var(--tp-line);display:flex;flex-direction:column}
-.seo-step{flex:1 1 0;display:grid;grid-template-columns:clamp(76px,9vw,116px) 1fr;align-items:center;padding-block:clamp(16px,2vw,26px);border-bottom:1px solid var(--tp-line)}
-.seo-n{font-family:"Fraunces","Playfair Display",Georgia,serif;font-size:clamp(2.9rem,4.4vw,3.75rem);line-height:1;letter-spacing:-.04em;color:var(--tp-blue)}
-.seo-step h3{margin:0 0 6px;font:600 clamp(1.1rem,1.5vw,1.25rem)/1.3 "DM Sans",sans-serif;color:var(--tp-navy)}
-.seo-step p{margin:0;font-size:clamp(.94rem,1.15vw,1rem);line-height:1.55;color:var(--tp-soft)}
-
-/* seção 3 */
-.seo-s3{padding-block:clamp(60px,7vw,110px)}
-.seo-s3::before{content:"";position:absolute;right:-10%;top:-20%;width:60%;height:70%;background:radial-gradient(closest-side,rgba(7,95,255,.22),transparent);pointer-events:none}
-.seo-grid3{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:clamp(32px,5vw,80px);align-items:center}
-.seo-s3 h2{font-size:clamp(1.95rem,3.5vw,3.3rem);line-height:1.1}
-.seo-s3 .tp-eyebrow{margin-bottom:clamp(16px,2vw,24px)}
-.seo-s3 .tp-copy{margin-top:clamp(18px,2.2vw,28px)}
-.seo-s3 .tp-copy p{font-size:clamp(.98rem,1.15vw,1.0625rem);line-height:1.6;margin-bottom:.75em}
-.seo-s3 .tp-quote{font-size:clamp(1.1rem,1.6vw,1.4rem)}
-.seo-art{position:relative}
-.seo-stage{position:relative;border-radius:24px;overflow:hidden;background:radial-gradient(120% 90% at 50% 20%,#0b1a55 0%,#080f2d 60%);border:1px solid rgba(141,180,255,.14);box-shadow:0 30px 80px -30px rgba(7,95,255,.5)}
-.seo-stage svg{display:block;width:100%;height:auto}
-.seo-stage [data-depth]{will-change:transform}
-.sg-lit{stroke-dasharray:1 1;stroke-dashoffset:1;filter:drop-shadow(0 0 5px rgba(61,134,255,.9))}
-.sg-node text{font:700 15px/1 "DM Sans",sans-serif;letter-spacing:.16em;fill:rgba(255,255,255,.45);transition:fill .5s}
-.sg-halo{opacity:0;transition:opacity .6s}
-.sg-ring{transition:stroke .5s}
-.sg-dot{opacity:.35;transition:opacity .5s}
-.sg-node.on text{fill:#fff}
-.sg-node.on .sg-halo{opacity:.55}
-.sg-node.on .sg-dot{opacity:1}
-.sg-node.cur .sg-ring{stroke:#fff}
-.sg-node{cursor:default}
-.sg-parts circle{animation:sgFloat 9s ease-in-out infinite;animation-delay:var(--d,0s);opacity:.7}
-@keyframes sgFloat{50%{translate:0 -14px;opacity:.25}}
-.seo-legend{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.seo-legend li{padding:12px 14px;border-radius:12px;border:1px solid rgba(141,180,255,.16);background:rgba(255,255,255,.03);transition:border-color .4s,background .4s}
-.seo-legend b{display:block;font:700 .72rem/1.2 "DM Sans",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8db4ff;margin-bottom:5px}
-.seo-legend span{display:block;font:400 .86rem/1.45 "DM Sans",sans-serif;color:rgba(255,255,255,.78)}
-.seo-legend li.cur{border-color:rgba(61,134,255,.7);background:rgba(7,95,255,.14)}
-
-/* CTA */
-.seo-cta{padding-block:clamp(72px,9vw,128px)}
-.seo-cta h2{font-size:clamp(1.9rem,3.8vw,3.2rem);max-width:24ch}
-.seo-cta .seo-hl{font-size:1em}
+.ga-s3{padding-block:clamp(60px,7vw,110px)}
+.ga-s3::before{content:"";position:absolute;right:-10%;top:-20%;width:60%;height:70%;background:radial-gradient(closest-side,rgba(7,95,255,.22),transparent);pointer-events:none}
+.ga-grid3{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:clamp(32px,5vw,80px);align-items:center}
+.ga-s3 h2{font-size:clamp(1.95rem,3.5vw,3.3rem);line-height:1.1}
+.ga-s3 .tp-eyebrow{margin-bottom:clamp(16px,2vw,24px)}
+.ga-s3 .tp-copy{margin-top:clamp(18px,2.2vw,28px)}
+.ga-s3 .tp-copy p{font-size:clamp(.98rem,1.15vw,1.0625rem);line-height:1.6;margin-bottom:.75em}
+.ga-s3 .tp-quote{font-size:clamp(1.1rem,1.6vw,1.4rem)}
+.ga-stage{border-radius:24px;overflow:hidden;background:radial-gradient(120% 90% at 30% 20%,#0b1a55 0%,#080f2d 62%);border:1px solid rgba(141,180,255,.14);box-shadow:0 30px 80px -30px rgba(7,95,255,.5)}
+.ga-stage svg{display:block;width:100%;height:auto}
+.ga-stage [data-depth],#gaPanel{will-change:transform}
+.ga-lit{stroke-dasharray:1 1;stroke-dashoffset:1;filter:drop-shadow(0 0 5px rgba(61,134,255,.9))}
+.ga-lbl{font:700 var(--ls,16px)/1 "DM Sans",sans-serif;letter-spacing:.16em;fill:rgba(255,255,255,.45);transition:fill .5s}
+.ga-node.on .ga-lbl{fill:#fff}
+.ga-halo{opacity:0;transition:opacity .6s}
+.ga-node.on .ga-halo{opacity:.55}
+.ga-dot{transform:translate(var(--dx),var(--dy));opacity:.25;transition:transform 1.6s cubic-bezier(.2,.7,.2,1),opacity .8s}
+#gaN2.conv .ga-dot{transform:translate(0,0);opacity:.9}
+.ga-tx{font-family:"DM Sans",sans-serif}
+.ga-legend{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ga-legend li{padding:12px 14px;border-radius:12px;border:1px solid rgba(141,180,255,.16);background:rgba(255,255,255,.03);transition:.4s}
+.ga-legend b{display:block;font:700 .72rem/1.2 "DM Sans",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8db4ff;margin-bottom:5px}
+.ga-legend span{display:block;font:400 .86rem/1.45 "DM Sans",sans-serif;color:rgba(255,255,255,.78)}
+.ga-legend li.cur{border-color:rgba(61,134,255,.7);background:rgba(7,95,255,.14)}
 
 @media (max-width:900px){
-  .seo-grid1,.seo-grid2,.seo-grid3{grid-template-columns:1fr}
-  .seo-s1{padding-top:clamp(104px,26vw,124px)}
-  .seo-s1 h1{font-size:clamp(2.2rem,9.4vw,2.75rem)}
-  .seo-s2 h2,.seo-s3 h2{font-size:clamp(2rem,8vw,2.4rem)}
-  .seo-n{font-size:clamp(2.6rem,11vw,3.2rem)}
-  .seo-step{grid-template-columns:70px 1fr}
-  .seo-legend{grid-template-columns:1fr}
-  .sg-node text{font-size:19px;letter-spacing:.08em}
-  .seo-bar{height:52px;padding:0 16px;font-size:.92rem}
-  .seo-cta h2{font-size:clamp(1.8rem,7.4vw,2.2rem)}
+  .ga-grid1,.ga-grid2,.ga-grid3{grid-template-columns:1fr}
+  .ga-s1{padding-top:clamp(104px,26vw,124px)}
+  .ga-s1 h1{font-size:clamp(2.2rem,9.4vw,2.75rem)}
+  .ga-s2 h2,.ga-s3 h2{font-size:clamp(2rem,8vw,2.4rem)}
+  .ga-n{font-size:clamp(2.6rem,11vw,3.2rem)}
+  .ga-step{grid-template-columns:68px 1fr}
+  .ga-legend{grid-template-columns:1fr}
+  .ga-bar{height:50px;padding:0 16px;font-size:.9rem}
 }
-@media (prefers-reduced-motion:reduce){
-  .seo-caret,.sg-parts circle{animation:none}
-  .seo-results li{opacity:1;transform:none;transition:none}
-}
+@media (prefers-reduced-motion:reduce){.ga-caret{animation:none}.ga-ad{opacity:1;transform:none}.ga-dot{transition:none}}
+.seo-hl{font-size:1.07em;font-family:"Playfair Display",Georgia,serif;font-style:italic;color:var(--tp-blue);font-weight:500}
+.tp-dark .seo-hl{color:#7fb0ff}
+.seo-cta{padding-block:clamp(72px,9vw,128px)}
+.seo-cta h2{font-size:clamp(1.9rem,3.8vw,3.2rem);max-width:24ch}
+@media (max-width:900px){.seo-cta h2{font-size:clamp(1.8rem,7.4vw,2.2rem)}}
 .tp-cta .tp-cta-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
 .tp-cta .btn--back{background:transparent;color:var(--tp-navy);border:1.5px solid rgba(8,15,45,.28);box-shadow:none;font-size:.9rem;letter-spacing:.06em;font-weight:600}
 .tp-cta .btn--back:hover{background:var(--tp-navy);color:#fff;border-color:var(--tp-navy);transform:translateY(-2px)}
 @media (max-width:560px){.tp-cta .tp-cta-btns{flex-direction:column;align-items:stretch}.tp-cta .tp-cta-btns .btn{justify-content:center;text-align:center}}
+/* ===== Google (página unificada) ===== */
+.gl-s1{padding-top:clamp(100px,8.6vw,120px);padding-bottom:clamp(40px,4.6vw,76px)}
+.gl-grid1{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:clamp(24px,3.6vw,56px);align-items:center}
+.gl-s1 h1{font-size:clamp(2.3rem,3.9vw,4.2rem);line-height:1.05}
+.gl-s1 .tp-eyebrow{margin-bottom:clamp(16px,2vw,24px)}
+.gl-s1 .tp-copy{margin-top:clamp(18px,2.2vw,28px)}
+.gl-s1 .tp-copy p{font-size:clamp(.96rem,1.1vw,1.0625rem);line-height:1.55;margin-bottom:.65em}
+.gl-s1 .ga-phrase{margin-top:clamp(18px,2.2vw,28px)}
+.gl-wrap{container-type:inline-size}
+.gl-panel{position:relative;border-radius:clamp(16px,2.2vw,28px);padding:1px;background:linear-gradient(135deg,#3d86ff,#0b2a8f 40%,#b829ff 120%);box-shadow:0 30px 70px -26px rgba(7,95,255,.65),0 0 60px -10px rgba(7,95,255,.35)}
+.gl-in{font-size:max(9.5px,1.78cqw);color:#e8eefc;border-radius:inherit;background:linear-gradient(160deg,#0b1533,#09132e 55%,#0a1a40);padding:1.4em 1.5em 1.5em;font-family:"DM Sans",system-ui,sans-serif;line-height:1.3;border-radius:clamp(15px,2.1vw,27px)}
+.gl-in *{box-sizing:border-box}
+.gl-top{display:flex;align-items:center;gap:1.3em}
+.gl-logo{font:700 1.9em/1 "DM Sans",sans-serif;letter-spacing:-.04em;color:#fff}
+.gl-search{flex:1;display:flex;align-items:center;gap:.2em;height:2.9em;padding:0 1.3em;border-radius:999px;background:#1a2547;border:1px solid rgba(255,255,255,.1);font-size:1.05em;color:#fff;min-width:0}
+.gl-search #glTyped{white-space:nowrap;overflow:hidden}
+.gl-caret{width:1px;height:1.2em;background:#8db4ff;margin-left:2px;animation:seoCaret 1.05s steps(1) infinite}
+.gl-x{margin-left:auto;font-style:normal;opacity:.7;font-size:.9em}
+.gl-av{width:2.4em;height:2.4em;border-radius:50%;background:linear-gradient(135deg,#8db4ff,#b829ff);flex:0 0 auto}
+.gl-tabs{display:flex;gap:1.5em;margin:1.1em 0 .9em;padding-bottom:.6em;border-bottom:1px solid rgba(255,255,255,.1);font-size:.95em;color:#aab6d3;overflow:hidden;white-space:nowrap}
+.gl-tabs b{color:#fff;font-weight:500;border-bottom:2px solid #6ea2ff;padding-bottom:.55em;margin-bottom:-.65em}
+.gl-body{display:grid;grid-template-columns:1.5fr .82fr 1.18fr;gap:.9em}
+.gl-in h4{margin:0 0 .6em;font:500 1.25em/1.2 "DM Sans",sans-serif;color:#fff}
+.gl-list{display:flex;flex-direction:column;gap:.5em}
+.gl-res{display:flex;gap:.8em;padding:.7em;border-radius:1em;border:1px solid transparent;opacity:0;transform:translateY(8px);transition:opacity .5s,transform .5s,border-color .6s,box-shadow .6s}
+.gl-res img{width:4.7em;height:auto;aspect-ratio:1/1.05;object-fit:cover;border-radius:.6em;flex:0 0 auto}
+.gl-res b{display:block;font-weight:600;font-size:1.05em;color:#fff}
+.gl-res span{display:block;white-space:nowrap;font-size:.82em;color:#aab6d3;margin-top:.12em}
+.gl-res u{text-decoration:none;color:#3ddc6a}
+.gl-res small{display:inline-block;margin-bottom:.2em;padding:.12em .55em;border-radius:.5em;background:#1f2b52;font-size:.78em;color:#e8eefc}
+.gl-st{color:#fbbc04;letter-spacing:-.05em}
+.s-res .gl-res{opacity:1;transform:none}
+.s-res .gl-res:nth-of-type(2){transition-delay:.15s}.s-res .gl-res:nth-of-type(3){transition-delay:.3s}
+.s-prof .gl-sp{border-color:#5f9bff;box-shadow:0 0 0 1px rgba(95,155,255,.4),0 0 24px -4px rgba(61,134,255,.55)}
+.gl-map{position:relative;border-radius:1em;overflow:hidden;background:#0a1d4a;min-height:18em;border:1px solid rgba(255,255,255,.06)}
+.gl-map svg{position:absolute;inset:0;width:100%;height:100%}
+.gl-btnmap{position:absolute;top:.8em;right:.7em;padding:.5em .8em;border-radius:.8em;background:rgba(5,10,30,.85);font-size:.85em;color:#fff;font-weight:500;z-index:2}
+.gl-pin{position:absolute;width:1.25em;height:1.25em;border-radius:50% 50% 50% 0;background:#ea4335;transform:rotate(-45deg) scale(0);transition:transform .5s cubic-bezier(.3,1.5,.5,1);box-shadow:0 0 .8em rgba(234,67,53,.6);z-index:1}
+.gl-pin::after{content:"";position:absolute;inset:.38em;border-radius:50%;background:#7a1c14}
+.gl-pin.p1{left:36%;top:40%;width:1.7em;height:1.7em}.gl-pin.p2{left:22%;top:68%}.gl-pin.p3{left:62%;top:84%}
+.s-map .gl-pin{transform:rotate(-45deg) scale(1)}.s-map .gl-pin.p2{transition-delay:.2s}.s-map .gl-pin.p3{transition-delay:.35s}
+.gl-pinlbl{position:absolute;left:55%;top:42%;font-weight:600;font-size:.88em;color:#fff;opacity:0;transition:opacity .5s .3s;z-index:2}
+.s-map .gl-pinlbl{opacity:1}
+.gl-prof{opacity:.35;transition:opacity .7s}
+.s-res .gl-prof{opacity:1}
+.gl-prof{border:1px solid rgba(255,255,255,.1);border-radius:1em;padding:.9em .9em 1em;min-width:0}
+.gl-prof h4{margin-bottom:.1em}
+.gl-sub{display:block;font-size:.85em;color:#aab6d3}
+.gl-pills{display:flex;gap:.45em;margin:.8em 0;flex-wrap:wrap}
+.gl-pills span,.gl-pills b{padding:.35em .75em;border-radius:999px;border:1px solid rgba(255,255,255,.14);font-size:.82em;font-weight:500;color:#cfd8ef}
+.gl-pills b{border-color:#5f9bff;color:#fff;background:rgba(95,155,255,.15)}
+.gl-ph{display:grid;grid-template-columns:2.4fr 1fr;gap:.4em}
+.gl-ph img{width:100%;height:100%;object-fit:cover;border-radius:.6em;aspect-ratio:auto;min-height:6em}
+.gl-act{display:flex;flex-wrap:wrap;gap:.4em;margin-top:.8em}
+.gl-act span,.gl-call{padding:.4em .75em;border-radius:999px;border:1px solid rgba(255,255,255,.14);font-size:.8em;color:#e8eefc}
+.gl-call{display:table;margin:.5em auto 0}
+.gl-note{margin:10px 4px 0;font:500 .68rem/1.2 "DM Sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#8a93a8}
+@container (max-width:560px){
+  .gl-body{grid-template-columns:1fr}
+  .gl-map{display:none}
+  .gl-tabs span:nth-child(n+5){display:none}
+}
+
+.gl-s4{padding-block:clamp(48px,5.5vw,88px);background:#fdfdfd}
+.gl-s4 .tp-wrap{width:min(1280px,calc(100% - 48px))}
+.gl-grid4{display:grid;grid-template-columns:minmax(0,.55fr) minmax(0,1.45fr);gap:clamp(24px,3.4vw,48px);align-items:center}
+.gl-s4 h2{font-size:clamp(1.95rem,3.3vw,3.1rem);line-height:1.1}
+.gl-s4 .tp-eyebrow{margin-bottom:clamp(16px,2vw,24px)}
+.gl-intro{margin:clamp(16px,2vw,24px) 0 0;font-size:clamp(.98rem,1.15vw,1.0625rem);line-height:1.6;color:var(--tp-soft)}
+.gl-tools{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.2vw,16px)}
+.gl-tool{display:flex;gap:12px;align-items:flex-start;padding:clamp(12px,1.2vw,18px);background:#fff;border:1px solid var(--tp-line);border-radius:18px;transition:transform .35s,border-color .35s,box-shadow .35s}
+.gl-tool:hover{transform:translateY(-3px);border-color:rgba(7,95,255,.55);box-shadow:0 12px 30px -16px rgba(7,95,255,.45)}
+.gl-ico{flex:0 0 auto;display:grid;place-items:center;width:clamp(44px,3.8vw,54px);height:clamp(44px,3.8vw,54px);border-radius:16px;background:#eef3fc}
+.gl-ico svg{width:56%;height:56%}
+.gl-tool h3{margin:0 0 6px;font:600 clamp(.98rem,1.2vw,1.1rem)/1.25 "DM Sans",sans-serif;color:var(--tp-navy)}
+.gl-tool p{margin:0;font-size:clamp(.84rem,.98vw,.92rem);line-height:1.5;color:var(--tp-soft)}
+.gl-more{margin:clamp(14px,1.6vw,20px) 0 0;display:flex;flex-wrap:wrap;gap:8px clamp(18px,3vw,40px);font-size:.9rem;line-height:1.5;color:var(--tp-soft);padding-top:14px;border-top:1px solid var(--tp-line)}
+.gl-more b{color:var(--tp-navy);font-weight:600}
+@media (max-width:1100px){.gl-tools{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){
+  .gl-grid1,.gl-grid4{grid-template-columns:1fr}
+  .gl-s1{padding-top:clamp(104px,26vw,124px)}
+  .gl-s1 h1{font-size:clamp(2.2rem,9.4vw,2.75rem)}
+  .gl-s4 h2{font-size:clamp(2rem,8vw,2.4rem)}
+}
+@media (max-width:560px){.gl-tools{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.gl-caret{animation:none}.gl-res,.gl-pin,.gl-prof,.gl-pinlbl{transition:none}}
+.gl-res span.gl-st{display:inline}
+.gl-s1 h1{font-size:clamp(2.2rem,3.7vw,4rem)}
+.gl-s1 .ga-phrase{margin-top:clamp(16px,2vw,26px);max-width:none}
 </style>
 </head>
 <body>
@@ -887,175 +965,145 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 
 <main id="conteudo" class="tp">
 
-  <!-- 01 · O que é SEO -->
-  <section class="tp-sec tp-s-light seo-s1" aria-labelledby="seo-h1">
-    <div class="tp-wrap">
-      <div class="seo-grid1">
-        <div class="seo-left">
-          <div class="reveal">
-            <p class="tp-eyebrow">01 / Seja encontrado</p>
-            <h1 id="seo-h1">Seu próximo cliente pode estar procurando por você. Mas será que ele consegue <em>te encontrar?</em></h1>
-          </div>
-
-          <div class="seo-search reveal reveal-d1" id="seoSearch" role="img" aria-label="Ilustração de uma pesquisa no Google: alguém digita &quot;empresa de serviço perto de mim&quot; e vê uma lista de resultados ilustrativos.">
-            <div class="seo-bar" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.6-4.6"/></svg>
-              <span class="seo-typed" id="seoTyped"></span><span class="seo-caret"></span>
-            </div>
-            <ul class="seo-results" id="seoResults" aria-hidden="true">
-              <li><span class="seo-fav"></span><div><small>www.empresaexemplo.com.br</small><b>Empresa Exemplo · serviço na sua região</b><i></i></div></li>
-              <li><span class="seo-fav"></span><div><small>www.outraempresa.com.br</small><b>Outra Empresa · atendimento especializado</b><i></i></div></li>
-              <li><span class="seo-fav"></span><div><small>www.maisumaempresa.com.br</small><b>Mais Uma Empresa · orçamento sem compromisso</b><i></i></div></li>
-            </ul>
-            <p class="seo-note" aria-hidden="true">Interface ilustrativa · empresas fictícias</p>
-          </div>
-        </div>
-
-        <div class="seo-right reveal reveal-d1">
-          <div class="tp-copy">
-            <p>Todos os dias, pessoas pesquisam no Google por produtos, serviços e soluções para suas necessidades.</p>
-            <p>E muitas dessas pesquisas representam oportunidades para empresas que conseguem aparecer no momento certo.</p>
-            <p>SEO, ou otimização para mecanismos de busca, é o conjunto de técnicas e estratégias que ajudam um site a conquistar mais visibilidade nos resultados orgânicos do Google, sem depender exclusivamente de anúncios pagos.</p>
-            <p>Isso envolve compreender o que as pessoas pesquisam, organizar as informações do site e oferecer conteúdos relevantes para quem está buscando uma solução.</p>
-          </div>
-          <p class="seo-phrase">Não basta estar na internet. Sua empresa precisa ser <em>encontrada.</em></p>
+  <section class="tp-sec tp-s-light gl-s1" aria-labelledby="gl-h1">
+    <div class="tp-wrap"><div class="gl-grid1">
+      <div class="reveal">
+        <p class="tp-eyebrow">01 / Sua empresa no Google</p>
+        <h1 id="gl-h1">Seu cliente está procurando. Sua empresa está <em>sendo encontrada?</em></h1>
+        <div class="tp-copy">
+          <p>Todos os dias, pessoas utilizam o Google para encontrar produtos, serviços e empresas que atendam às suas necessidades.</p>
+          <p>Elas pesquisam preços, comparam opções, consultam avaliações, procuram estabelecimentos próximos e descobrem marcas que talvez nunca tivessem conhecido de outra forma.</p>
+          <p>Agora imagine sua empresa fazendo parte dessas descobertas.</p>
+          <p>Com uma presença digital bem estruturada e uma <span class="seo-hl">estratégia</span> adequada ao seu negócio, o Google pode se tornar um importante canal para ampliar sua visibilidade, atrair interessados e criar oportunidades de venda.</p>
         </div>
       </div>
-    </div>
+      <div class="reveal reveal-d1">
+        <div class="gl-wrap" id="glSim">
+          <div class="gl-panel" role="img" aria-label="Simulação ilustrativa de uma pesquisa local no Google: alguém procura &quot;cafeteria artesanal perto de mim&quot; e vê resultados, um mapa com marcadores e o perfil de uma cafeteria fictícia.">
+            <div class="gl-in" aria-hidden="true">
+              <div class="gl-top"><span class="gl-logo">Google</span><div class="gl-search"><span id="glTyped"></span><i class="gl-caret"></i><em class="gl-x">✕</em></div><span class="gl-av"></span></div>
+              <div class="gl-tabs"><b>Todas</b><span>Maps</span><span>Imagens</span><span>Vídeos</span><span>Shopping</span><span>Notícias</span></div>
+              <div class="gl-body">
+                <div class="gl-list"><h4>Locais</h4>
+                  <div class="gl-res gl-sp"><img src="img/google-t1.webp" alt="" width="133" height="143" loading="lazy"><div><small>Patrocinado</small><b>Café Essência</b><span>4,9 <span class="gl-st" aria-hidden="true">★★★★★</span> (237) · Cafeteria</span><span>R. das Palmeiras, 320 – Centro</span><span><u>Aberto</u> · Fecha às 20:00</span></div></div>
+                  <div class="gl-res"><img src="img/google-t2.webp" alt="" width="133" height="122" loading="lazy"><div><b>Café Aroma &amp; Prosa</b><span>4,8 <span class="gl-st" aria-hidden="true">★★★★★</span> (189) · Cafeteria</span><span>Av. Central, 784 – Jardim Paulista</span><span><u>Aberto</u> · Fecha às 21:00</span></div></div>
+                  <div class="gl-res"><img src="img/google-t3.webp" alt="" width="133" height="124" loading="lazy"><div><b>Doçuras da Vila</b><span>4,7 <span class="gl-st" aria-hidden="true">★★★★★</span> (96) · Cafeteria</span><span>R. Floriano, 112 – Vila Nova</span><span><u>Aberto</u> · Fecha às 19:00</span></div></div>
+                </div>
+                <div class="gl-map"><svg viewBox="0 0 120 200" preserveAspectRatio="xMidYMid slice"><g stroke="#1b3a82" stroke-width="1" fill="none" opacity=".9"><path d="M-10 40 L130 10 M-10 90 L130 60 M-10 150 L130 120 M20 -10 L50 210 M70 -10 L100 210 M-10 190 L130 165"/></g><g stroke="#25489a" stroke-width="2.2" fill="none" opacity=".7"><path d="M-10 118 L130 92 M44 -10 L78 210"/></g></svg><span class="gl-btnmap">Abrir no Maps</span><i class="gl-pin p1"></i><i class="gl-pin p2"></i><i class="gl-pin p3"></i><span class="gl-pinlbl">Café Essência</span></div>
+                <div class="gl-prof"><h4>Café Essência</h4><span class="gl-sub">4,9 <b class="gl-st">★</b> (237) · Cafeteria · 1,2 km</span><div class="gl-pills"><b>Visão geral</b><span>Avaliações</span><span>Fotos</span></div><div class="gl-ph"><img src="img/google-fachada.webp" alt="" width="392" height="246" loading="lazy"><img src="img/google-latte.webp" alt="" width="165" height="246" loading="lazy"></div><div class="gl-act"><span>Site</span><span>Rotas</span><span>Salvar</span><span>Compartilhar</span></div><div class="gl-call">Ligar</div></div>
+              </div>
+            </div>
+          </div>
+          <p class="gl-note">Simulação ilustrativa · empresas, avaliações e fotos fictícias</p>
+        </div>
+        <p class="ga-phrase">Estar no Google é importante. Ser encontrado pelas <em>pessoas certas</em> é estratégico.</p>
+      </div>
+    </div></div>
   </section>
 
-  <!-- 02 · Como a Humanize trabalha -->
-  <section class="tp-sec tp-s-white seo-s2" aria-labelledby="seo-h2">
-    <div class="tp-wrap">
-      <div class="seo-grid2">
-        <div class="reveal">
-          <p class="tp-eyebrow">02 / Inteligência de busca</p>
-          <h2 id="seo-h2">Não queremos apenas que sua empresa apareça. Queremos que ela seja encontrada pelas <em>pessoas certas.</em></h2>
-          <div class="tp-copy">
-            <p>Na Humanize, entendemos que cada empresa possui um público, uma região de atuação e oportunidades diferentes de crescimento.</p>
-            <p>Por isso, nossa <span class="seo-hl">estratégia</span> de SEO começa com uma análise do seu negócio, do comportamento dos consumidores e das pesquisas relacionadas aos produtos ou serviços que você oferece.</p>
-            <p>Identificamos palavras-chave relevantes, avaliamos a estrutura do site e buscamos oportunidades para tornar suas páginas mais claras, organizadas e úteis tanto para os visitantes quanto para os mecanismos de busca.</p>
-            <p>Também trabalhamos a qualidade dos conteúdos, a organização das informações e os aspectos técnicos que influenciam a experiência de navegação.</p>
-            <p>Nosso objetivo é construir uma presença orgânica consistente, acompanhando o desempenho e ajustando a estratégia conforme os resultados e as necessidades do negócio.</p>
-          </div>
+  <section class="tp-sec tp-s-white ga-s2" aria-labelledby="gl-h2">
+    <div class="tp-wrap"><div class="ga-grid2">
+      <div class="reveal">
+        <p class="tp-eyebrow">02 / Inteligência estratégica</p>
+        <h2 id="gl-h2">O Google oferece as ferramentas. <em>A estratégia</em> define como utilizá-las.</h2>
+        <div class="tp-copy">
+          <p>Na Humanize, entendemos que cada empresa possui necessidades, públicos e oportunidades diferentes.</p>
+          <p>Por isso, nosso trabalho começa conhecendo seu negócio, seus produtos, seus serviços e o comportamento das pessoas que você deseja alcançar.</p>
+          <p>Analisamos sua presença digital, identificamos oportunidades de pesquisa e avaliamos quais ferramentas do Google podem contribuir para seus objetivos.</p>
+          <p>Dependendo do perfil da empresa, podemos trabalhar estratégias de SEO, campanhas no Google Ads, otimização do Perfil da Empresa no Google e ferramentas de análise de desempenho.</p>
+          <p>A partir desse diagnóstico, desenvolvemos um planejamento personalizado, colocamos as ações em prática e acompanhamos os indicadores disponíveis.</p>
+          <p>Porque estar presente em todas as ferramentas não significa necessariamente ter bons resultados.</p>
+          <p>O importante é escolher os caminhos certos e trabalhar com <span class="seo-hl">estratégia.</span></p>
         </div>
-        <ol class="seo-steps" id="seoSteps">
-          <li class="seo-step reveal"><span class="seo-n" aria-hidden="true">01</span><div><h3>Entendemos seu negócio</h3><p>Analisamos seus serviços, seu público, sua região de atuação e as oportunidades de pesquisa.</p></div></li>
-          <li class="seo-step reveal reveal-d1"><span class="seo-n" aria-hidden="true">02</span><div><h3>Identificamos as buscas certas</h3><p>Pesquisamos palavras-chave e intenções de busca relacionadas ao que sua empresa oferece.</p></div></li>
-          <li class="seo-step reveal reveal-d2"><span class="seo-n" aria-hidden="true">03</span><div><h3>Otimizamos sua presença digital</h3><p>Trabalhamos conteúdos, títulos, estrutura das páginas e aspectos técnicos do site.</p></div></li>
-          <li class="seo-step reveal reveal-d3"><span class="seo-n" aria-hidden="true">04</span><div><h3>Acompanhamos e evoluímos</h3><p>Monitoramos o desempenho orgânico e aperfeiçoamos a estratégia ao longo do tempo.</p></div></li>
+      </div>
+      <ol class="ga-steps" id="gaSteps">
+        <span class="ga-rail" aria-hidden="true"><i id="gaFill"></i></span>
+        <li class="ga-step reveal"><span class="ga-n" aria-hidden="true">01</span><div><h3>Entendemos seu negócio</h3><p>Analisamos seus objetivos, seu público, sua região de atuação e as oportunidades do mercado.</p></div></li>
+        <li class="ga-step reveal reveal-d1"><span class="ga-n" aria-hidden="true">02</span><div><h3>Identificamos oportunidades</h3><p>Avaliamos como seus potenciais clientes pesquisam e quais ferramentas podem ajudar sua empresa.</p></div></li>
+        <li class="ga-step reveal reveal-d2"><span class="ga-n" aria-hidden="true">03</span><div><h3>Desenvolvemos a estratégia</h3><p>Planejamos e executamos ações alinhadas às necessidades e aos objetivos do negócio.</p></div></li>
+        <li class="ga-step reveal reveal-d3"><span class="ga-n" aria-hidden="true">04</span><div><h3>Acompanhamos e otimizamos</h3><p>Monitoramos os indicadores e ajustamos as ações para buscar melhores resultados.</p></div></li>
+      </ol>
+    </div></div>
+  </section>
+
+  <section class="tp-sec tp-dark ga-s3" aria-labelledby="gl-h3">
+    <div class="tp-wrap"><div class="ga-grid3">
+      <div class="reveal">
+        <p class="tp-eyebrow">03 / Da pesquisa à oportunidade</p>
+        <h2 id="gl-h3">Enquanto alguém procura uma solução, sua empresa pode <em>ser a escolha.</em></h2>
+        <div class="tp-copy">
+          <p>Imagine alguém precisando exatamente do produto ou serviço que sua empresa oferece.</p>
+          <p>Essa pessoa abre o Google, faz uma pesquisa, compara opções e começa a decidir onde comprar ou quem contratar.</p>
+          <p>Agora imagine que sua empresa apareça entre as opções relevantes, com informações claras, uma boa apresentação e caminhos fáceis para entrar em contato.</p>
+          <p>Antes mesmo de conversar com você, esse potencial cliente já pode conhecer seus produtos, consultar avaliações, descobrir sua localização e entender o que seu negócio oferece.</p>
+          <p>Uma presença bem estruturada no Google ajuda a reduzir a distância entre quem procura e quem pode oferecer a solução.</p>
+          <p>Com <span class="seo-hl">estratégia</span>, sua empresa pode ampliar sua visibilidade, fortalecer sua credibilidade e criar mais oportunidades de contato e venda.</p>
+        </div>
+        <p class="tp-quote">Mais do que aparecer em uma pesquisa, queremos que sua empresa faça parte das <em>decisões de compra.</em></p>
+      </div>
+      <div class="ga-art reveal reveal-d1" id="gaArt">
+        <div class="ga-stage" id="gaStage">
+          <svg id="gaSvg" viewBox="0 0 520 560" role="img" aria-labelledby="gT gD"><title id="gT">Da pesquisa à descoberta</title><desc id="gD">Um plano de vidro em perspectiva, como um mapa, liga três momentos por uma linha luminosa: pesquisa, descoberta de uma empresa e oportunidade de contato.</desc>
+            <defs>
+              <radialGradient id="gg-glow" cx="50%" cy="55%" r="60%"><stop offset="0" stop-color="#075fff" stop-opacity=".4"/><stop offset="1" stop-color="#075fff" stop-opacity="0"/></radialGradient>
+              <linearGradient id="gg-glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8db4ff" stop-opacity=".26"/><stop offset=".6" stop-color="#075fff" stop-opacity=".1"/><stop offset="1" stop-color="#b829ff" stop-opacity=".2"/></linearGradient>
+              <linearGradient id="gg-edge" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8db4ff"/><stop offset="1" stop-color="#b829ff"/></linearGradient>
+              <linearGradient id="gg-line" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3d86ff"/><stop offset="1" stop-color="#c892ff"/></linearGradient>
+              <linearGradient id="gg-beam" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#3d86ff" stop-opacity=".8"/><stop offset="1" stop-color="#3d86ff" stop-opacity="0"/></linearGradient>
+              <filter id="gg-blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
+            </defs>
+            <rect width="520" height="560" fill="url(#gg-glow)"/>
+            <g data-depth="0.4">
+              <ellipse cx="260" cy="460" rx="190" ry="38" fill="#075fff" opacity=".28" filter="url(#gg-blur)"/>
+              <path d="M260 214 L478 336 L260 458 L42 336Z" transform="translate(0 16)" fill="#050c26" opacity=".95"/>
+              <path d="M260 214 L478 336 L260 458 L42 336Z" transform="translate(0 8)" fill="#0a1650"/>
+              <path d="M260 214 L478 336 L260 458 L42 336Z" fill="url(#gg-glass)" stroke="url(#gg-edge)" stroke-width="1.5" stroke-linejoin="round"/>
+              <g stroke="#8db4ff" stroke-opacity=".22" stroke-width="1" fill="none">
+                <path d="M260 214 L260 458 M260 214 L478 336 M42 336 L260 214"/>
+                <path d="M151 275 L369 397 M206 244.5 L424 366.5 M315 244.5 L97 366.5 M369 275 L151 397 M97 305.5 L315 427.5 M424 305.5 L206 427.5 M151 275 L151 397" stroke-opacity="0"/>
+                <path d="M233 229 L451 351 M206 244 L424 366 M179 259 L397 381 M152 275 L370 397 M125 290 L343 412 M98 305 L316 427 M287 229 L69 351 M314 244 L96 366 M341 259 L123 381 M368 275 L150 397 M395 290 L177 412 M422 305 L204 427"/>
+              </g>
+            </g>
+            <g fill="none" stroke-linecap="round">
+              <path d="M150 368 C 190 402, 226 346, 262 324" stroke="#3d86ff" stroke-opacity=".22" stroke-width="1.4"/><path d="M274 324 C 322 352, 352 412, 386 390" stroke="#3d86ff" stroke-opacity=".22" stroke-width="1.4"/>
+              <path class="ga-lit" id="gaP1" d="M150 368 C 190 402, 226 346, 262 324" pathLength="1" stroke="url(#gg-line)" stroke-width="2.4"/>
+              <path class="ga-lit" id="gaP2" d="M274 324 C 322 352, 352 412, 386 390" pathLength="1" stroke="url(#gg-line)" stroke-width="2.4"/>
+            </g>
+            <g class="ga-node" id="gaN0" data-depth="1.4"><ellipse class="ga-halo" cx="140" cy="372" rx="46" ry="18" fill="#075fff" filter="url(#gg-blur)"/><ellipse cx="140" cy="372" rx="30" ry="11" fill="none" stroke="#8db4ff" stroke-opacity=".7"/><circle cx="136" cy="338" r="17" fill="rgba(141,180,255,.15)" stroke="#fff" stroke-width="3"/><path d="m148 350 14 14" stroke="#fff" stroke-width="4" stroke-linecap="round"/><text class="ga-lbl" x="140" y="418" text-anchor="middle">PESQUISA</text></g>
+            <g class="ga-node" id="gaN1" data-depth="1.1"><ellipse class="ga-halo" cx="268" cy="326" rx="52" ry="20" fill="#075fff" filter="url(#gg-blur)"/><ellipse cx="268" cy="326" rx="34" ry="12" fill="none" stroke="#8db4ff" stroke-opacity=".7"/><rect x="261" y="226" width="14" height="96" fill="url(#gg-beam)" opacity=".5"/><path d="M268 232 c-15 0 -24 11 -24 24 c0 18 24 40 24 40 s24 -22 24 -40 c0 -13 -9 -24 -24 -24z" fill="#075fff" stroke="#fff" stroke-width="2"/><circle cx="268" cy="256" r="8" fill="#fff"/><text class="ga-lbl" x="268" y="364" text-anchor="middle">DESCOBERTA</text></g>
+            <g class="ga-node" id="gaN2" data-depth="1.8"><ellipse class="ga-halo" cx="392" cy="392" rx="50" ry="19" fill="#b829ff" filter="url(#gg-blur)"/><ellipse cx="392" cy="392" rx="30" ry="11" fill="none" stroke="#c892ff" stroke-opacity=".8"/><path d="M392 300 v62" stroke="#c892ff" stroke-opacity=".6" stroke-dasharray="2 5"/><path d="M372 300 h40 a8 8 0 0 1 8 8 v22 a8 8 0 0 1 -8 8 h-22 l-12 11 v-11 h-6 a8 8 0 0 1 -8 -8 v-22 a8 8 0 0 1 8 -8z" fill="rgba(184,41,255,.18)" stroke="#fff" stroke-width="2.4" stroke-linejoin="round" transform="translate(-0 0)"/><circle cx="380" cy="319" r="2.6" fill="#fff"/><circle cx="392" cy="319" r="2.6" fill="#fff"/><circle cx="404" cy="319" r="2.6" fill="#fff"/><text class="ga-lbl" x="392" y="438" text-anchor="middle">OPORTUNIDADE</text></g>
+            <circle id="gaTrav" r="5" fill="#fff" opacity="0" style="filter:drop-shadow(0 0 8px #3d86ff)"/>
+          </svg>
+        </div>
+        <ol class="ga-legend" id="gaLegend">
+          <li><b>Pesquisa</b><span>Uma pessoa busca uma solução.</span></li>
+          <li><b>Descoberta</b><span>Encontra uma empresa relevante.</span></li>
+          <li><b>Oportunidade</b><span>Pode entrar em contato, visitar ou comprar.</span></li>
         </ol>
       </div>
-    </div>
+    </div></div>
   </section>
 
-  <!-- 03 · O que o SEO pode fazer -->
-  <section class="tp-sec tp-dark seo-s3" aria-labelledby="seo-h3">
-    <div class="tp-wrap">
-      <div class="seo-grid3">
-        <div class="reveal">
-          <p class="tp-eyebrow">03 / Visibilidade que cria oportunidades</p>
-          <h2 id="seo-h3">A melhor oportunidade é <em>ser encontrado</em> por quem já está procurando.</h2>
-          <div class="tp-copy">
-            <p>Imagine alguém precisando exatamente do produto ou serviço que sua empresa oferece.</p>
-            <p>Essa pessoa abre o Google, faz uma pesquisa e começa a comparar as opções disponíveis.</p>
-            <p>Agora imagine que seu negócio esteja entre os resultados relevantes que ela encontra.</p>
-            <p>Antes mesmo de entrar em contato, esse potencial cliente já demonstrou interesse em uma solução como a sua.</p>
-            <p>É por isso que investir em SEO pode ser tão importante.</p>
-            <p>Com uma <span class="seo-hl">estratégia</span> bem construída, sua empresa pode ampliar a visibilidade orgânica, atrair visitantes mais alinhados ao seu negócio e criar novas oportunidades de contato e venda.</p>
-            <p>E, diferentemente de uma campanha que depende de investimento contínuo em mídia, páginas bem otimizadas podem continuar atraindo visitantes organicamente ao longo do tempo, embora os resultados exijam acompanhamento e manutenção.</p>
-          </div>
-          <p class="tp-quote">Quando alguém procura uma solução, sua empresa precisa ter a oportunidade de <em>ser encontrada.</em></p>
-        </div>
-
-        <div class="seo-art reveal reveal-d1" id="seoArt">
-          <div class="seo-stage" id="seoStage">
-            <svg viewBox="0 0 520 560" role="img" aria-labelledby="seoArtT seoArtD" id="seoSvg">
-              <title id="seoArtT">A jornada da busca</title>
-              <desc id="seoArtD">Uma barra de pesquisa translúcida conecta três momentos: pesquisa, descoberta e oportunidade.</desc>
-              <defs>
-                <radialGradient id="sg-glow" cx="50%" cy="34%" r="60%"><stop offset="0" stop-color="#075fff" stop-opacity=".42"/><stop offset=".55" stop-color="#075fff" stop-opacity=".08"/><stop offset="1" stop-color="#075fff" stop-opacity="0"/></radialGradient>
-                <radialGradient id="sg-purple" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#b829ff" stop-opacity=".5"/><stop offset="1" stop-color="#b829ff" stop-opacity="0"/></radialGradient>
-                <linearGradient id="sg-glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".5" stop-color="#8db4ff" stop-opacity=".08"/><stop offset="1" stop-color="#b829ff" stop-opacity=".16"/></linearGradient>
-                <linearGradient id="sg-edge" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3d86ff"/><stop offset=".6" stop-color="#8db4ff"/><stop offset="1" stop-color="#b829ff"/></linearGradient>
-                <linearGradient id="sg-line" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3d86ff"/><stop offset="1" stop-color="#b98cff"/></linearGradient>
-                <filter id="sg-blur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
-                <filter id="sg-soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
-              </defs>
-
-              <rect width="520" height="560" fill="url(#sg-glow)"/>
-
-              <!-- piso em perspectiva -->
-              <g class="sg-floor" data-depth="0.4" fill="none" stroke="#3d86ff" stroke-opacity=".16" stroke-width="1">
-                <path d="M260 330 L-60 560 M260 330 L40 560 M260 330 L150 560 M260 330 L260 560 M260 330 L370 560 M260 330 L480 560 M260 330 L580 560"/>
-                <path d="M0 400 H520 M0 450 H520 M0 510 H520" stroke-opacity=".1"/>
-              </g>
-
-              <!-- linhas de apoio (estáticas, discretas) -->
-              <g fill="none" stroke="#3d86ff" stroke-opacity=".18" stroke-width="1" stroke-dasharray="2 6">
-                <path d="M150 178 C 70 260, 40 340, 84 428"/>
-                <path d="M260 186 C 250 300, 270 400, 262 484"/>
-                <path d="M370 178 C 450 250, 466 320, 424 364"/>
-              </g>
-
-              <!-- partículas -->
-              <g class="sg-parts" fill="#8db4ff">
-                <circle cx="70" cy="90" r="1.8" style="--d:0s"/><circle cx="458" cy="70" r="1.4" style="--d:-2s"/>
-                <circle cx="500" cy="230" r="1.8" style="--d:-4s"/><circle cx="30" cy="250" r="1.4" style="--d:-1s"/>
-                <circle cx="120" cy="520" r="1.6" style="--d:-3s"/><circle cx="410" cy="530" r="1.4" style="--d:-5s"/>
-                <circle cx="330" cy="40" r="1.4" style="--d:-6s"/><circle cx="190" cy="30" r="1.8" style="--d:-2.5s" fill="#c892ff"/>
-                <circle cx="480" cy="460" r="1.6" style="--d:-1.5s" fill="#c892ff"/><circle cx="36" cy="420" r="1.4" style="--d:-4.5s" fill="#c892ff"/>
-              </g>
-
-              <!-- conexões que acendem -->
-              <g fill="none" stroke-linecap="round">
-                <path id="sgP1" d="M150 178 C 70 260, 40 340, 84 428" stroke="#3d86ff" stroke-opacity=".2" stroke-width="1.4"/>
-                <path id="sgP2" d="M104 434 C 150 396, 220 426, 254 470" stroke="#3d86ff" stroke-opacity=".2" stroke-width="1.4"/>
-                <path id="sgP3" d="M284 470 C 336 442, 372 442, 402 406" stroke="#3d86ff" stroke-opacity=".2" stroke-width="1.4"/>
-                <path class="sg-lit" id="sgL1" d="M150 178 C 70 260, 40 340, 84 428" pathLength="1" stroke="url(#sg-line)" stroke-width="2.2"/>
-                <path class="sg-lit" id="sgL2" d="M104 434 C 150 396, 220 426, 254 470" pathLength="1" stroke="url(#sg-line)" stroke-width="2.2"/>
-                <path class="sg-lit" id="sgL3" d="M284 470 C 336 442, 372 442, 402 406" pathLength="1" stroke="url(#sg-line)" stroke-width="2.2"/>
-              </g>
-
-              <!-- barra de pesquisa 3D -->
-              <g id="sgBar" data-depth="1">
-                <ellipse cx="260" cy="236" rx="200" ry="20" fill="#075fff" opacity=".35" filter="url(#sg-blur)"/>
-                <rect x="62" y="124" width="396" height="68" rx="34" fill="#050c26" opacity=".9" transform="translate(0 14)"/>
-                <rect x="62" y="124" width="396" height="68" rx="34" fill="#0a1650" opacity=".95" transform="translate(0 7)"/>
-                <rect x="62" y="124" width="396" height="68" rx="34" fill="url(#sg-glass)" stroke="url(#sg-edge)" stroke-width="1.6"/>
-                <path d="M92 134 H 430" stroke="#fff" stroke-opacity=".5" stroke-width="1.2" stroke-linecap="round"/>
-                <circle cx="98" cy="158" r="10" fill="none" stroke="#bcd3ff" stroke-width="2.4"/><path d="m106 166 9 9" stroke="#bcd3ff" stroke-width="2.4" stroke-linecap="round"/>
-                <rect x="136" y="150" width="150" height="8" rx="4" fill="#fff" opacity=".55"/>
-                <rect x="136" y="166" width="96" height="6" rx="3" fill="#8db4ff" opacity=".4"/>
-                <rect x="408" y="144" width="30" height="30" rx="15" fill="#b829ff" opacity=".85"/><path d="m418 159 h10 m-4 -4 l4 4 -4 4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                <ellipse cx="420" cy="144" rx="60" ry="30" fill="url(#sg-purple)" opacity=".6"/>
-              </g>
-
-              <!-- marcadores -->
-              <g class="sg-node" id="sgN1" data-depth="1.6"><circle class="sg-halo" cx="84" cy="446" r="34" fill="#075fff" filter="url(#sg-blur)"/><circle class="sg-ring" cx="84" cy="446" r="22" fill="#0a1650" stroke="#3d86ff" stroke-width="1.6"/><circle class="sg-dot" cx="84" cy="446" r="7" fill="#fff"/><text x="84" y="496" text-anchor="middle">PESQUISA</text></g>
-              <g class="sg-node" id="sgN2" data-depth="1.2"><circle class="sg-halo" cx="268" cy="482" r="34" fill="#075fff" filter="url(#sg-blur)"/><circle class="sg-ring" cx="268" cy="482" r="22" fill="#0a1650" stroke="#3d86ff" stroke-width="1.6"/><circle class="sg-dot" cx="268" cy="482" r="7" fill="#fff"/><text x="268" y="532" text-anchor="middle">DESCOBERTA</text></g>
-              <g class="sg-node" id="sgN3" data-depth="1.8"><circle class="sg-halo" cx="418" cy="388" r="34" fill="#b829ff" filter="url(#sg-blur)"/><circle class="sg-ring" cx="418" cy="388" r="22" fill="#0a1650" stroke="#b98cff" stroke-width="1.6"/><circle class="sg-dot" cx="418" cy="388" r="7" fill="#fff"/><text x="418" y="438" text-anchor="middle">OPORTUNIDADE</text></g>
-            </svg>
-          </div>
-
-          <ol class="seo-legend" id="seoLegend">
-            <li data-i="0"><b>Pesquisa</b><span>Uma pessoa procura um produto ou serviço.</span></li>
-            <li data-i="1"><b>Descoberta</b><span>Encontra uma empresa relevante para sua necessidade.</span></li>
-            <li data-i="2"><b>Oportunidade</b><span>Conhece a marca e pode iniciar uma conversa ou compra.</span></li>
-          </ol>
-        </div>
+  <section class="tp-sec tp-s-white gl-s4" aria-labelledby="gl-h4">
+    <div class="tp-wrap"><div class="gl-grid4">
+      <div class="reveal">
+        <p class="tp-eyebrow">04 / Soluções Google</p>
+        <h2 id="gl-h4">As principais ferramentas do Google para o crescimento <em>da sua empresa.</em></h2>
+        <p class="gl-intro">Unimos as soluções do Google de forma estratégica para fortalecer sua presença digital, atrair clientes, gerar oportunidades e acompanhar resultados.</p>
       </div>
-    </div>
+      <div>
+        <ul class="gl-tools"><li class="gl-tool reveal"><span class="gl-ico"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M20.5 8.5 4.8 35.7a5 5 0 0 0 8.7 5L29.2 13.5z" fill="#fbbc04"/><path d="M27.4 8.2a5 5 0 0 1 6.8 1.8l9.3 16.1a5 5 0 0 1-8.6 5L25.6 15a5 5 0 0 1 1.8-6.8z" fill="#4285f4"/><circle cx="9.2" cy="38.4" r="5.4" fill="#34a853"/></svg></span><div><h3>Google Ads</h3><p>Anuncie no Google e alcance pessoas que estão procurando produtos ou serviços como os seus.</p></div></li><li class="gl-tool reveal reveal-d1"><span class="gl-ico"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="21" cy="21" r="12" fill="none" stroke="#2f7bff" stroke-width="4.5"/><path d="m30 30 12 12" stroke="#2f7bff" stroke-width="5" stroke-linecap="round"/></svg></span><div><h3>SEO — Busca Orgânica</h3><p>Otimize seu site para conquistar mais visibilidade nas pesquisas orgânicas do Google.</p></div></li><li class="gl-tool reveal reveal-d2"><span class="gl-ico"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3C15 3 8.5 9.8 8.5 18.2 8.5 30 24 45 24 45s15.5-15 15.5-26.8C39.5 9.8 33 3 24 3z" fill="#34a853"/><path d="M24 3C15 3 8.5 9.8 8.5 18.2c0 3 .9 6 2.4 8.8L30 7.5A15.5 15.5 0 0 0 24 3z" fill="#4285f4"/><path d="M39.5 18.2c0-3.2-1-6.1-2.7-8.6L18.7 31c2.8 4.4 5.3 7.1 5.3 7.1s15.5-15 15.5-19.9z" fill="#ea4335" opacity=".95"/><circle cx="24" cy="18" r="6" fill="#fff"/></svg></span><div><h3>Perfil da Empresa no Google</h3><p>Destaque seu negócio no Google e no Maps com informações, fotos, serviços, avaliações e contato.</p></div></li><li class="gl-tool reveal"><span class="gl-ico"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="31" y="6" width="10" height="36" rx="5" fill="#f9ab00"/><rect x="18" y="20" width="10" height="22" rx="5" fill="#f9ab00" opacity=".9"/><circle cx="10" cy="37" r="5" fill="#e37400"/></svg></span><div><h3>Google Analytics</h3><p>Acompanhe o desempenho do seu site e compreenda melhor o comportamento dos visitantes.</p></div></li><li class="gl-tool reveal reveal-d1"><span class="gl-ico"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="m24 3 21 21-21 21L3 24z" fill="#2f7bff"/><path d="m24 14 10 10-10 10-10-10z" fill="#fff"/></svg></span><div><h3>Google Tag Manager</h3><p>Organize as ferramentas de medição do seu site, incluindo eventos, cliques e conversões.</p></div></li><li class="gl-tool reveal reveal-d2"><span class="gl-ico"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 15h28l2 26H8z" fill="#2f7bff"/><path d="M17 20v-4a7 7 0 0 1 14 0v4" fill="none" stroke="#2f7bff" stroke-width="3.5" stroke-linecap="round"/><path d="M24 24l7 3v5c0 4-3.5 6-7 7.5-3.5-1.5-7-3.5-7-7.5v-5z" fill="#fff"/></svg></span><div><h3>Google Merchant Center</h3><p>Apresente seus produtos nas experiências de compras do Google e integre seu catálogo a campanhas compatíveis.</p></div></li></ul>
+        <p class="gl-more reveal"><span><b>Google Search Console</b> — desempenho nas buscas orgânicas e indexação.</span><span><b>Looker Studio</b> — relatórios e visualização de dados.</span></p>
+      </div>
+    </div></div>
   </section>
 
-  <section class="tp-cta seo-cta" aria-labelledby="seo-cta-t">
+  <section class="tp-cta seo-cta" aria-labelledby="gl-cta-t">
     <div class="tp-wrap reveal">
-      <h2 id="seo-cta-t">Se seus clientes estão procurando, sua empresa precisa estar preparada para <em>ser encontrada.</em></h2>
-      <p>Vamos desenvolver uma <span class="seo-hl">estratégia</span> de SEO para ampliar a presença digital do seu negócio e criar novas oportunidades?</p>
-      <div class="tp-cta-btns">
-        <a class="btn btn--primary" href="https://wa.me/5511914894352?text=Ol%C3%A1!%20Conheci%20a%20Humanize%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20servi%C3%A7o%20de%20SEO%20Google." target="_blank" rel="noopener">QUERO SER ENCONTRADO NO GOOGLE</a>
-        <a class="btn btn--back" href="index.html#servicos">Outros serviços</a>
-      </div>
+      <h2 id="gl-cta-t">Sua empresa pode estar mais presente nas decisões dos seus <em>próximos clientes.</em></h2>
+      <p>Vamos descobrir quais estratégias e ferramentas do Google fazem sentido para o crescimento do seu negócio?</p>
+      <div class="tp-cta-btns"><a class="btn btn--primary" href="https://wa.me/5511914894352?text=Ol%C3%A1!%20Conheci%20a%20Humanize%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20estrat%C3%A9gias%20de%20Google%20para%20minha%20empresa." target="_blank" rel="noopener">QUERO FORTALECER MINHA PRESENÇA NO GOOGLE</a>
+        <a class="btn btn--back" href="index.html#servicos">Outros serviços</a></div>
     </div>
   </section>
 
@@ -1106,7 +1154,6 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
    aria-label="Falar com a Humanize no WhatsApp">
   <img src="img/whatsapp.webp" alt="" aria-hidden="true" width="62" height="62" />
 </a>
-
 <script>
 (function () {
   'use strict';
@@ -1146,75 +1193,61 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
     return Math.min(1, Math.max(0, (vh * from - r.top) / (r.height + vh * (from - to))));
   }
 
-
-  /* ===== Seção 1: barra de pesquisa digitando ===== */
-  var typed = document.getElementById('seoTyped'), res = document.getElementById('seoResults'), box = document.getElementById('seoSearch');
-  var FULL = 'empresa de [serviço] perto de mim';
-  function paint(n) {
-    var t = FULL.slice(0, n), i = t.indexOf('['), j = t.indexOf(']');
-    typed.innerHTML = i < 0 ? t : (j < 0 ? t.slice(0, i) + '<b>' + t.slice(i) + '</b>' : t.slice(0, i) + '<b>' + t.slice(i, j + 1) + '</b>' + t.slice(j + 1));
-  }
-  var items = res.querySelectorAll('li');
-  function showRes(on) { items.forEach(function (li, i) { setTimeout(function () { li.classList.toggle('on', on); }, on ? i * 160 : 0); }); }
-  if (reduced) { paint(FULL.length); showRes(true); }
+  /* Seção 1: simulação de busca local */
+  var typed = document.getElementById('glTyped'), sim = document.getElementById('glSim'), FULL = 'cafeteria artesanal perto de mim';
+  if (reduced) { typed.textContent = FULL; sim.classList.add('s-res', 's-map', 's-prof'); }
   else {
-    var timer = null, n = 0, phase = 'type', alive = false;
-    var tick = function () {
-      if (!alive) return;
-      if (phase === 'type') {
-        n++; paint(n);
-        if (n >= FULL.length) { phase = 'show'; timer = setTimeout(tick, 380); } else timer = setTimeout(tick, 70 + Math.random() * 50);
-      } else if (phase === 'show') { showRes(true); phase = 'hold'; timer = setTimeout(tick, 5200); }
-      else if (phase === 'hold') { showRes(false); phase = 'erase'; timer = setTimeout(tick, 500); }
-      else { n = Math.max(0, n - 3); paint(n); if (n === 0) { phase = 'type'; timer = setTimeout(tick, 700); } else timer = setTimeout(tick, 22); }
-    };
-    onVisible(box, function () { if (!alive) { alive = true; tick(); } }, function () { alive = false; clearTimeout(timer); });
+    var started = false;
+    onVisible(sim, function () {
+      if (started) return; started = true; var n = 0;
+      (function tick() { n++; typed.textContent = FULL.slice(0, n);
+        if (n < FULL.length) setTimeout(tick, 55 + Math.random() * 40);
+        else { setTimeout(function () { sim.classList.add('s-res'); }, 350); setTimeout(function () { sim.classList.add('s-map'); }, 1100); setTimeout(function () { sim.classList.add('s-prof'); }, 1700); } })();
+    }, function () {});
   }
 
-  /* ===== Seção 3: jornada da busca ===== */
-  var art = document.getElementById('seoArt'), svg = document.getElementById('seoSvg'), stage = document.getElementById('seoStage');
-  var L = [1, 2, 3].map(function (i) { return document.getElementById('sgL' + i); });
-  var N = [1, 2, 3].map(function (i) { return document.getElementById('sgN' + i); });
-  var legend = document.querySelectorAll('#seoLegend li');
-  var bar = document.getElementById('sgBar'), depthEls = svg.querySelectorAll('[data-depth]');
-  var clamp = function (v) { return Math.min(1, Math.max(0, v)); };
-  var held = -1; /* índice em foco por hover/toque (0..2) ou -1 */
+  /* Seção 2: trilho que acompanha a rolagem */
+  var steps = document.getElementById('gaSteps'), fill = document.getElementById('gaFill'), sEls = steps.querySelectorAll('.ga-step');
+  function upd() {
+    var p = reduced ? 1 : progress(steps, .85, .4); fill.style.transform = 'scaleY(' + p + ')';
+    sEls.forEach(function (el, i) { el.classList.toggle('on', p >= (i + .4) / sEls.length - .05); });
+  }
+  window.addEventListener('scroll', upd, { passive: true }); window.addEventListener('resize', upd); upd();
+
+  /* Seção 3: da pesquisa à oportunidade */
+  var svg = document.getElementById('gaSvg'), stage = document.getElementById('gaStage'), art = document.getElementById('gaArt');
+  var legend = document.querySelectorAll('#gaLegend li'), P1 = document.getElementById('gaP1'), P2 = document.getElementById('gaP2'), travel = document.getElementById('gaTrav');
+  var nodes = [0, 1, 2].map(function (i) { return document.getElementById('gaN' + i); }), depthEls = svg.querySelectorAll('[data-depth]');
+  var clamp = function (v) { return Math.min(1, Math.max(0, v)); }, held = -1;
+  function show(i, on) { nodes.forEach(function (g, k) { g.classList.toggle('on', on[k]); g.classList.toggle('cur', k === i); }); legend.forEach(function (li, k) { li.classList.toggle('cur', k === i); }); }
   function render(t) {
-    /* t: 0..1 do ciclo. Segmentos: 0–.22, .3–.52, .6–.82; nós acendem ao fim de cada um */
-    var segs = [clamp(t / .22), clamp((t - .3) / .22), clamp((t - .6) / .22)];
-    var fade = t > .93 ? 1 - (t - .93) / .07 : 1;
-    L.forEach(function (p, i) { p.style.strokeDashoffset = String(1 - segs[i]); p.style.opacity = String(fade); });
-    var on = [segs[0] > .98, segs[1] > .98, segs[2] > .98];
-    var active = held > -1 ? held : (on[2] ? 2 : on[1] ? 1 : 0);
-    N.forEach(function (g, i) { g.classList.toggle('on', held > -1 ? i <= held : on[i]); g.classList.toggle('cur', i === active); });
-    legend.forEach(function (li, i) { li.classList.toggle('cur', i === active); });
+    var a = clamp((t - .14) / .28), b = clamp((t - .55) / .28), f = t > .94 ? 1 - (t - .94) / .06 : 1;
+    P1.style.strokeDashoffset = 1 - a; P2.style.strokeDashoffset = 1 - b; P1.style.opacity = P2.style.opacity = f;
+    var on = [true, a > .97, b > .97], cur = on[2] ? 2 : on[1] ? 1 : 0;
+    show(held > -1 ? held : cur, held > -1 ? [true, held >= 1, held >= 2] : on);
+    var pt = null;
+    if (t > .14 && t < .42) pt = P1.getPointAtLength(a * P1.getTotalLength()); else if (t > .55 && t < .83) pt = P2.getPointAtLength(b * P2.getTotalLength());
+    if (pt) { travel.setAttribute('cx', pt.x); travel.setAttribute('cy', pt.y); travel.style.opacity = f; } else travel.style.opacity = 0;
   }
-  L.forEach(function (p) { p.style.strokeDasharray = '1 1'; });
-  if (reduced) { held = -1; render(.9); N.forEach(function (g) { g.classList.add('on'); }); }
+  P1.style.strokeDasharray = P2.style.strokeDasharray = '1 1';
+  var run = false, start = 0, CYCLE = 12000;
+  if (reduced) { P1.style.strokeDashoffset = P2.style.strokeDashoffset = 0; show(2, [true, true, true]); }
   else {
-    var run = false, start = 0, CYCLE = 11000;
-    var loop = function (now) {
-      if (!run) return; if (!start) start = now;
-      if (held < 0) render(((now - start) % CYCLE) / CYCLE); requestAnimationFrame(loop);
-    };
+    render(0);
+    nodes.forEach(function (g, i) { g.addEventListener('mouseenter', function () { held = i; render(.5); P1.style.strokeDashoffset = i >= 1 ? 0 : 1; P2.style.strokeDashoffset = i >= 2 ? 0 : 1; P1.style.opacity = P2.style.opacity = 1; }); g.addEventListener('mouseleave', function () { held = -1; start = 0; }); });
+    var loop = function (now) { if (!run) return; if (!start) start = now; if (held < 0) render(((now - start) % CYCLE) / CYCLE); requestAnimationFrame(loop); };
     onVisible(art, function () { if (!run) { run = true; start = 0; requestAnimationFrame(loop); } }, function () { run = false; });
-    /* foco por hover/toque */
-    function focusAt(i) { held = i; if (i > -1) { render(0); L.forEach(function (p, k) { p.style.strokeDashoffset = String(k <= i ? 0 : 1); p.style.opacity = '1'; }); N.forEach(function (g, k) { g.classList.toggle('on', k <= i); g.classList.toggle('cur', k === i); }); legend.forEach(function (li, k) { li.classList.toggle('cur', k === i); }); } }
-    N.forEach(function (g, i) { g.addEventListener('mouseenter', function () { focusAt(i); }); g.addEventListener('mouseleave', function () { held = -1; start = 0; }); });
-    legend.forEach(function (li, i) { li.addEventListener('mouseenter', function () { focusAt(i); }); li.addEventListener('mouseleave', function () { held = -1; start = 0; }); });
-    /* profundidade conforme o cursor (apenas desktop com mouse) */
     if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
       var mx = 0, my = 0, cx = 0, cy = 0, ar = false;
-      stage.addEventListener('mousemove', function (e) { var r = stage.getBoundingClientRect(); mx = (e.clientX - r.left) / r.width - .5; my = (e.clientY - r.top) / r.height - .5; if (!ar) { ar = true; requestAnimationFrame(par); } });
-      stage.addEventListener('mouseleave', function () { mx = 0; my = 0; if (!ar) { ar = true; requestAnimationFrame(par); } });
       var par = function () {
         cx += (mx - cx) * .08; cy += (my - cy) * .08;
         depthEls.forEach(function (el) { var d = parseFloat(el.getAttribute('data-depth')); el.style.transform = 'translate(' + (cx * -14 * d).toFixed(2) + 'px,' + (cy * -9 * d).toFixed(2) + 'px)'; });
         if (Math.abs(mx - cx) > .002 || Math.abs(my - cy) > .002) requestAnimationFrame(par); else ar = false;
       };
+      stage.addEventListener('mousemove', function (e) { var r = stage.getBoundingClientRect(); mx = (e.clientX - r.left) / r.width - .5; my = (e.clientY - r.top) / r.height - .5; if (!ar) { ar = true; requestAnimationFrame(par); } });
+      stage.addEventListener('mouseleave', function () { mx = my = 0; if (!ar) { ar = true; requestAnimationFrame(par); } });
     }
   }
-  if (reduced) { /* mantém tudo aceso e legível */ }
 })();
 </script>
 </body>

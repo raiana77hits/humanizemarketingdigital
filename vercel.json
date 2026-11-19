@@ -1,12 +1,11 @@
 {
+  "redirects": [
+    { "source": "/seo-google", "destination": "/google", "permanent": true },
+    { "source": "/google-ads", "destination": "/google", "permanent": true },
+    { "source": "/servico-seo-google.html", "destination": "/google", "permanent": true },
+    { "source": "/servico-google-ads.html", "destination": "/google", "permanent": true }
+  ],
   "rewrites": [
-    {
-      "source": "/seo-google",
-      "destination": "/servico-seo-google.html"
-    },
-    {
-      "source": "/google-ads",
-      "destination": "/servico-google-ads.html"
-    }
+    { "source": "/google", "destination": "/servico-google.html" }
   ]
 }

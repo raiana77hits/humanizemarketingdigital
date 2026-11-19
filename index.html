@@ -972,7 +972,9 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 #servicos .srv-title em{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:500;color:#005dfc;letter-spacing:-.015em}
 #servicos .srv-title em::after{content:"";display:block;width:min(62%,420px);height:2px;margin:clamp(6px,1.2svh,12px) auto 0;border-radius:2px;
   background:linear-gradient(90deg,transparent,rgba(0,93,252,.6),transparent)}
-#servicos .srv-grid{list-style:none;margin:0 auto;padding:0;max-width:1180px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(10px,1.4vw,18px)}
+#servicos .srv-grid{list-style:none;margin:0 auto;padding:0;max-width:1180px;display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:clamp(10px,1.4vw,18px)}
+#servicos .srv-grid>li{grid-column:span 2}
+#servicos .srv-grid>li:nth-child(6){grid-column:2 / span 2}
 #servicos .srv-card{display:flex;align-items:center;justify-content:center;text-align:center;height:100%;min-height:clamp(78px,15svh,132px);padding:12px clamp(10px,1.4vw,18px);
   border-radius:clamp(14px,1.6vw,20px);border:1px solid rgba(20,18,43,.14);background:rgba(255,255,255,.55);
   font:500 clamp(.92rem,min(1.6vw,2.8svh),1.3rem)/1.2 "Fraunces","Playfair Display",Georgia,serif;letter-spacing:-.01em;color:#14122b;text-decoration:none;
@@ -981,6 +983,8 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 @media (max-width:900px){
   #servicos{min-height:0}
   #servicos .srv-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #servicos .srv-grid>li,#servicos .srv-grid>li:nth-child(6){grid-column:auto}
+  #servicos .srv-grid>li:last-child{grid-column:1 / -1}
   #servicos .srv-title{font-size:clamp(1.6rem,7.4vw,2.4rem)}
   #servicos .srv-card{min-height:78px;font-size:.98rem}
 }
@@ -1114,8 +1118,7 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
         <li><a class="srv-card" href="servico-trafego-pago.html">Tráfego pago</a></li>
         <li><a class="srv-card" href="servico-criacao-de-conteudo.html">Criação de conteúdo</a></li>
         <li><a class="srv-card" href="servico-redes-sociais.html">Gerenciamento de redes sociais</a></li>
-        <li><a class="srv-card" href="servico-seo-google.html">SEO Google</a></li>
-        <li><a class="srv-card" href="servico-google-ads.html">Google Ads</a></li>
+        <li><a class="srv-card" href="google">Google</a></li>
         <li><a class="srv-card" href="servico-sites-e-landing-pages.html">Criação de sites e landing pages</a></li>
         <li><a class="srv-card" href="servico-campanhas.html">Campanhas</a></li>
         <li><a class="srv-card" href="servico-delivery.html">Cadastro e gerenciamento de delivery</a></li>
