@@ -161,3 +161,37 @@
   .ct-it,.ct-cap{transform:none !important}
   .ct-sec:not([data-state="1"]) .ct-docwrap{transform:none}
 }
+
+/* ---------- desktop: a seção ocupa exatamente a altura da tela (tudo dimensionado por svh) ---------- */
+@media (min-width:961px){
+  .ct-sec{min-height:100svh;display:flex;align-items:center;padding-top:clamp(70px,11svh,104px);padding-bottom:clamp(16px,3.4svh,48px)}
+  .ct-wrap{width:min(1240px,calc(100% - clamp(32px,6vw,80px)))}
+  .ct-eyebrow{margin-bottom:clamp(8px,2svh,22px)}
+  .ct-title{font-size:clamp(1.9rem,min(4.2vw,7.4svh),4.1rem)}
+  .ct-intro{margin-top:clamp(10px,2.2svh,28px);gap:clamp(.4em,1.2svh,.9em);font-size:clamp(.88rem,min(1.25vw,2.5svh),1.125rem);line-height:1.55}
+  .ct-pull{margin-top:clamp(12px,2.6svh,32px);font-size:clamp(1.02rem,min(1.7vw,3.1svh),1.45rem)}
+  .ct-cap-n{font-size:clamp(2rem,min(4.2vw,6.4svh),3.9rem)}
+  .ct-cap-t{margin-top:clamp(4px,1.1svh,10px);font-size:clamp(1.25rem,min(2.3vw,3.9svh),2rem)}
+  .ct-cap-p{margin-top:clamp(4px,1.1svh,10px);font-size:clamp(.9rem,min(1.15vw,2.4svh),1.0625rem);line-height:1.5}
+  .ct-stage{aspect-ratio:auto;height:clamp(300px,calc(100svh - 300px),510px);margin-top:clamp(10px,2svh,26px)}
+  .ct-top{padding-block:clamp(8px,1.5svh,13px)}
+  .ct-layers{padding:clamp(10px,2.2svh,26px) clamp(14px,2vw,26px)}
+  /* estado 1 */
+  .ct-doc{padding-top:clamp(10px,1.8svh,22px);padding-bottom:clamp(2px,.6svh,10px)}
+  .ct-doc-h{padding-bottom:clamp(7px,1.3svh,12px)}
+  .ct-row{padding-block:clamp(5px,1.35svh,13px)}
+  .ct-row dd{font-size:clamp(.92rem,min(1.45vw,2.8svh),1.2rem)}
+  /* estado 2 */
+  .ct-l2{padding-top:clamp(24px,5svh,44px)}
+  .ct-trunk,.ct-drops{height:clamp(14px,3svh,28px)}
+  .ct-core{padding-block:clamp(8px,1.6svh,16px)}
+  .ct-front{padding-block:clamp(8px,1.5svh,16px)}
+  /* estado 3 */
+  .ct-l3{gap:clamp(7px,1.6svh,18px)}
+  .ct-acts{gap:clamp(6px,1.2svh,10px)}
+  .ct-act{padding-block:clamp(6px,1.4svh,15px);gap:clamp(6px,1.1svh,10px) 12px}
+  .ct-act-t{margin-top:clamp(2px,.6svh,5px);font-size:clamp(.88rem,min(1.4vw,2.6svh),1.14rem)}
+  .ct-goal{padding-block:clamp(5px,1.1svh,8px)}
+  .ct-flow{padding-top:clamp(12px,2.2svh,18px)}
+  .ct-flow-n::before{top:calc(-1 * clamp(12px,2.2svh,18px))}
+}
