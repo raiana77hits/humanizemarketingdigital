@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/seo-google", "destination": "/servico-seo-google.html" }
+  ]
+}
