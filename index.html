@@ -393,6 +393,79 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 .estrategia-texto{max-width:760px;margin-inline:auto}
 .estrategia-texto p{font-size:clamp(1.02rem,1.35vw,1.14rem);line-height:1.55;letter-spacing:-.012em;color:var(--text-soft);margin-bottom:1em}
 
+/* ---- Cubo 3D lilás neon (seção Estratégia) — CSS puro, só transform/opacity animam ---- */
+.estrategia-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:center;max-width:1100px;margin-inline:auto}
+.estrategia-grid .estrategia-texto{max-width:none;margin:0}
+.estrategia-cubo{
+  --cube:210px;--ln:192,107,255;
+  position:relative;display:flex;align-items:center;justify-content:center;
+  min-height:440px;isolation:isolate;perspective:1100px;
+}
+.ec-glow,.ec-ring{position:absolute;pointer-events:none}
+.ec-glow{
+  width:min(92%,430px);aspect-ratio:1;border-radius:50%;z-index:0;
+  background:radial-gradient(circle,#1b0a3d 0%,#2a0f5c 38%,rgba(var(--ln),.35) 62%,transparent 72%);
+  filter:blur(14px);
+}
+.ec-ring{width:min(96%,440px);aspect-ratio:1;border-radius:50%;border:1px solid rgba(var(--ln),.5);box-shadow:0 0 60px rgba(var(--ln),.35) inset,0 0 40px rgba(var(--ln),.25)}
+.ec-float{position:relative;z-index:1;transform-style:preserve-3d;animation:ecFloat 7s ease-in-out infinite}
+.ec-tilt{transform-style:preserve-3d;transform:rotateX(-24deg) rotateZ(8deg)}
+.ec-cube{position:relative;width:var(--cube);height:var(--cube);transform-style:preserve-3d;animation:ecSpin 22s linear infinite}
+.ec-cube .cube-face{
+  position:absolute;inset:0;border-radius:18px;
+  border:1.5px solid rgba(225,175,255,.9);
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,0) 40%),
+    linear-gradient(160deg,rgba(var(--ln),.42),rgba(120,40,220,.14) 55%,rgba(230,150,255,.30));
+  box-shadow:inset 0 0 44px rgba(var(--ln),.55),inset 0 0 2px rgba(255,255,255,.6),0 0 38px rgba(var(--ln),.75);
+}
+.ec-cube>.cube-face:nth-child(1){transform:translateZ(calc(var(--cube) / 2))}
+.ec-cube>.cube-face:nth-child(2){transform:rotateY(180deg) translateZ(calc(var(--cube) / 2))}
+.ec-cube>.cube-face:nth-child(3){transform:rotateY(90deg) translateZ(calc(var(--cube) / 2))}
+.ec-cube>.cube-face:nth-child(4){transform:rotateY(-90deg) translateZ(calc(var(--cube) / 2))}
+.ec-cube>.cube-face:nth-child(5){transform:rotateX(90deg) translateZ(calc(var(--cube) / 2))}
+.ec-cube>.cube-face:nth-child(6){transform:rotateX(-90deg) translateZ(calc(var(--cube) / 2))}
+.ec-core{
+  --core:calc(var(--cube) * .5);
+  position:absolute;left:50%;top:50%;width:var(--core);height:var(--core);
+  margin:calc(var(--core) / -2) 0 0 calc(var(--core) / -2);
+  transform-style:preserve-3d;animation:ecSpinRev 16s linear infinite;
+}
+.ec-core .cube-face{
+  position:absolute;inset:0;border-radius:10px;border:1.5px solid rgba(255,255,255,.7);
+  background:radial-gradient(120% 120% at 30% 20%,rgba(var(--ln),.7),transparent 60%),linear-gradient(150deg,#2a0a5e,#10042e 70%);
+  box-shadow:inset 0 0 22px rgba(var(--ln),.75),0 0 30px rgba(var(--ln),.9);
+  overflow:hidden;
+}
+.ec-core .cube-face::before{
+  content:"";position:absolute;inset:14%;
+  background:linear-gradient(115deg,#ffffff 0%,#f0d9ff 35%,#d98bff 50%,#ffffff 65%,#e8c8ff 100%);background-size:260% 100%;
+  -webkit-mask:url(img/monograma.webp) center/contain no-repeat;mask:url(img/monograma.webp) center/contain no-repeat;
+  filter:drop-shadow(0 0 7px rgba(var(--ln),1));
+  animation:ecShine 4.5s ease-in-out infinite;
+}
+.ec-core .cube-face::after{
+  content:"";position:absolute;inset:-40%;
+  background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.4) 50%,transparent 58%);
+  transform:translateX(-60%);animation:ecGlint 4.5s ease-in-out infinite;
+}
+.ec-core .cube-face:nth-child(1){transform:translateZ(calc(var(--core) / 2))}
+.ec-core .cube-face:nth-child(2){transform:rotateY(180deg) translateZ(calc(var(--core) / 2))}
+.ec-core .cube-face:nth-child(3){transform:rotateY(90deg) translateZ(calc(var(--core) / 2))}
+.ec-core .cube-face:nth-child(4){transform:rotateY(-90deg) translateZ(calc(var(--core) / 2))}
+.ec-core .cube-face:nth-child(5){transform:rotateX(90deg) translateZ(calc(var(--core) / 2))}
+.ec-core .cube-face:nth-child(6){transform:rotateX(-90deg) translateZ(calc(var(--core) / 2))}
+@keyframes ecShine{0%,100%{background-position:100% 0}50%{background-position:0 0}}
+@keyframes ecGlint{0%,55%{transform:translateX(-60%)}85%,100%{transform:translateX(60%)}}
+@keyframes ecSpin{to{transform:rotateY(360deg) rotateX(360deg)}}
+@keyframes ecSpinRev{to{transform:rotateY(-360deg) rotateZ(180deg)}}
+@keyframes ecFloat{0%,100%{transform:translateY(-10px)}50%{transform:translateY(10px)}}
+@media (prefers-reduced-motion:reduce){.ec-float,.ec-cube,.ec-core,.ec-core .cube-face::before,.ec-core .cube-face::after{animation:none}}
+@media (max-width:860px){
+  .estrategia-grid{grid-template-columns:1fr;gap:8px}
+  .estrategia-cubo{--cube:150px;min-height:320px}
+}
+
 .pullquote{
   position:relative;padding:30px 32px;border-radius:var(--r-md);
   background:linear-gradient(135deg,rgba(0,93,252,.14),rgba(32,216,245,.06));
@@ -1099,10 +1172,27 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
         <h2 class="h-section">Estar no digital é <em class="destaque-serif">obrigação</em>.<br> Vender pelo digital é <em class="destaque-serif">estratégia</em>.</h2>
       </div>
 
-      <div class="estrategia-texto reveal reveal-d1">
-        <p>Pense na sua loja física. Todos os dias, você tem a oportunidade de conquistar quem passa pela sua porta. Agora, imagine levar essa oportunidade muito além das ruas do seu bairro, alcançando pessoas que talvez nunca descobrissem sua empresa de outra forma.</p>
-        <p>Esse é o potencial do digital. Mas estar presente não significa, necessariamente, vender mais.</p>
-        <p>Para transformar visibilidade em resultados, é preciso estratégia. Entender quem é seu público, despertar interesse, criar identificação e alcançar as pessoas certas, no momento certo.</p>
+      <div class="estrategia-grid">
+        <div class="estrategia-cubo reveal" aria-hidden="true">
+          <div class="ec-glow"></div>
+          <div class="ec-ring"></div>
+          <div class="ec-float">
+            <div class="ec-tilt">
+              <div class="ec-cube">
+                <span class="cube-face"></span><span class="cube-face"></span><span class="cube-face"></span><span class="cube-face"></span><span class="cube-face"></span><span class="cube-face"></span>
+                <div class="ec-core">
+                  <span class="cube-face"></span><span class="cube-face"></span><span class="cube-face"></span><span class="cube-face"></span><span class="cube-face"></span><span class="cube-face"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="estrategia-texto reveal reveal-d1">
+          <p>Pense na sua loja física. Todos os dias, você tem a oportunidade de conquistar quem passa pela sua porta. Agora, imagine levar essa oportunidade muito além das ruas do seu bairro, alcançando pessoas que talvez nunca descobrissem sua empresa de outra forma.</p>
+          <p>Esse é o potencial do digital. Mas estar presente não significa, necessariamente, vender mais.</p>
+          <p>Para transformar visibilidade em resultados, é preciso estratégia. Entender quem é seu público, despertar interesse, criar identificação e alcançar as pessoas certas, no momento certo.</p>
+        </div>
       </div>
 
     </div>
