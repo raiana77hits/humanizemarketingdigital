@@ -195,3 +195,11 @@
   .ct-flow{padding-top:clamp(12px,2.2svh,18px)}
   .ct-flow-n::before{top:calc(-1 * clamp(12px,2.2svh,18px))}
 }
+@media (min-width:961px){
+  .ct-title{font-size:clamp(1.8rem,min(4.2vw,6.6svh),4.1rem)}
+  .ct-intro{font-size:clamp(.84rem,min(1.25vw,2.3svh),1.125rem);line-height:1.5}
+  .ct-pull{margin-top:clamp(8px,2svh,32px);font-size:clamp(.98rem,min(1.7vw,2.9svh),1.45rem)}
+  .ct-tabs{margin-top:clamp(10px,2.4svh,40px)}
+  .ct-tab{padding-top:clamp(8px,1.8svh,15px)}
+  .ct-tab-l{margin-top:clamp(3px,.9svh,8px)}
+}
