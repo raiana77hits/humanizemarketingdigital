@@ -388,148 +388,39 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 /* ============================================================
    ESTRATÉGIA — texto "Estar no digital é obrigação…"
    ============================================================ */
-.estrategia-texto{max-width:none}
-.estrategia-texto p{font-size:clamp(1.12rem,1.6vw,1.4rem);line-height:1.5;letter-spacing:0;word-spacing:.04em;color:var(--text-soft);margin-bottom:1.1em}
 .tw-rest{color:transparent}
-.tw-cursor{display:inline-block;width:2px;height:1.05em;margin-left:2px;vertical-align:-.15em;background:#3d86ff;animation:twBlink .8s steps(1) infinite}
+.tw-cursor{display:inline-block;width:2px;height:1.05em;margin-left:2px;vertical-align:-.15em;background:#22c5ff;box-shadow:0 0 8px #22c5ff;animation:twBlink .8s steps(1) infinite}
 @keyframes twBlink{50%{opacity:0}}
 
-/* ---- Cubo 3D lilás neon (seção Estratégia) — CSS puro, só transform/opacity animam ---- */
-.estrategia-cubo{
-  --cube:210px;--ln:192,107,255;
-  position:relative;display:flex;align-items:center;justify-content:center;
-  min-height:440px;isolation:isolate;perspective:1100px;
+/* ---- Seção Estratégia — arte neon de fundo (retrato com halo), título serifado e texto à direita ---- */
+#estrategia{
+  position:relative;overflow:hidden;display:flex;align-items:center;
+  min-height:clamp(540px,50vw,880px);padding-block:clamp(56px,6vw,96px);
+  background:#020a2e url(img/estrategia-arte.webp) center/cover no-repeat;color:#eaf0ff;
 }
-.ec-glow,.ec-ring{position:absolute;pointer-events:none}
-.ec-glow{
-  width:min(92%,430px);aspect-ratio:1;border-radius:50%;z-index:0;
-  background:radial-gradient(circle,#1b0a3d 0%,#2a0f5c 38%,rgba(var(--ln),.35) 62%,transparent 72%);
-  filter:blur(14px);
-}
-.ec-ring{width:min(96%,440px);aspect-ratio:1;border-radius:50%;border:1px solid rgba(var(--ln),.5);box-shadow:0 0 60px rgba(var(--ln),.35) inset,0 0 40px rgba(var(--ln),.25)}
-.ec-float{position:relative;z-index:1;transform-style:preserve-3d;animation:ecFloat 7s ease-in-out infinite}
-.ec-tilt{transform-style:preserve-3d;transform:rotateX(-24deg) rotateZ(8deg)}
-.ec-cube{position:relative;width:var(--cube);height:var(--cube);transform-style:preserve-3d;animation:ecSpin 22s linear infinite}
-.ec-cube .cube-face{
-  position:absolute;inset:0;border-radius:18px;
-  border:1.5px solid rgba(225,175,255,.9);
-  background:
-    linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,0) 40%),
-    linear-gradient(160deg,rgba(var(--ln),.42),rgba(120,40,220,.14) 55%,rgba(230,150,255,.30));
-  box-shadow:inset 0 0 44px rgba(var(--ln),.55),inset 0 0 2px rgba(255,255,255,.6),0 0 38px rgba(var(--ln),.75);
-}
-.ec-cube>.cube-face:nth-child(1){transform:translateZ(calc(var(--cube) / 2))}
-.ec-cube>.cube-face:nth-child(2){transform:rotateY(180deg) translateZ(calc(var(--cube) / 2))}
-.ec-cube>.cube-face:nth-child(3){transform:rotateY(90deg) translateZ(calc(var(--cube) / 2))}
-.ec-cube>.cube-face:nth-child(4){transform:rotateY(-90deg) translateZ(calc(var(--cube) / 2))}
-.ec-cube>.cube-face:nth-child(5){transform:rotateX(90deg) translateZ(calc(var(--cube) / 2))}
-.ec-cube>.cube-face:nth-child(6){transform:rotateX(-90deg) translateZ(calc(var(--cube) / 2))}
-.ec-core{
-  --core:calc(var(--cube) * .5);
-  position:absolute;left:50%;top:50%;width:var(--core);height:var(--core);
-  margin:calc(var(--core) / -2) 0 0 calc(var(--core) / -2);
-  transform-style:preserve-3d;animation:ecSpinRev 16s linear infinite;
-}
-.ec-core .cube-face{
-  position:absolute;inset:0;border-radius:10px;border:1.5px solid rgba(255,255,255,.7);
-  background:radial-gradient(120% 120% at 30% 20%,rgba(var(--ln),.7),transparent 60%),linear-gradient(150deg,#2a0a5e,#10042e 70%);
-  box-shadow:inset 0 0 22px rgba(var(--ln),.75),0 0 30px rgba(var(--ln),.9);
-  overflow:hidden;
-}
-.ec-core .cube-face::before{
-  content:"";position:absolute;inset:14%;
-  background:linear-gradient(115deg,#ffffff 0%,#f0d9ff 35%,#d98bff 50%,#ffffff 65%,#e8c8ff 100%);background-size:260% 100%;
-  -webkit-mask:url(img/monograma.webp) center/contain no-repeat;mask:url(img/monograma.webp) center/contain no-repeat;
-  filter:drop-shadow(0 0 7px rgba(var(--ln),1));
-  animation:ecShine 4.5s ease-in-out infinite;
-}
-.ec-core .cube-face::after{
-  content:"";position:absolute;inset:-40%;
-  background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.4) 50%,transparent 58%);
-  transform:translateX(-60%);animation:ecGlint 4.5s ease-in-out infinite;
-}
-.ec-core .cube-face:nth-child(1){transform:translateZ(calc(var(--core) / 2))}
-.ec-core .cube-face:nth-child(2){transform:rotateY(180deg) translateZ(calc(var(--core) / 2))}
-.ec-core .cube-face:nth-child(3){transform:rotateY(90deg) translateZ(calc(var(--core) / 2))}
-.ec-core .cube-face:nth-child(4){transform:rotateY(-90deg) translateZ(calc(var(--core) / 2))}
-.ec-core .cube-face:nth-child(5){transform:rotateX(90deg) translateZ(calc(var(--core) / 2))}
-.ec-core .cube-face:nth-child(6){transform:rotateX(-90deg) translateZ(calc(var(--core) / 2))}
-@keyframes ecShine{0%,100%{background-position:100% 0}50%{background-position:0 0}}
-@keyframes ecGlint{0%,55%{transform:translateX(-60%)}85%,100%{transform:translateX(60%)}}
-@keyframes ecSpin{to{transform:rotateY(360deg) rotateX(360deg)}}
-@keyframes ecSpinRev{to{transform:rotateY(-360deg) rotateZ(180deg)}}
-@keyframes ecFloat{0%,100%{transform:translateY(-10px)}50%{transform:translateY(10px)}}
-@media (prefers-reduced-motion:reduce){.ec-float,.ec-cube,.ec-core,.ec-core .cube-face::before,.ec-core .cube-face::after{animation:none}}
-@media (max-width:860px){
-        }
-
-/* ---- Seção Estratégia — layout editorial (fundo creme, título serifado, texto à direita) ---- */
-#estrategia{background:#f4efe6;overflow:hidden;padding-block:clamp(40px,5vw,72px);
-  --text-soft:#222c4a;--strong:#0b1640}
-.est-layout{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);column-gap:clamp(24px,3.5vw,56px);align-items:start;padding-left:clamp(36px,4.5vw,64px);max-width:1240px;margin-inline:auto}
-.est-label{
-  position:absolute;left:0;top:clamp(8px,2vw,28px);margin:0;
-  writing-mode:vertical-rl;transform:rotate(180deg);
-  font-family:Manrope,sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:#586a8c;
-  display:flex;align-items:center;gap:14px;white-space:nowrap;
-}
-.est-label::before{content:"";width:1px;height:44px;background:rgba(11,22,64,.3)}
-.est-left{--tfs:clamp(2.2rem,3.9vw,3.4rem);align-self:center}
+.est-wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.8fr);column-gap:clamp(28px,5vw,84px);align-items:center;max-width:1240px;margin-inline:auto;width:min(1240px,calc(100% - var(--gutter)*2))}
+.est-label{display:flex;align-items:center;gap:16px;margin:0 0 clamp(18px,2.4vw,34px);
+  font-family:Manrope,sans-serif;font-weight:700;font-size:clamp(.74rem,1vw,.92rem);letter-spacing:.14em;text-transform:uppercase;color:#fff}
+.est-label-line{width:clamp(34px,4vw,56px);height:2px;background:#b13dff;box-shadow:0 0 10px rgba(177,61,255,.9)}
 .est-title{
   margin:0;font-family:"Playfair Display",Georgia,"Times New Roman",serif;font-weight:700;
-  font-size:var(--tfs);line-height:1.04;letter-spacing:-.02em;color:#0b1640;
+  font-size:clamp(2rem,3.7vw,3.9rem);line-height:1.06;letter-spacing:-.015em;color:#fff;
+  text-shadow:0 4px 30px rgba(2,10,46,.7);
 }
-.est-title em{font-style:italic;font-weight:600;color:#005dfc;letter-spacing:-.01em}
-.est-rule{border:0;height:1px;background:rgba(11,22,64,.35);margin:clamp(20px,2.4vw,32px) 0 0;max-width:430px}
-.est-left .estrategia-cubo{--cube:130px;width:calc(var(--cube) * 1.8);min-height:240px;margin-top:clamp(0px,1vw,12px);margin-left:calc(var(--tfs) * 5.2 - var(--cube) * .9)}
-.est-left .estrategia-cubo .ec-glow,.est-left .estrategia-cubo .ec-ring{display:none}
-.est-left .ec-float{filter:drop-shadow(0 0 14px rgba(192,107,255,.7)) drop-shadow(0 0 4px rgba(170,80,255,.9))}
-.est-left .ec-cube>.cube-face{border-color:rgba(150,60,235,.95)}
-.est-layout .estrategia-texto{margin-top:clamp(6px,1vw,16px)}
-.est-layout .estrategia-texto p{color:#222c4a}
+.est-title em{font-style:italic;font-weight:600;color:#22c5ff;text-shadow:0 0 28px rgba(34,197,255,.45)}
+.estrategia-texto{position:relative;padding-left:clamp(22px,2.6vw,36px)}
+.estrategia-texto::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;border-radius:2px;
+  background:linear-gradient(180deg,rgba(34,197,255,.1),#22c5ff 35%,#7b5cff 80%,rgba(177,61,255,.1));box-shadow:0 0 10px rgba(34,197,255,.55)}
+.estrategia-texto::after{content:"";position:absolute;left:-3px;top:46%;width:8px;height:8px;border-radius:50%;background:#e6c6ff;box-shadow:0 0 14px 4px rgba(190,110,255,.9)}
+.estrategia-texto p{font-size:clamp(1rem,1.35vw,1.3rem);line-height:1.5;letter-spacing:0;color:#eaf0ff;margin:0 0 1.1em}
+.estrategia-texto p:last-child{margin-bottom:0}
+.estrategia-texto strong{color:#fff;font-weight:700}
 @media (max-width:860px){
-  .est-layout{grid-template-columns:1fr;padding-left:0}
-  .est-label{position:static;writing-mode:horizontal-tb;transform:none;margin-bottom:18px;font-size:.66rem;letter-spacing:.2em}
-  .est-label::before{width:36px;height:1px}
-  .est-left .estrategia-cubo{--cube:105px;min-height:200px;margin-bottom:8px}
+  #estrategia{min-height:0;align-items:flex-start;
+    background:linear-gradient(rgba(2,10,46,.66),rgba(2,10,46,.78)),#020a2e url(img/estrategia-arte.webp) 30% center/cover no-repeat}
+  .est-wrap{grid-template-columns:1fr;row-gap:30px}
+  .est-title{font-size:clamp(2.1rem,9vw,3rem)}
 }
-
-/* ---- Arte colorida à direita da seção Estratégia (CSS puro, animação suave) ---- */
-.est-art{position:relative;align-self:stretch;min-height:440px;border-radius:30px;overflow:hidden;isolation:isolate;
-  background:linear-gradient(165deg,#0a2a9a 0%,#005dfc 34%,#6a3df2 68%,#cf7cff 100%);
-  box-shadow:0 30px 70px rgba(0,93,252,.28)}
-.ea-blob{position:absolute;border-radius:50%;filter:blur(34px);will-change:transform;z-index:0}
-.ea-b1{width:78%;aspect-ratio:1;left:-22%;top:-8%;background:radial-gradient(circle,#20d8f5 0%,rgba(32,216,245,0) 68%);animation:eaDrift 13s ease-in-out infinite}
-.ea-b2{width:86%;aspect-ratio:1;right:-34%;top:34%;background:radial-gradient(circle,#ff7ad9 0%,rgba(255,122,217,0) 66%);animation:eaDrift 16s -4s ease-in-out infinite reverse}
-.ea-b3{width:90%;aspect-ratio:1;left:-14%;bottom:-26%;background:radial-gradient(circle,#ffb27a 0%,rgba(255,178,122,0) 64%);animation:eaDrift 18s -8s ease-in-out infinite}
-.ea-ring{position:absolute;border-radius:50%;border:1.5px solid rgba(255,255,255,.55);z-index:1}
-.ea-r1{width:150%;aspect-ratio:1;left:-25%;top:-18%;border-color:rgba(255,255,255,.28)}
-.ea-r2{width:92%;aspect-ratio:1;left:4%;top:16%}
-.ea-arch{position:absolute;left:22%;right:22%;bottom:0;height:46%;z-index:2;border-radius:999px 999px 0 0;
-  background:linear-gradient(180deg,rgba(255,255,255,.34),rgba(255,255,255,.06));border:1.5px solid rgba(255,255,255,.6);border-bottom:0;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-.ea-sun{position:absolute;width:34%;aspect-ratio:1;left:33%;top:20%;border-radius:50%;z-index:2;
-  background:radial-gradient(circle at 35% 30%,#fff 0%,#ffe1f4 26%,#ffa7e0 62%,#ff7a9e 100%);box-shadow:0 0 50px rgba(255,170,220,.85);animation:eaFloat 7s ease-in-out infinite}
-.ea-grain{position:absolute;inset:0;z-index:3;opacity:.38;mix-blend-mode:overlay;pointer-events:none;
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
-@keyframes eaDrift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(8%,10%) scale(1.12)}}
-@keyframes eaFloat{0%,100%{transform:translateY(-8px)}50%{transform:translateY(8px)}}
-@media (prefers-reduced-motion:reduce){.ea-blob,.ea-sun{animation:none}}
-@media (max-width:860px){.est-art{min-height:180px;margin-top:22px;border-radius:24px}
-  .ea-arch{left:30%;right:30%;height:60%}.ea-sun{width:22%;left:39%;top:14%}}
-
-/* ---- Linhas curvas e círculos neon (azul e roxo) espalhados pela seção Estratégia ---- */
-.est-lines{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.72}
-.est-layout{z-index:1}
-.el-glow-b{filter:drop-shadow(0 0 5px rgba(31,107,255,.85))}
-.el-glow-p{filter:drop-shadow(0 0 5px rgba(177,61,255,.85))}
-.el-dots{filter:drop-shadow(0 0 8px rgba(120,80,255,.9))}
-.el-spin{transform-box:fill-box;transform-origin:center;animation:elSpin 70s linear infinite}
-.el-spin--rev{animation-direction:reverse}
-.el-dot{animation:elPulse 4s ease-in-out infinite}
-.el-dot--b{animation-delay:-2s}
-@keyframes elSpin{to{transform:rotate(360deg)}}
-@keyframes elPulse{0%,100%{opacity:.55}50%{opacity:1}}
-@media (prefers-reduced-motion:reduce){.el-spin,.el-dot{animation:none}}
 
 .pullquote{
   position:relative;padding:30px 32px;border-radius:var(--r-md);
@@ -1230,50 +1121,20 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   </section>
 
   <!-- ============================ ESTRATÉGIA (texto) ============================ -->
-  <section class="section theme-sky" id="estrategia">
-    <svg class="est-lines" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-      <defs>
-        <linearGradient id="elB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f6bff"/><stop offset="1" stop-color="#38b6ff"/></linearGradient>
-        <linearGradient id="elP" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#b13dff"/><stop offset="1" stop-color="#e06bff"/></linearGradient>
-      </defs>
-      <g class="el-glow-b" fill="none" stroke="url(#elB)" stroke-width="2" stroke-linecap="round">
-        <path d="M-60 330 C 260 90 520 640 900 400 S 1300 170 1520 420"/>
-        <circle cx="1290" cy="130" r="190" stroke-dasharray="3 12" class="el-spin"/>
-        <circle cx="110" cy="700" r="300"/>
-        <circle cx="720" cy="40" r="70"/>
-      </g>
-      <g class="el-glow-p" fill="none" stroke="url(#elP)" stroke-width="2" stroke-linecap="round">
-        <path d="M-60 640 C 330 520 560 850 1000 650 S 1400 500 1520 720"/>
-        <path d="M300 -40 C 420 200 250 420 470 560" stroke-width="1.5"/>
-        <circle cx="1290" cy="130" r="270"/>
-        <circle cx="110" cy="700" r="205" stroke-dasharray="3 12" class="el-spin el-spin--rev"/>
-        <circle cx="1130" cy="760" r="120"/>
-      </g>
-      <g class="el-dots">
-        <circle cx="900" cy="400" r="7" fill="#1f6bff" class="el-dot"/>
-        <circle cx="1000" cy="650" r="6" fill="#b13dff" class="el-dot el-dot--b"/>
-        <circle cx="470" cy="560" r="5" fill="#b13dff" class="el-dot"/>
-        <circle cx="1480" cy="420" r="5" fill="#1f6bff" class="el-dot el-dot--b"/>
-        <circle cx="210" cy="140" r="4" fill="#38b6ff" class="el-dot"/>
-      </g>
-    </svg>
-    <div class="wrap">
-      <div class="est-layout">
+  <section class="section" id="estrategia">
+    <div class="wrap est-wrap">
 
-        <p class="est-label">Humanize — marketing com propósito</p>
-
-        <div class="est-left">
-          <h2 class="est-title reveal">Estar no digital é<br><em>OBRIGAÇÃO</em>.<br>Vender pelo digital é<br><em>ESTRATÉGIA</em>.</h2>
-          <hr class="est-rule">
-        </div>
-
-        <div class="estrategia-texto reveal reveal-d1">
-          <p>Pense na sua loja física. Todos os dias, você tem a oportunidade de conquistar quem passa pela sua porta. Agora, imagine levar essa oportunidade muito além das ruas do seu bairro, alcançando pessoas que talvez nunca descobrissem sua empresa de outra forma.</p>
-          <p>Esse é o potencial do digital. Mas estar presente não significa, necessariamente, vender mais.</p>
-          <p>Para transformar visibilidade em resultados, é preciso estratégia. Entender quem é seu público, despertar interesse, criar identificação e alcançar as pessoas certas, no momento certo.</p>
-        </div>
-
+      <div class="est-left reveal">
+        <p class="est-label"><span class="est-label-line" aria-hidden="true"></span>Estratégia digital</p>
+        <h2 class="est-title">Estar no digital é<br><em>OBRIGAÇÃO</em>.<br>Vender pelo digital é<br><em>ESTRATÉGIA</em>.</h2>
       </div>
+
+      <div class="estrategia-texto reveal reveal-d1">
+        <p>Pense na sua loja física. Todos os dias, você tem a oportunidade de conquistar quem passa pela sua porta. Agora, imagine levar essa oportunidade muito além das ruas do seu bairro, alcançando pessoas que talvez nunca descobrissem sua empresa de outra forma.</p>
+        <p>Esse é o potencial do digital. Mas estar presente não significa, necessariamente, vender mais.</p>
+        <p>Para transformar <strong>visibilidade</strong> em resultados, é preciso estratégia. Entender quem é seu público, despertar interesse, criar identificação e alcançar as pessoas certas, no momento certo.</p>
+      </div>
+
     </div>
   </section>
 
@@ -1793,9 +1654,10 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
     var ps = Array.prototype.slice.call(box.querySelectorAll('p'));
     var data = ps.map(function (p) {
       var full = p.textContent.trim();
+      var orig = p.innerHTML;
       p.setAttribute('aria-label', full);
       p.innerHTML = '<span aria-hidden="true"><span class="tw-done"></span><span class="tw-rest">' + full.replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</span></span>';
-      return { done: p.querySelector('.tw-done'), rest: p.querySelector('.tw-rest'), full: full };
+      return { p: p, orig: orig, done: p.querySelector('.tw-done'), rest: p.querySelector('.tw-rest'), full: full };
     });
     var cursor = document.createElement('span');
     cursor.className = 'tw-cursor'; cursor.setAttribute('aria-hidden', 'true');
@@ -1809,7 +1671,7 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
         d.done.textContent = d.full.slice(0, n);
         d.rest.textContent = d.full.slice(n);
         d.done.appendChild(cursor);
-        if (n < d.full.length) { setTimeout(tick, 22); } else { setTimeout(function () { type(i + 1); }, 380); }
+        if (n < d.full.length) { setTimeout(tick, 22); } else { setTimeout(function () { d.p.innerHTML = d.orig; d.p.removeAttribute('aria-label'); type(i + 1); }, 380); }
       };
       tick();
     }
