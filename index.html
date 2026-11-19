@@ -389,7 +389,7 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
    ESTRATÉGIA — texto "Estar no digital é obrigação…"
    ============================================================ */
 .estrategia-texto{max-width:none}
-.estrategia-texto p{font-size:clamp(1.08rem,1.45vw,1.3rem);line-height:1.5;letter-spacing:0;word-spacing:.04em;color:var(--text-soft);margin-bottom:1.1em}
+.estrategia-texto p{font-size:clamp(1.12rem,1.6vw,1.4rem);line-height:1.5;letter-spacing:0;word-spacing:.04em;color:var(--text-soft);margin-bottom:1.1em}
 .tw-rest{color:transparent}
 .tw-cursor{display:inline-block;width:2px;height:1.05em;margin-left:2px;vertical-align:-.15em;background:#3d86ff;animation:twBlink .8s steps(1) infinite}
 @keyframes twBlink{50%{opacity:0}}
@@ -464,9 +464,9 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
         }
 
 /* ---- Seção Estratégia — layout editorial (fundo creme, título serifado, texto à direita) ---- */
-#estrategia{background:#f4efe6;padding-block:clamp(40px,5vw,72px);
+#estrategia{background:#f4efe6;overflow:hidden;padding-block:clamp(40px,5vw,72px);
   --text-soft:#222c4a;--strong:#0b1640}
-.est-layout{position:relative;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr) minmax(0,.5fr);column-gap:clamp(20px,2.9vw,40px);align-items:start;padding-left:clamp(36px,4.5vw,64px);max-width:1240px;margin-inline:auto}
+.est-layout{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);column-gap:clamp(24px,3.5vw,56px);align-items:start;padding-left:clamp(36px,4.5vw,64px);max-width:1240px;margin-inline:auto}
 .est-label{
   position:absolute;left:0;top:clamp(8px,2vw,28px);margin:0;
   writing-mode:vertical-rl;transform:rotate(180deg);
@@ -516,6 +516,20 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 @media (prefers-reduced-motion:reduce){.ea-blob,.ea-sun{animation:none}}
 @media (max-width:860px){.est-art{min-height:180px;margin-top:22px;border-radius:24px}
   .ea-arch{left:30%;right:30%;height:60%}.ea-sun{width:22%;left:39%;top:14%}}
+
+/* ---- Linhas curvas e círculos neon (azul e roxo) espalhados pela seção Estratégia ---- */
+.est-lines{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.72}
+.est-layout{z-index:1}
+.el-glow-b{filter:drop-shadow(0 0 5px rgba(31,107,255,.85))}
+.el-glow-p{filter:drop-shadow(0 0 5px rgba(177,61,255,.85))}
+.el-dots{filter:drop-shadow(0 0 8px rgba(120,80,255,.9))}
+.el-spin{transform-box:fill-box;transform-origin:center;animation:elSpin 70s linear infinite}
+.el-spin--rev{animation-direction:reverse}
+.el-dot{animation:elPulse 4s ease-in-out infinite}
+.el-dot--b{animation-delay:-2s}
+@keyframes elSpin{to{transform:rotate(360deg)}}
+@keyframes elPulse{0%,100%{opacity:.55}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.el-spin,.el-dot{animation:none}}
 
 .pullquote{
   position:relative;padding:30px 32px;border-radius:var(--r-md);
@@ -1217,6 +1231,32 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 
   <!-- ============================ ESTRATÉGIA (texto) ============================ -->
   <section class="section theme-sky" id="estrategia">
+    <svg class="est-lines" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="elB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f6bff"/><stop offset="1" stop-color="#38b6ff"/></linearGradient>
+        <linearGradient id="elP" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#b13dff"/><stop offset="1" stop-color="#e06bff"/></linearGradient>
+      </defs>
+      <g class="el-glow-b" fill="none" stroke="url(#elB)" stroke-width="2" stroke-linecap="round">
+        <path d="M-60 330 C 260 90 520 640 900 400 S 1300 170 1520 420"/>
+        <circle cx="1290" cy="130" r="190" stroke-dasharray="3 12" class="el-spin"/>
+        <circle cx="110" cy="700" r="300"/>
+        <circle cx="720" cy="40" r="70"/>
+      </g>
+      <g class="el-glow-p" fill="none" stroke="url(#elP)" stroke-width="2" stroke-linecap="round">
+        <path d="M-60 640 C 330 520 560 850 1000 650 S 1400 500 1520 720"/>
+        <path d="M300 -40 C 420 200 250 420 470 560" stroke-width="1.5"/>
+        <circle cx="1290" cy="130" r="270"/>
+        <circle cx="110" cy="700" r="205" stroke-dasharray="3 12" class="el-spin el-spin--rev"/>
+        <circle cx="1130" cy="760" r="120"/>
+      </g>
+      <g class="el-dots">
+        <circle cx="900" cy="400" r="7" fill="#1f6bff" class="el-dot"/>
+        <circle cx="1000" cy="650" r="6" fill="#b13dff" class="el-dot el-dot--b"/>
+        <circle cx="470" cy="560" r="5" fill="#b13dff" class="el-dot"/>
+        <circle cx="1480" cy="420" r="5" fill="#1f6bff" class="el-dot el-dot--b"/>
+        <circle cx="210" cy="140" r="4" fill="#38b6ff" class="el-dot"/>
+      </g>
+    </svg>
     <div class="wrap">
       <div class="est-layout">
 
@@ -1231,14 +1271,6 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
           <p>Pense na sua loja física. Todos os dias, você tem a oportunidade de conquistar quem passa pela sua porta. Agora, imagine levar essa oportunidade muito além das ruas do seu bairro, alcançando pessoas que talvez nunca descobrissem sua empresa de outra forma.</p>
           <p>Esse é o potencial do digital. Mas estar presente não significa, necessariamente, vender mais.</p>
           <p>Para transformar visibilidade em resultados, é preciso estratégia. Entender quem é seu público, despertar interesse, criar identificação e alcançar as pessoas certas, no momento certo.</p>
-        </div>
-
-        <div class="est-art reveal reveal-d2" aria-hidden="true">
-          <span class="ea-blob ea-b1"></span><span class="ea-blob ea-b2"></span><span class="ea-blob ea-b3"></span>
-          <span class="ea-ring ea-r1"></span><span class="ea-ring ea-r2"></span>
-          <span class="ea-arch"></span>
-          <span class="ea-sun"></span>
-          <span class="ea-grain"></span>
         </div>
 
       </div>
