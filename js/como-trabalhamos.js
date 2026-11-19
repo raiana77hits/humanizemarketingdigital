@@ -1,6 +1,6 @@
 /* Seção "Como trabalhamos" — troca entre as 3 etapas (Entender · Planejar · Executar e evoluir).
    - Seleção manual sempre disponível: botões (clique/toque), setas do teclado, deslize no painel.
-   - Ao entrar na tela, o painel avança sozinho UMA vez (1 → 2 → 3). Qualquer interação do visitante cancela.
+   - Ao entrar na tela, o painel avança sozinho em loop (1 → 2 → 3 → 1…) enquanto estiver visível. Qualquer interação do visitante cancela.
    - Sem movimento automático se o visitante prefere movimento reduzido.
    - Estado exposto em data-state="1|2|3" na <section id="como-trabalhamos">; todo o visual é CSS. */
 (function(){
@@ -21,8 +21,8 @@
   function stop(){interacted=true;clearTimeout(timer);}
   function schedule(){
     clearTimeout(timer);
-    if(interacted||reduce||!visible||state>=3) return;
-    timer=setTimeout(function(){ if(interacted||!visible) return; set(state+1); schedule(); },DWELL);
+    if(interacted||reduce||!visible) return;
+    timer=setTimeout(function(){ if(interacted||!visible) return; set(state>=3?1:state+1); schedule(); },DWELL);
   }
   function go(n,focus){ stop(); set(n); if(focus) tabs[state-1].focus(); }
 
