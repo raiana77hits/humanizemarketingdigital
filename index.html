@@ -466,7 +466,7 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 /* ---- Seção Estratégia — layout editorial (fundo creme, título serifado, texto à direita) ---- */
 #estrategia{background:#f4efe6;padding-block:clamp(40px,5vw,72px);
   --text-soft:#222c4a;--strong:#0b1640}
-.est-layout{position:relative;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);column-gap:clamp(28px,5vw,80px);align-items:start;padding-left:clamp(36px,4.5vw,64px);max-width:1240px;margin-inline:auto}
+.est-layout{position:relative;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr) minmax(0,.5fr);column-gap:clamp(20px,2.9vw,40px);align-items:start;padding-left:clamp(36px,4.5vw,64px);max-width:1240px;margin-inline:auto}
 .est-label{
   position:absolute;left:0;top:clamp(8px,2vw,28px);margin:0;
   writing-mode:vertical-rl;transform:rotate(180deg);
@@ -474,7 +474,7 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   display:flex;align-items:center;gap:14px;white-space:nowrap;
 }
 .est-label::before{content:"";width:1px;height:44px;background:rgba(11,22,64,.3)}
-.est-left{--tfs:clamp(2.3rem,4.9vw,4.5rem)}
+.est-left{--tfs:clamp(2.2rem,3.9vw,3.4rem)}
 .est-title{
   margin:0;font-family:"Playfair Display",Georgia,"Times New Roman",serif;font-weight:700;
   font-size:var(--tfs);line-height:1.04;letter-spacing:-.02em;color:#0b1640;
@@ -493,6 +493,29 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   .est-label::before{width:36px;height:1px}
   .est-left .estrategia-cubo{--cube:105px;min-height:200px;margin-bottom:8px}
 }
+
+/* ---- Arte colorida à direita da seção Estratégia (CSS puro, animação suave) ---- */
+.est-art{position:relative;align-self:stretch;min-height:440px;border-radius:30px;overflow:hidden;isolation:isolate;
+  background:linear-gradient(165deg,#0a2a9a 0%,#005dfc 34%,#6a3df2 68%,#cf7cff 100%);
+  box-shadow:0 30px 70px rgba(0,93,252,.28)}
+.ea-blob{position:absolute;border-radius:50%;filter:blur(34px);will-change:transform;z-index:0}
+.ea-b1{width:78%;aspect-ratio:1;left:-22%;top:-8%;background:radial-gradient(circle,#20d8f5 0%,rgba(32,216,245,0) 68%);animation:eaDrift 13s ease-in-out infinite}
+.ea-b2{width:86%;aspect-ratio:1;right:-34%;top:34%;background:radial-gradient(circle,#ff7ad9 0%,rgba(255,122,217,0) 66%);animation:eaDrift 16s -4s ease-in-out infinite reverse}
+.ea-b3{width:90%;aspect-ratio:1;left:-14%;bottom:-26%;background:radial-gradient(circle,#ffb27a 0%,rgba(255,178,122,0) 64%);animation:eaDrift 18s -8s ease-in-out infinite}
+.ea-ring{position:absolute;border-radius:50%;border:1.5px solid rgba(255,255,255,.55);z-index:1}
+.ea-r1{width:150%;aspect-ratio:1;left:-25%;top:-18%;border-color:rgba(255,255,255,.28)}
+.ea-r2{width:92%;aspect-ratio:1;left:4%;top:16%}
+.ea-arch{position:absolute;left:22%;right:22%;bottom:0;height:46%;z-index:2;border-radius:999px 999px 0 0;
+  background:linear-gradient(180deg,rgba(255,255,255,.34),rgba(255,255,255,.06));border:1.5px solid rgba(255,255,255,.6);border-bottom:0;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.ea-sun{position:absolute;width:34%;aspect-ratio:1;left:33%;top:20%;border-radius:50%;z-index:2;
+  background:radial-gradient(circle at 35% 30%,#fff 0%,#ffe1f4 26%,#ffa7e0 62%,#ff7a9e 100%);box-shadow:0 0 50px rgba(255,170,220,.85);animation:eaFloat 7s ease-in-out infinite}
+.ea-grain{position:absolute;inset:0;z-index:3;opacity:.38;mix-blend-mode:overlay;pointer-events:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+@keyframes eaDrift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(8%,10%) scale(1.12)}}
+@keyframes eaFloat{0%,100%{transform:translateY(-8px)}50%{transform:translateY(8px)}}
+@media (prefers-reduced-motion:reduce){.ea-blob,.ea-sun{animation:none}}
+@media (max-width:860px){.est-art{min-height:180px;margin-top:22px;border-radius:24px}
+  .ea-arch{left:30%;right:30%;height:60%}.ea-sun{width:22%;left:39%;top:14%}}
 
 .pullquote{
   position:relative;padding:30px 32px;border-radius:var(--r-md);
@@ -1222,6 +1245,14 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
           <p>Pense na sua loja física. Todos os dias, você tem a oportunidade de conquistar quem passa pela sua porta. Agora, imagine levar essa oportunidade muito além das ruas do seu bairro, alcançando pessoas que talvez nunca descobrissem sua empresa de outra forma.</p>
           <p>Esse é o potencial do digital. Mas estar presente não significa, necessariamente, vender mais.</p>
           <p>Para transformar visibilidade em resultados, é preciso estratégia. Entender quem é seu público, despertar interesse, criar identificação e alcançar as pessoas certas, no momento certo.</p>
+        </div>
+
+        <div class="est-art reveal reveal-d2" aria-hidden="true">
+          <span class="ea-blob ea-b1"></span><span class="ea-blob ea-b2"></span><span class="ea-blob ea-b3"></span>
+          <span class="ea-ring ea-r1"></span><span class="ea-ring ea-r2"></span>
+          <span class="ea-arch"></span>
+          <span class="ea-sun"></span>
+          <span class="ea-grain"></span>
         </div>
 
       </div>
