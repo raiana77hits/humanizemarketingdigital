@@ -126,3 +126,6 @@
 @media (prefers-reduced-motion:reduce){
   #cases .link-more,#cases .cs-btn{transition:none}
 }
+/* cabeçalho só com o título */
+#cases .section-head{display:block}
+#cases .section-head .h-section{display:block}
