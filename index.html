@@ -388,22 +388,13 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 /* ============================================================
    ESTRATÉGIA — texto "Estar no digital é obrigação…"
    ============================================================ */
-.section-head--center{margin-inline:auto;text-align:center;max-width:900px}
-#estrategia{padding-top:clamp(24px,3vw,44px);padding-bottom:clamp(40px,5vw,72px)}
-#estrategia .section-head{margin-bottom:clamp(8px,1.5vw,20px)}
-#estrategia .estrategia-cubo{--cube:160px;min-height:320px;margin-top:clamp(24px,3.5vw,56px)}
-#estrategia .ec-glow{width:min(92%,330px)}
-#estrategia .ec-ring{width:min(96%,340px)}
-.destaque-serif{text-transform:uppercase;font-family:"Fraunces",Georgia,"Times New Roman",serif;font-style:italic;font-weight:600;letter-spacing:-.02em;color:#3d86ff;font-size:1.08em;padding:0;margin-right:-.06em}
-.estrategia-texto{max-width:760px;margin-inline:auto}
+.estrategia-texto{max-width:none}
 .estrategia-texto p{font-size:clamp(1.08rem,1.45vw,1.3rem);line-height:1.8;letter-spacing:0;word-spacing:.04em;color:var(--text-soft);margin-bottom:1.1em}
 .tw-rest{color:transparent}
 .tw-cursor{display:inline-block;width:2px;height:1.05em;margin-left:2px;vertical-align:-.15em;background:#3d86ff;animation:twBlink .8s steps(1) infinite}
 @keyframes twBlink{50%{opacity:0}}
 
 /* ---- Cubo 3D lilás neon (seção Estratégia) — CSS puro, só transform/opacity animam ---- */
-.estrategia-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,4vw,64px);align-items:center;max-width:1240px;margin-inline:auto}
-.estrategia-grid .estrategia-texto{max-width:none;margin:0}
 .estrategia-cubo{
   --cube:210px;--ln:192,107,255;
   position:relative;display:flex;align-items:center;justify-content:center;
@@ -470,11 +461,40 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 @keyframes ecFloat{0%,100%{transform:translateY(-10px)}50%{transform:translateY(10px)}}
 @media (prefers-reduced-motion:reduce){.ec-float,.ec-cube,.ec-core,.ec-core .cube-face::before,.ec-core .cube-face::after{animation:none}}
 @media (max-width:860px){
-  .estrategia-grid{grid-template-columns:1fr;gap:8px}
-  .estrategia-cubo{--cube:150px;min-height:320px}
-  #estrategia .estrategia-cubo{--cube:120px;min-height:260px}
-  #estrategia .ec-glow{width:min(92%,270px)}
-  #estrategia .ec-ring{width:min(96%,280px)}
+        }
+
+/* ---- Seção Estratégia — layout editorial (fundo creme, título serifado, texto à direita) ---- */
+#estrategia{background:#f4efe6;padding-block:clamp(40px,5vw,72px);
+  --text-soft:#222c4a;--strong:#0b1640}
+.est-layout{position:relative;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);column-gap:clamp(28px,5vw,80px);align-items:start;padding-left:clamp(36px,4.5vw,64px);max-width:1240px;margin-inline:auto}
+.est-label{
+  position:absolute;left:0;top:50%;margin:0;
+  writing-mode:vertical-rl;transform:translateY(-50%) rotate(180deg);
+  font-family:Manrope,sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:#586a8c;
+  display:flex;align-items:center;gap:14px;white-space:nowrap;
+}
+.est-label::after{content:"";width:1px;height:44px;background:rgba(11,22,64,.3)}
+.est-title{
+  margin:0;font-family:"Playfair Display",Georgia,"Times New Roman",serif;font-weight:700;
+  font-size:clamp(2.3rem,4.9vw,4.5rem);line-height:1.04;letter-spacing:-.02em;color:#0b1640;
+}
+.est-title em{font-style:italic;font-weight:600;color:#005dfc;letter-spacing:-.01em}
+.est-rule{border:0;height:1px;background:rgba(11,22,64,.35);margin:clamp(20px,2.4vw,32px) 0 0;max-width:430px}
+.est-left .estrategia-cubo{--cube:130px;min-height:250px;justify-content:flex-start;max-width:300px;margin-top:clamp(8px,1.5vw,20px)}
+.est-left .estrategia-cubo .ec-glow,.est-left .estrategia-cubo .ec-ring{left:0}
+.est-left .estrategia-cubo .ec-glow{width:240px}
+.est-left .estrategia-cubo .ec-ring{width:250px}
+.est-left .ec-float{margin-left:55px}
+.est-layout .estrategia-texto{margin-top:clamp(6px,1vw,16px)}
+.est-layout .estrategia-texto p{color:#222c4a}
+@media (max-width:860px){
+  .est-layout{grid-template-columns:1fr;padding-left:0}
+  .est-label{position:static;writing-mode:horizontal-tb;transform:none;margin-bottom:18px;font-size:.66rem;letter-spacing:.2em}
+  .est-label::after{width:36px;height:1px}
+  .est-left .estrategia-cubo{--cube:105px;min-height:200px;margin-bottom:8px}
+  .est-left .estrategia-cubo .ec-glow{width:190px}
+  .est-left .estrategia-cubo .ec-ring{width:200px}
+  .est-left .ec-float{margin-left:42px}
 }
 
 .pullquote{
@@ -1178,21 +1198,23 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   <!-- ============================ ESTRATÉGIA (texto) ============================ -->
   <section class="section theme-sky" id="estrategia">
     <div class="wrap">
+      <div class="est-layout">
 
-      <div class="section-head section-head--center reveal">
-        <h2 class="h-section">Estar no digital é <em class="destaque-serif">obrigação</em>.<br> Vender pelo digital é <em class="destaque-serif">estratégia</em>.</h2>
-      </div>
+        <p class="est-label">Humanize — marketing com propósito</p>
 
-      <div class="estrategia-grid">
-        <div class="estrategia-cubo reveal" aria-hidden="true">
-          <div class="ec-glow"></div>
-          <div class="ec-ring"></div>
-          <div class="ec-float">
-            <div class="ec-tilt">
-              <div class="ec-cube">
-                <span class="cube-face"></span><span class="cube-face"></span><span class="cube-face"></span><span class="cube-face"></span><span class="cube-face"></span><span class="cube-face"></span>
-                <div class="ec-core">
+        <div class="est-left">
+          <h2 class="est-title reveal">Estar no digital é<br><em>OBRIGAÇÃO</em>.<br>Vender pelo digital é<br><em>ESTRATÉGIA</em>.</h2>
+          <hr class="est-rule">
+          <div class="estrategia-cubo reveal" aria-hidden="true">
+            <div class="ec-glow"></div>
+            <div class="ec-ring"></div>
+            <div class="ec-float">
+              <div class="ec-tilt">
+                <div class="ec-cube">
                   <span class="cube-face"></span><span class="cube-face"></span><span class="cube-face"></span><span class="cube-face"></span><span class="cube-face"></span><span class="cube-face"></span>
+                  <div class="ec-core">
+                    <span class="cube-face"></span><span class="cube-face"></span><span class="cube-face"></span><span class="cube-face"></span><span class="cube-face"></span><span class="cube-face"></span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1204,8 +1226,8 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
           <p>Esse é o potencial do digital. Mas estar presente não significa, necessariamente, vender mais.</p>
           <p>Para transformar visibilidade em resultados, é preciso estratégia. Entender quem é seu público, despertar interesse, criar identificação e alcançar as pessoas certas, no momento certo.</p>
         </div>
-      </div>
 
+      </div>
     </div>
   </section>
 
