@@ -28,7 +28,7 @@
 #cases .cases{position:relative;display:grid;gap:0;perspective:2000px;isolation:isolate}
 #cases .case{
   grid-area:1/1;position:relative;overflow:hidden;gap:0;
-  display:grid;grid-template-columns:45% minmax(0,1fr);grid-template-rows:auto auto auto auto auto;align-content:center;align-items:start;
+  display:grid;grid-template-columns:45% minmax(0,1fr);grid-template-rows:auto auto auto auto auto;align-content:end;align-items:start;
   padding:clamp(10px,2.2svh,40px) clamp(22px,3.4vw,52px) clamp(10px,2.2svh,40px) 0;
   min-height:clamp(280px,calc(100svh - 262px),600px);
   background:#fff;border:1px solid var(--cs-line);border-radius:18px;
@@ -42,12 +42,10 @@
 
 /* painel visual (lado esquerdo) */
 #cases .case::before{content:"";position:absolute;inset:0 auto 0 0;width:45%;height:auto;background:var(--cs-navy);border-radius:0}
-#cases .case::after{content:"";position:absolute;left:22.5%;top:50%;width:min(78%,calc(45% * 1.5));aspect-ratio:1;max-width:420px;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
-  background:radial-gradient(circle,transparent 57%,rgba(255,255,255,.09) 57.4%,transparent 58.2%,transparent 74%,rgba(255,255,255,.06) 74.4%,transparent 75.2%)}
 #cases .case > div:first-child,#cases .case-head{display:contents}
 #cases .case-logo{grid-column:1;grid-row:1/6;align-self:center;justify-self:center;position:relative;z-index:1;
-  width:clamp(110px,min(14vw,31svh),230px);height:auto;aspect-ratio:1;border-radius:50%;background:#fff;border:0;
-  box-shadow:0 0 0 clamp(5px,.7vw,9px) rgba(255,255,255,.1),0 26px 40px -22px rgba(0,0,0,.6)}
+  width:clamp(120px,min(24vw,48svh),420px);height:auto;aspect-ratio:1;border-radius:50%;background:#fff;border:0;
+  box-shadow:0 28px 44px -24px rgba(0,0,0,.65)}
 /* coluna de informações */
 #cases .case-head > div{grid-column:2;grid-row:1;padding-left:clamp(26px,4vw,60px)}
 #cases .case h3,#cases .case p,#cases .case-figures,#cases .link-more{grid-column:2;margin-left:clamp(26px,4vw,60px)}
@@ -104,17 +102,16 @@
   #cases .case{min-height:0;grid-template-columns:40% minmax(0,1fr)}
   #cases .case::before{width:40%}
   #cases .cs-nav{left:calc(40% + clamp(26px,4vw,60px) + 236px)}
-  #cases .case::after{left:20%}
+  #cases .case-logo{width:clamp(120px,min(21vw,46svh),340px)}
   #cases .case h3{font-size:clamp(1.3rem,3.4vw,1.8rem)}
   #cases .case p{font-size:.95rem}
 }
 /* ---------- mobile: um case por vez, imagem em cima ---------- */
 @media (max-width:700px){
   #cases .cases{perspective:none}
-  #cases .case{grid-template-columns:minmax(0,1fr);grid-template-rows:clamp(120px,34vw,170px) auto auto auto auto auto;align-content:start;padding:0 0 22px;border-radius:16px}
-  #cases .case::before{inset:0 0 auto 0;width:auto;height:clamp(120px,34vw,170px)}
-  #cases .case::after{left:50%;top:calc(clamp(120px,34vw,170px)/2);width:clamp(180px,52vw,260px)}
-  #cases .case-logo{grid-column:1;grid-row:1;width:clamp(84px,24vw,112px)}
+  #cases .case{grid-template-columns:minmax(0,1fr);grid-template-rows:clamp(150px,44vw,190px) auto auto auto auto auto;align-content:start;padding:0 0 22px;border-radius:16px}
+  #cases .case::before{inset:0 0 auto 0;width:auto;height:clamp(150px,44vw,190px)}
+  #cases .case-logo{grid-column:1;grid-row:1;width:clamp(112px,32vw,140px)}
   #cases .case-head > div{grid-column:1;grid-row:2;padding:20px 20px 0}
   #cases .case h3,#cases .case p,#cases .case-figures,#cases .link-more{grid-column:1;margin-left:20px;margin-right:20px}
   #cases .case h3{grid-row:3;margin-top:14px;font-size:clamp(1.4rem,6vw,1.75rem)}
