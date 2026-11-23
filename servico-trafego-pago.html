@@ -726,19 +726,29 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 .tp-s3{background:var(--tp-navy);color:#fff;position:relative;overflow:hidden}
 .tp-s3::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(45% 55% at 25% 50%,rgba(7,95,255,.28),transparent 70%),radial-gradient(30% 35% at 18% 85%,rgba(184,41,255,.16),transparent 70%)}
 .tp-s3 .tp-grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:center}
-.tp-funnel{position:relative;aspect-ratio:1/1.08;width:100%;max-width:600px;justify-self:center}
-.tp-funnel canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.tp-s3.tp-sec{padding-block:clamp(32px,5vh,64px)}
+.tp-s3 .tp-grid{grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);gap:clamp(24px,3.5vw,56px)}
+.tp-fstage{--lw:clamp(150px,14vw,200px);display:flex;justify-content:center;padding-right:var(--lw)}
+.tp-funnel{position:relative;flex:none;width:min(100%,470px);width:min(100%,calc((100dvh - 190px)/1.08),470px);aspect-ratio:1/1.08;container-type:inline-size}
+.tp-fcv{position:absolute;inset:0}
+.tp-fcv canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.tp-stages{list-style:none;margin:0;padding:0}
+.tp-stages li{--r:.9;position:absolute;top:calc(var(--y) * 1%);left:100%;width:var(--lw);transform:translateY(-50%);padding-left:22px;display:grid;gap:2px;cursor:default;outline:none}
+.tp-stages li::before{content:"";position:absolute;top:50%;height:1px;left:calc(-1 * (50cqw - var(--r) * 43cqw));width:calc(50cqw - var(--r) * 43cqw + 10px);background:var(--c);opacity:.38;transition:opacity .35s}
+.tp-stages li::after{content:"";position:absolute;left:6px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:var(--c);box-shadow:0 0 10px var(--c);opacity:.6;transition:opacity .35s,transform .35s}
+.tp-stages .n{font:600 .72rem/1 "DM Sans",system-ui,sans-serif;letter-spacing:.14em;color:var(--c);filter:brightness(1.35)}
+.tp-stages strong{font:700 .78rem/1.25 "DM Sans",system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#fff}
+.tp-stages span.d{font-size:.8125rem;line-height:1.4;color:rgba(255,255,255,.72);transition:color .35s}
+.tp-stages li.is-active::before{opacity:1}
+.tp-stages li.is-active::after{opacity:1;transform:scale(1.35)}
+.tp-stages li.is-active span.d{color:rgba(255,255,255,.95)}
+.tp-stages li:focus-visible strong{text-decoration:underline;text-underline-offset:3px}
 .tp-s3 .tp-eyebrow{color:#8db4ff}
-.tp-s3 h2{font-size:clamp(2rem,4.2vw,3.5rem);line-height:1.1;color:#fff}
+.tp-s3 h2{font-size:clamp(1.9rem,3.3vw,3rem);line-height:1.1;color:#fff}
 .tp-s3 h2 em{color:#3d86ff}
-.tp-s3 .tp-copy{margin-top:clamp(22px,2.6vw,34px)}
-.tp-s3 .tp-copy p{color:rgba(255,255,255,.9);font-size:clamp(1rem,1.3vw,1.125rem)}
-.tp-levels{list-style:none;margin:clamp(24px,3vw,36px) 0 0;padding:0}
-.tp-levels li{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;padding:14px 0;border-top:1px solid rgba(255,255,255,.16)}
-.tp-levels b{grid-row:span 2;align-self:center;width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 14px var(--c)}
-.tp-levels strong{font:700 .8125rem/1.2 "DM Sans",system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#fff}
-.tp-levels span{font-size:.9375rem;line-height:1.5;color:rgba(255,255,255,.78)}
-.tp-quote{margin:clamp(24px,3vw,36px) 0 0;padding-left:18px;border-left:2px solid var(--tp-purple);font-family:"Playfair Display",Georgia,serif!important;font-style:italic;font-size:clamp(1.15rem,1.7vw,1.4rem);line-height:1.4;color:#fff}
+.tp-s3 .tp-copy{margin-top:clamp(16px,2vw,26px)}
+.tp-s3 .tp-copy p{color:rgba(255,255,255,.9);font-size:clamp(.95rem,1.1vw,1.05rem)}
+.tp-quote{margin:clamp(18px,2.2vw,28px) 0 0;padding-left:18px;border-left:2px solid var(--tp-purple);font-family:"Playfair Display",Georgia,serif!important;font-style:italic;font-size:clamp(1.15rem,1.7vw,1.4rem);line-height:1.4;color:#fff}
 .tp-cta{background:var(--tp-beige);text-align:center;padding-block:clamp(96px,12vw,170px)}
 .tp-cta h2{font-size:clamp(2rem,4.6vw,3.8rem);line-height:1.1;max-width:18ch;margin-inline:auto}
 .tp-cta p{max-width:34em;margin:clamp(18px,2vw,26px) auto clamp(28px,3.4vw,44px);font-size:clamp(1.02rem,1.4vw,1.2rem);line-height:1.65;color:var(--tp-soft)}
@@ -747,8 +757,15 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   .tp-s1 .tp-grid,.tp-s2 .tp-grid,.tp-s3 .tp-grid{grid-template-columns:1fr}
   .tp-s1{padding-top:112px}
   .tp-s1 h1{font-size:clamp(2.35rem,10vw,2.9rem)}
-  .tp-funnel{max-width:440px}
-  .tp-s3 .tp-grid{gap:20px}
+  .tp-s3.tp-sec{padding-block:56px 64px}
+  .tp-s3 .tp-grid{gap:28px}
+  .tp-fstage{padding-right:0}
+  .tp-funnel{width:100%;max-width:420px;aspect-ratio:auto;container-type:normal}
+  .tp-fcv{position:relative;inset:auto;width:min(78vw,320px);aspect-ratio:1/1.08;margin:0 auto}
+  .tp-stages{margin-top:22px}
+  .tp-stages li{position:static;width:auto;transform:none;padding:10px 0 10px 18px;margin-bottom:6px;border-left:2px solid var(--c)}
+  .tp-stages li::before,.tp-stages li::after{display:none}
+  .tp-stages li.is-active{background:linear-gradient(90deg,rgba(255,255,255,.07),transparent)}
 }
 
 /* menu e rodapé responsivos (copiados da home) */
@@ -866,8 +883,18 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   <section class="tp-sec tp-s3" aria-labelledby="tp-h3">
     <div class="tp-wrap">
       <div class="tp-grid">
-        <div class="tp-funnel" id="tpFunnel" role="img" aria-label="Funil de vendas em três níveis: atração, interesse e conversão, com partículas luminosas representando potenciais clientes">
-          <canvas id="tpFunnelCanvas"></canvas>
+        <div class="tp-fstage">
+          <div class="tp-funnel">
+            <div class="tp-fcv" id="tpFunnel">
+              <canvas id="tpFunnelCanvas" role="img" aria-label="Funil de vendas em quatro etapas: investimento, alcance e interesse, leads e conversão, com partículas luminosas representando potenciais clientes"></canvas>
+            </div>
+            <ol class="tp-stages" id="tpStages">
+              <li tabindex="0" style="--y:21.5;--r:.92;--c:#3d86ff"><b class="n">01</b><strong>Investimento</strong><span class="d">Orçamento direcionado às campanhas.</span></li>
+              <li tabindex="0" style="--y:42.5;--r:.73;--c:#5f78ff"><b class="n">02</b><strong>Alcance e interesse</strong><span class="d">Anúncios apresentados ao público estratégico.</span></li>
+              <li tabindex="0" style="--y:63;--r:.52;--c:#8a5cff"><b class="n">03</b><strong>Leads</strong><span class="d">Pessoas que demonstram interesse.</span></li>
+              <li tabindex="0" style="--y:82;--r:.285;--c:#b829ff"><b class="n">04</b><strong>Conversão</strong><span class="d">Oportunidades que avançam para ações comerciais.</span></li>
+            </ol>
+          </div>
         </div>
         <div class="reveal">
           <p class="tp-eyebrow">03 / Da atenção à conversão</p>
@@ -877,11 +904,6 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
             <p>Com uma estratégia de tráfego pago bem planejada, atraímos potenciais clientes, despertamos interesse e criamos caminhos para transformar essa atenção em oportunidades de negócio.</p>
             <p>O resultado é um investimento mais direcionado, leads qualificados e mais possibilidades de aumentar suas vendas e seu faturamento.</p>
           </div>
-          <ul class="tp-levels">
-            <li style="--c:#3d86ff"><b></b><strong>Topo — Atração</strong><span>A marca alcança pessoas com potencial interesse nos seus produtos ou serviços.</span></li>
-            <li style="--c:#7b5cff"><b></b><strong>Meio — Interesse</strong><span>O público conhece sua proposta, cria identificação e considera sua empresa.</span></li>
-            <li style="--c:#b829ff"><b></b><strong>Fundo — Conversão</strong><span>Pessoas qualificadas avançam para o contato, orçamento ou compra.</span></li>
-          </ul>
           <p class="tp-quote">Não se trata de alcançar todo mundo. Trata-se de alcançar quem importa para o seu negócio.</p>
         </div>
       </div>
@@ -991,27 +1013,37 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 
   /* ---------- Funil 3D (canvas, sem dependências) ---------- */
   var box = document.getElementById('tpFunnel'), cv = document.getElementById('tpFunnelCanvas'), ctx = cv.getContext('2d');
-  var W = 0, H = 0, dpr = 1, running = false, t0 = performance.now();
+  var items = document.querySelectorAll('#tpStages li');
+  var W = 0, H = 0, dpr = 1, running = false, inView = false, t0 = performance.now();
   var TIERS = [
-    { y0: .15, y1: .38, r0: 1.00, r1: .80, col: '61,134,255' },
-    { y0: .41, y1: .66, r0: .76, r1: .50, col: '123,92,255' },
-    { y0: .685, y1: .90, r0: .46, r1: .17, col: '184,41,255' }
+    { y0: .12, y1: .31, r0: 1.00, r1: .84, col: '61,134,255' },
+    { y0: .33, y1: .52, r0: .82, r1: .64, col: '95,120,255' },
+    { y0: .54, y1: .72, r0: .62, r1: .42, col: '138,92,255' },
+    { y0: .74, y1: .90, r0: .40, r1: .17, col: '184,41,255' }
   ];
-  var TILT = .3;
+  var NT = TIERS.length, TILT = .3, glow = [0, 0, 0, 0], hover = -1, shown = -2, CYCLE = 3400;
   function radiusAt(y) {
     var i, t;
-    for (i = 0; i < 3; i++) {
+    for (i = 0; i < NT; i++) {
       t = TIERS[i];
       if (y >= t.y0 && y <= t.y1) return t.r0 + (t.r1 - t.r0) * ((y - t.y0) / (t.y1 - t.y0));
     }
     if (y < TIERS[0].y0) return TIERS[0].r0;
-    if (y > TIERS[2].y1) return TIERS[2].r1;
-    for (i = 0; i < 2; i++) {
+    if (y > TIERS[NT - 1].y1) return TIERS[NT - 1].r1;
+    for (i = 0; i < NT - 1; i++) {
       if (y > TIERS[i].y1 && y < TIERS[i + 1].y0) return TIERS[i].r1 + (TIERS[i + 1].r0 - TIERS[i].r1) * ((y - TIERS[i].y1) / (TIERS[i + 1].y0 - TIERS[i].y1));
     }
     return .3;
   }
-  var parts = [], N = 70;
+  /* sprites pré-renderizados: evitam criar gradientes a cada quadro */
+  function sprite(rgb) {
+    var c = document.createElement('canvas'); c.width = c.height = 48;
+    var x = c.getContext('2d'), g = x.createRadialGradient(24, 24, 0, 24, 24, 24);
+    g.addColorStop(0, 'rgba(' + rgb + ',1)'); g.addColorStop(1, 'rgba(' + rgb + ',0)');
+    x.fillStyle = g; x.fillRect(0, 0, 48, 48); return c;
+  }
+  var SP_B = sprite('140,190,255'), SP_P = sprite('210,140,255'), SP_O = sprite('210,130,255'), SP_E = sprite('230,170,255');
+  var parts = [], N = 60;
   function spawn(p, top) {
     p.y = top ? Math.random() * .05 - .08 : Math.random();
     p.a = Math.random() * Math.PI * 2; p.k = Math.sqrt(Math.random()) * .85;
@@ -1022,6 +1054,7 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 
   function size() {
     var r = box.getBoundingClientRect(); dpr = Math.min(window.devicePixelRatio || 1, 2);
+    if (!r.width) return;
     W = r.width; H = r.height; cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
@@ -1031,64 +1064,69 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   }
   function ell(rad, y, rot, from, to) {
     ctx.beginPath();
-    for (var s = 0; s <= 48; s++) {
-      var a = from + (to - from) * s / 48, p = P(rad, a, y, rot);
+    for (var s = 0; s <= 40; s++) {
+      var a = from + (to - from) * s / 40, p = P(rad, a, y, rot);
       if (s) ctx.lineTo(p.x, p.y); else ctx.moveTo(p.x, p.y);
     }
   }
-  function tier(t, rot, time) {
-    var c = t.col, cx = W / 2, R = W * .43;
-    var i2, pp;
+  function tier(t, g, rot, time) {
+    var c = t.col, cx = W / 2, R = W * .43, i2, pp;
     ctx.beginPath();
-    for (i2 = 0; i2 <= 40; i2++) { pp = P(t.r0, Math.PI - Math.PI * i2 / 40, t.y0, 0); if (i2) ctx.lineTo(pp.x, pp.y); else ctx.moveTo(pp.x, pp.y); }
-    for (i2 = 0; i2 <= 40; i2++) { pp = P(t.r1, Math.PI * i2 / 40, t.y1, 0); ctx.lineTo(pp.x, pp.y); }
+    for (i2 = 0; i2 <= 36; i2++) { pp = P(t.r0, Math.PI - Math.PI * i2 / 36, t.y0, 0); if (i2) ctx.lineTo(pp.x, pp.y); else ctx.moveTo(pp.x, pp.y); }
+    for (i2 = 0; i2 <= 36; i2++) { pp = P(t.r1, Math.PI * i2 / 36, t.y1, 0); ctx.lineTo(pp.x, pp.y); }
     ctx.closePath();
-    var g = ctx.createLinearGradient(cx - t.r0 * R, 0, cx + t.r0 * R, 0);
-    g.addColorStop(0, 'rgba(' + c + ',.34)'); g.addColorStop(.35, 'rgba(' + c + ',.10)');
-    g.addColorStop(.7, 'rgba(' + c + ',.06)'); g.addColorStop(1, 'rgba(' + c + ',.30)');
-    ctx.fillStyle = g; ctx.fill();
-    ell(t.r0, t.y0, rot, 0, Math.PI * 2); ctx.fillStyle = 'rgba(' + c + ',.12)'; ctx.fill();
+    var gr = ctx.createLinearGradient(cx - t.r0 * R, 0, cx + t.r0 * R, 0), b = g * .22;
+    gr.addColorStop(0, 'rgba(' + c + ',' + (.34 + b) + ')'); gr.addColorStop(.35, 'rgba(' + c + ',' + (.10 + b) + ')');
+    gr.addColorStop(.7, 'rgba(' + c + ',' + (.06 + b) + ')'); gr.addColorStop(1, 'rgba(' + c + ',' + (.30 + b) + ')');
+    ctx.fillStyle = gr; ctx.fill();
+    ell(t.r0, t.y0, rot, 0, Math.PI * 2); ctx.fillStyle = 'rgba(' + c + ',' + (.12 + g * .12) + ')'; ctx.fill();
     for (var k = 0; k < 8; k++) {
       var a = k / 8 * Math.PI * 2, pa = P(t.r0, a, t.y0, rot), pb = P(t.r1, a, t.y1, rot);
       ctx.strokeStyle = pa.z < 0 ? 'rgba(' + c + ',.14)' : 'rgba(160,200,255,' + (.14 + pa.z * .3) + ')';
       ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.lineTo(pb.x, pb.y); ctx.stroke();
     }
-    ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(150,195,255,.95)'; ctx.shadowColor = 'rgba(' + c + ',.9)'; ctx.shadowBlur = 12;
-    ell(t.r0, t.y0, rot, 0, Math.PI * 2); ctx.stroke();
-    ell(t.r1, t.y1, rot, 0, Math.PI); ctx.stroke();
-    ctx.shadowBlur = 0; ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(' + c + ',.35)';
+    /* brilho: traço largo translúcido + traço fino (sem shadowBlur) */
+    ctx.lineWidth = 6 + g * 4; ctx.strokeStyle = 'rgba(' + c + ',' + (.14 + g * .26) + ')';
+    ell(t.r0, t.y0, rot, 0, Math.PI * 2); ctx.stroke(); ell(t.r1, t.y1, rot, 0, Math.PI); ctx.stroke();
+    ctx.lineWidth = 1.6 + g * 1; ctx.strokeStyle = 'rgba(' + (g > .5 ? '200,225,255' : '150,195,255') + ',.95)';
+    ell(t.r0, t.y0, rot, 0, Math.PI * 2); ctx.stroke(); ell(t.r1, t.y1, rot, 0, Math.PI); ctx.stroke();
+    ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(' + c + ',.35)';
     ell(t.r1, t.y1, rot, Math.PI, Math.PI * 2); ctx.stroke();
     var ga = (time * .0009) % (Math.PI * 2), q = P(t.r0, ga, t.y0, rot);
-    if (q.z > -.2) {
-      var rg = ctx.createRadialGradient(q.x, q.y, 0, q.x, q.y, 16);
-      rg.addColorStop(0, 'rgba(210,130,255,.95)'); rg.addColorStop(1, 'rgba(184,41,255,0)');
-      ctx.fillStyle = rg; ctx.fillRect(q.x - 16, q.y - 16, 32, 32);
-    }
+    if (q.z > -.2) { ctx.globalAlpha = .95; ctx.drawImage(SP_O, q.x - 16, q.y - 16, 32, 32); ctx.globalAlpha = 1; }
   }
   function drawP(p, rot) {
     var yy = Math.max(0, Math.min(1, p.y)), rad = radiusAt(yy) * p.k, pt = P(rad, p.a, p.y, rot);
     var al = p.y < .02 ? Math.max(0, (p.y + .08) / .1) : (p.y > .9 ? Math.max(0, 1 - (p.y - .9) / .1) : 1);
-    var depth = pt.z >= 0 ? 1 : .45, col = p.y > .64 ? '210,140,255' : '140,190,255', s = p.s * (p.y > .9 ? 1.4 : 1);
-    var rg = ctx.createRadialGradient(pt.x, pt.y, 0, pt.x, pt.y, s * 5);
-    rg.addColorStop(0, 'rgba(' + col + ',' + (.95 * al * depth) + ')'); rg.addColorStop(1, 'rgba(' + col + ',0)');
-    ctx.fillStyle = rg; ctx.fillRect(pt.x - s * 5, pt.y - s * 5, s * 10, s * 10);
+    var depth = pt.z >= 0 ? 1 : .45, s = p.s * (p.y > .9 ? 1.4 : 1);
+    ctx.globalAlpha = .95 * al * depth;
+    ctx.drawImage(p.y > .54 ? SP_P : SP_B, pt.x - s * 5, pt.y - s * 5, s * 10, s * 10);
   }
-  function frame(now, still) {
-    var time = now - t0, rot = still ? .6 : time * .00035;
+  function frame(now, still, dt) {
+    var time = now - t0, rot = still ? .6 : time * .00035, i;
+    var act = hover >= 0 ? hover : (reduced ? -1 : Math.floor(time / CYCLE) % NT);
+    for (i = 0; i < NT; i++) {
+      var tg = i === act ? 1 : 0;
+      glow[i] = still ? tg : glow[i] + (tg - glow[i]) * Math.min(1, (dt || 16) / 260);
+    }
+    if (act !== shown) {
+      shown = act;
+      for (i = 0; i < items.length; i++) items[i].classList.toggle('is-active', i === act);
+    }
     ctx.clearRect(0, 0, W, H);
     var hg = ctx.createRadialGradient(W / 2, H * .5, 0, W / 2, H * .5, W * .55);
     hg.addColorStop(0, 'rgba(7,95,255,.18)'); hg.addColorStop(1, 'rgba(7,95,255,0)');
     ctx.fillStyle = hg; ctx.fillRect(0, 0, W, H);
     parts.forEach(function (p) { if (Math.sin(p.a + rot) < 0) drawP(p, rot); });
-    TIERS.forEach(function (t) { tier(t, rot, time); });
+    ctx.globalAlpha = 1;
+    TIERS.forEach(function (t, k) { tier(t, glow[k], rot, time); });
     parts.forEach(function (p) { if (Math.sin(p.a + rot) >= 0) drawP(p, rot); });
     var ex = W / 2, ey = H * .90 + 4;
     for (var d = 0; d < 3; d++) {
-      var f = ((time * .0006 + d / 3) % 1), yy = ey + f * H * .09, aa = 1 - f;
-      var gg = ctx.createRadialGradient(ex, yy, 0, ex, yy, 9);
-      gg.addColorStop(0, 'rgba(255,255,255,' + aa + ')'); gg.addColorStop(.35, 'rgba(210,140,255,' + aa * .8 + ')'); gg.addColorStop(1, 'rgba(184,41,255,0)');
-      ctx.fillStyle = gg; ctx.fillRect(ex - 9, yy - 9, 18, 18);
+      var f = ((time * .0006 + d / 3) % 1), yy = ey + f * H * .09;
+      ctx.globalAlpha = 1 - f; ctx.drawImage(SP_E, ex - 9, yy - 9, 18, 18);
     }
+    ctx.globalAlpha = 1;
   }
   var last = 0;
   function loop(now) {
@@ -1098,15 +1136,35 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
       p.y += p.v * dt / 1000; p.a += p.w * dt / 1000 * (1.2 - p.y * .6);
       if (p.y > 1) spawn(p, true);
     });
-    frame(now, false); requestAnimationFrame(loop);
+    frame(now, false, dt); requestAnimationFrame(loop);
   }
-  function start() { if (running || reduced) return; running = true; last = 0; requestAnimationFrame(loop); }
+  function start() { if (running || reduced || document.hidden || !inView) return; running = true; last = 0; requestAnimationFrame(loop); }
   function stop() { running = false; }
+  function redraw() { if (!running) frame(performance.now(), true); }
+  function setHover(i) { if (hover === i) return; hover = i; redraw(); }
+
+  /* interação: passar o mouse / focar uma etapa destaca a região correspondente */
+  Array.prototype.forEach.call(items, function (li, i) {
+    li.addEventListener('pointerenter', function () { setHover(i); });
+    li.addEventListener('pointerleave', function () { setHover(-1); });
+    li.addEventListener('focus', function () { setHover(i); });
+    li.addEventListener('blur', function () { setHover(-1); });
+  });
+  cv.addEventListener('pointermove', function (e) {
+    var r = cv.getBoundingClientRect(), y = (e.clientY - r.top) / r.height, k = -1;
+    for (var i = 0; i < NT; i++) if (y >= TIERS[i].y0 - .01 && y <= TIERS[i].y1 + .01) k = i;
+    setHover(k);
+  });
+  cv.addEventListener('pointerleave', function () { setHover(-1); });
+
   size(); frame(performance.now(), true);
-  window.addEventListener('resize', function () { size(); frame(performance.now(), reduced || !running); });
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(function () { size(); redraw(); }).observe(box);
+  } else window.addEventListener('resize', function () { size(); redraw(); });
+  document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else start(); });
   if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (es) { if (es[0].isIntersecting) start(); else stop(); }, { threshold: 0.1 }).observe(box);
-  } else start();
+    new IntersectionObserver(function (es) { inView = es[0].isIntersecting; if (inView) start(); else stop(); }, { threshold: 0.1 }).observe(box);
+  } else { inView = true; start(); }
 })();
 </script>
 </body>
