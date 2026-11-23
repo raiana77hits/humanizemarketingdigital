@@ -798,12 +798,13 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 
 
 /* ===== Seção 2: texto em duas colunas ===== */
-.cc-s2 .cc-head{max-width:26ch}
-.cc-s2 h2{font-size:clamp(1.9rem,3.4vw,3rem);line-height:1.1}
-.cc-s2 .cc-cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:clamp(36px,6vw,96px);margin-top:clamp(26px,3.4vw,46px);padding-top:clamp(24px,3vw,40px);border-top:1px solid var(--tp-line)}
+.cc-s2 .tp-eyebrow{margin-bottom:clamp(18px,2.4vw,30px)}
+.cc-s2 .cc-cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:clamp(36px,6vw,96px);align-items:start;padding-top:clamp(24px,3vw,40px);border-top:1px solid var(--tp-line)}
+/* os dois títulos usam exatamente o mesmo estilo e tamanho */
+.cc-s2 .cc-ct{margin:0 0 clamp(16px,2vw,26px);font-family:"Fraunces","Playfair Display",Georgia,serif;font-weight:500;font-size:clamp(1.75rem,2.7vw,2.5rem);line-height:1.12;letter-spacing:-.03em;color:var(--tp-navy)}
+.cc-s2 .cc-ct em{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:500;color:var(--tp-blue);letter-spacing:-.015em}
 .cc-s2 .tp-copy p{margin-bottom:.85em;font-size:clamp(1rem,1.2vw,1.0625rem);line-height:1.65}
 .cc-s2 .tp-copy p.cc-strong{font-weight:500;color:var(--tp-navy)}
-.cc-s2 .cc-col-r .tp-sub{margin:0 0 clamp(14px,1.8vw,22px)}
 @media (max-width:900px){.cc-s2 .cc-cols{grid-template-columns:1fr;row-gap:30px}}
 /* ===== Processo em cinco etapas (seção 3) ===== */
 .cc-sp .cc-steps{max-width:860px;margin-inline:auto}
@@ -923,12 +924,10 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 
   <section class="tp-sec tp-s-white cc-s2" aria-labelledby="cc-h2">
     <div class="tp-wrap">
-      <div class="cc-head reveal">
-        <p class="tp-eyebrow">02 / Criatividade com direção</p>
-        <h2 id="cc-h2">Nem todo vídeo que <em>vende</em> precisa parecer uma <em>propaganda.</em></h2>
-      </div>
+      <p class="tp-eyebrow reveal">02 / Criatividade com direção</p>
       <div class="cc-cols reveal reveal-d1">
         <div class="tp-copy cc-col-l">
+          <h2 class="cc-ct" id="cc-h2">Nem todo vídeo que <em>vende</em> precisa parecer uma <em>propaganda.</em></h2>
           <p>Na Humanize, acreditamos que vender começa muito antes de apresentar um preço.</p>
           <p>Por isso, nossa estratégia de conteúdo não se resume a mostrar produtos e repetir ofertas. Estudamos o comportamento do público e criamos vídeos que despertam curiosidade, geram identificação e fazem as pessoas quererem conhecer sua empresa.</p>
           <p>Produzimos conteúdos educativos, demonstrações de produtos, bastidores, vídeos institucionais, storytelling, memes, trends e campanhas promocionais.</p>
@@ -937,7 +936,7 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
           <p class="cc-strong">O importante é que cada conteúdo tenha uma intenção.</p>
         </div>
         <div class="cc-col-r">
-          <p class="tp-sub">Da primeira ideia ao <em>último clique.</em></p>
+          <h3 class="cc-ct">Da primeira ideia ao <em>último clique.</em></h3>
           <div class="tp-copy">
             <p>Cuidamos de todo o processo criativo: desenvolvemos ideias e roteiros, planejamos as gravações, produzimos os vídeos, realizamos a edição e preparamos cada publicação.</p>
             <p>Também criamos legendas estratégicas e chamadas para ação (CTAs), orientando o público a interagir, conhecer um produto, solicitar um orçamento ou entrar em contato.</p>
