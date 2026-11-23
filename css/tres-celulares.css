@@ -237,9 +237,16 @@
 @media (max-width:900px){
   .p3-stage-wrap{margin-inline:calc(var(--gutter,20px) * -1)}
   .p3-line,.p3-halo{display:none}
-  .p3-stage{display:flex;justify-content:flex-start;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 max(20px,calc((100% - 300px)/2));scroll-padding-inline:max(20px,calc((100% - 300px)/2));scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+  /* celular inteiro visível junto do título: a largura acompanha a altura da tela */
+  .p3-sec{padding-block:36px 44px}
+  .p3-eyebrow{margin-bottom:10px}
+  .p3-head h2{font-size:clamp(1.6rem,7vw,2rem)}
+  .p3-sub{margin-top:10px;font-size:.95rem;line-height:1.5}
+  .p3-stage-wrap{margin-top:20px}
+  .p3-stage{--p3w:clamp(190px,calc((100svh - 350px) / 2),min(300px,74vw))}
+  .p3-stage{display:flex;justify-content:flex-start;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 max(20px,calc((100% - var(--p3w))/2));scroll-padding-inline:max(20px,calc((100% - var(--p3w))/2));scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
   .p3-stage::-webkit-scrollbar{display:none}
-  .p3-col{flex:0 0 min(300px,74vw);scroll-snap-align:center}
+  .p3-col{flex:0 0 var(--p3w);scroll-snap-align:center}
   .p3-col--mid .p3{transform:none}
   .p3[data-on="0"]{filter:none}
   .p3-nav{display:flex;justify-content:center;align-items:center;gap:18px;margin-top:22px}
