@@ -981,7 +981,10 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   border-radius:clamp(14px,1.6vw,20px);border:1px solid rgba(20,18,43,.14);background:rgba(255,255,255,.55);
   font:500 clamp(.92rem,min(1.25vw,2.8svh),1.15rem)/1.2 "Fraunces","Playfair Display",Georgia,serif;letter-spacing:-.01em;color:#14122b;text-decoration:none;
   transition:background .3s,border-color .3s,transform .3s,box-shadow .3s}
-#servicos .srv-card:hover,#servicos .srv-card:focus-visible{background:#fff;border-color:rgba(0,93,252,.5);transform:translateY(-3px);box-shadow:0 14px 34px rgba(20,18,43,.12)}
+#servicos .srv-card:hover,#servicos .srv-card:focus-visible,#servicos .srv-card.is-ghost{background:#005dfc;border-color:#005dfc;color:#fff;transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,93,252,.28)}
+#servicos .srv-grid{position:relative}
+#servicos .srv-cursor{position:absolute;left:0;top:0;width:28px;height:28px;z-index:3;pointer-events:none;opacity:0;transition:transform .7s cubic-bezier(.4,0,.2,1),opacity .35s;filter:drop-shadow(0 3px 5px rgba(20,18,43,.35))}
+#servicos .srv-cursor.is-on{opacity:1}
 @media (max-width:900px){
   #servicos{min-height:0}
   #servicos .srv-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -1139,6 +1142,43 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
       </ul>
     </div>
   </section>
+  <script>
+  /* Vitrine de soluções: um "cursor" imaginário passa por cada card e o acende em azul,
+     mostrando que são botões. Para assim que a pessoa interage. Sem movimento se preferir movimento reduzido. */
+  (function(){
+    var grid=document.querySelector('#servicos .srv-grid'); if(!grid) return;
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var cards=[].slice.call(grid.querySelectorAll('.srv-card')); if(!cards.length) return;
+    var cur=document.createElement('span'); cur.className='srv-cursor'; cur.setAttribute('aria-hidden','true');
+    cur.innerHTML='<svg viewBox="0 0 24 24" width="28" height="28"><path d="M5 3l14 8-6.2 1.6L9.6 19 5 3z" fill="#fff" stroke="#14122b" stroke-width="1.6" stroke-linejoin="round"/></svg>';
+    grid.appendChild(cur);
+    var i=-1,timer=null,visible=false,stopped=false;
+    function clear(){cards.forEach(function(c){c.classList.remove('is-ghost');});}
+    function moveTo(c){
+      var g=grid.getBoundingClientRect(),r=c.getBoundingClientRect();
+      var x=r.left-g.left+r.width*.58,y=r.top-g.top+r.height*.58;
+      cur.style.transform='translate('+x+'px,'+y+'px)';
+    }
+    function stop(){stopped=true;clearTimeout(timer);clear();cur.classList.remove('is-on');}
+    function tick(){
+      if(stopped||!visible) return;
+      clear(); i++;
+      if(i>=cards.length){ i=-1; cur.classList.remove('is-on'); timer=setTimeout(tick,1600); return; }
+      cur.classList.add('is-on'); moveTo(cards[i]);
+      timer=setTimeout(function(){ if(stopped||!visible) return; cards[i].classList.add('is-ghost'); timer=setTimeout(tick,1300); },650);
+    }
+    grid.addEventListener('mouseover',function(e){ if(e.target.closest('.srv-card')) stop(); });
+    grid.addEventListener('touchstart',stop,{passive:true});
+    grid.addEventListener('focusin',stop);
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){
+        visible=es[0].isIntersecting;
+        if(visible&&!stopped){ clearTimeout(timer); i=-1; timer=setTimeout(tick,600); }
+        else { clearTimeout(timer); clear(); cur.classList.remove('is-on'); }
+      },{threshold:.6}).observe(grid);
+    }
+  })();
+  </script>
 
   <!-- ============================ ESTRATÉGIA (texto) ============================ -->
   <section class="section" id="estrategia">
