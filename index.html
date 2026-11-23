@@ -1004,6 +1004,15 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   .h-hero{text-shadow:0 4px 30px rgba(3,9,20,.85)}
   /* "Role pra baixo" centralizado (a animação sobrescrevia o translateX(-50%)) */
   .scroll-cue{left:0;right:0;width:max-content;margin-inline:auto;transform:none}
+  /* Hero ocupa a tela inteira (inclusive a área sob a barra do navegador), sem mostrar a seção seguinte.
+     A arte, o cérebro e o conteúdo continuam medidos pela altura "pequena" (svh), então nada muda de lugar. */
+  @supports (height:100lvh){
+    .hero{min-height:100lvh;padding-bottom:calc(clamp(128px,calc(25svh - 44px),186px) + (100lvh - 100svh))}
+    .hero-art{bottom:auto;height:100svh}
+    .hero-art::after{background:linear-gradient(180deg,rgba(3,9,20,.45) 0%,rgba(3,9,20,0) 16%,rgba(3,9,20,0) 62%,rgba(3,9,20,.55) 80%,#030914 100%)}
+    .cerebro{top:calc(100svh * .422)}
+    .scroll-cue{bottom:calc(20px + 100lvh - 100svh)}
+  }
 }
 </style>
 </head>
