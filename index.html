@@ -1144,7 +1144,7 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   </section>
   <script>
   /* Vitrine de soluções: um "cursor" imaginário passa por cada card e o acende em azul,
-     mostrando que são botões. Para assim que a pessoa interage. Sem movimento se preferir movimento reduzido. */
+     mostrando que são botões. Pausa enquanto a pessoa interage e volta sempre que ela retorna à seção. Sem movimento se preferir movimento reduzido. */
   (function(){
     var grid=document.querySelector('#servicos .srv-grid'); if(!grid) return;
     if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -1152,30 +1152,32 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
     var cur=document.createElement('span'); cur.className='srv-cursor'; cur.setAttribute('aria-hidden','true');
     cur.innerHTML='<svg viewBox="0 0 24 24" width="28" height="28"><path d="M5 3l14 8-6.2 1.6L9.6 19 5 3z" fill="#fff" stroke="#14122b" stroke-width="1.6" stroke-linejoin="round"/></svg>';
     grid.appendChild(cur);
-    var i=-1,timer=null,visible=false,stopped=false;
+    var i=-1,timer=null,visible=false,paused=false;
     function clear(){cards.forEach(function(c){c.classList.remove('is-ghost');});}
     function moveTo(c){
       var g=grid.getBoundingClientRect(),r=c.getBoundingClientRect();
       var x=r.left-g.left+r.width*.58,y=r.top-g.top+r.height*.58;
       cur.style.transform='translate('+x+'px,'+y+'px)';
     }
-    function stop(){stopped=true;clearTimeout(timer);clear();cur.classList.remove('is-on');}
+    function halt(){clearTimeout(timer);clear();cur.classList.remove('is-on');}
+    function start(delay){ halt(); i=-1; if(visible&&!paused) timer=setTimeout(tick,delay); }
     function tick(){
-      if(stopped||!visible) return;
+      if(paused||!visible) return;
       clear(); i++;
       if(i>=cards.length){ i=-1; cur.classList.remove('is-on'); timer=setTimeout(tick,1600); return; }
       cur.classList.add('is-on'); moveTo(cards[i]);
-      timer=setTimeout(function(){ if(stopped||!visible) return; cards[i].classList.add('is-ghost'); timer=setTimeout(tick,1300); },650);
+      timer=setTimeout(function(){ if(paused||!visible) return; cards[i].classList.add('is-ghost'); timer=setTimeout(tick,1300); },650);
     }
-    grid.addEventListener('mouseover',function(e){ if(e.target.closest('.srv-card')) stop(); });
-    grid.addEventListener('touchstart',stop,{passive:true});
-    grid.addEventListener('focusin',stop);
+    /* Interação real só PAUSA a demonstração; ela volta quando a pessoa sai do card ou da seção e retorna. */
+    grid.addEventListener('mouseover',function(e){ if(e.target.closest('.srv-card')&&!paused){ paused=true; halt(); } });
+    grid.addEventListener('mouseleave',function(){ paused=false; start(1200); });
+    grid.addEventListener('focusin',function(){ paused=true; halt(); });
+    grid.addEventListener('focusout',function(){ paused=false; start(1200); });
     if('IntersectionObserver' in window){
       new IntersectionObserver(function(es){
         visible=es[0].isIntersecting;
-        if(visible&&!stopped){ clearTimeout(timer); i=-1; timer=setTimeout(tick,600); }
-        else { clearTimeout(timer); clear(); cur.classList.remove('is-on'); }
-      },{threshold:.6}).observe(grid);
+        if(visible){ paused=false; start(600); } else halt();
+      },{threshold:.4}).observe(grid);
     }
   })();
   </script>
