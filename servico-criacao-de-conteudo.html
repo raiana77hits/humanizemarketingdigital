@@ -783,7 +783,12 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 .cc-vf.is-focus h1{transform:none;transition:transform 1.2s var(--ease)}
 .cc-vf.is-focus .cc-t1{filter:blur(0);transition:filter 1.1s var(--ease)}
 .cc-vf.is-focus .cc-t2{filter:blur(0);transition:filter 1.1s var(--ease) .3s}
-.cc-vf.is-focus>i{animation:ccFrame 1.3s var(--ease) both}
+.cc-vf.is-focus>i{animation:ccFrame 1.3s var(--ease) both,ccBreath 3.6s ease-in-out 1.3s infinite}
+.cc-vf:not(.is-live)>i{animation-play-state:paused}
+@keyframes ccBreath{
+  0%,100%{transform:none}
+  50%{transform:translate(calc(var(--dx) * -7px),calc(var(--dy) * -7px))}
+}
 @keyframes ccFrame{
   0%{opacity:0;transform:translate(calc(var(--dx) * 12px),calc(var(--dy) * 12px))}
   55%{opacity:.9;transform:translate(calc(var(--dx) * -2px),calc(var(--dy) * -2px))}
@@ -1078,6 +1083,7 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
     if (!reduced) vf.classList.add('is-armed');
     new IntersectionObserver(function (es) {
       var on = es[0].isIntersecting;
+      vf.classList.toggle('is-live', on);
       if (on && !done) {
         done = true;
         if (!reduced) setTimeout(function () { vf.classList.add('is-focus'); }, 160);
