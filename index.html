@@ -248,66 +248,6 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 .nav-links a:hover{color:#fff}
 .nav-links a:hover::after{transform:scaleX(1)}
 
-.nav-cta{display:flex;align-items:center;gap:12px;position:relative}
-.nav-cta .btn{transition:transform .4s var(--ease),background var(--t),box-shadow var(--t),color var(--t)}
-
-/* Botão do menu: três linhas finas, discreto */
-.menu-toggle{
-  position:absolute;right:-13px;top:50%;margin-top:-24px;
-  display:flex;width:48px;height:48px;padding:0;border:0;background:none;color:#fff;cursor:pointer;
-  align-items:flex-end;justify-content:center;flex-direction:column;gap:6px;padding-right:13px;
-  opacity:0;visibility:hidden;pointer-events:none;
-  transition:opacity .3s var(--ease),visibility 0s .3s;
-}
-.menu-toggle span{display:block;height:1.5px;background:currentColor;border-radius:2px;transition:width .3s var(--ease)}
-.menu-toggle span:nth-child(1){width:24px}
-.menu-toggle span:nth-child(2){width:24px}
-.menu-toggle span:nth-child(3){width:24px}
-.menu-toggle:hover span:nth-child(1),.menu-toggle:focus-visible span:nth-child(1){width:16px}
-.menu-toggle:hover span:nth-child(3),.menu-toggle:focus-visible span:nth-child(3){width:16px}
-.menu-toggle:focus-visible{outline:2px solid var(--cyan);outline-offset:-4px;border-radius:8px}
-
-/* Estado mínimo (depois da hero): sem links, logo ao centro, menu hambúrguer */
-.site-header.is-min .nav-links{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s var(--ease),visibility 0s .3s}
-.site-header.is-min .menu-toggle{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .4s var(--ease) .12s,visibility 0s}
-.site-header.is-min .nav-cta .btn{transform:translateX(-48px)}
-.brand{transition:transform .42s var(--ease);will-change:transform}
-.site-header.is-min .brand{transform:translateX(var(--brand-dx,0px))}
-
-/* Painel lateral */
-.mp-overlay{position:fixed;inset:0;z-index:109;background:rgba(3,9,20,.6);opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility 0s .4s}
-.mp-overlay.is-open{opacity:1;visibility:visible;transition-delay:0s}
-.menu-panel{
-  position:fixed;top:0;right:0;bottom:0;z-index:110;width:min(480px,100vw);
-  display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain;
-  padding:clamp(20px,4vh,32px) clamp(24px,5vw,48px) clamp(28px,5vh,44px);
-  background:#030914;border-left:1px solid var(--line);
-  transform:translateX(100%);visibility:hidden;
-  transition:transform .46s var(--ease),visibility 0s .46s;
-}
-.menu-panel.is-open{transform:none;visibility:visible;transition-delay:0s}
-.mp-close{
-  align-self:flex-end;display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 4px 0 10px;margin-right:-4px;
-  border:0;background:none;color:#fff;cursor:pointer;font:600 .78rem/1 Manrope,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;
-}
-.mp-close svg{width:22px;height:22px;transition:transform .35s var(--ease)}
-.mp-close:hover svg{transform:rotate(90deg)}
-.mp-close:focus-visible,.mp-list a:focus-visible,.mp-cta:focus-visible{outline:2px solid var(--cyan);outline-offset:4px;border-radius:6px}
-.mp-list{list-style:none;margin:auto 0;padding:clamp(12px,3vh,28px) 0}
-.mp-list li{border-bottom:1px solid var(--line);opacity:0;transform:translateX(28px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
-.mp-list li:first-child{border-top:1px solid var(--line)}
-.menu-panel.is-open .mp-list li{opacity:1;transform:none;transition-delay:calc(.14s + var(--i) * .06s)}
-.mp-list a{display:flex;align-items:baseline;gap:18px;padding:clamp(12px,2.4vh,20px) 0;color:#fff;
-  font-family:"Fraunces","Playfair Display",Georgia,serif;font-weight:500;letter-spacing:-.025em;line-height:1.1;font-size:clamp(1.9rem,6.4vw,2.7rem);
-  transition:color var(--t),transform .4s var(--ease)}
-.mp-list a i{font:600 .72rem/1 Manrope,system-ui,sans-serif;letter-spacing:.14em;color:var(--blue-bright);font-style:normal;min-width:1.8em}
-.mp-list a:hover{color:var(--cyan);transform:translateX(8px)}
-.mp-cta{margin-top:clamp(18px,3vh,30px);align-self:flex-start;opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease),transform .5s var(--ease),background var(--t),box-shadow var(--t)}
-.menu-panel.is-open .mp-cta{opacity:1;transform:none;transition-delay:.5s,.5s,0s,0s}
-@media (prefers-reduced-motion:reduce){
-  .brand,.nav-cta .btn,.menu-panel,.mp-overlay,.mp-list li,.mp-cta,.nav-links,.menu-toggle,.mp-list a,.mp-close svg{transition-duration:.01ms!important;transition-delay:0s!important}
-}
-
 /* ============================================================
    HERO — arte "Conexão Humana" (mãos de Michelangelo + anel verde-limão)
    Arte estática em img/hero-arte.webp (desktop) e img/hero-arte-m.webp
@@ -833,8 +773,6 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 @media (max-width:900px){
   .split{grid-template-columns:1fr;gap:38px}
   .split-sticky{position:static}
-  .nav-links{display:none}
-  .menu-toggle{opacity:1;visibility:visible;pointer-events:auto;transition:none}
   .nav-cta .btn{display:none}
   .people{grid-template-columns:1fr}
 }
@@ -1046,6 +984,7 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   }
 }
 </style>
+<link rel="stylesheet" href="css/site-header.css" />
 </head>
 <body>
 
@@ -1057,17 +996,8 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
     <a class="brand" href="#inicio" aria-label="Humanize Marketing Digital — início">
       <img src="img/logo.webp" alt="Humanize Marketing Digital" width="105" height="40" />
     </a>
-
-    <nav class="nav-links" id="mainMenu" aria-label="Navegação principal">
-      <a href="#servicos">Soluções</a>
-      <a href="#metodo">Como trabalhamos</a>
-      <a href="#cases">Cases</a>
-      <a href="#sobre">Quem somos</a>
-      <a href="#contato">Contato</a>
-    </nav>
-
     <div class="nav-cta">
-      <a class="btn btn--primary btn--sm" href="#contato">Falar com a gente</a>
+      <a class="btn btn--primary btn--sm" href="https://wa.me/5511914894352?text=Ol%C3%A1!%20Quero%20falar%20com%20a%20Humanize." target="_blank" rel="noopener">Falar com a gente</a>
       <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="menuPanel" aria-label="Abrir menu de navegação">
         <span></span><span></span><span></span>
       </button>
@@ -1091,8 +1021,9 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
       <li style="--i:4"><a href="#contato"><i>05</i>Contato</a></li>
     </ol>
   </nav>
-  <a class="btn btn--primary mp-cta" href="#contato">Falar com a gente</a>
+  <a class="btn btn--primary mp-cta" href="https://wa.me/5511914894352?text=Ol%C3%A1!%20Quero%20falar%20com%20a%20Humanize." target="_blank" rel="noopener">Falar com a gente</a>
 </aside>
+
 
 <main id="conteudo">
 
@@ -1860,82 +1791,6 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 (function () {
   'use strict';
 
-  /* ---------- Cabeçalho fixo ---------- */
-  var header = document.getElementById('siteHeader');
-  var onScroll = function () {
-    header.classList.toggle('is-stuck', window.scrollY > 24);
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  /* ---------- Cabeçalho mínimo: ativado pela posição real da hero ---------- */
-  var hero = document.getElementById('inicio');
-  var brand = header.querySelector('.brand');
-  var brandDx = 0;
-  function measureBrand() {
-    /* centro da logo sem o deslocamento atual -> distância até o centro da viewport */
-    var r = brand.getBoundingClientRect(), cur = header.classList.contains('is-min') ? brandDx : 0;
-    var base = r.left + r.width / 2 - cur;
-    brandDx = document.documentElement.clientWidth / 2 - base;
-    header.style.setProperty('--brand-dx', brandDx.toFixed(1) + 'px');
-  }
-  function setMin(on) {
-    if (on === header.classList.contains('is-min')) return;
-    if (on) measureBrand();
-    header.classList.toggle('is-min', on);
-  }
-  if ('IntersectionObserver' in window && hero) {
-    var hh = header.offsetHeight || 72;
-    new IntersectionObserver(function (es) {
-      setMin(!es[0].isIntersecting);
-    }, { rootMargin: '-' + hh + 'px 0px 0px 0px', threshold: 0 }).observe(hero);
-  }
-  window.addEventListener('resize', function () {
-    if (header.classList.contains('is-min')) measureBrand();
-  });
-
-  /* ---------- Painel de navegação ---------- */
-  var toggle = document.getElementById('menuToggle');
-  var panel = document.getElementById('menuPanel');
-  var overlay = document.getElementById('mpOverlay');
-  var closeBtn = document.getElementById('mpClose');
-  var behind = [header, document.getElementById('conteudo'), document.querySelector('footer')].filter(Boolean);
-
-  function setOpen(open) {
-    panel.classList.toggle('is-open', open);
-    overlay.classList.toggle('is-open', open);
-    if (open) panel.removeAttribute('inert'); else panel.setAttribute('inert', '');
-    behind.forEach(function (el) { if (open) el.setAttribute('inert', ''); else el.removeAttribute('inert'); });
-    toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Fechar menu de navegação' : 'Abrir menu de navegação');
-    document.body.classList.toggle('is-locked', open);
-    if (open) closeBtn.focus(); else toggle.focus();
-  }
-  function isOpen() { return panel.classList.contains('is-open'); }
-  function closeMenu() { if (isOpen()) setOpen(false); }
-
-  toggle.addEventListener('click', function () { setOpen(!isOpen()); });
-  closeBtn.addEventListener('click', closeMenu);
-  overlay.addEventListener('click', closeMenu);
-  panel.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', function () {
-      /* fecha sem devolver o foco ao botão, para a rolagem seguir o link */
-      panel.classList.remove('is-open'); overlay.classList.remove('is-open'); panel.setAttribute('inert', '');
-      behind.forEach(function (el) { el.removeAttribute('inert'); });
-      toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'Abrir menu de navegação');
-      document.body.classList.remove('is-locked');
-    });
-  });
-  document.addEventListener('keydown', function (e) {
-    if (!isOpen()) return;
-    if (e.key === 'Escape') { closeMenu(); return; }
-    if (e.key === 'Tab') {
-      var f = panel.querySelectorAll('a[href],button'), first = f[0], last = f[f.length - 1];
-      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-    }
-  });
-
   /* ---------- Entrada suave ao rolar ---------- */
   var items = document.querySelectorAll('.reveal');
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -2001,5 +1856,6 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 <script src="js/cases-editorial.js" defer></script>
 <script src="js/cerebro-gl.js" defer></script>
 <script src="js/cerebro-3d.js" defer></script>
+<script src="js/site-header.js" defer></script>
 </body>
 </html>
