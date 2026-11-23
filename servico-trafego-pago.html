@@ -703,32 +703,29 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 .tp h1 em,.tp h2 em{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:500;color:var(--tp-blue);letter-spacing:-.015em}
 .tp p{font-family:"DM Sans",system-ui,sans-serif}
 .tp-sec{padding-block:clamp(72px,9vw,130px)}
-.tp-s1{background:var(--tp-beige);padding-top:clamp(96px,12vh,128px);padding-bottom:clamp(36px,6vh,72px)}
-.tp-s1 .tp-grid{display:grid;--mh:clamp(420px,calc(100dvh - 170px),680px);grid-template-columns:auto minmax(0,1fr);grid-template-areas:"media head" "media copy" "media btn";grid-template-rows:auto auto auto;align-content:center;column-gap:clamp(72px,12vw,200px);row-gap:clamp(14px,2.2vh,24px);align-items:start}
+.tp-s1{background:var(--tp-beige);min-height:100vh;min-height:100dvh;display:flex;align-items:center;padding-top:calc(84px + clamp(14px,2.4vh,26px));padding-bottom:clamp(16px,3vh,30px)}
+.tp-s1 .tp-wrap{width:calc(100% - 9vw);max-width:1760px}
+.tp-s1 .tp-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"media head" "media copy" "media btn";grid-template-rows:auto auto auto;align-content:center;column-gap:clamp(40px,4.5vw,65px);row-gap:clamp(14px,2.2vh,22px);align-items:start}
 .tp-s1 .tp-head{grid-area:head;align-self:end}
-.tp-s1 .tp-copy{grid-area:copy;align-self:start;max-width:32em}
-.tp-s1 .tp-media{grid-area:media;grid-row:1 / 4;align-self:center}
+.tp-s1 .tp-copy{grid-area:copy;align-self:start;max-width:30em}
+.tp-s1 .tp-media{grid-area:media;grid-row:1 / 4;align-self:center;justify-self:start}
 .tp-s1 .tp-btn-row{grid-area:btn;margin-top:clamp(4px,1vh,10px)}
 .tp-btn{display:inline-flex;align-items:center;gap:14px;min-height:54px;padding:0 28px;border-radius:999px;background:var(--tp-navy);color:#fff;font:500 1rem/1 "DM Sans",system-ui,sans-serif;text-decoration:none;transition:background .3s var(--ease),transform .3s var(--ease)}
 .tp-btn span{transition:transform .3s var(--ease)}
 .tp-btn:hover{background:var(--tp-blue)}
 .tp-btn:hover span{transform:translateX(4px)}
 .tp-btn:focus-visible{outline:2px solid var(--tp-blue);outline-offset:3px}
-.tp-s1 h1{font-size:clamp(1.85rem,2.9vw,2.7rem);line-height:1.1}
+.tp-s1 h1{font-size:clamp(1.9rem,2.75vw,2.4rem);line-height:1.2}
 .tp-s1 h1 span{display:block}
 .tp-s1 .tp-eyebrow{margin-bottom:clamp(10px,1.6vh,16px)}
 
 /* Área visual (imagens futuras) — cada <li class="tp-slide"> é uma imagem */
-.tp-media{position:relative;height:var(--mh,560px);aspect-ratio:9/10;border-radius:24px;overflow:hidden;background:#ece3d0;isolation:isolate}
+.tp-media{position:relative;width:min(100%,calc(100dvh - 170px));aspect-ratio:1/1;border-radius:24px;overflow:hidden;background:#ece3d0;isolation:isolate}
 .tp-slides{list-style:none;margin:0;padding:0;position:absolute;inset:0}
 .tp-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .9s var(--ease),visibility 0s .9s}
 .tp-slide.is-active{opacity:1;visibility:visible;transition-delay:0s}
 .tp-slide img,.tp-slide video{width:100%;height:100%;object-fit:cover;object-position:var(--pos,50% 50%);display:block}
 .tp-slide[data-fit="contain"] img{object-fit:contain}
-/* imagem inteira, sem cortes: fundo desfocado da própria foto preenche as sobras */
-.tp-slide[data-fit="blur"]{background:#0b1a3d}
-.tp-slide[data-fit="blur"]::before{content:"";position:absolute;inset:-30px;background:var(--bg) center/cover;filter:blur(26px) brightness(.85);transform:scale(1.05)}
-.tp-slide[data-fit="blur"] img{position:relative;object-fit:contain}
 .tp-s1 .tp-wrap{width:min(1360px,calc(100% - 120px))}
 .tp-slide.is-placeholder{opacity:1;visibility:visible;display:flex;align-items:flex-end;padding:clamp(18px,2.4vw,30px);
   background:linear-gradient(160deg,rgba(7,95,255,.05),rgba(7,95,255,0) 55%),repeating-linear-gradient(0deg,transparent 0 47px,rgba(8,15,45,.045) 47px 48px)}
@@ -745,8 +742,9 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 .tp-dots button:focus-visible,.tp-pause:focus-visible{outline:2px solid var(--tp-blue);outline-offset:2px}
 .tp-copy p{margin:0 0 1.15em;font-size:clamp(1.02rem,1.4vw,1.2rem);line-height:1.65;color:var(--tp-soft)}
 .tp-copy p:last-child{margin-bottom:0}
-.tp-s1 .tp-copy p{font-size:clamp(.92rem,1.02vw,1rem);line-height:1.58;margin-bottom:.9em}
-.tp-s1 .tp-copy p:last-child{color:var(--tp-navy);font-weight:600;margin-top:1.1em;padding-left:16px;border-left:2px solid var(--tp-blue)}
+.tp-s1 .tp-copy p{font-size:clamp(1.05rem,1.35vw,1.2rem);line-height:1.55;font-weight:400;margin-bottom:.95em}
+.tp-s1 .tp-copy p:last-child{color:var(--tp-navy);font-weight:500;margin:0}
+.tp-s1 .tp-rule{margin-top:clamp(12px,2vh,20px)}
 .tp-rule{margin-top:clamp(48px,6vw,84px);height:2px;background:linear-gradient(90deg,var(--tp-blue),rgba(7,95,255,.15));transform-origin:left;transform:scaleX(.08);will-change:transform}
 .tp-s2{background:#fff;padding-block:clamp(48px,5.5vw,84px)}
 .tp-s2 .tp-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:stretch}
@@ -791,11 +789,11 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 .tp-cta p{max-width:34em;margin:clamp(18px,2vw,26px) auto clamp(28px,3.4vw,44px);font-size:clamp(1.02rem,1.4vw,1.2rem);line-height:1.65;color:var(--tp-soft)}
 .tp-cta .btn{font-size:.9rem;letter-spacing:.06em;font-weight:600}
 @media (max-width:900px){
-  .tp-s1 .tp-wrap{width:min(1200px,calc(100% - 48px))}
+  .tp-s1{display:block;min-height:0;padding-top:112px;padding-bottom:48px}
+  .tp-s1 .tp-wrap{width:min(1200px,calc(100% - 48px));max-width:none}
   .tp-s1 .tp-grid,.tp-s2 .tp-grid,.tp-s3 .tp-grid{grid-template-columns:1fr}
-  .tp-s1{padding-top:112px;padding-bottom:56px}
   .tp-s1 .tp-grid{grid-template-columns:1fr;grid-template-areas:"head" "media" "copy" "btn";grid-template-rows:auto;row-gap:24px}
-  .tp-s1 .tp-media{grid-row:auto;height:auto;width:min(100%,380px);justify-self:center;aspect-ratio:1/1;border-radius:20px}
+  .tp-s1 .tp-media{grid-row:auto;width:100%;max-width:560px;justify-self:center;aspect-ratio:1/1;border-radius:20px}
   .tp-s1 h1{font-size:clamp(2rem,8.4vw,2.5rem)}
   .tp-s3.tp-sec{padding-block:56px 64px}
   .tp-s3 .tp-grid{gap:28px}
@@ -903,7 +901,7 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
         <div class="tp-media reveal has-slides" id="tpMedia" role="group" aria-roledescription="carrossel" aria-label="Imagens de campanhas de tráfego pago">
           <ol class="tp-slides">
             <li class="tp-slide is-active"><img src="img/trafego-outdoor-vertical.webp" alt="Outdoor digital em praça de São Paulo com a mensagem “Conquiste novos clientes com estratégias digitais” e a marca Humanize Marketing Digital" width="1199" height="1312" /></li>
-            <li class="tp-slide" data-fit="blur" style="--bg:url(img/trafego-outdoor-estacao-da-luz.webp)"><img src="img/trafego-outdoor-estacao-da-luz.webp" alt="Outdoor com a mensagem “Conquiste novos clientes com estratégias digitais”, ícones de Instagram, TikTok, Google, Meta e Facebook, em frente à Estação da Luz" width="1671" height="941" loading="lazy" /></li>
+            <li class="tp-slide" style="--pos:24% 50%"><img src="img/trafego-outdoor-estacao-da-luz.webp" alt="Outdoor com a mensagem “Conquiste novos clientes com estratégias digitais”, ícones de Instagram, TikTok, Google, Meta e Facebook, em frente à Estação da Luz" width="1671" height="941" loading="lazy" /></li>
           </ol>
           <div class="tp-media-ui"></div>
         </div>
