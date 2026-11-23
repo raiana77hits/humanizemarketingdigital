@@ -236,7 +236,7 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 .site-header.is-stuck .brand img{height:42px}
 @media (max-width:768px){.brand img{height:46px}.site-header.is-stuck .brand img{height:38px}}
 
-.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links{display:flex;align-items:center;gap:30px;transition:opacity .3s var(--ease),visibility 0s}
 .nav-links a{
   font-size:.92rem;font-weight:600;color:var(--text-soft);
   position:relative;padding-block:6px;transition:color var(--t);
@@ -247,20 +247,66 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 }
 .nav-links a:hover{color:#fff}
 .nav-links a:hover::after{transform:scaleX(1)}
-.nav-links .nav-menu-cta{display:none}
 
-.nav-cta{display:flex;align-items:center;gap:12px}
+.nav-cta{display:flex;align-items:center;gap:12px;position:relative}
+.nav-cta .btn{transition:transform .4s var(--ease),background var(--t),box-shadow var(--t),color var(--t)}
 
+/* Botão do menu: três linhas finas, discreto */
 .menu-toggle{
-  display:none;width:46px;height:46px;border:1px solid var(--line-strong);border-radius:var(--r-sm);
-  background:rgba(255,255,255,.04);color:#fff;align-items:center;justify-content:center;flex-direction:column;gap:5px;
-  transition:border-color var(--t),background var(--t);
+  position:absolute;right:-13px;top:50%;margin-top:-24px;
+  display:flex;width:48px;height:48px;padding:0;border:0;background:none;color:#fff;cursor:pointer;
+  align-items:flex-end;justify-content:center;flex-direction:column;gap:6px;padding-right:13px;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .3s var(--ease),visibility 0s .3s;
 }
-.menu-toggle:hover{border-color:var(--blue-bright)}
-.menu-toggle span{display:block;width:18px;height:2px;background:currentColor;border-radius:2px;transition:transform var(--t),opacity var(--t)}
-.menu-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
-.menu-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.menu-toggle span{display:block;height:1.5px;background:currentColor;border-radius:2px;transition:width .3s var(--ease)}
+.menu-toggle span:nth-child(1){width:24px}
+.menu-toggle span:nth-child(2){width:24px}
+.menu-toggle span:nth-child(3){width:24px}
+.menu-toggle:hover span:nth-child(1),.menu-toggle:focus-visible span:nth-child(1){width:16px}
+.menu-toggle:hover span:nth-child(3),.menu-toggle:focus-visible span:nth-child(3){width:16px}
+.menu-toggle:focus-visible{outline:2px solid var(--cyan);outline-offset:-4px;border-radius:8px}
+
+/* Estado mínimo (depois da hero): sem links, logo ao centro, menu hambúrguer */
+.site-header.is-min .nav-links{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s var(--ease),visibility 0s .3s}
+.site-header.is-min .menu-toggle{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .4s var(--ease) .12s,visibility 0s}
+.site-header.is-min .nav-cta .btn{transform:translateX(-48px)}
+.brand{transition:transform .42s var(--ease);will-change:transform}
+.site-header.is-min .brand{transform:translateX(var(--brand-dx,0px))}
+
+/* Painel lateral */
+.mp-overlay{position:fixed;inset:0;z-index:109;background:rgba(3,9,20,.6);opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility 0s .4s}
+.mp-overlay.is-open{opacity:1;visibility:visible;transition-delay:0s}
+.menu-panel{
+  position:fixed;top:0;right:0;bottom:0;z-index:110;width:min(480px,100vw);
+  display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain;
+  padding:clamp(20px,4vh,32px) clamp(24px,5vw,48px) clamp(28px,5vh,44px);
+  background:#030914;border-left:1px solid var(--line);
+  transform:translateX(100%);visibility:hidden;
+  transition:transform .46s var(--ease),visibility 0s .46s;
+}
+.menu-panel.is-open{transform:none;visibility:visible;transition-delay:0s}
+.mp-close{
+  align-self:flex-end;display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 4px 0 10px;margin-right:-4px;
+  border:0;background:none;color:#fff;cursor:pointer;font:600 .78rem/1 Manrope,system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;
+}
+.mp-close svg{width:22px;height:22px;transition:transform .35s var(--ease)}
+.mp-close:hover svg{transform:rotate(90deg)}
+.mp-close:focus-visible,.mp-list a:focus-visible,.mp-cta:focus-visible{outline:2px solid var(--cyan);outline-offset:4px;border-radius:6px}
+.mp-list{list-style:none;margin:auto 0;padding:clamp(12px,3vh,28px) 0}
+.mp-list li{border-bottom:1px solid var(--line);opacity:0;transform:translateX(28px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.mp-list li:first-child{border-top:1px solid var(--line)}
+.menu-panel.is-open .mp-list li{opacity:1;transform:none;transition-delay:calc(.14s + var(--i) * .06s)}
+.mp-list a{display:flex;align-items:baseline;gap:18px;padding:clamp(12px,2.4vh,20px) 0;color:#fff;
+  font-family:"Fraunces","Playfair Display",Georgia,serif;font-weight:500;letter-spacing:-.025em;line-height:1.1;font-size:clamp(1.9rem,6.4vw,2.7rem);
+  transition:color var(--t),transform .4s var(--ease)}
+.mp-list a i{font:600 .72rem/1 Manrope,system-ui,sans-serif;letter-spacing:.14em;color:var(--blue-bright);font-style:normal;min-width:1.8em}
+.mp-list a:hover{color:var(--cyan);transform:translateX(8px)}
+.mp-cta{margin-top:clamp(18px,3vh,30px);align-self:flex-start;opacity:0;transform:translateY(12px);transition:opacity .5s var(--ease),transform .5s var(--ease),background var(--t),box-shadow var(--t)}
+.menu-panel.is-open .mp-cta{opacity:1;transform:none;transition-delay:.5s,.5s,0s,0s}
+@media (prefers-reduced-motion:reduce){
+  .brand,.nav-cta .btn,.menu-panel,.mp-overlay,.mp-list li,.mp-cta,.nav-links,.menu-toggle,.mp-list a,.mp-close svg{transition-duration:.01ms!important;transition-delay:0s!important}
+}
 
 /* ============================================================
    HERO — arte "Conexão Humana" (mãos de Michelangelo + anel verde-limão)
@@ -787,26 +833,8 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 @media (max-width:900px){
   .split{grid-template-columns:1fr;gap:38px}
   .split-sticky{position:static}
-  .nav-links{
-    position:fixed;inset:0 0 auto;top:0;z-index:-1;
-    flex-direction:column;align-items:stretch;gap:0;
-    padding:104px var(--gutter) 34px;
-    background:rgba(3,9,20,.98);
-    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-    border-bottom:1px solid var(--line);
-    transform:translateY(-102%);transition:transform .36s var(--ease);
-    max-height:100dvh;overflow-y:auto;
-  }
-  .nav-links.is-open{transform:translateY(0)}
-  .nav-links a{padding:18px 2px;border-bottom:1px solid var(--line);font-size:1.06rem;font-weight:700;color:var(--text)}
-  .nav-links a::after{display:none}
-  .nav-links .nav-menu-cta{
-    display:inline-flex;align-items:center;justify-content:center;gap:10px;
-    margin-top:26px;border:0;
-    min-height:54px;border-radius:var(--r-pill);background:var(--blue);color:#fff;
-    font-family:Manrope,sans-serif;font-weight:800;font-size:.95rem;
-  }
-  .menu-toggle{display:flex}
+  .nav-links{display:none}
+  .menu-toggle{opacity:1;visibility:visible;pointer-events:auto;transition:none}
   .nav-cta .btn{display:none}
   .people{grid-template-columns:1fr}
 }
@@ -1036,17 +1064,35 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
       <a href="#cases">Cases</a>
       <a href="#sobre">Quem somos</a>
       <a href="#contato">Contato</a>
-      <a class="nav-menu-cta" href="#contato">Falar com a gente</a>
     </nav>
 
     <div class="nav-cta">
       <a class="btn btn--primary btn--sm" href="#contato">Falar com a gente</a>
-      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainMenu" aria-label="Abrir menu de navegação">
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="menuPanel" aria-label="Abrir menu de navegação">
         <span></span><span></span><span></span>
       </button>
     </div>
   </div>
 </header>
+
+<!-- Painel de navegação (abre pela direita) -->
+<div class="mp-overlay" id="mpOverlay"></div>
+<aside class="menu-panel" id="menuPanel" role="dialog" aria-modal="true" aria-label="Menu de navegação" inert>
+  <button class="mp-close" id="mpClose" type="button" aria-label="Fechar menu">
+    <span>Fechar</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+  </button>
+  <nav aria-label="Menu completo">
+    <ol class="mp-list">
+      <li style="--i:0"><a href="#servicos"><i>01</i>Soluções</a></li>
+      <li style="--i:1"><a href="#metodo"><i>02</i>Como trabalhamos</a></li>
+      <li style="--i:2"><a href="#cases"><i>03</i>Cases</a></li>
+      <li style="--i:3"><a href="#sobre"><i>04</i>Quem somos</a></li>
+      <li style="--i:4"><a href="#contato"><i>05</i>Contato</a></li>
+    </ol>
+  </nav>
+  <a class="btn btn--primary mp-cta" href="#contato">Falar com a gente</a>
+</aside>
 
 <main id="conteudo">
 
@@ -1822,35 +1868,72 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ---------- Menu mobile ---------- */
-  var toggle = document.getElementById('menuToggle');
-  var menu = document.getElementById('mainMenu');
-
-  function closeMenu() {
-    menu.classList.remove('is-open');
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'Abrir menu de navegação');
-    document.body.classList.remove('is-locked');
+  /* ---------- Cabeçalho mínimo: ativado pela posição real da hero ---------- */
+  var hero = document.getElementById('inicio');
+  var brand = header.querySelector('.brand');
+  var brandDx = 0;
+  function measureBrand() {
+    /* centro da logo sem o deslocamento atual -> distância até o centro da viewport */
+    var r = brand.getBoundingClientRect(), cur = header.classList.contains('is-min') ? brandDx : 0;
+    var base = r.left + r.width / 2 - cur;
+    brandDx = document.documentElement.clientWidth / 2 - base;
+    header.style.setProperty('--brand-dx', brandDx.toFixed(1) + 'px');
   }
-
-  toggle.addEventListener('click', function () {
-    var willOpen = !menu.classList.contains('is-open');
-    menu.classList.toggle('is-open', willOpen);
-    toggle.setAttribute('aria-expanded', String(willOpen));
-    toggle.setAttribute('aria-label', willOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação');
-    document.body.classList.toggle('is-locked', willOpen);
-  });
-
-  menu.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', closeMenu);
-  });
-
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeMenu();
-  });
-
+  function setMin(on) {
+    if (on === header.classList.contains('is-min')) return;
+    if (on) measureBrand();
+    header.classList.toggle('is-min', on);
+  }
+  if ('IntersectionObserver' in window && hero) {
+    var hh = header.offsetHeight || 72;
+    new IntersectionObserver(function (es) {
+      setMin(!es[0].isIntersecting);
+    }, { rootMargin: '-' + hh + 'px 0px 0px 0px', threshold: 0 }).observe(hero);
+  }
   window.addEventListener('resize', function () {
-    if (window.innerWidth > 900) closeMenu();
+    if (header.classList.contains('is-min')) measureBrand();
+  });
+
+  /* ---------- Painel de navegação ---------- */
+  var toggle = document.getElementById('menuToggle');
+  var panel = document.getElementById('menuPanel');
+  var overlay = document.getElementById('mpOverlay');
+  var closeBtn = document.getElementById('mpClose');
+  var behind = [header, document.getElementById('conteudo'), document.querySelector('footer')].filter(Boolean);
+
+  function setOpen(open) {
+    panel.classList.toggle('is-open', open);
+    overlay.classList.toggle('is-open', open);
+    if (open) panel.removeAttribute('inert'); else panel.setAttribute('inert', '');
+    behind.forEach(function (el) { if (open) el.setAttribute('inert', ''); else el.removeAttribute('inert'); });
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Fechar menu de navegação' : 'Abrir menu de navegação');
+    document.body.classList.toggle('is-locked', open);
+    if (open) closeBtn.focus(); else toggle.focus();
+  }
+  function isOpen() { return panel.classList.contains('is-open'); }
+  function closeMenu() { if (isOpen()) setOpen(false); }
+
+  toggle.addEventListener('click', function () { setOpen(!isOpen()); });
+  closeBtn.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', closeMenu);
+  panel.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      /* fecha sem devolver o foco ao botão, para a rolagem seguir o link */
+      panel.classList.remove('is-open'); overlay.classList.remove('is-open'); panel.setAttribute('inert', '');
+      behind.forEach(function (el) { el.removeAttribute('inert'); });
+      toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'Abrir menu de navegação');
+      document.body.classList.remove('is-locked');
+    });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!isOpen()) return;
+    if (e.key === 'Escape') { closeMenu(); return; }
+    if (e.key === 'Tab') {
+      var f = panel.querySelectorAll('a[href],button'), first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
   });
 
   /* ---------- Entrada suave ao rolar ---------- */
