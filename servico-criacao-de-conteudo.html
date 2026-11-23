@@ -764,14 +764,31 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 .cc-s1 .cc-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(32px,6vw,96px);align-items:center}
 .cc-s1 h1{font-size:clamp(2.4rem,5.2vw,4.5rem);line-height:1.05}
 .cc-frame{position:relative;padding:clamp(22px,3vw,44px)}
-.cc-frame i{position:absolute;width:26px;height:26px;border:0 solid var(--tp-blue);opacity:.7}
-.cc-frame i:nth-child(1){top:0;left:0;border-top-width:2px;border-left-width:2px}
-.cc-frame i:nth-child(2){top:0;right:0;border-top-width:2px;border-right-width:2px}
-.cc-frame i:nth-child(3){bottom:0;left:0;border-bottom-width:2px;border-left-width:2px}
-.cc-frame i:nth-child(4){bottom:0;right:0;border-bottom-width:2px;border-right-width:2px}
-.cc-rec{position:absolute;top:-9px;left:50%;transform:translateX(-50%);padding:0 12px;background:var(--tp-beige);font:700 .6875rem/1 "DM Sans",sans-serif;letter-spacing:.18em;color:var(--tp-soft);display:flex;align-items:center;gap:8px}
-.cc-rec::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--tp-purple);box-shadow:0 0 10px var(--tp-purple);animation:ccRec 2.4s ease-in-out infinite}
-@keyframes ccRec{50%{opacity:.25}}
+/* Visor de câmera no título */
+.cc-vf{--vf-px:clamp(16px,2vw,30px);--vf-c:clamp(16px,1.8vw,24px);position:relative;margin-inline:calc(-1 * var(--vf-px));padding:clamp(40px,4.4vw,52px) var(--vf-px) clamp(18px,2vw,28px)}
+.cc-vf>i{position:absolute;width:var(--vf-c);height:var(--vf-c);border:0 solid var(--tp-blue);opacity:.85;pointer-events:none}
+.cc-vf>i:nth-of-type(1){--dx:-1;--dy:-1;top:0;left:0;border-top-width:1.5px;border-left-width:1.5px}
+.cc-vf>i:nth-of-type(2){--dx:1;--dy:-1;top:0;right:0;border-top-width:1.5px;border-right-width:1.5px}
+.cc-vf>i:nth-of-type(3){--dx:-1;--dy:1;bottom:0;left:0;border-bottom-width:1.5px;border-left-width:1.5px}
+.cc-vf>i:nth-of-type(4){--dx:1;--dy:1;bottom:0;right:0;border-bottom-width:1.5px;border-right-width:1.5px}
+.cc-rec{position:absolute;top:clamp(14px,1.6vw,20px);left:var(--vf-px);display:flex;align-items:center;gap:8px;font:600 .6875rem/1 ui-monospace,"SF Mono",Menlo,Consolas,monospace;letter-spacing:.14em;color:var(--tp-soft);user-select:none}
+.cc-rec b{width:8px;height:8px;border-radius:50%;background:#e5262e;animation:ccRec 1.6s ease-in-out infinite}
+.cc-rec time{font-variant-numeric:tabular-nums}
+@keyframes ccRec{0%,100%{opacity:1}50%{opacity:.2}}
+/* foco: começa levemente desfocado (só quando o JS arma o efeito) e ganha nitidez uma única vez */
+.cc-vf h1{transform-origin:left center}
+.cc-vf.is-armed h1{transform:scale(1.012)}
+.cc-vf.is-armed .cc-t1,.cc-vf.is-armed .cc-t2{filter:blur(7px)}
+.cc-vf.is-armed>i{opacity:0}
+.cc-vf.is-focus h1{transform:none;transition:transform 1.2s var(--ease)}
+.cc-vf.is-focus .cc-t1{filter:blur(0);transition:filter 1.1s var(--ease)}
+.cc-vf.is-focus .cc-t2{filter:blur(0);transition:filter 1.1s var(--ease) .3s}
+.cc-vf.is-focus>i{animation:ccFrame 1.3s var(--ease) both}
+@keyframes ccFrame{
+  0%{opacity:0;transform:translate(calc(var(--dx) * 12px),calc(var(--dy) * 12px))}
+  55%{opacity:.9;transform:translate(calc(var(--dx) * -2px),calc(var(--dy) * -2px))}
+  100%{opacity:.85;transform:none}
+}
 .cc-s1 .tp-copy p:last-child{color:var(--tp-navy);font-weight:500}
 
 .cc-s2 .cc-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(32px,6vw,96px);align-items:start}
@@ -875,10 +892,13 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
       <div class="cc-grid">
         <div class="reveal">
           <p class="tp-eyebrow">01 / Conteúdo com propósito</p>
-          <h1 id="cc-h1">Criar conteúdo é fácil. Criar <em>conexões exige estratégia.</em></h1>
+          <div class="cc-vf" id="ccVf">
+            <i></i><i></i><i></i><i></i>
+            <span class="cc-rec" aria-hidden="true"><b></b>REC <time id="ccRecTime">00:00:01</time></span>
+            <h1 id="cc-h1"><span class="cc-t1">Criar conteúdo é fácil. Criar </span><em class="cc-t2">conexões exige estratégia.</em></h1>
+          </div>
         </div>
         <div class="cc-frame reveal reveal-d1">
-          <i></i><i></i><i></i><i></i><span class="cc-rec">REC · CONTEÚDO</span>
           <div class="tp-copy">
             <p>Todos os dias, milhares de conteúdos disputam a atenção das pessoas nas redes sociais. Mas quantos deles realmente despertam interesse, criam identificação ou fazem alguém lembrar de uma marca?</p>
             <p>A criação de conteúdo vai muito além de publicar fotos e vídeos. É a construção de uma comunicação capaz de aproximar sua empresa das pessoas certas.</p>
@@ -1049,6 +1069,23 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
     items.forEach(function (el) { io.observe(el); });
   }
+  /* Visor da câmera: foco do título (uma vez) e contador REC enquanto a seção está visível */
+  (function () {
+    var vf = document.getElementById('ccVf'), t = document.getElementById('ccRecTime');
+    if (!vf || !('IntersectionObserver' in window)) return;
+    var secs = 1, timer = null, done = false;
+    function fmt(n) { var h = Math.floor(n / 3600), m = Math.floor(n % 3600 / 60), s2 = n % 60; return [h, m, s2].map(function (x) { return (x < 10 ? '0' : '') + x; }).join(':'); }
+    if (!reduced) vf.classList.add('is-armed');
+    new IntersectionObserver(function (es) {
+      var on = es[0].isIntersecting;
+      if (on && !done) {
+        done = true;
+        if (!reduced) setTimeout(function () { vf.classList.add('is-focus'); }, 160);
+      }
+      clearInterval(timer);
+      if (on && !reduced) timer = setInterval(function () { secs++; t.textContent = fmt(secs); }, 1000);
+    }, { threshold: 0.55 }).observe(vf);
+  })();
   function onVisible(el, on, off) {
     if (!('IntersectionObserver' in window)) { on(); return; }
     new IntersectionObserver(function (es) { if (es[0].isIntersecting) on(); else off(); }, { threshold: 0.1 }).observe(el);
