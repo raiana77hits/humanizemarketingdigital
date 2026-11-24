@@ -1,0 +1,131 @@
+<!--
+  STANDBY — "Ecossistema de conteúdo" (círculo CONTEÚDO + 8 formatos orbitando)
+  Removido de servico-criacao-de-conteudo.html em 24/11/2026, a pedido da Ray (não é exclusão: fica guardado aqui).
+
+  COMO VOLTAR PARA O SITE (servico-criacao-de-conteudo.html):
+   1) CSS  -> colar o bloco <style> abaixo dentro do <style> da página (os trechos de celular
+              .cc-mobsub/.cc-mlist/.cc-lbl-g devem ficar dentro do @media (max-width:900px)).
+   2) HTML -> colar o bloco <section class="cc-s4"> logo depois da seção 3 (cc-s3) e antes da seção de CTA.
+   3) JS   -> colar o bloco de script dentro do script principal da página, antes do fechamento final
+              da função (ele usa onVisible e reduced, que já existem lá).
+-->
+<style>
+.cc-s4{text-align:center;padding-block:clamp(72px,8vw,120px)}
+.cc-s4 .tp-eyebrow{margin-bottom:12px}
+.cc-orbit{position:relative;width:min(1100px,100%);margin:0 auto}
+.cc-orbit svg{display:block;width:100%;height:auto;overflow:visible}
+.cc-orbit text{font-family:"DM Sans",system-ui,sans-serif}
+.cc-node{cursor:default}
+.cc-lbl{font-size:15px;font-weight:600;fill:var(--tp-navy);letter-spacing:.01em;transition:fill .3s}
+.cc-node.hot .cc-lbl{fill:var(--tp-blue)}
+.cc-core-t{font-family:"Fraunces","Playfair Display",Georgia,serif!important;font-weight:500;fill:#fff;letter-spacing:.06em}
+.cc-core-s{font-weight:700;stroke:var(--tp-beige);stroke-width:7px;paint-order:stroke;fill:var(--tp-soft);letter-spacing:.2em}
+.cc-mlist{display:none}
+.cc-mobsub{display:none}
+  .cc-lbl-g{display:none}
+  .cc-mobsub{display:block;margin:6px 0 0;font:700 .6875rem/1.5 "DM Sans",sans-serif;letter-spacing:.18em;color:var(--tp-soft)}
+  .cc-mlist{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;list-style:none;margin:18px 0 0;padding:0;text-align:left}
+  .cc-mlist li{padding:12px 0 12px 22px;position:relative;border-top:1px solid var(--tp-line);font:600 .9375rem/1.3 "DM Sans",sans-serif;color:var(--tp-navy);cursor:pointer}
+  .cc-mlist li::before{content:"";position:absolute;left:2px;top:50%;width:9px;height:9px;margin-top:-4.5px;border-radius:50%;background:var(--tp-blue);box-shadow:0 0 10px rgba(7,95,255,.5)}
+  .cc-mlist li:nth-child(3n)::before{background:var(--tp-purple);box-shadow:0 0 10px rgba(184,41,255,.6)}
+  .cc-mlist li.hot{color:var(--tp-blue)}
+</style>
+
+  <section class="tp-sec tp-s-light cc-s4" aria-labelledby="cc-h4">
+    <div class="tp-wrap">
+      <h2 id="cc-h4" style="position:absolute;left:-9999px">Ecossistema de conteúdo: como os formatos trabalham juntos</h2>
+      <div class="cc-orbit" id="ccOrbit">
+        <svg id="ccSvg" viewBox="0 0 1000 720" role="img" aria-label="Círculo central CONTEÚDO conectado a oito formatos: vídeos criativos, storytelling, memes e trends, conteúdo educativo, bastidores, demonstrações, legendas e CTAs, identidade de marca">
+          <defs>
+            <radialGradient id="ccSph" id2="x" cx="35%" cy="28%" r="80%" fx="30%" fy="22%">
+              <stop offset="0" stop-color="#8fc0ff"/><stop offset=".35" stop-color="#2d7bff"/><stop offset=".8" stop-color="#0a2a9c"/><stop offset="1" stop-color="#080f2d"/>
+            </radialGradient>
+            <radialGradient id="ccGlow"><stop offset="0" stop-color="#075fff" stop-opacity=".35"/><stop offset="1" stop-color="#075fff" stop-opacity="0"/></radialGradient>
+          </defs>
+          <g id="ccLines"></g><g id="ccParts"></g>
+          <circle id="ccGlowC" cx="500" cy="360" r="210" fill="url(#ccGlow)"/>
+          <g id="ccCore">
+            <circle cx="500" cy="360" r="122" fill="url(#ccSph)"/>
+            <ellipse cx="500" cy="360" rx="122" ry="38" fill="none" stroke="rgba(190,220,255,.35)" stroke-width="1"/>
+            <ellipse cx="500" cy="360" rx="60" ry="122" fill="none" stroke="rgba(190,220,255,.25)" stroke-width="1"/>
+            <circle cx="500" cy="360" r="122" fill="none" stroke="rgba(160,200,255,.7)" stroke-width="1.5"/>
+            <circle cx="548" cy="318" r="5" fill="#d28aff" opacity=".9"/>
+            <text class="cc-core-t" x="500" y="366" text-anchor="middle" font-size="25">CONTEÚDO</text>
+          </g>
+          <text class="cc-core-s cc-lbl-g" x="500" y="528" text-anchor="middle" font-size="12">ESTRATÉGIA • CONEXÃO • RESULTADO</text>
+          <g id="ccNodes"></g>
+        </svg>
+        <p class="cc-mobsub">ESTRATÉGIA • CONEXÃO • RESULTADO</p>
+        <ul class="cc-mlist" id="ccMList"></ul>
+      </div>
+      <p class="cc-phrase reveal">Diferentes formatos. Uma única estratégia: fazer sua marca criar <em>conexões que importam.</em></p>
+    </div>
+  </section>
+
+<script>
+  /* ecossistema orbital (seção 4) */
+  var NS = 'http://www.w3.org/2000/svg', svg = document.getElementById('ccSvg');
+  var labels = ['Vídeos criativos', 'Storytelling', 'Memes e trends', 'Conteúdo educativo', 'Bastidores', 'Demonstrações', 'Legendas e CTAs', 'Identidade de marca'];
+  var gL = document.getElementById('ccLines'), gN = document.getElementById('ccNodes'), gP = document.getElementById('ccParts'), core = document.getElementById('ccCore');
+  var mlist = document.getElementById('ccMList'), orb = [], parts = [], CX = 500, CY = 360, RX = 330, RY = 235, CR = 122, hot = -1;
+  function mk(tag, at, par) { var e = document.createElementNS(NS, tag); for (var k in at) e.setAttribute(k, at[k]); par.appendChild(e); return e; }
+  labels.forEach(function (lb, i) {
+    var path = mk('path', { fill: 'none', stroke: '#075fff', 'stroke-width': 1, 'stroke-opacity': .45 }, gL);
+    var node = mk('g', { 'class': 'cc-node' }, gN);
+    var halo = mk('circle', { r: 11, fill: i % 3 === 2 ? '#b829ff' : '#075fff', 'fill-opacity': .18 }, node);
+    var dot = mk('circle', { r: 4.5, fill: i % 3 === 2 ? '#b829ff' : '#075fff' }, node);
+    var tx = mk('text', { 'class': 'cc-lbl cc-lbl-g' }, node); tx.textContent = lb;
+    orb.push({ path: path, node: node, halo: halo, dot: dot, tx: tx });
+    node.addEventListener('mouseenter', function () { setHot(i); }); node.addEventListener('mouseleave', function () { setHot(-1); });
+    var li = document.createElement('li'); li.textContent = lb; li.addEventListener('click', function () { setHot(hot === i ? -1 : i); }); mlist.appendChild(li);
+  });
+  for (var q = 0; q < 22; q++) parts.push({ a: Math.random() * 6.283, r: .35 + Math.random() * .75, s: (Math.random() - .5) * .05, c: mk('circle', { r: .8 + Math.random() * 1.4, fill: Math.random() < .2 ? '#b829ff' : '#075fff', 'fill-opacity': .35 + Math.random() * .4 }, gP) });
+  function setHot(i) {
+    hot = i; orb.forEach(function (o, k) {
+      var on = k === i; o.node.classList.toggle('hot', on);
+      o.path.setAttribute('stroke-opacity', on ? 1 : (i < 0 ? .45 : .2)); o.path.setAttribute('stroke-width', on ? 2 : 1);
+      o.halo.setAttribute('r', on ? 20 : 11); o.halo.setAttribute('fill-opacity', on ? .4 : .18); o.dot.setAttribute('r', on ? 6.5 : 4.5);
+    });
+    Array.prototype.forEach.call(mlist.children, function (li, k) { li.classList.toggle('hot', k === i); });
+  }
+  var rot = 0.3, mx = 0, my = 0, tx = 0, ty = 0, oRun = false, oLast = 0;
+  function layout() {
+    orb.forEach(function (o, i) {
+      var a = rot + i * Math.PI / 4, c = Math.cos(a), s = Math.sin(a), x = CX + c * RX, y = CY + s * RY;
+      var sx = CX + c * CR, sy = CY + s * CR * .85, nx2 = -s, ny2 = c, k = (i % 2 ? -1 : 1) * 46;
+      o.path.setAttribute('d', 'M' + sx + ' ' + sy + ' Q' + ((sx + x) / 2 + nx2 * k) + ' ' + ((sy + y) / 2 + ny2 * k) + ' ' + x + ' ' + y);
+      o.node.setAttribute('transform', 'translate(' + x + ' ' + y + ')');
+      var anchor = c > .25 ? 'start' : (c < -.25 ? 'end' : 'middle'), off = c > .25 ? 20 : (c < -.25 ? -20 : 0), dy = Math.abs(c) <= .25 ? (s > 0 ? 34 : -22) : 5;
+      o.tx.setAttribute('text-anchor', anchor); o.tx.setAttribute('x', off); o.tx.setAttribute('y', dy);
+    });
+    parts.forEach(function (p) { p.c.setAttribute('cx', CX + Math.cos(p.a + rot * .6) * p.r * RX * 1.1); p.c.setAttribute('cy', CY + Math.sin(p.a + rot * .6) * p.r * RY * 1.1); });
+    tx += (mx - tx) * .06; ty += (my - ty) * .06; core.setAttribute('transform', 'translate(' + tx * 8 + ' ' + ty * 8 + ')');
+  }
+  function oloop(now) {
+    if (!oRun) return; var dt = Math.min(.05, (now - (oLast || now)) / 1000); oLast = now; rot += dt * .045; layout(); requestAnimationFrame(oloop);
+  }
+  function mobile() { return window.innerWidth <= 900; }
+  function mode() {
+    if (mobile()) { svg.setAttribute('viewBox', '0 0 400 400'); CX = 200; CY = 200; RX = 150; RY = 150; CR = 62; svg.querySelectorAll('.cc-core-t').forEach(function (e) { e.setAttribute('font-size', 15); e.setAttribute('x', 200); e.setAttribute('y', 204); }); }
+    else { svg.setAttribute('viewBox', '0 0 1000 720'); CX = 500; CY = 360; RX = 330; RY = 235; CR = 122; svg.querySelectorAll('.cc-core-t').forEach(function (e) { e.setAttribute('font-size', 25); e.setAttribute('x', 500); e.setAttribute('y', 366); }); }
+    var m = mobile(), sc = m ? 62 / 122 : 1;
+    core.querySelectorAll('circle,ellipse').forEach(function (e, i) {
+      var f = [[122], [122, 38], [60, 122], [122], null];
+    });
+    layout();
+  }
+  /* o núcleo é redesenhado por escala para o modo compacto */
+  var coreBase = core.innerHTML;
+  function applyCore() {
+    var m = mobile(); core.setAttribute('data-m', m ? 1 : 0);
+    var cx = m ? 200 : 500, cy = m ? 200 : 360, sc = m ? 62 / 122 : 1;
+    core.querySelectorAll('circle:not(.x),ellipse').forEach(function (e) { e.setAttribute('transform', 'translate(' + (cx - 500 * sc) + ' ' + (cy - 360 * sc) + ') scale(' + sc + ')'); });
+    var gc = document.getElementById('ccGlowC'); gc.setAttribute('cx', cx); gc.setAttribute('cy', cy); gc.setAttribute('r', m ? 110 : 210);
+  }
+  function relayout() { mode(); applyCore(); }
+  window.addEventListener('resize', relayout); relayout();
+  document.getElementById('ccOrbit').addEventListener('mousemove', function (e) {
+    var r = this.getBoundingClientRect(); mx = (e.clientX - r.left) / r.width - .5; my = (e.clientY - r.top) / r.height - .5;
+  });
+  onVisible(document.getElementById('ccOrbit'), function () { if (!oRun && !reduced) { oRun = true; oLast = 0; requestAnimationFrame(oloop); } }, function () { oRun = false; });
+</script>
