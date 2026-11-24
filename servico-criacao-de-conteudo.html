@@ -15,7 +15,7 @@
   <meta property="og:image" content="https://humanize-marketing-digital-agencia.vercel.app/img/og-humanize.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,800;1,800&family=Space+Grotesk:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,500..800&family=Playfair+Display:ital,wght@0,700;1,500;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,800;1,800&family=Space+Grotesk:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,500..800&family=Playfair+Display:ital,wght@0,700;1,500;1,600&display=swap" rel="stylesheet" />
 
 <style>
 @font-face{
@@ -881,13 +881,40 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   .nb-nav button:focus-visible{outline:2px solid var(--tp-blue);outline-offset:3px}
 }
 
-.cc-s3 .cc-grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:center}
-.cc-s3::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(40% 55% at 78% 50%,rgba(7,95,255,.25),transparent 70%)}
-.cc-s3 h2{font-size:clamp(2rem,4.2vw,3.5rem);line-height:1.1}
-.cc-s3 .tp-copy{margin-top:0}
-.cc-s3 .cc-dropcap::first-letter{float:left;font-size:4.4em;line-height:.82;font-weight:700;padding:.06em .1em 0 0;color:#fff}
-.cc-net{position:relative;aspect-ratio:1/1;width:100%;max-width:560px;justify-self:center}
+.cc-s3{--ed-blue:#3d86ff;--ed-lilac:#b829ff;--ed-ink:rgba(255,255,255,.72);min-height:100vh;min-height:100svh;display:flex;align-items:center;padding-block:clamp(96px,9vw,128px) clamp(56px,6vw,88px)}
+.cc-s3::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(42% 60% at 80% 48%,rgba(7,95,255,.26),transparent 70%)}
+.cc-ed{position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(16px,2vw,32px);row-gap:clamp(22px,4.2vh,48px);align-items:start}
+.cc-ed p{margin:0;position:relative;z-index:1;font-family:"Manrope",system-ui,sans-serif}
+.cc-ed em{font-style:italic;font-family:"Instrument Serif",Georgia,serif;font-weight:400}
+.cc-ed b{font-weight:700;color:#fff}
+.cc-ed .ln{display:block}
+.cc-b1{grid-column:1/9;grid-row:1}
+.cc-b1 .o1{display:block;font-weight:500;font-size:clamp(1.75rem,3.1vw,3rem);line-height:1.12;letter-spacing:-.03em;color:#fff;max-width:15em}
+.cc-b1 .o1 em{font-size:1.22em;line-height:.9;letter-spacing:-.01em;color:var(--ed-lilac);padding-right:.04em}
+.cc-b1 .o2{display:block;margin-top:clamp(14px,2vh,22px);max-width:29em;font-weight:300;font-size:clamp(1rem,1.2vw,1.15rem);line-height:1.65;color:var(--ed-ink)}
+.cc-b2{grid-column:4/12;grid-row:2}
+.cc-b2 .t{display:block;max-width:19em;font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(1.7rem,2.85vw,2.7rem);line-height:1.08;letter-spacing:-.01em;color:#fff}
+.cc-b2 .t em{font-size:1.04em;color:var(--ed-blue)}
+.cc-b3{grid-column:1/6;grid-row:3}
+.cc-b4{grid-column:7/12;grid-row:3;align-self:end}
+.cc-b3,.cc-b4{font-weight:400;font-size:clamp(.98rem,1.12vw,1.08rem);line-height:1.7;color:var(--ed-ink)}
+.cc-b3 em{font-size:1.3em;line-height:.9;color:#fff;letter-spacing:.005em}
+.cc-b3 em.a{color:var(--ed-blue)}
+.cc-b4 b{font-weight:600;color:#fff}
+.cc-b5{grid-column:1/13;grid-row:4;margin-top:clamp(4px,1.5vh,18px)!important;font-family:"Instrument Serif",Georgia,serif!important;font-weight:400;font-size:clamp(2rem,3.9vw,3.7rem);line-height:1.02;letter-spacing:-.015em;color:#fff}
+.cc-b5 .ln{text-wrap:balance}
+.cc-b2 .t{text-wrap:balance}
+.cc-b5 .l1{color:rgba(255,255,255,.5);font-style:italic}
+.cc-b5 .l3{margin-top:.04em}
+.cc-b5 .l3 em{font-size:1.28em;line-height:.95;color:var(--ed-lilac);letter-spacing:-.02em}
+.cc-net{position:absolute;z-index:0;grid-column:7/13;grid-row:1/5;align-self:center;justify-self:end;width:min(100%,600px);aspect-ratio:1/1;pointer-events:none;-webkit-mask-image:radial-gradient(closest-side,#000 62%,transparent 100%);mask-image:radial-gradient(closest-side,#000 62%,transparent 100%)}
 .cc-net canvas{position:absolute;inset:0;width:100%;height:100%}
+@media (min-width:901px){.cc-net{position:relative;top:auto}}
+@media (min-width:901px) and (max-height:800px){
+  .cc-ed{row-gap:clamp(14px,2.6vh,28px)}
+  .cc-b1 .o1{font-size:clamp(1.6rem,2.7vw,2.4rem)}
+  .cc-b5{font-size:clamp(1.8rem,3.3vw,3rem)}
+}
 
 .cc-s4{text-align:center;padding-block:clamp(72px,8vw,120px)}
 .cc-s4 .tp-eyebrow{margin-bottom:12px}
@@ -905,10 +932,20 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 .cc-phrase em{font-family:"Playfair Display",Georgia,serif;font-style:italic;color:var(--tp-blue)}
 
 @media (max-width:900px){
-  .cc-s1 .cc-grid,.cc-s3 .cc-grid{grid-template-columns:1fr}
+  .cc-s1 .cc-grid{grid-template-columns:1fr}
+  .cc-s3{min-height:0;display:block;padding-block:104px 72px}
+  .cc-ed{display:flex;flex-direction:column;row-gap:clamp(28px,7vw,44px)}
+  .cc-b1 .o1{font-size:clamp(1.9rem,8vw,2.4rem);max-width:none}
+  .cc-b1 .o2{font-size:1rem}
+  .cc-b2{margin-left:clamp(0px,9vw,56px)}
+  .cc-b2 .t{font-size:clamp(1.75rem,7.4vw,2.2rem)}
+  .cc-b3{margin-right:clamp(0px,10vw,64px)}
+  .cc-b4{margin-left:clamp(0px,14vw,88px)}
+  .cc-b3,.cc-b4{font-size:1rem}
+  .cc-net{position:relative;order:5;align-self:center;justify-self:center;width:min(86vw,360px);margin:-4px 0}
+  .cc-b5{order:6;font-size:clamp(2.1rem,9.4vw,2.9rem);margin-top:0!important}
   .cc-s1{padding-top:112px}
   .cc-s1 h1{font-size:clamp(2.35rem,10vw,2.9rem)}
-  .cc-net{max-width:420px}
   .cc-lbl-g{display:none}
   .cc-mobsub{display:block;margin:6px 0 0;font:700 .6875rem/1.5 "DM Sans",sans-serif;letter-spacing:.18em;color:var(--tp-soft)}
   .cc-mlist{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;list-style:none;margin:18px 0 0;padding:0;text-align:left}
@@ -1046,17 +1083,13 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 
   <section class="tp-sec tp-dark cc-s3" aria-label="Conteúdo e relação com o consumidor">
     <div class="tp-wrap">
-      <div class="cc-grid">
-        <div class="reveal">
-          <div class="tp-copy">
-            <p class="cc-dropcap">Pense nas marcas que você acompanha nas redes sociais. Muitas vezes, você ainda não comprou nada delas, mas já conhece seus produtos, reconhece sua comunicação e sente familiaridade com o que oferecem.</p>
-            <p>É assim que o conteúdo começa a construir uma relação entre empresa e consumidor.</p>
-            <p>Quando sua marca aparece de maneira consistente, com criatividade e estratégia, ela deixa de ser apenas mais uma opção e passa a fazer parte do cotidiano das pessoas.</p>
-            <p>Essa proximidade fortalece a confiança, aumenta o reconhecimento e pode fazer toda a diferença no momento da decisão de compra.</p>
-          </div>
-          <p class="tp-quote">Antes de conquistar uma venda, sua marca precisa conquistar um espaço na <em>memória das pessoas.</em></p>
-        </div>
+      <div class="cc-ed">
+        <p class="cc-b1 reveal"><span class="o1">Pense nas marcas que você acompanha nas <em>redes sociais.</em></span> <span class="o2">Muitas vezes, você ainda não comprou nada delas, mas já conhece seus produtos, reconhece sua comunicação e sente familiaridade com o que oferecem.</span></p>
+        <p class="cc-b2 reveal reveal-d1"><span class="t">É assim que o conteúdo começa a <em>construir uma relação</em> entre empresa e consumidor.</span></p>
+        <p class="cc-b3 reveal">Quando sua marca aparece de maneira consistente, com <em class="a">criatividade</em> e <em>estratégia</em>, ela deixa de ser apenas mais uma opção e passa a fazer parte do cotidiano das pessoas.</p>
+        <p class="cc-b4 reveal reveal-d2">Essa proximidade fortalece a <b>confiança</b>, aumenta o <b>reconhecimento</b> e pode fazer toda a diferença no momento da <b>decisão de compra</b>.</p>
         <div class="cc-net" id="ccNet" role="img" aria-label="Rede de pontos luminosos conectados, representando a conexão entre pessoas e marcas"><canvas id="ccNetCv"></canvas></div>
+        <p class="cc-b5 reveal"><span class="ln l1">Antes de conquistar uma venda,</span><span class="ln l2">sua marca precisa conquistar um espaço na</span><span class="ln l3"><em>memória das pessoas.</em></span></p>
       </div>
     </div>
   </section>
@@ -1224,41 +1257,53 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
     go(0);
   })();
 
-  /* rede orgânica (seção 3) */
+  /* rede orgânica (seção 3): as conexões nascem conforme a leitura avança */
   var nb = document.getElementById('ccNet'), nc = document.getElementById('ccNetCv'), nx = nc.getContext('2d');
-  var NW = 0, NH = 0, nodes = [], running = false, last = 0, T0 = performance.now();
+  var NW = 0, NH = 0, nodes = [], running = false, last = 0, T0 = performance.now(), prog = 0, progT = 0;
+  var s3 = nb.closest('.cc-s3');
   function nsize() {
     var r = nb.getBoundingClientRect(), d = Math.min(window.devicePixelRatio || 1, 2);
     NW = r.width; NH = r.height; nc.width = NW * d; nc.height = NH * d; nx.setTransform(d, 0, 0, d, 0, 0);
   }
-  var seedN = 42;
+  var seedN = 44;
   for (var i = 0; i < seedN; i++) {
-    var ang = Math.random() * 6.283, rad = Math.sqrt(Math.random()) * .46;
-    nodes.push({ x: .5 + Math.cos(ang) * rad, y: .5 + Math.sin(ang) * rad, vx: (Math.random() - .5) * .018, vy: (Math.random() - .5) * .018, r: 1.6 + Math.random() * 2.2, p: Math.random() < .12, ph: Math.random() * 6.283 });
+    var ang = Math.random() * 6.283, rad = Math.sqrt(Math.random()) * .46, rr = Math.random();
+    nodes.push({ x: .5 + Math.cos(ang) * rad, y: .5 + Math.sin(ang) * rad, vx: (Math.random() - .5) * .016, vy: (Math.random() - .5) * .016, r: 1.5 + Math.random() * 2.1, c: rr < .12 ? '200,120,255' : (rr < .22 ? '255,255,255' : '96,160,255'), ph: Math.random() * 6.283, lit: 0, rank: 0 });
   }
-  nodes[0].x = .5; nodes[0].y = .5; nodes[0].r = 6; nodes[0].hub = true;
+  nodes[0].x = .5; nodes[0].y = .5; nodes[0].r = 6; nodes[0].hub = true; nodes[0].c = '255,255,255'; nodes[0].lit = 1;
+  /* ordem em que cada ponto "conhece" a marca: do mais próximo ao mais distante */
+  nodes.slice(1).sort(function (a, b) { return Math.hypot(a.x - .5, a.y - .5) - Math.hypot(b.x - .5, b.y - .5); }).forEach(function (n, k, arr) { n.rank = (k + 1) / arr.length; });
+  function nprogress() {
+    var r = s3.getBoundingClientRect(), vh = window.innerHeight || 800;
+    progT = reduced ? 1 : Math.max(0, Math.min(1, (vh * .9 - r.top) / (r.height * .85 + vh * .1)));
+  }
   function nframe(now) {
-    var t = (now - T0) / 1000;
+    var t = (now - T0) / 1000, p = prog;
     nx.clearRect(0, 0, NW, NH);
     var g = nx.createRadialGradient(NW / 2, NH / 2, 0, NW / 2, NH / 2, NW * .5);
-    g.addColorStop(0, 'rgba(7,95,255,.22)'); g.addColorStop(1, 'rgba(7,95,255,0)'); nx.fillStyle = g; nx.fillRect(0, 0, NW, NH);
-    var th = NW * .2, a, b, d, al;
+    g.addColorStop(0, 'rgba(7,95,255,' + (.1 + .14 * p) + ')'); g.addColorStop(1, 'rgba(7,95,255,0)'); nx.fillStyle = g; nx.fillRect(0, 0, NW, NH);
+    var th = NW * (.13 + .09 * p), a, b, d, al, hx = nodes[0].x * NW, hy = nodes[0].y * NH;
+    nodes.forEach(function (n) { if (!n.hub) { var tgt = p * 1.15 >= n.rank ? 1 : 0; n.lit += (tgt - n.lit) * .08; } });
     nx.lineWidth = 1;
     for (a = 0; a < nodes.length; a++) for (b = a + 1; b < nodes.length; b++) {
       var dx = (nodes[a].x - nodes[b].x) * NW, dy = (nodes[a].y - nodes[b].y) * NH; d = Math.sqrt(dx * dx + dy * dy);
-      if (d < th) { al = (1 - d / th) * .5; nx.strokeStyle = 'rgba(110,165,255,' + al + ')'; nx.beginPath(); nx.moveTo(nodes[a].x * NW, nodes[a].y * NH); nx.lineTo(nodes[b].x * NW, nodes[b].y * NH); nx.stroke(); }
+      if (d < th) { al = (1 - d / th) * (.08 + .42 * Math.min(nodes[a].lit, nodes[b].lit)); if (al < .01) continue; nx.strokeStyle = 'rgba(110,165,255,' + al + ')'; nx.beginPath(); nx.moveTo(nodes[a].x * NW, nodes[a].y * NH); nx.lineTo(nodes[b].x * NW, nodes[b].y * NH); nx.stroke(); }
     }
     nodes.forEach(function (n) {
-      var x = n.x * NW, y = n.y * NH, pulse = .75 + .25 * Math.sin(t * 1.3 + n.ph), s = n.r * pulse * (NW / 560);
-      var col = n.p ? '200,120,255' : '150,195,255';
+      if (n.hub || n.lit < .02) return;
+      nx.strokeStyle = 'rgba(150,195,255,' + (.32 * n.lit) + ')'; nx.beginPath(); nx.moveTo(hx, hy); nx.lineTo(n.x * NW, n.y * NH); nx.stroke();
+    });
+    nodes.forEach(function (n) {
+      var x = n.x * NW, y = n.y * NH, pulse = .78 + .22 * Math.sin(t * 1.2 + n.ph), s = n.r * pulse * (NW / 560) * (n.hub ? 1 + .35 * p : .75 + .25 * n.lit), a2 = n.hub ? 1 : .35 + .6 * n.lit;
       var rg = nx.createRadialGradient(x, y, 0, x, y, s * 5);
-      rg.addColorStop(0, 'rgba(' + col + ',.95)'); rg.addColorStop(.25, 'rgba(' + col + ',.35)'); rg.addColorStop(1, 'rgba(' + col + ',0)');
+      rg.addColorStop(0, 'rgba(' + n.c + ',' + (.9 * a2) + ')'); rg.addColorStop(.25, 'rgba(' + n.c + ',' + (.3 * a2) + ')'); rg.addColorStop(1, 'rgba(' + n.c + ',0)');
       nx.fillStyle = rg; nx.fillRect(x - s * 5, y - s * 5, s * 10, s * 10);
     });
   }
   function nloop(now) {
     if (!running) return;
     var dt = Math.min(.05, (now - (last || now)) / 1000); last = now;
+    prog += (progT - prog) * .05;
     nodes.forEach(function (n) {
       if (n.hub) return;
       n.x += n.vx * dt; n.y += n.vy * dt;
@@ -1267,8 +1312,11 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
     });
     nframe(now); requestAnimationFrame(nloop);
   }
-  nsize(); nframe(performance.now());
-  window.addEventListener('resize', function () { nsize(); nframe(performance.now()); });
+  function nstatic() { nprogress(); prog = progT; nodes.forEach(function (n) { if (!n.hub) n.lit = prog * 1.15 >= n.rank ? 1 : 0; }); nframe(performance.now()); }
+  nsize(); nprogress(); prog = progT; nframe(performance.now());
+  window.addEventListener('scroll', function () { nprogress(); if (reduced) nstatic(); }, { passive: true });
+  window.addEventListener('resize', function () { nsize(); nprogress(); if (!running) nstatic(); });
+  if (reduced) nstatic();
   onVisible(nb, function () { if (!running && !reduced) { running = true; last = 0; requestAnimationFrame(nloop); } }, function () { running = false; });
 
   /* ecossistema orbital (seção 4) */
