@@ -881,9 +881,9 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   .nb-nav button:focus-visible{outline:2px solid var(--tp-blue);outline-offset:3px}
 }
 
-.cc-s3{--ink:#101828;--soft:#384255;--blue:#075fff;--lilac:#b829ff;position:relative;background:#F7F6F2;color:var(--ink);min-height:100vh;min-height:100svh;display:flex;align-items:center;padding-block:clamp(100px,8vw,120px) clamp(48px,5vw,80px)}
+.cc-s3{--ink:#101828;--soft:#384255;--blue:#075fff;--lilac:#b829ff;position:relative;background:#F7F6F2;color:var(--ink);min-height:100vh;min-height:100svh;display:flex;align-items:center;padding-block:clamp(96px,7vw,112px) clamp(40px,4vw,64px)}
 .cc-s3 .tp-wrap{box-sizing:border-box;width:100%;max-width:none;margin:0;padding-inline:clamp(24px,7vw,140px)}
-.cc-ed{position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(16px,2vw,32px);row-gap:clamp(18px,3vh,34px);align-items:start}
+.cc-ed{position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(16px,2vw,32px);row-gap:clamp(14px,2.4vh,28px);align-items:start}
 .cc-ed p{margin:0;position:relative;z-index:1;font-family:"Manrope",system-ui,sans-serif;color:var(--ink)}
 .cc-ed em{font-style:italic;font-family:"Instrument Serif",Georgia,serif;font-weight:400}
 .cc-ed .ln{display:block}
@@ -891,14 +891,17 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 .cc-b1 .o1{display:block;max-width:14em;font-weight:400;font-size:clamp(1.9rem,3.2vw,3rem);line-height:1.1;letter-spacing:-.03em}
 .cc-b1 .o1 strong{font-weight:800}
 .cc-b1 .o1 em{font-size:1.22em;line-height:.9;letter-spacing:-.01em;color:var(--blue)}
+.cc-b1 .o1 em.hl{color:var(--ink);position:relative;isolation:isolate;white-space:nowrap;padding-inline:.12em;margin-inline:-.04em;transition:color .45s ease .32s}
+.cc-b1 .o1 em.hl.on{color:#fff}
+.cc-b1 .o1 em.hl::before{content:"";position:absolute;z-index:-1;left:-.1em;right:-.08em;top:.16em;bottom:-.04em;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 70' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cfilter id='r' x='-5%25' y='-10%25' width='110%25' height='120%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.045 .09' numOctaves='2' seed='7' result='n'/%3E%3CfeDisplacementMap in='SourceGraphic' in2='n' scale='5'/%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url%28%23r%29'%3E%3Cpath fill='%232b78ff' d='M7 15C42 7 92 13 152 10S262 7 311 12L317 24L310 37L315 52C282 61 202 58 142 63S52 59 11 61L4 47L10 34L3 23Z'/%3E%3Cg stroke='%237fb0ff' stroke-opacity='.34' stroke-width='1.6' fill='none' stroke-linecap='round'%3E%3Cpath d='M12 22C90 18 200 21 308 19'/%3E%3Cpath d='M9 34C100 31 210 35 312 32'/%3E%3Cpath d='M13 46C96 44 200 47 309 45'/%3E%3Cpath d='M16 55C110 53 205 55 300 53'/%3E%3C/g%3E%3Cg stroke='%231a58d6' stroke-opacity='.22' stroke-width='1.3' fill='none' stroke-linecap='round'%3E%3Cpath d='M20 28C110 26 210 29 305 27'/%3E%3Cpath d='M15 40C100 38 215 41 310 39'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") 0 0/100% 100% no-repeat;transform:rotate(-1.1deg);clip-path:inset(0 100% 0 0);transition:clip-path .82s cubic-bezier(.45,.05,.22,1)}
+.cc-b1 .o1 em.hl.on::before{clip-path:inset(0 0 0 0)}
+@media (prefers-reduced-motion:reduce){.cc-b1 .o1 em.hl,.cc-b1 .o1 em.hl::before{transition:none}}
 .cc-b1 .o2{display:block;margin-top:clamp(12px,1.8vh,20px);max-width:34em;font-weight:400;font-size:clamp(1.02rem,1.2vw,1.15rem);line-height:1.62;color:var(--soft)}
-.cc-b2{grid-column:2/9;grid-row:2;margin-top:clamp(0px,1.5vh,14px)!important}
-.cc-b2 .t{display:block;max-width:25em;font-weight:500;font-size:clamp(1.45rem,2.1vw,2rem);line-height:1.2;letter-spacing:-.025em}
+.cc-r{grid-column:7/13;grid-row:2;align-self:center;display:flex;flex-direction:column;gap:clamp(16px,2.6vh,28px);text-align:left}
+.cc-b2 .t{display:block;max-width:22em;font-weight:500;font-size:clamp(1.45rem,2.1vw,2rem);line-height:1.2;letter-spacing:-.025em}
 .cc-b2 .t strong{font-weight:800}
 .cc-b2 .t em{font-size:1.22em;line-height:1;letter-spacing:-.005em;color:var(--lilac)}
-.cc-b3,.cc-b4{grid-column:2/9;max-width:36em;font-weight:400;font-size:clamp(1.02rem,1.2vw,1.15rem);line-height:1.62;color:var(--soft)}
-.cc-b3{grid-row:3}
-.cc-b4{grid-row:4;margin-left:clamp(0px,3vw,48px)}
+.cc-b3,.cc-b4{max-width:31em;font-weight:400;font-size:clamp(1.02rem,1.2vw,1.15rem);line-height:1.62;color:var(--soft)}
 .cc-b3 strong{font-weight:800;color:var(--blue)}
 .cc-b4 strong{font-weight:700;color:var(--ink)}
 .cc-b5{grid-column:1/13;grid-row:5;margin-top:clamp(8px,2.4vh,28px)!important;font-family:"Instrument Serif",Georgia,serif!important;font-weight:400;font-size:clamp(2.1rem,4vw,3.9rem);line-height:1.02;letter-spacing:-.02em;color:var(--ink)}
@@ -906,7 +909,7 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 .cc-b5 .l2{font-style:italic}
 .cc-b5 .l3{margin-top:.06em}
 .cc-b5 .l3 em{font-size:1.42em;line-height:.95;letter-spacing:-.025em;color:var(--blue)}
-.cc-net{position:relative;z-index:0;grid-column:9/13;grid-row:1/5;align-self:center;justify-self:end;width:100%;max-width:520px;aspect-ratio:1/1;pointer-events:none}
+.cc-net{position:relative;z-index:0;grid-column:1/7;grid-row:2;align-self:stretch;width:100%;min-height:clamp(240px,20vw,320px);pointer-events:none}
 .cc-net canvas{position:absolute;inset:0;width:100%;height:100%}
 @media (min-width:901px) and (max-height:800px){
   .cc-ed{row-gap:clamp(14px,2.4vh,26px)}
@@ -934,13 +937,11 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   .cc-ed{display:flex;flex-direction:column;row-gap:clamp(24px,6.5vw,40px)}
   .cc-b1 .o1{font-size:clamp(1.95rem,8.4vw,2.5rem);max-width:none}
   .cc-b1 .o2{font-size:1.02rem}
-  .cc-b2{margin-left:clamp(0px,5vw,28px);margin-top:0!important}
-  .cc-b2 .t{font-size:clamp(1.55rem,6.6vw,2rem)}
+  .cc-r{gap:clamp(18px,5vw,26px)}
+  .cc-b2 .t{font-size:clamp(1.55rem,6.6vw,2rem);max-width:none}
   .cc-b3,.cc-b4{font-size:1.02rem;max-width:none}
-  .cc-b3{margin-left:clamp(0px,5vw,28px)}
-  .cc-b4{margin-left:clamp(0px,5vw,28px)}
-  .cc-net{order:5;align-self:center;justify-self:center;width:min(78vw,340px);max-width:none;margin:0 auto}
-  .cc-b5{order:6;font-size:clamp(2.2rem,9.8vw,3rem);margin-top:0!important}
+  .cc-net{width:min(88vw,380px);min-height:0;aspect-ratio:1/.9;align-self:center;margin:0 auto}
+  .cc-b5{font-size:clamp(2.2rem,9.8vw,3rem);margin-top:0!important}
   .cc-s1{padding-top:112px}
   .cc-s1 h1{font-size:clamp(2.35rem,10vw,2.9rem)}
   .cc-lbl-g{display:none}
@@ -1081,11 +1082,13 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
   <section class="tp-sec cc-s3" aria-label="Conteúdo e relação com o consumidor">
     <div class="tp-wrap">
       <div class="cc-ed">
-        <p class="cc-b1 reveal"><span class="o1">Pense nas <strong>marcas</strong> que você acompanha nas <em>redes sociais.</em></span> <span class="o2">Muitas vezes, você ainda não comprou nada delas, mas já conhece seus produtos, reconhece sua comunicação e sente familiaridade com o que oferecem.</span></p>
-        <p class="cc-b2 reveal reveal-d1"><span class="t">É assim que o conteúdo começa a <strong>construir uma relação</strong> <em>entre empresa e consumidor.</em></span></p>
-        <p class="cc-b3 reveal">Quando sua marca aparece de maneira consistente, com criatividade e <strong>estratégia</strong>, ela deixa de ser apenas mais uma opção e passa a fazer parte do cotidiano das pessoas.</p>
-        <p class="cc-b4 reveal">Essa proximidade fortalece a <strong>confiança</strong>, aumenta o reconhecimento e pode fazer toda a diferença no momento da decisão de compra.</p>
+        <p class="cc-b1 reveal"><span class="o1">Pense nas <strong>marcas</strong> que você acompanha nas <em class="hl" id="ccHl">redes sociais.</em></span> <span class="o2">Muitas vezes, você ainda não comprou nada delas, mas já conhece seus produtos, reconhece sua comunicação e sente familiaridade com o que oferecem.</span></p>
         <div class="cc-net" id="ccNet" role="img" aria-label="Rede de pontos luminosos conectados, representando a conexão entre pessoas e marcas"><canvas id="ccNetCv"></canvas></div>
+        <div class="cc-r">
+          <p class="cc-b2 reveal"><span class="t"><strong>É assim que o conteúdo começa a construir uma relação</strong> <em>entre empresa e consumidor.</em></span></p>
+          <p class="cc-b3 reveal reveal-d1">Quando sua marca aparece de maneira consistente, com criatividade e <strong>estratégia</strong>, ela deixa de ser apenas mais uma opção e passa a fazer parte do cotidiano das pessoas.</p>
+          <p class="cc-b4 reveal reveal-d2">Essa proximidade fortalece a <strong>confiança</strong>, aumenta o reconhecimento e pode fazer toda a diferença no momento da decisão de compra.</p>
+        </div>
         <p class="cc-b5 reveal"><span class="ln l1">Antes de conquistar uma venda,</span><span class="ln l2">sua marca precisa conquistar um espaço na</span><span class="ln l3"><em>memória das pessoas.</em></span></p>
       </div>
     </div>
@@ -1254,6 +1257,16 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
     go(0);
   })();
 
+  /* marca-texto em "redes sociais": um gesto só, ao entrar na tela */
+  (function () {
+    var hl = document.getElementById('ccHl'); if (!hl) return;
+    if (reduced || !('IntersectionObserver' in window)) { hl.classList.add('on'); return; }
+    var hio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { setTimeout(function () { hl.classList.add('on'); }, 350); hio.disconnect(); } });
+    }, { threshold: .7 });
+    hio.observe(hl);
+  })();
+
   /* rede orgânica (seção 3): as conexões nascem conforme a leitura avança */
   var nb = document.getElementById('ccNet'), nc = document.getElementById('ccNetCv'), nx = nc.getContext('2d');
   var NW = 0, NH = 0, nodes = [], running = false, last = 0, T0 = performance.now(), prog = 0, progT = 0;
@@ -1262,36 +1275,36 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
     var r = nb.getBoundingClientRect(), d = Math.min(window.devicePixelRatio || 1, 2);
     NW = r.width; NH = r.height; nc.width = NW * d; nc.height = NH * d; nx.setTransform(d, 0, 0, d, 0, 0);
   }
-  var seedN = 46;
+  var seedN = 62, LIL = '184,41,255', BLU = '7,95,255';
   for (var i = 0; i < seedN; i++) {
-    var ang = Math.random() * 6.283, rad = Math.sqrt(Math.random()) * .46, rr = Math.random(), z = .3 + Math.random() * .7;
-    nodes.push({ x: .5 + Math.cos(ang) * rad, y: .5 + Math.sin(ang) * rad, vx: (Math.random() - .5) * .014 * z, vy: (Math.random() - .5) * .014 * z, r: 1.4 + Math.random() * 1.9, z: z, c: rr < .16 ? '184,41,255' : '7,95,255', ph: Math.random() * 6.283, lit: 0, rank: 0 });
+    var ang = Math.random() * 6.283, rad = Math.sqrt(Math.random()) * .47, z = .3 + Math.random() * .7;
+    nodes.push({ x: .5 + Math.cos(ang) * rad, y: .5 + Math.sin(ang) * rad, vx: (Math.random() - .5) * .014 * z, vy: (Math.random() - .5) * .014 * z, r: 1.2 + Math.pow(Math.random(), 2) * 2.6, z: z, c: (i % 5 < 2) ? LIL : BLU, ph: Math.random() * 6.283, lit: 0, rank: 0 });
   }
-  nodes[0].x = .5; nodes[0].y = .5; nodes[0].r = 5.5; nodes[0].z = 1; nodes[0].hub = true; nodes[0].c = '7,95,255'; nodes[0].lit = 1;
-  /* ordem em que cada ponto "conhece" a marca: do mais próximo ao mais distante */
+  nodes[0].x = .5; nodes[0].y = .5; nodes[0].r = 5.5; nodes[0].z = 1; nodes[0].hub = true; nodes[0].c = BLU; nodes[0].lit = 1;
   nodes.slice(1).sort(function (a, b) { return Math.hypot(a.x - .5, a.y - .5) - Math.hypot(b.x - .5, b.y - .5); }).forEach(function (n, k, arr) { n.rank = (k + 1) / arr.length; });
   function nprogress() {
     var r = s3.getBoundingClientRect(), vh = window.innerHeight || 800;
     progT = reduced ? 1 : Math.max(0, Math.min(1, (vh * .9 - r.top) / (r.height * .85 + vh * .1)));
   }
   function nframe(now) {
-    var t = (now - T0) / 1000, p = prog, sc = NW / 520;
+    var t = (now - T0) / 1000, p = prog, sc = Math.sqrt(NW * NH) / 470, U = Math.sqrt(NW * NH);
     nx.clearRect(0, 0, NW, NH);
-    var th = NW * (.13 + .09 * p), a, b, d, al, hx = nodes[0].x * NW, hy = nodes[0].y * NH;
+    var th = U * (.15 + .09 * p), a, b, d, al, hx = nodes[0].x * NW, hy = nodes[0].y * NH;
     nodes.forEach(function (n) { if (!n.hub) { var tgt = p * 1.15 >= n.rank ? 1 : 0; n.lit += (tgt - n.lit) * .08; } });
     for (a = 0; a < nodes.length; a++) for (b = a + 1; b < nodes.length; b++) {
       var dx = (nodes[a].x - nodes[b].x) * NW, dy = (nodes[a].y - nodes[b].y) * NH; d = Math.sqrt(dx * dx + dy * dy);
       if (d < th) {
         var zz = (nodes[a].z + nodes[b].z) / 2;
         al = (1 - d / th) * (.07 + .38 * Math.min(nodes[a].lit, nodes[b].lit)) * (.45 + .55 * zz); if (al < .012) continue;
-        nx.lineWidth = .5 + .6 * zz; nx.strokeStyle = 'rgba(7,95,255,' + al + ')';
+        var lc = (nodes[a].c === LIL && nodes[b].c === LIL) || ((a + b) % 6 === 0 && (nodes[a].c === LIL || nodes[b].c === LIL));
+        nx.lineWidth = .5 + .6 * zz; nx.strokeStyle = 'rgba(' + (lc ? LIL : BLU) + ',' + al + ')';
         nx.beginPath(); nx.moveTo(nodes[a].x * NW, nodes[a].y * NH); nx.lineTo(nodes[b].x * NW, nodes[b].y * NH); nx.stroke();
       }
     }
     nx.lineWidth = .8;
     nodes.forEach(function (n) {
       if (n.hub || n.lit < .02) return;
-      nx.strokeStyle = 'rgba(7,95,255,' + (.26 * n.lit * (.5 + .5 * n.z)) + ')'; nx.beginPath(); nx.moveTo(hx, hy); nx.lineTo(n.x * NW, n.y * NH); nx.stroke();
+      nx.strokeStyle = 'rgba(' + (n.c === LIL && (n.rank * 100 | 0) % 3 === 0 ? LIL : BLU) + ',' + (.26 * n.lit * (.5 + .5 * n.z)) + ')'; nx.beginPath(); nx.moveTo(hx, hy); nx.lineTo(n.x * NW, n.y * NH); nx.stroke();
     });
     nodes.forEach(function (n) {
       var x = n.x * NW, y = n.y * NH, pulse = .85 + .15 * Math.sin(t * 1.1 + n.ph), s = n.r * sc * (.6 + .8 * n.z) * pulse * (n.hub ? 1 + .3 * p : .8 + .2 * n.lit);
