@@ -3,9 +3,11 @@
    - Dados demonstrativos em DEMO (empresa fictícia). Para trocar por um cliente real,
      sobrescreva window.HUMANIZE_DEMO antes deste script ou edite o objeto abaixo.
      Imagens: troque os <symbol id="cf-..."> no SVG da seção (ou use <img>) .
-   - Um único relógio (requestAnimationFrame) comanda as três demonstrações em sequência
-     (9 s cada). Só roda enquanto a seção está perto da tela. Respeita prefers-reduced-motion.
-   - No celular (≤ 900px) vira carrossel por swipe: só a demonstração visível anima.
+   - Apresentação guiada: um único relógio (requestAnimationFrame) é a máquina de estados. Um celular por vez
+     avança (zoom + luz), conta a sua história e devolve o foco ao próximo; os outros ficam escurecidos e parados.
+     Ciclo: [destaque 0,7 s + história 9,5 s] x 3 + pausa 1,5 s, e recomeça. Só roda com a seção visível.
+     Respeita prefers-reduced-motion.
+   - No celular (≤ 900px) é um carrossel: avança sozinho de um celular ao outro até o visitante tocar/deslizar.
    ========================================================================== */
 (function () {
   'use strict';
@@ -37,7 +39,11 @@
   var phones = cols.map(function (c) { return c.querySelector('.p3'); });
   var typed = document.getElementById('gTyped');
   var dots = [].slice.call(document.querySelectorAll('#p3Dots button'));
-  var DUR = 9000, SCENE = DUR / 4, Q = DEMO.query;
+  var TR = 700, DUR = 9500, PAUSE = 1500, LEAD = 260, SCENE = 2250, Q = DEMO.query;   /* ms */
+  var PER = TR + DUR, CYCLE = PER * 3 + PAUSE;
+  var auto = true, hold = false, holdAt = 0;                  /* avanço automático no carrossel */
+  var line = stage.parentNode.querySelector('.p3-line'), lineW = 0;
+  function measure() { lineW = line ? line.offsetWidth : 0; }
 
   function setPhone(i, on, scene) {
     var p = phones[i];
@@ -68,52 +74,79 @@
   var sRaf = 0;
   stage.addEventListener('scroll', function () {
     if (sRaf) return;
-    sRaf = requestAnimationFrame(function () { sRaf = 0; var n = nearest(); if (n !== cur) { cur = n; markDots(n); T = 0; } });
+    sRaf = requestAnimationFrame(function () { sRaf = 0; var n = nearest(); if (n !== cur) { cur = n; markDots(n); T = 0; hold = false; } });
   }, { passive: true });
   document.getElementById('p3Prev').addEventListener('click', function () { goTo(cur - 1); });
   document.getElementById('p3Next').addEventListener('click', function () { goTo(cur + 1); });
   dots.forEach(function (d, i) { d.addEventListener('click', function () { goTo(i); }); });
 
-  /* ---------- relógio ---------- */
+  /* ---------- interação manual: quem mexe assume o controle do carrossel ---------- */
+  ['pointerdown', 'wheel', 'touchstart'].forEach(function (ev) { stage.addEventListener(ev, function () { auto = false; hold = false; }, { passive: true }); });
+  ['p3Prev', 'p3Next'].forEach(function (id) { document.getElementById(id).addEventListener('click', function () { auto = false; hold = false; }); });
+  dots.forEach(function (d) { d.addEventListener('click', function () { auto = false; hold = false; }); });
+
+  /* ---------- relógio / máquina de estados ---------- */
   var T = 0, last = 0, raf = 0, running = false, started = false;
   var lastCaret = -1;
 
-  function frame(now) {
-    var dt = Math.min(100, now - (last || now)); last = now; T += dt;
-    var mobile = mobileMq.matches, active, local;
-    if (mobile) { active = cur; local = T % DUR; }
-    else { var tt = T % (DUR * 3); active = Math.floor(tt / DUR); local = tt - active * DUR; }
-    var scene = Math.min(4, Math.floor(local / SCENE) + 1);
+  function typeText(n) { if (n !== lastCaret) { lastCaret = n; typed.textContent = Q.slice(0, n); phones[0].classList.toggle('typed', n >= 5); } }
 
-    for (var i = 0; i < phones.length; i++) {
-      if (i === active) setPhone(i, true, scene); else setPhone(i, false, 1);
+  function frame(now) {
+    raf = requestAnimationFrame(frame);
+    var dt = Math.min(100, now - (last || now)); last = now;
+    var mobile = mobileMq.matches, i;
+
+    if (mobile) {
+      /* carrossel: o celular visível conta a história; depois passa para o próximo */
+      if (hold) { if (now - holdAt > 1800) { hold = false; T = 0; } return; }
+      T += dt;
+      var local = T - TR, scene = local < 0 ? 1 : Math.min(4, Math.floor(local / SCENE) + 1);
+      for (i = 0; i < phones.length; i++) { if (i === cur) setPhone(i, true, scene); else setPhone(i, false, 1); }
+      typeText(cur === 0 ? (local < 0 ? 0 : Math.floor(Math.min(1, local / 1500) * Q.length)) : Q.length);
+      if (T > TR + DUR + (cur === 2 ? PAUSE : 600)) {
+        if (auto) { hold = true; holdAt = now; goTo((cur + 1) % cols.length); } else T = 0;
+      }
+      if (spark) spark.style.opacity = 0;
+      return;
     }
 
-    /* digitação do primeiro celular */
-    var n = Q.length, typing = active === 0 && scene === 1;
-    if (typing) n = Math.floor(Math.min(1, local / 1500) * Q.length);
-    if (n !== lastCaret) { lastCaret = n; typed.textContent = Q.slice(0, n); phones[0].classList.toggle('typed', n >= 5); }
+    /* desktop: Google → Instagram → Cardápio, um de cada vez */
+    T += dt;
+    var tt = T % CYCLE, k = Math.min(2, Math.floor(tt / PER)), loc = tt - k * PER - TR;
+    for (i = 0; i < phones.length; i++) {
+      if (i === k) setPhone(i, true, loc < 0 ? 1 : Math.min(4, Math.floor(loc / SCENE) + 1));
+      else setPhone(i, false, i < k ? 4 : 1);             /* já apresentado: congela no último quadro */
+    }
+    /* a digitação só começa depois que o destaque do celular terminou */
+    typeText(k === 0 ? (loc < 0 ? 0 : Math.floor(Math.min(1, loc / 1500) * Q.length)) : Q.length);
 
-    /* faísca de ligação entre os celulares (só desktop) */
-    if (!mobile && spark) {
-      var x = active * 50, k = Math.max(0, (local - (DUR - 1300)) / 1300), o = 1;
-      if (active < 2) x += 50 * (k * k * (3 - 2 * k)); else { o = 1 - k; }
-      spark.style.left = x + '%'; spark.style.opacity = (k > 0 ? .95 * o : .0) + (k === 0 ? 0 : 0);
-    } else if (spark) spark.style.opacity = 0;
-
-    raf = requestAnimationFrame(frame);
+    /* fluxo luminoso na linha, rumo ao próximo celular */
+    if (spark) {
+      var o = 0, x = 0;
+      for (var j = 0; j < 2; j++) {
+        var a = (j + 1) * PER - LEAD, b = (j + 1) * PER + TR;
+        if (tt >= a && tt <= b) { var u = (tt - a) / (b - a), e = u * u * (3 - 2 * u); x = (j + e) * 0.5 * lineW; o = Math.sin(Math.PI * u); }
+      }
+      spark.style.opacity = o > 0.01 ? (o * 0.95).toFixed(3) : 0;
+      spark.style.transform = 'translate3d(' + x.toFixed(1) + 'px,0,0) translateX(-100%)';
+    }
   }
-  function start() { if (running || reduced) return; running = true; last = 0; raf = requestAnimationFrame(frame); }
+  function start() { if (running || reduced) return; running = true; last = 0; measure(); raf = requestAnimationFrame(frame); }
   function stop() { running = false; cancelAnimationFrame(raf); }
 
   if (!reduced) {
     if ('IntersectionObserver' in window) {
+      /* começa quando a seção está suficientemente na tela e pausa quando o visitante sai */
       var io = new IntersectionObserver(function (es) {
-        es.forEach(function (e) { if (e.isIntersecting) { if (!started) { started = true; T = 0; } start(); } else stop(); });
-      }, { rootMargin: '160px 0px' });
+        es.forEach(function (e) {
+          var on = e.isIntersecting && (e.intersectionRatio >= 0.4 || e.intersectionRect.height >= window.innerHeight * 0.5);
+          if (on) { if (!started) { started = true; T = 0; } start(); } else stop();
+        });
+      }, { threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] });
       io.observe(sec);
     } else { start(); }
     document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); });
+    window.addEventListener('resize', measure);
     cur = nearest(); markDots(cur);
   }
 })();
