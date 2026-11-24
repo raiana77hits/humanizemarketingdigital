@@ -150,7 +150,7 @@
   var BLUE = '#075fff', LILAC = '#b829ff';
   var GLSL_COL = '#define BLUE vec3(0.0275,0.3725,1.0)\n#define LILAC vec3(0.7216,0.1608,1.0)\n';
   var SPIN = 2 * Math.PI / 40;           /* 40 s por volta */
-  var TILT_X = 0.28, TILT_Z = 0.30, LON0 = -52 * D2R; /* começa mostrando as Américas */
+  var TILT_X = 0.40, TILT_Z = 0.30, LON0 = -52 * D2R; /* começa mostrando as Américas */
 
   function makeGL(T, cv, geo, sim) {
     var NA = geo.arcs.length, NN = geo.nodes.length;
@@ -181,14 +181,20 @@
     /* continentes: partículas */
     var lg = new T.BufferGeometry();
     lg.setAttribute('position', new T.BufferAttribute(geo.land.pos, 3)); lg.setAttribute('aTint', new T.BufferAttribute(geo.land.tint, 1));
-    var land = new T.Points(lg, new T.ShaderMaterial({
-      uniforms: U, transparent: true, depthWrite: false,
-      vertexShader: 'attribute float aTint; uniform float uPR; uniform float uK; varying float vA; varying float vT;' +
-        'void main(){ vec4 wp=modelMatrix*vec4(position,1.0); float f=dot(normalize(wp.xyz),normalize(cameraPosition-wp.xyz)); vA=smoothstep(0.02,0.4,f); vT=aTint;' +
-        'gl_PointSize=3.1*uK*uPR*mix(0.65,1.0,f); gl_Position=projectionMatrix*viewMatrix*wp; }',
-      fragmentShader: GLSL_COL + 'varying float vA; varying float vT; void main(){ float r=length(gl_PointCoord-0.5)*2.0; if(r>1.0) discard; float a=(1.0-smoothstep(0.6,1.0,r))*vA; gl_FragColor=vec4(vT<0.5?BLUE:LILAC,a); }'
-    }));
-    land.renderOrder = 2; land.frustumCulled = false; spin.add(land);
+    function landMat(back) {
+      return new T.ShaderMaterial({
+        uniforms: U, transparent: true, depthWrite: false, depthTest: !back, defines: back ? { BACK: 1 } : {},
+        vertexShader: 'attribute float aTint; uniform float uPR; uniform float uK; varying float vA; varying float vT;' +
+          'void main(){ vec4 wp=modelMatrix*vec4(position,1.0); float f=dot(normalize(wp.xyz),normalize(cameraPosition-wp.xyz)); vT=aTint;\n' +
+          '#ifdef BACK\nfloat tb=clamp(-f,0.0,1.0); vA=mix(0.48,0.26,tb)*(1.0-smoothstep(0.0,0.3,f)); gl_PointSize=2.5*uK*uPR;\n' +
+          '#else\nvA=smoothstep(0.02,0.4,f); gl_PointSize=3.1*uK*uPR*mix(0.65,1.0,f);\n#endif\n' +
+          'gl_Position=projectionMatrix*viewMatrix*wp; }',
+        fragmentShader: GLSL_COL + 'varying float vA; varying float vT; void main(){ float r=length(gl_PointCoord-0.5)*2.0; if(r>1.0) discard; float a=(1.0-smoothstep(0.6,1.0,r))*vA; vec3 c=vT<0.5?BLUE:LILAC;\n' +
+          '#ifdef BACK\nc=mix(c,vec3(0.80,0.84,0.97),0.3);\n#endif\n gl_FragColor=vec4(c,a); }'
+      });
+    }
+    var landBack = new T.Points(lg, landMat(true)); landBack.renderOrder = 1; landBack.frustumCulled = false; spin.add(landBack);
+    var land = new T.Points(lg, landMat(false)); land.renderOrder = 2; land.frustumCulled = false; spin.add(land);
 
     /* arcos: fita voltada para a câmera (base fraca + feixe com rastro) */
     var NS = 64, V = NA * (NS + 1) * 2, pos = new Float32Array(V * 3), tan = new Float32Array(V * 3), ts = new Float32Array(V * 3), idx = new Uint16Array(NA * NS * 6);
@@ -317,8 +323,8 @@
         for (i = 0; i < n; i++) {
           if ((L.tint[i] > 0.5) !== (pass === 1)) continue;
           v3[0] = L.pos[i * 3]; v3[1] = L.pos[i * 3 + 1]; v3[2] = L.pos[i * 3 + 2]; P(v3, q);
-          if (q[2] < 0.03) continue;
-          x.globalAlpha = Math.min(0.95, 0.25 + q[2]); var s = 2.2 * K * (0.65 + 0.35 * q[2]);
+          var s;
+          if (q[2] < 0.03) { x.globalAlpha = 0.2; s = 1.8 * K; } else { x.globalAlpha = Math.min(0.95, 0.25 + q[2]); s = 2.2 * K * (0.65 + 0.35 * q[2]); }
           x.fillRect(cx + q[0] * R - s / 2, cy - q[1] * R - s / 2, s, s);
         }
       }
@@ -390,6 +396,7 @@
     else window.addEventListener('resize', function () { if (!running) { R.resize(); R.render(simT - spinBase); } });
     var onRM = function () { if (reduceMQ.matches) still(); else play(); };
     if (reduceMQ.addEventListener) reduceMQ.addEventListener('change', onRM); else if (reduceMQ.addListener) reduceMQ.addListener(onRM);
+    nb._seek = function (sec) { stop(); R.resize(); R.render(sec); };
     play();
   }
 
