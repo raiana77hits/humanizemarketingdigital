@@ -5,13 +5,12 @@
    curtida, controles de quantidade, carrinho, total e confirmação do pedido.
 
    Como funciona
-   - Um único relógio (requestAnimationFrame) comanda tudo. Cada celular tem uma linha do tempo própria
-     (função render(t), em ms) que só depende do tempo: dá para pausar, retomar e congelar no último quadro.
-   - Um celular por vez fica ativo (zoom + luz). O tempo de cada etapa é o da própria história:
-     o celular só passa o foco quando termina de contar a sua parte.
-   - Ciclo: [destaque 0,7 s + história] x 3 + pausa 1,5 s, e recomeça. Só roda com a seção visível.
-   - No celular (≤ 900px) é um carrossel: avança sozinho até o visitante tocar/deslizar.
-   - prefers-reduced-motion: versão estática (cada tela num quadro representativo, sem zoom).
+   - Um único relógio (requestAnimationFrame) comanda os três celulares ao mesmo tempo. Cada um tem a sua
+     linha do tempo (função render(t), em ms) e o seu ciclo independente: conta a história na duração natural,
+     segura o último quadro, some suavemente e recomeça. Nada é acelerado para terminar junto.
+   - Só roda com a seção visível (IntersectionObserver); fora da tela o relógio é cancelado.
+   - No celular (≤ 900px) é um carrossel manual; os três continuam animando.
+   - prefers-reduced-motion: versão estática (cada tela num quadro representativo).
    - As imagens são carregadas e decodificadas antes de a apresentação começar (sem flash).
    ========================================================================== */
 (function () {
@@ -25,7 +24,7 @@
   var cols = [].slice.call(stage.querySelectorAll('.p3-col'));
   var phones = cols.map(function (c) { return c.querySelector('.p3'); });
   var dots = [].slice.call(document.querySelectorAll('#p3Dots button'));
-  var TR = 700, PAUSE = 1500, LEAD = 260;                         /* ms */
+  var TR = 700;                         /* ms */
   var line = stage.parentNode.querySelector('.p3-line'), lineW = 0;
   function measure() { lineW = line ? line.offsetWidth : 0; }
 
@@ -245,18 +244,13 @@
   }
 
   var scenes = [sceneGoogle(phones[0]), sceneInstagram(phones[1]), sceneMenu(phones[2])];
-  var PER = scenes.map(function (sc_) { return TR + sc_.dur; });
-  var OFF = [0, PER[0], PER[0] + PER[1]], CYCLE = PER[0] + PER[1] + PER[2] + PAUSE;
+  var HOLD = 1200, FADE = 420;                                    /* pausa no último quadro e reinício suave (ms) */
+  var CYC = scenes.map(function (sc_) { return sc_.dur + HOLD; });  /* cada celular tem o seu ciclo, na sua duração natural */
   var STATIC_T = [5900, 500, 6400];                               /* quadros representativos (movimento reduzido) */
+  var screens = phones.map(function (p) { return p.querySelector('.p3-s'); });
 
-  function setPhone(i, on) {
-    var p = phones[i];
-    if (p._on !== on) { p._on = on; p.setAttribute('data-on', on ? '1' : '0'); cols[i].setAttribute('data-active', on ? '1' : '0'); }
-  }
-  function settle(i, atEnd) {                                      /* celular parado: primeiro ou último quadro da sua história */
-    var want = atEnd ? 1 : 0;
-    if (scenes[i].st !== want) { scenes[i].st = want; scenes[i].render(atEnd ? scenes[i].dur : 0); }
-  }
+  /* os três celulares ficam sempre acesos e animando ao mesmo tempo */
+  phones.forEach(function (p, i) { p.setAttribute('data-on', '1'); cols[i].setAttribute('data-active', '1'); });
 
   /* ---------- imagens: carrega e decodifica antes de começar ---------- */
   var imgs = [].slice.call(sec.querySelectorAll('img[data-src]')), loaded = false, loading = false, waiters = [];
@@ -277,11 +271,10 @@
 
   /* ---------- versão estática (movimento reduzido) ---------- */
   if (reduced) {
-    phones.forEach(function (p, i) { setPhone(i, true); });
     if (spark) spark.style.display = 'none';
     loadImages(function () { scenes.forEach(function (sc_, i) { sc_.render(STATIC_T[i]); }); });
   } else {
-    scenes.forEach(function (sc_, i) { settle(i, false); });
+    scenes.forEach(function (sc_) { sc_.render(0); });
   }
 
   /* ---------- carrossel (celular/tablet) ---------- */
@@ -297,20 +290,15 @@
     stage.scrollTo({ left: col.offsetLeft - (stage.clientWidth - col.offsetWidth) / 2, behavior: reduced ? 'auto' : 'smooth' });
   }
   function markDots(i) { dots.forEach(function (d, n) { d.setAttribute('aria-selected', n === i ? 'true' : 'false'); }); }
-  var T = 0, auto = true, hold = false, holdAt = 0;
+  var T = 0;
   var sRaf = 0;
   stage.addEventListener('scroll', function () {
     if (sRaf) return;
-    sRaf = requestAnimationFrame(function () { sRaf = 0; var n = nearest(); if (n !== cur) { cur = n; markDots(n); T = 0; hold = false; } });
+    sRaf = requestAnimationFrame(function () { sRaf = 0; var n = nearest(); if (n !== cur) { cur = n; markDots(n); } });
   }, { passive: true });
   document.getElementById('p3Prev').addEventListener('click', function () { goTo(cur - 1); });
   document.getElementById('p3Next').addEventListener('click', function () { goTo(cur + 1); });
   dots.forEach(function (d, i) { d.addEventListener('click', function () { goTo(i); }); });
-
-  /* ---------- interação manual: quem mexe assume o controle do carrossel ---------- */
-  ['pointerdown', 'wheel', 'touchstart'].forEach(function (ev) { stage.addEventListener(ev, function () { auto = false; hold = false; }, { passive: true }); });
-  ['p3Prev', 'p3Next'].forEach(function (id) { document.getElementById(id).addEventListener('click', function () { auto = false; hold = false; }); });
-  dots.forEach(function (d) { d.addEventListener('click', function () { auto = false; hold = false; }); });
 
   /* ---------- relógio / máquina de estados ---------- */
   var last = 0, raf = 0, running = false, started = false, visible = false;
@@ -318,42 +306,20 @@
   function frame(now) {
     raf = requestAnimationFrame(frame);
     var dt = Math.min(100, now - (last || now)); last = now;
-    var i, k;
-
-    if (mobileMq.matches) {
-      /* carrossel: o celular visível conta a história; depois passa para o próximo */
-      if (hold) { if (now - holdAt > 1800) { hold = false; T = 0; } return; }
-      T += dt;
-      var loc = Math.max(0, Math.min(scenes[cur].dur, T - TR));
-      for (i = 0; i < phones.length; i++) {
-        if (i === cur) { scenes[i].st = -1; scenes[i].render(loc); setPhone(i, true); }
-        else { settle(i, i < cur); setPhone(i, false); }
-      }
-      if (T > TR + scenes[cur].dur + (cur === 2 ? PAUSE : 600)) {
-        if (auto) { hold = true; holdAt = now; goTo((cur + 1) % cols.length); } else T = 0;
-      }
-      if (spark) spark.style.opacity = 0;
-      return;
-    }
-
-    /* desktop: Google → Instagram → Cardápio, um de cada vez */
     T += dt;
-    var tt = T % CYCLE;
-    k = tt >= OFF[2] ? 2 : tt >= OFF[1] ? 1 : 0;
-    var lc = Math.max(0, Math.min(scenes[k].dur, tt - OFF[k] - TR));
-    for (i = 0; i < phones.length; i++) {
-      if (i === k) { scenes[i].st = -1; scenes[i].render(lc); setPhone(i, true); }
-      else { settle(i, i < k); setPhone(i, false); }              /* já apresentado: congela no último quadro */
+    /* cada celular conta a sua história no próprio ritmo; ao terminar, segura um instante, some e recomeça */
+    for (var i = 0; i < scenes.length; i++) {
+      var c = T % CYC[i], d = scenes[i].dur;
+      scenes[i].render(Math.min(c, d));
+      var o = c < FADE ? c / FADE : c > CYC[i] - FADE ? (CYC[i] - c) / FADE : 1;
+      var k = o >= 1 ? '1' : o.toFixed(3);
+      if (screens[i]._o !== k) { screens[i]._o = k; screens[i].style.opacity = k; }
     }
-    /* fluxo luminoso na linha, rumo ao próximo celular */
+    /* fluxo luminoso contínuo nas linhas azuis */
     if (spark) {
-      var o = 0, x = 0;
-      for (var j = 0; j < 2; j++) {
-        var a = OFF[j + 1] - LEAD, b = OFF[j + 1] + TR;
-        if (tt >= a && tt <= b) { var u = (tt - a) / (b - a), e = u * u * (3 - 2 * u); x = (j + e) * 0.5 * lineW; o = Math.sin(Math.PI * u); }
-      }
-      spark.style.opacity = o > 0.01 ? (o * 0.95).toFixed(3) : 0;
-      spark.style.transform = 'translate3d(' + x.toFixed(1) + 'px,0,0) translateX(-100%)';
+      var u = (T % 3600) / 3600, e = u * u * (3 - 2 * u);
+      spark.style.opacity = (Math.sin(Math.PI * u) * .95).toFixed(3);
+      spark.style.transform = 'translate3d(' + (e * lineW * 1.2).toFixed(1) + 'px,0,0) translateX(-100%)';
     }
   }
   function start() { if (running || reduced || !loaded) return; running = true; last = 0; measure(); raf = requestAnimationFrame(frame); }
@@ -371,11 +337,10 @@
       }, { threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] }).observe(sec);
     } else { visible = true; loadImages(start); }
     document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else if (visible) start(); });
-    window.addEventListener('resize', function () { measure(); scenes.forEach(function (s_) { s_.st = null; }); });
+    window.addEventListener('resize', measure);
     cur = nearest(); markDots(cur);
   }
 
   /* gancho de teste (não afeta a página): desenha o celular i no instante t (ms) */
-  sec._p3seek = function (i, t) { stop(); loadImages(function () { phones.forEach(function (p, n) { setPhone(n, n === i); }); scenes[i].st = -1; scenes[i].render(t); }); };
-  sec._p3info = function () { return { OFF: OFF, PER: PER, CYCLE: CYCLE }; };
+  sec._p3seek = function (i, t) { stop(); loadImages(function () { scenes[i].render(t); }); };
 })();
