@@ -260,7 +260,7 @@
 
     var W = 0, H = 0, tmp2 = [0, 0, 0];
     function resize() {
-      var r = nb.getBoundingClientRect(); var w = Math.max(1, Math.round(r.width)), h = Math.max(1, Math.round(r.height));
+      var r = cv.getBoundingClientRect(); var w = Math.max(1, Math.round(r.width)), h = Math.max(1, Math.round(r.height));
       var pr = Math.min(window.devicePixelRatio || 1, small ? 1.5 : 2);
       if (w === W && h === H && pr === U.uPR.value) return false;
       W = w; H = h; U.uPR.value = pr; renderer.setPixelRatio(pr); renderer.setSize(w, h, false);
@@ -299,7 +299,7 @@
     function mix(c0, c1, t) { return 'rgb(' + Math.round(c0[0] + (c1[0] - c0[0]) * t) + ',' + Math.round(c0[1] + (c1[1] - c0[1]) * t) + ',' + Math.round(c0[2] + (c1[2] - c0[2]) * t) + ')'; }
     var CB = [7, 95, 255], CL = [184, 41, 255];
     function resize() {
-      var r = nb.getBoundingClientRect(); var w = Math.max(1, Math.round(r.width)), h = Math.max(1, Math.round(r.height));
+      var r = cv.getBoundingClientRect(); var w = Math.max(1, Math.round(r.width)), h = Math.max(1, Math.round(r.height));
       var p = Math.min(window.devicePixelRatio || 1, small ? 1.5 : 2);
       if (w === W && h === H && p === pr) return false;
       W = w; H = h; pr = p; cv.width = Math.round(w * pr); cv.height = Math.round(h * pr);
