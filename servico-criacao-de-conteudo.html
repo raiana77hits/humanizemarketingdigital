@@ -884,7 +884,8 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
 .cc-s3 .cc-grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:center}
 .cc-s3::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(40% 55% at 78% 50%,rgba(7,95,255,.25),transparent 70%)}
 .cc-s3 h2{font-size:clamp(2rem,4.2vw,3.5rem);line-height:1.1}
-.cc-s3 .tp-copy{margin-top:clamp(22px,2.6vw,34px)}
+.cc-s3 .tp-copy{margin-top:0}
+.cc-s3 .cc-dropcap::first-letter{float:left;font-size:4.4em;line-height:.82;font-weight:700;padding:.06em .1em 0 0;color:#fff}
 .cc-net{position:relative;aspect-ratio:1/1;width:100%;max-width:560px;justify-self:center}
 .cc-net canvas{position:absolute;inset:0;width:100%;height:100%}
 
@@ -1043,13 +1044,12 @@ h1,h2,h3,h4{font-family:Manrope,system-ui,Arial,sans-serif;color:var(--text);lin
     </div>
   </section>
 
-  <section class="tp-sec tp-dark cc-s3" aria-labelledby="cc-h3">
+  <section class="tp-sec tp-dark cc-s3" aria-label="Conteúdo e relação com o consumidor">
     <div class="tp-wrap">
       <div class="cc-grid">
         <div class="reveal">
-          <h2 id="cc-h3">Quem é visto pode ser lembrado. Quem <em>cria conexão</em> pode ser escolhido.</h2>
           <div class="tp-copy">
-            <p>Pense nas marcas que você acompanha nas redes sociais. Muitas vezes, você ainda não comprou nada delas, mas já conhece seus produtos, reconhece sua comunicação e sente familiaridade com o que oferecem.</p>
+            <p class="cc-dropcap">Pense nas marcas que você acompanha nas redes sociais. Muitas vezes, você ainda não comprou nada delas, mas já conhece seus produtos, reconhece sua comunicação e sente familiaridade com o que oferecem.</p>
             <p>É assim que o conteúdo começa a construir uma relação entre empresa e consumidor.</p>
             <p>Quando sua marca aparece de maneira consistente, com criatividade e estratégia, ela deixa de ser apenas mais uma opção e passa a fazer parte do cotidiano das pessoas.</p>
             <p>Essa proximidade fortalece a confiança, aumenta o reconhecimento e pode fazer toda a diferença no momento da decisão de compra.</p>
