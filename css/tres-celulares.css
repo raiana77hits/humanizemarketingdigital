@@ -289,3 +289,78 @@
 .g2{padding-bottom:3em}
 .ig1{padding-bottom:3em}
 @media (max-width:900px){.p3-col{max-width:none}}
+
+/* ==========================================================================
+   v2 — desktop numa única viewport + interior compacto dos aparelhos
+   A largura dos celulares vem da altura da tela (--p3w); o interior é adaptado
+   (fontes com piso, espaços e imagens menores) em vez de reduzido com scale().
+   ========================================================================== */
+@media (min-width:901px){
+  .p3-sec{--p3gap:clamp(28px,4.6vw,68px);--p3-hh:85px;--p3w:clamp(150px,calc((100svh - var(--p3-hh) - 276px) / 2),232px);display:flex;flex-direction:column;justify-content:center;min-height:calc(100vh - var(--p3-hh));min-height:calc(100svh - var(--p3-hh));padding-block:clamp(12px,2.4svh,32px)}
+  .p3-sec>.wrap{width:100%}
+  .p3-eyebrow{margin-bottom:clamp(6px,1.3svh,14px);font-size:clamp(.64rem,1.5svh,.74rem)}
+  .p3-head{max-width:940px}
+  .p3-head h2{font-size:clamp(1.7rem,min(4.4vw,4.4svh),3.4rem)}
+  .p3-sub{max-width:940px;margin-top:clamp(6px,1.2svh,14px);font-size:clamp(.88rem,1.9svh,1.08rem);line-height:1.5}
+  .p3-stage-wrap{width:max-content;max-width:100%;margin:clamp(10px,2.4svh,28px) auto 0}
+  .p3-stage{grid-template-columns:repeat(3,var(--p3w));gap:var(--p3gap);justify-content:center}
+  .p3-col{width:var(--p3w);max-width:none}
+  .p3-col--mid .p3{transform:translateY(-8px)}
+  .p3-line{left:calc(var(--p3w) / 2);right:calc(var(--p3w) / 2)}
+  .p3-k{margin-top:clamp(8px,1.8svh,20px);font-size:clamp(.62rem,1.4svh,.72rem)}
+  .p3-t{margin-top:4px;max-width:none;white-space:nowrap;font-size:clamp(.8rem,1.9svh,1.05rem);line-height:1.25}
+  .p3-note{margin-top:clamp(8px,1.8svh,20px);font-size:clamp(.7rem,1.5svh,.8rem)}
+  .p3-final{margin-top:clamp(8px,1.8svh,22px);max-width:1180px;text-wrap:balance;font-size:clamp(1.1rem,min(2.7vw,2.7svh),2.1rem)}
+}
+
+/* fonte interna com piso legível: em aparelhos menores a interface não encolhe junto */
+.p3-f{font-size:max(4.3cqw,10px)}
+@container (max-width:236px){
+  .g1,.g2{padding-top:3.4em}
+  .g-sug{margin-top:.8em}
+  .g-sug li{padding:.7em .3em}
+  .g-map{height:7.4em}
+  .g-res{margin-top:.35em;padding:.5em}
+  .g-res svg{width:3.7em;height:3.7em}
+  .gs{padding-top:3.3em}
+  .g-cover{height:8.6em}
+  .g-info{padding:.7em 1.1em 0}
+  .g-act{margin-top:.7em}
+  .g-act u{width:2.8em;height:2.8em}
+  .g-addr{margin-top:.6em}
+  .g-prod{margin-top:.7em}
+  .g-rev{margin-top:.7em}
+  .ig1{padding-top:3.3em}
+  .ig-head{margin-top:.6em}
+  .ig-av{width:5.4em;height:5.4em}
+  .ig-bio{margin-top:.6em}
+  .ig-btns{margin-top:.55em}
+  .ig-hl{margin-top:.65em;gap:.9em}
+  .ig-hl i{width:3.9em;height:3.9em}
+  .ig-grid{margin-top:.6em}
+  .dl-scroll{padding-top:3.3em}
+  .dl-chips{margin:.6em 0 .55em}
+  .dl-item{padding:.6em;margin-bottom:.45em;gap:.7em}
+  .dl-item svg{width:4em;height:4em}
+  .dl-cart{padding:1.1em 1.2em 1.5em}
+  .dl-ok svg{width:4.4em;height:4.4em}
+  .g-bar--s{font-size:.86em}
+  .g-bar--s>span{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ig-head{gap:.5em}
+  .ig-av{width:4.9em;height:4.9em}
+  .ig-st b{font-size:.9em}
+  .ig-st span{font-size:.62em}
+  .dl-scroll{padding-inline:1em}
+  .dl-head{gap:.6em}
+  .dl-head>i{width:3em;height:3em}
+  .dl-head b{font-size:.88em}
+  .dl-head span{font-size:.66em}
+  .dl-chips{gap:.3em}
+  .dl-chips span{padding:.4em .65em;font-size:.62em}
+  .dl-item{gap:.5em}
+  .dl-item svg{width:3.3em;height:3.3em}
+  .dl-item u{width:2em;height:2em;font-size:1.1em}
+  .dl-item b{font-size:.88em}
+  .dl-item em{font-size:.66em}
+  .dl-item i{font-size:.84em}
+}
