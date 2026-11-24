@@ -288,8 +288,7 @@
 .p3-hl{color:#0062FF}
 .p3-note{color:#667189}
 
-/* sem brilho azul atrás dos aparelhos */
-.p3-halo{display:none}
+/* sem brilho intenso: no lugar, luz ambiente extremamente suave (v7 abaixo) */
 
 /* profundidade: sombras suaves, quentes e difusas (o corpo do aparelho não muda) */
 .p3-f{box-shadow:
@@ -313,3 +312,34 @@
   .p3-dots button{background:rgba(11,18,46,.18)}
   .p3-dots button[aria-selected="true"]{background:#0062FF}
 }
+
+/* ==========================================================================
+   v7 — personalidade Humanize: luz ambiente suave, linhas com feixes, destaques azul/lilás.
+   Só cor e luz; nenhum elemento novo no HTML, nenhuma medida alterada.
+   ========================================================================== */
+
+/* 1. iluminação ambiente (8–12 %), bem difusa, sem borda definida */
+.p3-halo{width:200%;aspect-ratio:1/1.15;top:46%;opacity:1;transition:none}
+.p3-col[data-i="0"] .p3-halo{background:radial-gradient(closest-side,rgba(0,98,255,.11) 0,rgba(0,98,255,.075) 38%,rgba(0,98,255,.03) 70%,rgba(0,98,255,0) 100%)}
+.p3-col[data-i="2"] .p3-halo{background:radial-gradient(closest-side,rgba(182,106,255,.11) 0,rgba(182,106,255,.075) 38%,rgba(182,106,255,.03) 70%,rgba(182,106,255,0) 100%)}
+.p3-col[data-i="1"] .p3-halo{background:
+  radial-gradient(closest-side at 34% 48%,rgba(0,98,255,.09) 0,rgba(0,98,255,.05) 45%,rgba(0,98,255,0) 100%),
+  radial-gradient(closest-side at 66% 52%,rgba(182,106,255,.10) 0,rgba(182,106,255,.055) 45%,rgba(182,106,255,0) 100%)}
+
+/* 2. linhas de conexão um pouco mais perceptíveis + feixes contínuos */
+.p3-line{height:1px;background:linear-gradient(90deg,rgba(0,98,255,0),rgba(0,98,255,.55) 16%,rgba(182,106,255,.6) 50%,rgba(0,98,255,.55) 84%,rgba(0,98,255,0))}
+.p3-spark{top:-.5px;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,rgba(0,98,255,0),rgba(0,98,255,.95) 55%,rgba(182,106,255,0));box-shadow:0 0 6px rgba(0,98,255,.35)}
+.p3-line::before,.p3-line::after{content:"";position:absolute;top:-.5px;left:0;width:16%;height:2px;border-radius:2px;opacity:0;will-change:transform,opacity;pointer-events:none}
+.p3-line::before{background:linear-gradient(270deg,rgba(182,106,255,0),rgba(182,106,255,.95) 55%,rgba(182,106,255,0));box-shadow:0 0 6px rgba(182,106,255,.4);animation:p3BeamL 5.2s linear infinite}
+.p3-line::after{background:linear-gradient(90deg,rgba(182,106,255,0),rgba(182,106,255,.9) 50%,rgba(0,98,255,0));box-shadow:0 0 6px rgba(182,106,255,.35);animation:p3BeamR 4.4s linear -1.7s infinite}
+@keyframes p3BeamR{0%{transform:translateX(-100%);opacity:0}18%,82%{opacity:1}100%{transform:translateX(525%);opacity:0}}
+@keyframes p3BeamL{0%{transform:translateX(525%);opacity:0}18%,82%{opacity:1}100%{transform:translateX(-100%);opacity:0}}
+@media (prefers-reduced-motion:reduce){.p3-line::before,.p3-line::after{animation:none;opacity:0}}
+
+/* 3. subtítulos: azul → lilás (lilás escurecido #8F3FE0 para manter contraste no bege) */
+.p3-col[data-i="0"] .p3-k{color:#0062FF}
+.p3-col[data-i="2"] .p3-k{color:#8F3FE0}
+.p3-col[data-i="1"] .p3-k{color:#4a50f0;background:linear-gradient(90deg,#0062FF,#8F3FE0);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+/* sublinhado fino em lilás, traço levemente manuscrito, sob "uma estratégia" */
+.p3-final em{padding-bottom:.14em;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 8' preserveAspectRatio='none'%3E%3Cpath d='M2 5.2C22 2.6 44 6.4 70 4.2S122 2.8 146 4.9s36-1.6 52-1.4' fill='none' stroke='%23B66AFF' stroke-width='1.8' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") no-repeat 0 100%/100% .42em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
